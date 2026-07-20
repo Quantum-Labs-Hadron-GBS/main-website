@@ -33,7 +33,7 @@
 
 .eyebrow {
   position: absolute;
-  top: 2rem;
+  top: 6rem;
   left: max(2rem, calc((100vw - 1200px) / 2 + 2rem));
 }
 
