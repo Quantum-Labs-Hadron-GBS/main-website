@@ -165,8 +165,21 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
       const scrollable = lr.height - H;
       const scrolledIn = clamp(-lr.top, 0, scrollable);
       const progress   = scrolledIn / Math.max(1, scrollable);
-      const idx        = Math.min(3, Math.floor(progress * 4));
-      return { ...LANG[idx], opacity: 1 };
+      
+      // Calculate which city we are on, and the fractional progress between cities
+      const rawIdx     = progress * 4;
+      const idx        = Math.min(3, Math.floor(rawIdx));
+      const fraction   = rawIdx - idx; // 0.0 to 1.0 between cities
+      
+      // Create a parabolic dip (pull-back) in zoom when transitioning
+      // Math.sin(fraction * Math.PI) is 0 at boundaries, and 1.0 in the exact middle.
+      // We only want the dip if we are actually moving between two valid cities.
+      let parabolicZoom = LANG[idx].zoom;
+      if (idx < 3) {
+        parabolicZoom = LANG[idx].zoom - (Math.sin(fraction * Math.PI) * 1.6);
+      }
+
+      return { ...LANG[idx], zoom: parabolicZoom, opacity: 1 };
     };
 
     /* ── Draw loop ── */

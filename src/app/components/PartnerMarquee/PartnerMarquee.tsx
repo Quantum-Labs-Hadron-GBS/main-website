@@ -67,7 +67,7 @@ export default function PartnerMarquee() {
             </div>
           ))}
           {PARTNERS.map((p, i) => (
-            <div key={`dup-${i}`} className={styles.partnerItem}>
+            <div key={`dup-${i}`} className={styles.partnerItem} aria-hidden="true">
               <Image
                 src={p.logo}
                 alt={p.name}

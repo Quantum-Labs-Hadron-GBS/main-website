@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import styles from "./Footer.module.css";
 import Image from "next/image";
 
@@ -10,14 +13,40 @@ const QUICK_LINKS = [
 ];
 
 const OFFICE_LOCATIONS = [
-  { title: "India - Pune (Baner)", name: "Hadron Global Business Solutions Pvt Ltd", address: "Pyramid Axis 10th Floor, Veerbhadra Nagar, Baner, Pune, Maharashtra 411045" },
-  { title: "India - Pune (Hinjewadi)", name: "Hadron Global Business Solutions Pvt Ltd", address: "A 1004, High Mont, INFOTECH PARK Road, Phase 2, Hinjewadi, Pune, Maharashtra-411057" },
-  { title: "Singapore", name: "Hadron GBS Pte Ltd", address: "7 Temasek Boulevard, Suntec Tower One, Singapore 038987" },
-  { title: "UAE", name: "HADRON TECHNOLOGIES LLC", address: "303, Westburry Tower 1, Business Bay, Dubai, UAE" },
-  { title: "USA", name: "Hadron GBS Inc.", address: "8 The Green, Ste R, Dover, DE 19901, USA" }
+  { 
+    title: "Pune (Baner)", 
+    name: "Hadron Global Business Solutions Pvt Ltd", 
+    address: "Pyramid Axis 10th Floor, Veerbhadra Nagar, Baner, Pune, Maharashtra 411045",
+    mapUrl: "https://maps.google.com/maps?q=Pyramid%20Axis%2010th%20Floor,%20Baner,%20Pune&t=&z=14&ie=UTF8&iwloc=&output=embed"
+  },
+  { 
+    title: "Pune (Hinjewadi)", 
+    name: "Hadron Global Business Solutions Pvt Ltd", 
+    address: "A 1004, High Mont, Phase 2, Hinjewadi, Pune, Maharashtra-411057",
+    mapUrl: "https://maps.google.com/maps?q=High%20Mont,%20Hinjewadi,%20Pune&t=&z=14&ie=UTF8&iwloc=&output=embed"
+  },
+  { 
+    title: "Singapore", 
+    name: "Hadron GBS Pte Ltd", 
+    address: "7 Temasek Boulevard, Suntec Tower One, Singapore 038987",
+    mapUrl: "https://maps.google.com/maps?q=7%20Temasek%20Boulevard,%20Suntec%20Tower%20One,%20Singapore&t=&z=14&ie=UTF8&iwloc=&output=embed"
+  },
+  { 
+    title: "UAE", 
+    name: "HADRON TECHNOLOGIES LLC", 
+    address: "303, Westburry Tower 1, Business Bay, Dubai, UAE",
+    mapUrl: "https://maps.google.com/maps?q=Westburry%20Tower%201,%20Business%20Bay,%20Dubai&t=&z=14&ie=UTF8&iwloc=&output=embed"
+  },
+  { 
+    title: "USA", 
+    name: "Hadron GBS Inc.", 
+    address: "8 The Green, Ste R, Dover, DE 19901, USA",
+    mapUrl: "https://maps.google.com/maps?q=8%20The%20Green,%20Dover,%20DE&t=&z=14&ie=UTF8&iwloc=&output=embed"
+  }
 ];
 
 export default function Footer() {
+  const [activeMapIndex, setActiveMapIndex] = useState(0);
   const year = new Date().getFullYear();
 
   return (
@@ -42,12 +71,23 @@ export default function Footer() {
             </div>
             
             <div className={styles.mapSection}>
-              <span className={styles.groupLabel}>Our Headquarters</span>
+              <div className={styles.mapTabs}>
+                {OFFICE_LOCATIONS.map((loc, i) => (
+                  <button 
+                    key={loc.title}
+                    onClick={() => setActiveMapIndex(i)}
+                    className={`${styles.mapTab} ${i === activeMapIndex ? styles.mapTabActive : ''}`}
+                  >
+                    {loc.title}
+                  </button>
+                ))}
+              </div>
               <div className={styles.mapContainer}>
                 <iframe 
-                  src="https://maps.google.com/maps?q=Hadron%20GBS%20India%20Office&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                  key={OFFICE_LOCATIONS[activeMapIndex].title} /* forces re-render of iframe to prevent caching bugs */
+                  src={OFFICE_LOCATIONS[activeMapIndex].mapUrl} 
                   width="100%" 
-                  height="220" 
+                  height="260" 
                   style={{ border: 0, borderRadius: '8px', filter: 'grayscale(0.8) contrast(1.2)' }} 
                   allowFullScreen 
                   loading="lazy" 

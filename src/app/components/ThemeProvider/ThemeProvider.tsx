@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import styles from "./ThemeProvider.module.css";
 
 function getAutoTheme(): "dark" | "light" {
-  const hour = new Date().getHours();
-  return hour >= 6 && hour < 18 ? "light" : "dark";
+  // Hardcoded to light as per user request for default
+  return "light";
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
-  // null = auto (time-based), otherwise manual override
+  const [theme, setTheme] = useState<"dark" | "light">("light");
+  // null = default auto, otherwise manual override
   const [manual, setManual] = useState<"dark" | "light" | null>(null);
 
   const apply = (t: "dark" | "light") => {

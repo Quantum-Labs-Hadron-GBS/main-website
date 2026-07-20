@@ -6,7 +6,8 @@
   flex-direction: column;
   justify-content: flex-start;
   padding-top: 7rem;
-  /* no overflow:hidden — the fixed globe needs to bleed through */
+  /* Add a subtle radial gradient to dim the globe behind the central text */
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--bg) 60%, transparent) 0%, transparent 70%);
 }
 
 /* Noise texture overlay */
@@ -81,11 +82,14 @@
 
 /* Sub copy */
 .subCopy {
-  font-size: 0.92rem;
-  color: var(--fg-subtle);
-  letter-spacing: 0.04em;
-  max-width: 540px;
+  font-size: 1rem;
+  color: var(--fg);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  max-width: 580px;
   animation: fadeSlideUp 0.8s 0.2s ease both;
+  text-shadow: 0 2px 10px var(--bg); /* Extra legibility against lines */
 }
 
 /* CTA row */

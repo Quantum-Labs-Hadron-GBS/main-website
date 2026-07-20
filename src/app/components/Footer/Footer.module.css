@@ -182,6 +182,36 @@
   gap: 0.875rem;
 }
 
+.mapTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.mapTab {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  color: var(--fg-muted);
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.mapTab:hover {
+  border-color: var(--accent-border);
+  color: var(--fg);
+}
+
+.mapTabActive {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 .mapContainer {
   width: 100%;
   height: 220px;

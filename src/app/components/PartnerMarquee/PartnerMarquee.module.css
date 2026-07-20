@@ -102,3 +102,18 @@
     max-width: 100px;
   }
 }
+
+/* ─── Accessibility & Reduced Motion ─────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .marqueeContent {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: normal;
+  }
+  
+  /* Hide the duplicate array visually if animation is disabled */
+  .partnerItem[aria-hidden="true"] {
+    display: none;
+  }
+}
