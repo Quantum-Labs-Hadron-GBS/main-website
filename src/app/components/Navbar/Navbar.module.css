@@ -1,0 +1,194 @@
+.navbar {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1200px;
+  z-index: 999;
+  transition: var(--theme-transition), backdrop-filter 400ms ease, background 400ms ease, box-shadow 400ms ease;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  padding: 0.8rem 2rem;
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  padding: 2px;
+  background: conic-gradient(from var(--angle), transparent 70%, var(--accent));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: rotateGlare 4s linear infinite;
+  z-index: -1;
+  opacity: 1;
+}
+
+@keyframes rotateGlare {
+  to {
+    --angle: 360deg;
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+  transition: opacity 200ms ease;
+}
+
+.logoImage {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Nav links */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navLink {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--fg-muted);
+  letter-spacing: 0.02em;
+  position: relative;
+  transition: color 200ms ease;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--fg);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+
+.navLink:hover {
+  color: var(--fg);
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+}
+
+/* CTA */
+.cta {
+  display: flex;
+  align-items: center;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--fg);
+  border-radius: 9999px;
+  color: var(--bg);
+  background: var(--fg);
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.ctaBtn:hover {
+  background: transparent;
+  color: var(--fg);
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+}
+
+/* Dropdown */
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 0;
+  margin: -1rem 0; /* expand hover area */
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 200ms ease, transform 200ms ease, visibility 200ms ease;
+  z-index: 1000;
+}
+
+.dropdownContainer:hover .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownItem {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.dropdownItem:hover {
+  background: var(--surface-hover);
+  color: var(--accent);
+}
+
+.dropdownIcon {
+  font-size: 0.7rem;
+  color: var(--accent);
+}

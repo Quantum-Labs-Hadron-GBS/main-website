@@ -1,0 +1,197 @@
+.footer {
+  position: relative;
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+  padding: 4rem 0 2rem;
+  margin-top: 6rem;
+  transition: var(--theme-transition);
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Top row */
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.logoImage {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.tagline {
+  font-size: 0.8rem;
+  color: var(--fg-subtle);
+  letter-spacing: 0.02em;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+/* Links grid */
+.linksGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 3rem;
+  width: 100%;
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.groupLabel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerLink {
+  font-size: 0.875rem;
+  color: var(--fg-muted);
+  transition: color 200ms ease;
+}
+
+.footerLink:hover {
+  color: var(--fg);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 2.5rem 0 1.5rem;
+}
+
+/* Bottom row */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.copyright {
+  font-size: 0.78rem;
+  color: var(--fg-subtle);
+  letter-spacing: 0.04em;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.socialIcon {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--fg-muted);
+  transition: color 200ms ease;
+  text-decoration: none;
+}
+
+.socialIcon:hover {
+  color: var(--fg);
+}
+
+/* Oversized background wordmark */
+.bgWord {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(5rem, 18vw, 14rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--fg);
+  opacity: 0.03;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.locationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.locationItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.locTitle {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.locName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.locAddress {
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  line-height: 1.4;
+  max-width: 300px;
+}
+
+.mapSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 220px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .top { grid-template-columns: 1fr; gap: 2.5rem; }
+  .linksGrid { grid-template-columns: 1fr; gap: 3rem; }
+  .bottom { flex-direction: column; text-align: center; }
+}

@@ -1,0 +1,29 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 620px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/*
+  The globe centre is at the canvas bottom edge (cy = H).
+  We just need a subtle fade at the very bottom where the
+  equator line meets the page, so it merges cleanly.
+  Do NOT fade the top — we want the north pole tip fully visible.
+*/
+.horizonFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}

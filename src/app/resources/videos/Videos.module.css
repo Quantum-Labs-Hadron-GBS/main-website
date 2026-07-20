@@ -1,0 +1,91 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero */
+.hero {
+  padding: 12rem 0 6rem;
+  background: transparent;
+  text-align: center;
+}
+
+.heroTag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  border-radius: 9999px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.heroTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--fg);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.04em;
+}
+
+.heroDesc {
+  font-size: 1.2rem;
+  color: var(--fg-muted);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+/* Grid */
+.section {
+  padding: 4rem 0 8rem;
+  background: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.videoCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.videoCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+  border-color: var(--accent-border);
+}
+
+.iframeWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  background: #000;
+}
+
+.iframeWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}

@@ -1,0 +1,61 @@
+.scrollSection {
+  position: relative;
+  /* height is set dynamically via inline style */
+}
+
+/* Sticky viewport inside the scroll section */
+.stickyPane {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 0;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  margin-bottom: 3rem;
+}
+
+/* Scroll hint at the bottom */
+.scrollHint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+  transition: opacity 400ms ease;
+}
+
+.scrollHintDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--fg-subtle);
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(4px); }
+}
+
+@media (max-width: 768px) {
+  .stickyPane {
+    padding: 4rem 0;
+    justify-content: flex-start;
+    padding-top: 5rem;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+}

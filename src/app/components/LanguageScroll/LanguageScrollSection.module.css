@@ -1,0 +1,169 @@
+.section {
+  position: relative;
+  z-index: 1;
+  /*
+    DO NOT put a background gradient here.
+    This div is 600vh tall — a gradient on it would gradually paint over
+    the fixed GlobalGlobe canvas as the user scrolls deeper into the section.
+    Tamil worked because it's at 0% (transparent); Hindi/Telugu blacked out
+    because at 16-33% the gradient was already ~50-100% opaque.
+    Background lives only on .sticky so it never accumulates across scroll.
+  */
+  background: transparent;
+}
+
+/* ── Sticky pane ── */
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  gap: 1.5rem;
+  padding: 0 2rem 0 max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+  /*
+    Gradient covers only the LEFT half (behind text) and fades to transparent
+    on the right so the fixed globe always shows through.
+  */
+  background: linear-gradient(to right, var(--bg) 42%, transparent 68%);
+}
+
+.eyebrow {
+  position: absolute;
+  top: 2rem;
+  left: max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+}
+
+/* ── Text area — LEFT half of viewport ── */
+.textArea {
+  width: min(50%, 560px);
+  min-width: 320px;
+}
+
+/* Stage with top + bottom mask so text emerges from centre */
+.stage {
+  width: 100%;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent  0%,
+    black       22%,
+    black       78%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent  0%,
+    black       22%,
+    black       78%,
+    transparent 100%
+  );
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.mainText {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--fg);
+}
+
+.subText {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+}
+
+/* Amber region pill */
+.regionTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  padding: 0.3rem 0.75rem 0.3rem 0.5rem;
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  background: var(--accent-dim);
+  width: fit-content;
+}
+
+.regionDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* Progress dots */
+.dots {
+  position: absolute;
+  bottom: 2rem;
+  left: max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sticky {
+    align-items: center;
+    padding: 0 1.5rem;
+  }
+
+  .eyebrow {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .textArea {
+    width: 100%;
+    text-align: center;
+  }
+
+  .textBlock { align-items: center; }
+
+  .dots {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .stage { min-height: 280px; }
+  .mainText { font-size: clamp(3rem, 15vw, 5rem); }
+}

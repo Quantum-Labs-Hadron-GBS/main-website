@@ -1,0 +1,232 @@
+.section {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+/* ── Sticky viewport ── */
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ── Row layout ── */
+.inner {
+  display: grid;
+  grid-template-columns: auto 1px 1fr;
+  gap: 0;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ────────────────────────────────
+   LEFT: Number column
+──────────────────────────────── */
+.numberCol {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  padding-right: 3rem;
+  line-height: 1;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(5rem, 12vw, 9rem);
+  letter-spacing: -0.05em;
+  color: var(--fg);
+  /* The "0" and slot sit side by side on a shared baseline */
+}
+
+/* Static "0" — never moves, always visible */
+.staticZero {
+  display: block;
+  color: var(--fg);
+  user-select: none;
+}
+
+/*
+  Slot mask: clips to exactly one digit's height.
+  The animated digit slides up/down inside this window.
+*/
+.slotMask {
+  display: block;
+  overflow: hidden;
+  /* Height = 1em relative to the font size above → one digit visible */
+  height: 1.05em;
+  position: relative;
+}
+
+.slotDigit {
+  display: block;
+  color: var(--fg);
+  user-select: none;
+  /* Framer Motion positions this absolutely inside slotMask */
+  position: relative;
+}
+
+/* ────────────────────────────────
+   DIVIDER
+──────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 240px;
+  padding: 0;
+}
+
+.dividerLine {
+  width: 1px;
+  height: 100%;
+  background: var(--border-strong);
+}
+
+/* ────────────────────────────────
+   RIGHT: Content column
+──────────────────────────────── */
+.contentCol {
+  padding-left: 3.5rem;
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.contentBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.contentLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1.2;
+}
+
+.contentRight {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), color-mix(in srgb, var(--bg) 90%, transparent));
+  border: 1px solid color-mix(in srgb, var(--border-strong) 50%, transparent);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+}
+
+.imagePlaceholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--accent) 15%, transparent) 0%, transparent 60%);
+  opacity: 0.8;
+}
+
+.contentTag {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+}
+
+.contentTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--fg);
+  line-height: 1.05;
+}
+
+.contentBody {
+  font-size: 1rem;
+  color: var(--fg-muted);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* ────────────────────────────────
+   Progress track (left edge)
+──────────────────────────────── */
+.progressTrack {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trackItem {
+  width: 2px;
+  height: 28px;
+  background: var(--border);
+  border-radius: 1px;
+  transition: background 300ms ease, height 300ms ease;
+}
+
+.trackActive {
+  background: var(--fg);
+  height: 40px;
+}
+
+.trackPast {
+  background: var(--border-strong);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .divider {
+    height: 1px;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .dividerLine {
+    width: 80px;
+    height: 1px;
+  }
+
+  .numberCol {
+    padding-right: 0;
+    font-size: clamp(4rem, 20vw, 7rem);
+  }
+
+  .contentCol {
+    padding-left: 0;
+  }
+
+  .progressTrack {
+    display: none;
+  }
+}
