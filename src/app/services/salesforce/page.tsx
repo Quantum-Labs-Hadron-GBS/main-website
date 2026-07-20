@@ -4,10 +4,14 @@ import Footer from "../../components/Footer/Footer";
 import styles from "../ServicePage.module.css";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Salesforce Services | Hadron GBS",
-  description: "Empowering Your Success with Salesforce through customization, data migration, and seamless integration.",
-};
+import { generatePageMetadata } from "../../lib/seo";
+import { getBreadcrumbSchema } from "../../lib/schema";
+
+export const metadata: Metadata = generatePageMetadata({
+  title: "Salesforce Development & Consulting Services | Hadron GBS",
+  description: "Leverage the power of Salesforce with Hadron GBS's comprehensive CRM implementation, development, and integration services.",
+  path: "/services/salesforce"
+});
 
 const FEATURES = [
   { title: "Customization", body: "We understand that one size doesn't fit all. Our experts work closely with you to customize Salesforce to align with your specific business processes, industry requirements, and goals." },
@@ -23,8 +27,18 @@ const FAQS = [
 ];
 
 export default function SalesforcePage() {
+  const breadcrumb = getBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Services", item: "/#services" },
+    { name: "Salesforce", item: "/services/salesforce" }
+  ]);
+
   return (
     <main className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Navbar />
       
       {/* Hero */}

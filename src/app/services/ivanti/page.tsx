@@ -4,10 +4,14 @@ import Footer from "../../components/Footer/Footer";
 import styles from "../ServicePage.module.css";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Ivanti Services | Hadron GBS",
+import { generatePageMetadata } from "../../lib/seo";
+import { getBreadcrumbSchema } from "../../lib/schema";
+
+export const metadata: Metadata = generatePageMetadata({
+  title: "Ivanti Neurons Unified Endpoint Management | Hadron GBS",
   description: "Comprehensive Unified Endpoint Management and IT Security solutions powered by Ivanti.",
-};
+  path: "/services/ivanti"
+});
 
 const OFFERINGS = [
   { title: "Unified Endpoint Management (UEM)", body: "Discover, manage, and secure all your endpoints from a single pane of glass. Our Ivanti implementations ensure your workforce remains productive and secure, no matter where they operate." },
@@ -17,8 +21,18 @@ const OFFERINGS = [
 ];
 
 export default function IvantiPage() {
+  const breadcrumb = getBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Services", item: "/#services" },
+    { name: "Ivanti", item: "/services/ivanti" }
+  ]);
+
   return (
     <main className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Navbar />
       
       {/* Hero */}
@@ -29,7 +43,7 @@ export default function IvantiPage() {
           Delivering comprehensive IT Security, Service Management, and Unified Endpoint solutions.
         </p>
         <p className={styles.heroDesc}>
-          Hadron GBS is proud to collaborate with Ivanti, a leader in enabling the "Everywhere Workplace." We help organizations discover, manage, secure, and service all endpoints across their enterprise, ensuring seamless productivity and robust security in a hybrid work environment.
+          Hadron GBS is proud to collaborate with Ivanti, a leader in enabling the &quot;Everywhere Workplace.&quot; We help organizations discover, manage, secure, and service all endpoints across their enterprise, ensuring seamless productivity and robust security in a hybrid work environment.
         </p>
       </section>
 

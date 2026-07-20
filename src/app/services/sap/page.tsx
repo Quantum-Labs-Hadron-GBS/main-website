@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <main className={styles.main}>
       <Navbar />
-      <section className={${styles.hero} container}>
+      <section className={`${styles.hero} container`}>
         <span className={styles.heroTag}>Coming Soon</span>
         <h1 className={styles.heroTitle}>This service page is under construction.</h1>
         <p className={styles.heroDesc}>

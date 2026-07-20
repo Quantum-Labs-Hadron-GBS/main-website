@@ -4,10 +4,14 @@ import Footer from "../../components/Footer/Footer";
 import styles from "../ServicePage.module.css";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Freshworks Services | Hadron GBS",
+import { generatePageMetadata } from "../../lib/seo";
+import { getBreadcrumbSchema } from "../../lib/schema";
+
+export const metadata: Metadata = generatePageMetadata({
+  title: "Freshworks Implementation Partner | Hadron GBS",
   description: "Hadron GBS and Freshworks – Powering Innovation, Transforming Solutions.",
-};
+  path: "/services/freshworks"
+});
 
 const OFFERINGS = [
   { title: "Impact on Customer Service Management", body: "Clients can expect improved customer service delivery with the combined expertise of Hadron GBS and Freshworks. The partnership focuses on streamlining processes and introducing innovative AI-powered solutions that enhance the overall efficiency of engagement and support." },
@@ -17,8 +21,18 @@ const OFFERINGS = [
 ];
 
 export default function FreshworksPage() {
+  const breadcrumb = getBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Services", item: "/#services" },
+    { name: "Freshworks", item: "/services/freshworks" }
+  ]);
+
   return (
     <main className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Navbar />
       
       {/* Hero */}

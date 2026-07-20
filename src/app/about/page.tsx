@@ -6,10 +6,14 @@ import AboutTimeline from "./AboutTimeline";
 import styles from "./About.module.css";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "About Us | Hadron GBS",
+import { generatePageMetadata } from "../lib/seo";
+import { getBreadcrumbSchema } from "../lib/schema";
+
+export const metadata: Metadata = generatePageMetadata({
+  title: "About Hadron GBS | Top IT Consulting & Digital Transformation Company",
   description: "Learn about Hadron GBS, a highly motivated group with creative minds providing the best IT service solutions.",
-};
+  path: "/about"
+});
 
 const FEATURES = [
   {
@@ -51,8 +55,17 @@ const FEATURES = [
 ];
 
 export default function AboutPage() {
+  const breadcrumb = getBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "About", item: "/about" }
+  ]);
+
   return (
     <main className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Navbar />
       
       {/* Hero */}

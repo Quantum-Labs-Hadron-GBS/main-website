@@ -145,3 +145,17 @@
     aspect-ratio: 16/9;
   }
 }
+@media (max-width: 768px) {
+  .tabsContainer {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+  }
+  .tabsContainer::-webkit-scrollbar {
+    display: none;
+  }
+  .tab {
+    white-space: nowrap;
+  }
+}

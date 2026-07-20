@@ -162,3 +162,18 @@
   color: var(--fg-muted);
   line-height: 1.7;
 }
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 8rem 1rem 4rem;
+  }
+  .heroTitle {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .section {
+    padding: 4rem 1rem;
+  }
+}

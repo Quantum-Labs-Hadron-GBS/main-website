@@ -150,6 +150,7 @@
   position: relative;
 }
 
+
 .stat:not(:last-child)::after {
   content: '';
   position: absolute;

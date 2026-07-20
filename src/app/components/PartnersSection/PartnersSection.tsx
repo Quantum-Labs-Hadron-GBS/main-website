@@ -58,10 +58,14 @@ export default function PartnersSection() {
           {PARTNERS.map((partner) => (
             <div key={partner.id} className={styles.partnerCard}>
               <div className={styles.logoContainer}>
-                <img 
+                <Image 
                   src={partner.logo} 
                   alt={`${partner.name} Logo`} 
+                  width={200}
+                  height={80}
+                  style={{ objectFit: 'contain' }}
                   className={styles.partnerLogo} 
+                  loading="lazy"
                 />
               </div>
               <div className={styles.partnerContent}>

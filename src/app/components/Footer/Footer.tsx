@@ -1,4 +1,5 @@
 import styles from "./Footer.module.css";
+import Image from "next/image";
 
 const QUICK_LINKS = ["Home", "About Us", "Services", "Partners", "Contact Us", "Privacy Policy", "Refund and Cancellation Policy"];
 
@@ -21,10 +22,13 @@ export default function Footer() {
           {/* Brand & Map */}
           <div className={styles.brandCol}>
             <div className={styles.brand}>
-              <img 
+              <Image 
                 src="https://res.cloudinary.com/djxbxhgat/image/upload/v1784309674/Hadron-Logo_sb3pfk.png" 
                 alt="Hadron GBS" 
+                width={160}
+                height={40}
                 className={styles.logoImage} 
+                loading="lazy"
               />
               <p className={styles.tagline}>
                 We work with a passion of taking challenges and Investing in building new capabilities. We are serving the best output with confidence and responsibility. We deliver powerful solutions that drive business growth and success.

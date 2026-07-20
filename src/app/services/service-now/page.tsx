@@ -4,10 +4,14 @@ import Footer from "../../components/Footer/Footer";
 import styles from "../ServicePage.module.css";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "ServiceNow Services | Hadron GBS",
+import { generatePageMetadata } from "../../lib/seo";
+import { getBreadcrumbSchema } from "../../lib/schema";
+
+export const metadata: Metadata = generatePageMetadata({
+  title: "ServiceNow Consulting Company & Implementation Partner | Hadron GBS",
   description: "Explore our comprehensive range of ServiceNow Solutions and Offerings to elevate your organization's IT service management.",
-};
+  path: "/services/service-now"
+});
 
 const OFFERINGS = [
   { title: "IT Service Management (ITSM)", body: "Efficiently manage incidents, requests, changes, and problems while automating and streamlining your IT processes." },
@@ -44,8 +48,18 @@ const FAQS = [
 ];
 
 export default function ServiceNowPage() {
+  const breadcrumb = getBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Services", item: "/#services" },
+    { name: "ServiceNow", item: "/services/service-now" }
+  ]);
+
   return (
     <main className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Navbar />
       
       {/* Hero */}

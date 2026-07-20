@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./AboutTimeline.module.css";
+import Image from "next/image";
 
 const TIMELINE = [
   {
@@ -37,7 +38,15 @@ export default function AboutTimeline() {
           {TIMELINE.map((item, i) => (
             <div key={item.year} className={styles.timelineNode}>
               <div className={styles.nodeImageWrapper}>
-                <img src={item.img} alt={`Year ${item.year}`} className={styles.nodeImage} />
+                <Image 
+                  src={item.img} 
+                  alt={`Year ${item.year}`} 
+                  width={200}
+                  height={200}
+                  style={{ objectFit: 'cover' }}
+                  className={styles.nodeImage} 
+                  loading="lazy"
+                />
               </div>
               <div className={styles.nodeArrow}>{item.year}</div>
               <div className={styles.nodeContent}>

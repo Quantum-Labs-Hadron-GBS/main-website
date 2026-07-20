@@ -198,32 +198,46 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  .sticky {
+    position: relative;
+    height: auto;
+    padding: 4rem 0;
+  }
+
   .inner {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto;
     gap: 2rem;
-    padding: 3rem 1.5rem;
+    padding: 0 1.5rem;
   }
 
   .divider {
-    height: 1px;
-    width: 100%;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  .dividerLine {
-    width: 80px;
-    height: 1px;
+    display: none;
   }
 
   .numberCol {
     padding-right: 0;
-    font-size: clamp(4rem, 20vw, 7rem);
+    font-size: clamp(4rem, 20vw, 6rem);
+    justify-content: flex-start;
   }
 
   .contentCol {
     padding-left: 0;
+    min-height: auto;
+  }
+
+  .contentBlock {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+  
+  .contentLeft, .contentRight {
+    flex: 1;
+    width: 100%;
+  }
+
+  .imagePlaceholder {
+    height: 200px;
   }
 
   .progressTrack {

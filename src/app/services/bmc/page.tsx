@@ -4,10 +4,14 @@ import Footer from "../../components/Footer/Footer";
 import styles from "../ServicePage.module.css";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "BMC Services | Hadron GBS",
-  description: "Hadron GBS and BMC Software – Powering Innovation, Transforming Solutions.",
-};
+import { generatePageMetadata } from "../../lib/seo";
+import { getBreadcrumbSchema } from "../../lib/schema";
+
+export const metadata: Metadata = generatePageMetadata({
+  title: "BMC Helix & ITOM Consulting Partner | Hadron GBS",
+  description: "Hadron GBS and BMC Software – Elevating IT solutions through comprehensive Helix ITSM and ITOM services.",
+  path: "/services/bmc"
+});
 
 const OFFERINGS = [
   { title: "Impact on IT Service Management", body: "Clients can expect improved IT service delivery with the combined expertise of Hadron GBS and BMC Software. The partnership focuses on streamlining processes and introducing innovative solutions that enhance the overall efficiency of IT service management." },
@@ -17,8 +21,18 @@ const OFFERINGS = [
 ];
 
 export default function BMCPage() {
+  const breadcrumb = getBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Services", item: "/#services" },
+    { name: "BMC", item: "/services/bmc" }
+  ]);
+
   return (
     <main className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Navbar />
       
       {/* Hero */}
