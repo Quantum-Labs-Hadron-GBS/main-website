@@ -194,4 +194,5 @@
   .top { grid-template-columns: 1fr; gap: 2.5rem; }
   .linksGrid { grid-template-columns: 1fr; gap: 3rem; }
   .bottom { flex-direction: column; text-align: center; }
+  .mapContainer iframe { pointer-events: none; }
 }

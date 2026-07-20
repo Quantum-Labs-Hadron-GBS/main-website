@@ -1,7 +1,13 @@
 import styles from "./Footer.module.css";
 import Image from "next/image";
 
-const QUICK_LINKS = ["Home", "About Us", "Services", "Partners", "Contact Us", "Privacy Policy", "Refund and Cancellation Policy"];
+const QUICK_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "/#services" },
+  { label: "Partners", href: "/partners" },
+  { label: "Contact Us", href: "#contact" }
+];
 
 const OFFICE_LOCATIONS = [
   { title: "India - Pune (Baner)", name: "Hadron Global Business Solutions Pvt Ltd", address: "Pyramid Axis 10th Floor, Veerbhadra Nagar, Baner, Pune, Maharashtra 411045" },
@@ -57,8 +63,8 @@ export default function Footer() {
               <span className={styles.groupLabel}>Quick Links</span>
               <ul className={styles.linkList}>
                 {QUICK_LINKS.map((link) => (
-                  <li key={link}>
-                    <a href={`#${link.toLowerCase()}`} className={styles.footerLink}>{link}</a>
+                  <li key={link.label}>
+                    <a href={link.href} className={styles.footerLink}>{link.label}</a>
                   </li>
                 ))}
               </ul>
