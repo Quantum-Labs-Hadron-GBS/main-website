@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import styles from "./Navbar.module.css";
 import Image from "next/image";
@@ -17,19 +17,31 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if we've scrolled past the hero section (approx 100vh)
+      setScrolled(window.scrollY > window.innerHeight * 0.8);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className={styles.navbar} role="banner">
+    <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`} role="banner">
       <div className={`${styles.inner} container`}>
         {/* Logo */}
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/" className={styles.logo} aria-label="Hadron GBS Home">
-          <Image 
-            src="https://res.cloudinary.com/djxbxhgat/image/upload/v1784309674/Hadron-Logo_sb3pfk.png" 
-            alt="Hadron GBS" 
+          <Image
+            src="https://res.cloudinary.com/djxbxhgat/image/upload/v1784309674/Hadron-Logo_sb3pfk.png"
+            alt="Hadron GBS"
             width={160}
             height={40}
-            className={styles.logoImage} 
+            className={styles.logoImage}
             priority
           />
         </a>
@@ -41,7 +53,7 @@ export default function Navbar() {
               return (
                 <div key={link.label} className={styles.dropdownContainer}>
                   <a href={link.href} className={styles.navLink}>
-                    {link.label} 
+                    {link.label}
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "4px", display: "inline-block" }}>
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
@@ -75,7 +87,7 @@ export default function Navbar() {
               return (
                 <div key={link.label} className={styles.dropdownContainer}>
                   <a href={link.href} className={styles.navLink}>
-                    {link.label} 
+                    {link.label}
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "4px", display: "inline-block" }}>
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
@@ -108,8 +120,8 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Hamburger Button */}
-        <button 
-          className={styles.mobileMenuBtn} 
+        <button
+          className={styles.mobileMenuBtn}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -132,17 +144,17 @@ export default function Navbar() {
           <div className={styles.mobileOverlay}>
             <nav className={styles.mobileLinks} aria-label="Mobile navigation">
               {NAV_LINKS.map((link) => (
-                <a 
-                  key={link.label} 
-                  href={link.href} 
+                <a
+                  key={link.label}
+                  href={link.href}
                   className={styles.mobileNavLink}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className={styles.mobileCtaBtn}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
