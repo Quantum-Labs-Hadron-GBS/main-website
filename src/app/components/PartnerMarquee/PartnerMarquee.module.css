@@ -41,7 +41,12 @@
 .partnerLogo {
   object-fit: contain;
   width: auto;
-  height: 56px;
+  height: 120px;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.partner:hover .partnerLogo {
+  transform: scale(1.05);
 }
 
 @keyframes scroll {

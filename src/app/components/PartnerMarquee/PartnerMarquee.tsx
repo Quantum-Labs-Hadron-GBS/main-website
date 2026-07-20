@@ -17,12 +17,12 @@ export default function PartnerMarquee() {
         <div className={styles.marqueeContent}>
           {PARTNERS.map((p, i) => (
             <div key={i} className={styles.partner}>
-              <Image src={p.logo} alt={p.name} width={200} height={70} className={styles.partnerLogo} />
+              <Image src={p.logo} alt={p.name} width={300} height={100} className={styles.partnerLogo} />
             </div>
           ))}
           {PARTNERS.map((p, i) => (
             <div key={`dup-${i}`} className={styles.partner}>
-              <Image src={p.logo} alt={p.name} width={200} height={70} className={styles.partnerLogo} />
+              <Image src={p.logo} alt={p.name} width={300} height={100} className={styles.partnerLogo} />
             </div>
           ))}
         </div>
