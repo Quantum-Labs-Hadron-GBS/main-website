@@ -198,11 +198,6 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .sticky {
-    position: relative;
-    height: auto;
-    padding: 4rem 0;
-  }
 
   .inner {
     grid-template-columns: 1fr;
