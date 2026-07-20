@@ -27,18 +27,21 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--fg-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
   padding: 0 4rem;
-  transition: color 200ms ease;
+  opacity: 0.6;
+  transition: opacity 200ms ease, filter 200ms ease;
+  filter: grayscale(1);
 }
 
 .partner:hover {
-  color: var(--fg);
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.partnerLogo {
+  object-fit: contain;
+  width: auto;
+  height: 32px;
 }
 
 @keyframes scroll {
