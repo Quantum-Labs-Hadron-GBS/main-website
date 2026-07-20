@@ -41,7 +41,7 @@
 .partnerLogo {
   object-fit: contain;
   width: auto;
-  height: 32px;
+  height: 56px;
 }
 
 @keyframes scroll {
