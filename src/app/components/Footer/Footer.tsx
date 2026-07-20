@@ -17,7 +17,7 @@ const OFFICE_LOCATIONS = [
     title: "Pune (Baner)", 
     name: "Hadron Global Business Solutions Pvt Ltd", 
     address: "Pyramid Axis 10th Floor, Veerbhadra Nagar, Baner, Pune, Maharashtra 411045",
-    mapUrl: "https://maps.google.com/maps?q=Pyramid%20Axis%2010th%20Floor,%20Baner,%20Pune&t=&z=14&ie=UTF8&iwloc=&output=embed"
+    mapUrl: "https://maps.google.com/maps?q=Hadron%20GBS%20India%20Office&t=&z=14&ie=UTF8&iwloc=&output=embed"
   },
   { 
     title: "Pune (Hinjewadi)", 
