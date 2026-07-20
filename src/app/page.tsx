@@ -1,11 +1,14 @@
+import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
-import Footer from "./components/Footer/Footer";
 import LanguageScrollSection from "./components/LanguageScroll/LanguageScrollSection";
-import FeatureScrollSection from "./components/FeatureScroll/FeatureScrollSection";
-import AssetsOfExcellenceSection from "./components/AssetsOfExcellence/AssetsOfExcellenceSection";
-import CtaSection from "./components/CtaSection/CtaSection";
 import styles from "./page.module.css";
+
+// Below-fold sections — loaded after initial paint
+const FeatureScrollSection    = dynamic(() => import("./components/FeatureScroll/FeatureScrollSection"));
+const AssetsOfExcellenceSection = dynamic(() => import("./components/AssetsOfExcellence/AssetsOfExcellenceSection"));
+const CtaSection              = dynamic(() => import("./components/CtaSection/CtaSection"));
+const Footer                  = dynamic(() => import("./components/Footer/Footer"));
 
 export default function HomePage() {
   return (

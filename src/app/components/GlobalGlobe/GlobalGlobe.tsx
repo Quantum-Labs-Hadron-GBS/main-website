@@ -77,7 +77,8 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
     /* ── size canvas to full viewport ── */
     const W_ref = { current: window.innerWidth };
     const H_ref = { current: window.innerHeight };
-    const dpr = window.devicePixelRatio || 1;
+    // Cap DPR at 2 — on 3x retina devices this cuts canvas pixels by ~44%
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     const resize = () => {
       W_ref.current = window.innerWidth;
@@ -111,8 +112,9 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
     let frame = 0;
     let landData: any = null;
     let animId: number;
+    let isVisible = !document.hidden; // Page Visibility API
 
-    /* ── Colour helper ── */
+    /* ── Colour helper — cached, refreshed every 60 frames ── */
     const getC = () => {
       const s = getComputedStyle(document.documentElement);
       return {
@@ -122,6 +124,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         accent: s.getPropertyValue("--accent").trim()        || "#E8A020",
       };
     };
+    let colorCache = getC();
 
     /* ── Compute scroll-driven target ── */
     const getTarget = (): GTarget & { opacity: number } => {
@@ -173,10 +176,12 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
 
     const draw = () => {
       frame++;
+      // Refresh color cache every 60 frames instead of every frame
+      if (frame % 60 === 0) colorCache = getC();
       const W = W_ref.current;
       const H = H_ref.current;
       const target = getTarget();
-      const { fg, subtle, border, accent } = getC();
+      const { fg, subtle, border, accent } = colorCache;
 
       /* Lerp everything */
       livCxF  = lerp(livCxF,  target.cxF,  LT);
@@ -390,17 +395,24 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
       animId = requestAnimationFrame(draw);
     };
 
-    /* Bootstrap */
-    fetch(
-      "https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json"
-    )
+    /* Bootstrap — fetch GeoJSON from /public (Vercel CDN, cached) */
+    fetch("/data/ne_110m_land.json")
       .then(r => r.json())
       .then(data => { landData = data; draw(); })
       .catch(() => draw());
 
+    /* Page Visibility — pause RAF when tab is hidden */
+    const onVisibilityChange = () => {
+      isVisible = !document.hidden;
+      if (isVisible) animId = requestAnimationFrame(draw);
+      else cancelAnimationFrame(animId);
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
     };
   }, []);
 

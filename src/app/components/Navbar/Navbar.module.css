@@ -16,6 +16,13 @@
   -webkit-backdrop-filter: blur(60px) saturate(180%);
 }
 
+/* Fallback for browsers without backdrop-filter (older Android Chrome) */
+@supports not (backdrop-filter: blur(1px)) {
+  .navbar {
+    background: rgba(255, 255, 255, 0.92);
+  }
+}
+
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
