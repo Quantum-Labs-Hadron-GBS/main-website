@@ -23,7 +23,33 @@
   --accent-dim:    rgba(244, 124, 54, 0.12);
   --accent-border: rgba(244, 124, 54, 0.35);
 
-  --theme-transition: background-color 600ms ease, color 600ms ease, border-color 600ms ease, box-shadow 600ms ease;
+  --theme-transition: background-color 600ms ease, color 600ms ease, border-color 600ms ease, box-shadow 600ms ease, filter 600ms ease;
+
+  /* Navbar specifics */
+  --nav-bg: rgba(255, 255, 255, 0.15);
+  --nav-border: rgba(255, 255, 255, 0.5);
+  --nav-fallback: rgba(255, 255, 255, 0.92);
+  --logo-filter: none;
+}
+
+[data-theme="dark"] {
+  --bg: #09090b;
+  --fg: #ffffff;
+  --fg-muted: #a1a1aa;
+  --fg-subtle: #71717a;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --card-bg: #121214;
+  --card-shadow: 0 4px 40px rgba(0,0,0,0.5);
+  --glow: rgba(255, 255, 255, 0.08);
+
+  /* Navbar specifics */
+  --nav-bg: rgba(0, 0, 0, 0.25);
+  --nav-border: rgba(255, 255, 255, 0.15);
+  --nav-fallback: rgba(9, 9, 11, 0.92);
+  --logo-filter: invert(1) brightness(2);
 }
 
 

@@ -8,8 +8,8 @@
   z-index: 999;
   transition: var(--theme-transition), backdrop-filter 400ms ease, background 400ms ease, box-shadow 400ms ease;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
   padding: 0.8rem 2rem;
   backdrop-filter: blur(60px) saturate(180%);
@@ -19,7 +19,7 @@
 /* Fallback for browsers without backdrop-filter (older Android Chrome) */
 @supports not (backdrop-filter: blur(1px)) {
   .navbar {
-    background: rgba(255, 255, 255, 0.92);
+    background: var(--nav-fallback);
   }
 }
 
@@ -75,6 +75,8 @@
   height: 32px;
   width: auto;
   object-fit: contain;
+  filter: var(--logo-filter);
+  transition: var(--theme-transition);
 }
 
 /* Nav links */
