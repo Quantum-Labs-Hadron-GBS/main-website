@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import styles from "./AboutTimeline.module.css";

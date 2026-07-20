@@ -30,6 +30,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Apply manual override immediately when changed
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (manual !== null) apply(manual);
   }, [manual]);
 

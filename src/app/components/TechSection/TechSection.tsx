@@ -178,7 +178,7 @@ export default function TechSection() {
           transition={{ duration: 0.7 }}
         >
           <span className={styles.quoteText}>
-            "We are more than just a service provider. We are a partner on your journey towards enhanced efficiency, better customer experiences, and a stronger IT infrastructure."
+            &quot;We are more than just a service provider. We are a partner on your journey towards enhanced efficiency, better customer experiences, and a stronger IT infrastructure.&quot;
           </span>
         </motion.blockquote>
       </div>

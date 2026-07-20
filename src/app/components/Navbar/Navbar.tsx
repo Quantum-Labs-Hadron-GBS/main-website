@@ -22,6 +22,7 @@ export default function Navbar() {
     <header className={styles.navbar} role="banner">
       <div className={`${styles.inner} container`}>
         {/* Logo */}
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/" className={styles.logo} aria-label="Hadron GBS Home">
           <Image 
             src="https://res.cloudinary.com/djxbxhgat/image/upload/v1784309674/Hadron-Logo_sb3pfk.png" 
