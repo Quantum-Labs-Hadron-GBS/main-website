@@ -1,92 +1,29 @@
-import Navbar from "../../components/Navbar/Navbar";
-import CtaSection from "../../components/CtaSection/CtaSection";
-import Footer from "../../components/Footer/Footer";
-import styles from "../ServicePage.module.css";
-import { Metadata } from "next";
+import ServiceLayout from "../ServiceLayout";
 
-import { generatePageMetadata } from "../../lib/seo";
-import { getBreadcrumbSchema } from "../../lib/schema";
-
-export const metadata: Metadata = generatePageMetadata({
-  title: "Salesforce Development & Consulting Services | Hadron GBS",
-  description: "Leverage the power of Salesforce with Hadron GBS's comprehensive CRM implementation, development, and integration services.",
-  path: "/services/salesforce"
-});
-
-const FEATURES = [
-  { title: "Customization", body: "We understand that one size doesn't fit all. Our experts work closely with you to customize Salesforce to align with your specific business processes, industry requirements, and goals." },
-  { title: "Data Migration", body: "Moving your data to Salesforce can be a daunting task. Our team ensures a smooth transition, carefully migrating your existing data while maintaining data integrity." },
-  { title: "Integration", body: "We at Hadron Global Business Solutions integrate Salesforce with your existing systems, creating a unified ecosystem that enhances productivity and streamlines operations." },
-  { title: "Training and Support", body: "We give complete training for your team to maximize the benefits of Salesforce. Our support doesn't end with implementation; we're here to assist you as your business evolves." },
-];
-
-const FAQS = [
-  { q: "What is the typical duration of a Salesforce implementation project with HGBS?", a: "The duration of an implementation project varies depending on the complexity of your business processes and the level of customization required. Our team works diligently to ensure timely delivery without compromising on quality." },
-  { q: "How can I be sure that Salesforce is the right CRM solution for my business?", a: "Salesforce is highly scalable and customizable, making it suitable for businesses of all sizes and industries. Our experts will assess your needs and guide you on the best path forward." },
-  { q: "What ongoing support and maintenance services do you offer after the implementation?", a: "We provide comprehensive ongoing support, training, and maintenance to ensure your Salesforce environment continues to operate at peak efficiency as your business grows." }
-];
-
-export default function SalesforcePage() {
-  const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", item: "/" },
-    { name: "Services", item: "/#services" },
-    { name: "Salesforce", item: "/services/salesforce" }
-  ]);
-
+export default function Page() {
   return (
-    <main className={styles.main}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-      <Navbar />
-      
-      {/* Hero */}
-      <section className={`${styles.hero} container`}>
-        <span className={styles.heroTag}>Salesforce Integration Services</span>
-        <h1 className={styles.heroTitle}>Empowering Your Success with <span style={{color: "var(--accent)"}}>Salesforce</span></h1>
-        <p className={styles.heroDesc}>
-          Hadron GBS’s Salesforce implementation services are your key to unlocking substantial enterprise value through the seamless design, integration, and adept management of Salesforce solutions. Our expertise and commitment to excellence empower your organization to harness the full potential of Salesforce, driving transformative results that elevate your business to new heights.
-        </p>
-        <p className={styles.heroDesc}>
-          With Hadron GBS by your side, you can rest assured that your Salesforce implementation is in capable hands. Our team of experienced professionals combines in-depth industry knowledge with cutting-edge technical skills to craft tailored Salesforce solutions that precisely align with your business objectives.
-        </p>
-      </section>
-
-      {/* Features */}
-      <section className={`${styles.section} container`}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Elevate Your Business to New Heights</h2>
-          <p className={styles.sectionSubtitle}>In today’s fast-paced business environment, staying ahead of the competition requires innovative solutions. Let us help you embark on a successful Salesforce journey.</p>
-        </div>
-        <div className={styles.grid}>
-          {FEATURES.map(feat => (
-            <div key={feat.title} className={styles.card}>
-              <h3 className={styles.cardTitle}>{feat.title}</h3>
-              <p className={styles.cardBody}>{feat.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className={`${styles.section} container`}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Curious Minds: Your Questions Answered</h2>
-          <p className={styles.sectionSubtitle}>HGBS Salesforce Implementation Services are your gateway to unlocking the full potential of this remarkable CRM platform.</p>
-        </div>
-        <div className={styles.faqList}>
-          {FAQS.map(faq => (
-            <details key={faq.q} className={styles.faqItem}>
-              <summary className={styles.faqQ}>{faq.q}</summary>
-              <p className={styles.faqA}>{faq.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      <CtaSection />
-      <Footer />
-    </main>
+    <ServiceLayout
+      title={`Accelerate Enterprise Growth with <span style="color: var(--accent);">Hadron GBS & Salesforce</span>`}
+      subtitle="At Hadron GBS, we believe every interaction—whether with a customer or an employee—is an opportunity for growth. As a strategic Salesforce partner, we help organizations transition from siloed data to a unified, 360-degree view of their entire business."
+      solutions={[
+        { title: "Sales Cloud", desc: "Drive revenue growth with automated lead management, advanced forecasting, and AI-powered pipeline insights." },
+        { title: "Service Cloud", desc: "Modernize your internal service desk by bringing IT Service Management onto the Salesforce platform. Unify employee support, asset tracking, and incident resolution within the same interface your business already trusts." },
+        { title: "Marketing Cloud", desc: "Create personalized, data-driven customer journeys across email, mobile, and social to drive higher engagement and ROI." },
+        { title: "Experience Cloud", desc: "Build branded communities and portals for customers and partners to collaborate and access self-service resources." },
+        { title: "Data Cloud", desc: "Harmonize all your enterprise data into a single, real-time profile to power smarter, AI-driven decision-making." },
+        { title: "Einstein AI", desc: "Integrate predictive and generative AI across your workflows to automate routine tasks and provide hyper-personalized experiences." },
+        { title: "Agentforce", desc: "Deploy autonomous AI agents directly within Salesforce to handle complex, multi-step business tasks across sales, service, and operations—without human intervention. Agentforce agents act on real-time data from the Salesforce platform, enabling your teams to scale capacity, accelerate resolution, and focus on high-value work." }
+      ]}
+      framework={[
+        { step: "01", title: "Consulting & Advisory", desc: "We start by understanding your sales cycles and internal service requirements. We help you navigate Salesforce’s extensive feature set to build a roadmap that prioritizes user adoption and high-impact business outcomes.", outcome: "A strategic CRM and ITSM blueprint that eliminates process friction and aligns technology with your revenue and operational goals." },
+        { step: "02", title: "Implementation & Execution", desc: "Our team handles everything from initial data migration to complex Apex coding and workflow automation. We ensure your Salesforce instance is configured for maximum efficiency, ensuring your IT and Sales teams operate on a single, secure source of truth.", outcome: "A clean, scalable Salesforce environment integrated seamlessly with your existing enterprise tech stack." },
+        { step: "03", title: "Operational Support & Managed Services", desc: "Salesforce is a dynamic platform with constant innovation. We provide proactive administration, performance tuning, and user training to ensure you are always leveraging the latest features while maintaining peak data hygiene.", outcome: "Sustained platform ROI, minimized technical debt, and a system that evolves as your business grows." }
+      ]}
+      whyHadron={[
+        { title: "Unified Operations", desc: "We specialize in breaking down silos by bringing Sales, Customer Service, and IT Support (ITSM) together on a single platform." },
+        { title: "AI-First Implementation", desc: "We help you deploy Salesforce Einstein to move from manual data entry to proactive, AI-driven business intelligence." },
+        { title: "Rapid Time-to-Value", desc: "Our agile deployment methodology ensures you get your core functions live quickly, delivering measurable impact from day one." }
+      ]}
+    />
   );
 }

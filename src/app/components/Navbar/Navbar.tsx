@@ -11,8 +11,7 @@ const NAV_LINKS = [
   { label: "Services", href: "/#services" },
   { label: "Resources", href: "/#resources" },
   { label: "Partners", href: "/partners" },
-  { label: "Careers", href: "#careers" },
-  { label: "Explore Opportunities", href: "#opportunities" },
+  { label: "Careers", href: "/careers" },
 ];
 
 export default function Navbar() {
@@ -58,26 +57,57 @@ export default function Navbar() {
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </a>
-                  <div className={styles.dropdownMenu}>
-                    <a href="/services/service-now" className={styles.dropdownItem}>
+                  <div className={`${styles.dropdownMenu} ${styles.megaMenu}`}>
+                    <div className={styles.dropdownItem}>
                       ServiceNow Services
                       <span className={styles.dropdownIcon}>&gt;</span>
-                    </a>
+                      <div className={styles.nestedMenu}>
+                        <a href="/services/service-now" className={styles.dropdownItem}>
+                          Overview
+                        </a>
+                        <a href="/services/service-now/tennon" className={styles.dropdownItem}>
+                          Tennon
+                        </a>
+                        <a href="/services/service-now/precision-bridge" className={styles.dropdownItem}>
+                          Precision Bridge
+                        </a>
+                      </div>
+                    </div>
                     <a href="/services/bmc" className={styles.dropdownItem}>
                       BMC Services
-                    </a>
-                    <a href="/services/salesforce" className={styles.dropdownItem}>
-                      Salesforce Services
-                    </a>
-                    <a href="/services/sap" className={styles.dropdownItem}>
-                      SAP Services
                     </a>
                     <a href="/services/ivanti" className={styles.dropdownItem}>
                       Ivanti Services
                     </a>
+                    <a href="/services/atlassian" className={styles.dropdownItem}>
+                      Atlassian Services
+                    </a>
+                    <a href="/services/salesforce" className={styles.dropdownItem}>
+                      Salesforce Services
+                    </a>
+                    <a href="/services/microsoft-cloud" className={styles.dropdownItem}>
+                      Microsoft Cloud
+                    </a>
+                    <a href="/services/sap" className={styles.dropdownItem}>
+                      SAP Services
+                    </a>
+                    <a href="/services/aws-cloud" className={styles.dropdownItem}>
+                      AWS Cloud
+                    </a>
+                    <a href="/services/freshworks" className={styles.dropdownItem}>
+                      Freshworks
+                    </a>
                     <a href="/services/low-code" className={styles.dropdownItem}>
                       Low Code – No Code
-                      <span className={styles.dropdownIcon}>&gt;</span>
+                    </a>
+                    <a href="/services/implementation-execution" className={styles.dropdownItem}>
+                      Implementation & Execution
+                    </a>
+                    <a href="/services/operational-support" className={styles.dropdownItem}>
+                      Operational Support
+                    </a>
+                    <a href="/services/managed-services" className={styles.dropdownItem}>
+                      Managed Services
                     </a>
                   </div>
                 </div>
@@ -93,19 +123,43 @@ export default function Navbar() {
                     </svg>
                   </a>
                   <div className={styles.dropdownMenu}>
+                    <a href="/resources/success-stories" className={styles.dropdownItem}>
+                      Success Stories
+                    </a>
+                    <a href="/resources/webinar" className={styles.dropdownItem}>
+                      Webinars
+                    </a>
+                    <a href="/resources/news-events" className={styles.dropdownItem}>
+                      News & Events
+                    </a>
                     <a href="/resources/videos" className={styles.dropdownItem} style={{ color: "#3b82f6" }}>
                       Hadron GBS Videos
                     </a>
-                    <a href="/resources/webinar" className={styles.dropdownItem}>
-                      Webinar
-                      <span className={styles.dropdownIcon}>&gt;</span>
+                  </div>
+                </div>
+              );
+            }
+            if (link.label === "Careers") {
+              return (
+                <div key={link.label} className={styles.dropdownContainer}>
+                  <a href={link.href} className={styles.navLink}>
+                    {link.label}
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "4px", display: "inline-block" }}>
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </a>
+                  <div className={styles.dropdownMenu}>
+                    <a href="/careers" className={styles.dropdownItem}>
+                      Careers Overview
                     </a>
-                    <a href="/resources/dark-web-safety" className={styles.dropdownItem}>
-                      Dark Web Safety
+                    <a href="/careers/roles" className={styles.dropdownItem}>
+                      Open Roles
                     </a>
-                    <a href="/resources/success-stories" className={styles.dropdownItem}>
-                      Success Stories
-                      <span className={styles.dropdownIcon}>&gt;</span>
+                    <a href="/careers/culture" className={styles.dropdownItem}>
+                      Work Culture
+                    </a>
+                    <a href="/careers/process" className={styles.dropdownItem}>
+                      Recruitment Process
                     </a>
                   </div>
                 </div>

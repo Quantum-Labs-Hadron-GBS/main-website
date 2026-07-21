@@ -1,70 +1,28 @@
-import Navbar from "../../components/Navbar/Navbar";
-import CtaSection from "../../components/CtaSection/CtaSection";
-import Footer from "../../components/Footer/Footer";
-import styles from "../ServicePage.module.css";
-import { Metadata } from "next";
+import ServiceLayout from "../ServiceLayout";
 
-import { generatePageMetadata } from "../../lib/seo";
-import { getBreadcrumbSchema } from "../../lib/schema";
-
-export const metadata: Metadata = generatePageMetadata({
-  title: "Ivanti Neurons Unified Endpoint Management | Hadron GBS",
-  description: "Comprehensive Unified Endpoint Management and IT Security solutions powered by Ivanti.",
-  path: "/services/ivanti"
-});
-
-const OFFERINGS = [
-  { title: "Unified Endpoint Management (UEM)", body: "Discover, manage, and secure all your endpoints from a single pane of glass. Our Ivanti implementations ensure your workforce remains productive and secure, no matter where they operate." },
-  { title: "IT Service Management (ITSM)", body: "Modernize your service delivery with ITIL-aligned processes. We configure Ivanti Neurons for ITSM to automate workflows, reduce resolution times, and improve the employee experience." },
-  { title: "IT Asset Management (ITAM)", body: "Optimize software and hardware assets throughout their lifecycle. Gain actionable insights into your IT spend, ensure compliance, and reclaim unused licenses efficiently." },
-  { title: "Zero Trust Security", body: "Protect your enterprise network with Ivanti's comprehensive security framework. We deploy robust patch management, threat defense, and identity solutions to safeguard your critical data." },
-];
-
-export default function IvantiPage() {
-  const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", item: "/" },
-    { name: "Services", item: "/#services" },
-    { name: "Ivanti", item: "/services/ivanti" }
-  ]);
-
+export default function Page() {
   return (
-    <main className={styles.main}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-      <Navbar />
-      
-      {/* Hero */}
-      <section className={`${styles.hero} container`}>
-        <span className={styles.heroTag}>Everywhere Work</span>
-        <h1 className={styles.heroTitle}>Securing the Future with <span style={{color: "var(--accent)"}}>Ivanti</span></h1>
-        <p className={styles.heroDesc}>
-          Delivering comprehensive IT Security, Service Management, and Unified Endpoint solutions.
-        </p>
-        <p className={styles.heroDesc}>
-          Hadron GBS is proud to collaborate with Ivanti, a leader in enabling the &quot;Everywhere Workplace.&quot; We help organizations discover, manage, secure, and service all endpoints across their enterprise, ensuring seamless productivity and robust security in a hybrid work environment.
-        </p>
-      </section>
-
-      {/* Offerings */}
-      <section className={`${styles.section} container`}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Ivanti Solutions</h2>
-          <p className={styles.sectionSubtitle}>Empowering your IT infrastructure with intelligent automation and zero-trust security.</p>
-        </div>
-        <div className={styles.grid}>
-          {OFFERINGS.map(off => (
-            <div key={off.title} className={styles.card}>
-              <h3 className={styles.cardTitle}>{off.title}</h3>
-              <p className={styles.cardBody}>{off.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <CtaSection />
-      <Footer />
-    </main>
+    <ServiceLayout
+      title={`Secure and Manage the Everywhere Workstyle with <span style="color: var(--accent);">Hadron GBS & Ivanti</span>`}
+      subtitle="At Hadron GBS, we understand that the modern workforce is no longer confined to a single office or network. As a strategic Ivanti partner, we help organizations discover, manage, and secure every device and endpoint across the enterprise."
+      solutions={[
+        { title: "Ivanti Neurons for ITSM", desc: "Modernize service delivery with a flexible, cloud-optimized platform that automates workflows and improves the employee experience." },
+        { title: "Ivanti Neurons for UEM (Unified Endpoint Management)", desc: "Gain a 360-degree view of your entire device estate—including mobile, desktop, and IoT—to manage them through a single pane of glass." },
+        { title: "Ivanti Neurons for Patch Management", desc: "Proactively identify and patch vulnerabilities across your environment to stay ahead of cyber threats." },
+        { title: "Ivanti Neurons for Zero Trust Access", desc: "Secure your digital perimeter by ensuring only authorized users and healthy devices can access sensitive corporate data." },
+        { title: "Ivanti Neurons for DEX (Digital Employee Experience)", desc: "Proactively measure and optimize the digital experience of your workforce by identifying and resolving device issues before they are reported." },
+        { title: "Ivanti Neurons for Asset Management", desc: "Track the complete lifecycle of your hardware and software assets to maximize utilization and ensure compliance." }
+      ]}
+      framework={[
+        { step: "01", title: "Consulting & Advisory", desc: "We start by auditing your current endpoint landscape and security posture. We work with you to define a roadmap that prioritizes visibility and risk reduction, aligning Ivanti’s capabilities with your specific compliance and operational requirements.", outcome: "A strategic implementation plan designed to eliminate ‘blind spots’ in your infrastructure and enhance service delivery." },
+        { step: "02", title: "Implementation & Execution", desc: "Our team manages the full deployment of the Ivanti Neurons platform, ensuring seamless integration with your existing security tools and directory services. We focus on automating repetitive tasks—like patch deployment and software distribution—to drive immediate efficiency.", outcome: "A fully integrated, automated management environment that scales with your growing device count." },
+        { step: "03", title: "Operational Support & Managed Services", desc: "Endpoint management is a continuous process. We provide proactive monitoring, platform updates, and ongoing security tuning to ensure your Ivanti environment stays optimized against the latest vulnerabilities and performance issues.", outcome: "Sustained platform health and peace of mind, knowing your ‘Everywhere Work’ environment is managed by experts." }
+      ]}
+      whyHadron={[
+        { title: "Security-Centric IT", desc: "We don’t just manage devices; we secure them. Our expertise ensures that management and security work hand-in-hand." },
+        { title: "Focus on Experience", desc: "We utilize Ivanti’s DEX capabilities to ensure that IT improvements lead to happier, more productive employees." },
+        { title: "Operational Agility", desc: "We help you pivot quickly, whether you are onboarding a remote workforce or responding to a zero-day vulnerability." }
+      ]}
+    />
   );
 }

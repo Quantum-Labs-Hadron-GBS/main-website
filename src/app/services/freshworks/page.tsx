@@ -1,73 +1,30 @@
-import Navbar from "../../components/Navbar/Navbar";
-import CtaSection from "../../components/CtaSection/CtaSection";
-import Footer from "../../components/Footer/Footer";
-import styles from "../ServicePage.module.css";
-import { Metadata } from "next";
+import ServiceLayout from "../ServiceLayout";
 
-import { generatePageMetadata } from "../../lib/seo";
-import { getBreadcrumbSchema } from "../../lib/schema";
-
-export const metadata: Metadata = generatePageMetadata({
-  title: "Freshworks Implementation Partner | Hadron GBS",
-  description: "Hadron GBS and Freshworks – Powering Innovation, Transforming Solutions.",
-  path: "/services/freshworks"
-});
-
-const OFFERINGS = [
-  { title: "Impact on Customer Service Management", body: "Clients can expect improved customer service delivery with the combined expertise of Hadron GBS and Freshworks. The partnership focuses on streamlining processes and introducing innovative AI-powered solutions that enhance the overall efficiency of engagement and support." },
-  { title: "Cloud-Centric Engagement", body: "Cloud technology is at the forefront of modern CRM solutions, and the collaboration leverages this technology to provide clients with cutting-edge, cloud-centric engagement platforms. The benefits include increased flexibility, scalability, and cost-effectiveness in service delivery." },
-  { title: "Digital Service Automation", body: "Digital service automation is the future of efficient business operations. The partnership between Hadron GBS and Freshworks contributes to advancements in automation, enabling businesses to optimize their workflows and achieve greater customer satisfaction." },
-  { title: "Future Collaborative Initiatives", body: "From tackling industry-specific challenges to contributing to technological advancements, the collaborative efforts of Hadron GBS and Freshworks promise a future filled with innovation." },
-];
-
-export default function FreshworksPage() {
-  const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", item: "/" },
-    { name: "Services", item: "/#services" },
-    { name: "Freshworks", item: "/services/freshworks" }
-  ]);
-
+export default function Page() {
   return (
-    <main className={styles.main}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-      <Navbar />
-      
-      {/* Hero */}
-      <section className={`${styles.hero} container`}>
-        <span className={styles.heroTag}>Elevating Possibilities</span>
-        <h1 className={styles.heroTitle}>Hadron GBS and <span style={{color: "var(--accent)"}}>Freshworks</span></h1>
-        <p className={styles.heroDesc}>
-          Powering Innovation, Transforming Solutions.
-        </p>
-        <p className={styles.heroDesc}>
-          Hadron Global Business Solutions (Hadron GBS), a leading provider of innovative IT solutions, is pleased to announce a strategic partnership with Freshworks, a global software company that specializes in providing solutions for IT service management and modern customer engagement.
-        </p>
-        <p className={styles.heroDesc}>
-          This collaboration aims to provide clients with robust and scalable solutions that optimize their service infrastructure and drive digital innovation. Hadron GBS and Freshworks share a commitment to excellence, customer satisfaction, and pushing the boundaries of technological possibilities.
-        </p>
-      </section>
-
-      {/* Offerings */}
-      <section className={`${styles.section} container`}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Freshworks Services</h2>
-          <p className={styles.sectionSubtitle}>Enhancing Customer Engagement with strategic implementations and advanced cloud management.</p>
-        </div>
-        <div className={styles.grid}>
-          {OFFERINGS.map(off => (
-            <div key={off.title} className={styles.card}>
-              <h3 className={styles.cardTitle}>{off.title}</h3>
-              <p className={styles.cardBody}>{off.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <CtaSection />
-      <Footer />
-    </main>
+    <ServiceLayout
+      title={`Reimagine Customer & Employee Experience with <span style="color: var(--accent);">Hadron GBS & Freshworks</span>`}
+      subtitle="Freshworks delivers a modern, AI-powered platform for customer support, IT service management, CRM, engagement, and marketing automation. As a dedicated Freshworks partner, Hadron GBS helps organizations implement, integrate, and optimize Freshworks to enhance customer experience, employee experience, and operational efficiency."
+      solutions={[
+        { title: "Freshdesk — Customer Support", desc: "Empower your support teams with a multi-channel helpdesk built for scale. Streamline ticket routing, SLA management, and knowledge base operations to reduce resolution times and elevate customer satisfaction scores." },
+        { title: "Freshservice — IT Service Management (ITSM)", desc: "Modernize internal IT operations with a purpose-built ITSM platform. Automate incident, change, and asset management workflows to improve service delivery and reduce operational overhead for IT teams." },
+        { title: "Freshsales — CRM & Sales Automation", desc: "Accelerate revenue generation with an AI-powered CRM that unifies contact management, deal pipelines, and sales activity tracking. Give your sales teams full visibility from lead to close, with intelligent scoring and forecasting built in." },
+        { title: "Freshchat — Conversational Engagement", desc: "Deploy intelligent, real-time messaging across web, mobile, and social channels. Enable proactive customer engagement, in-app support, and bot-assisted resolution to reduce agent load while increasing customer responsiveness." },
+        { title: "Freshmarketer — Marketing Automation", desc: "Orchestrate personalized, data-driven marketing campaigns across the customer lifecycle. Leverage behavioral segmentation, A/B testing, and funnel analytics to convert leads faster and nurture long-term relationships." },
+        { title: "Freshworks AI — Freddy AI", desc: "Infuse artificial intelligence across every Freshworks product. From auto-triaging tickets and predicting CSAT to generating sales insights and suggesting next-best actions, Freddy AI transforms reactive operations into proactive, intelligent service delivery." },
+        { title: "Omnichannel Experience & Automation", desc: "Unify customer and employee interactions across email, phone, chat, social, and self-service portals into a single, coherent experience. Leverage automation to eliminate manual handoffs, enforce consistent workflows, and drive seamless engagement at every touchpoint." }
+      ]}
+      framework={[
+        { step: "01", title: "Consulting & Advisory", desc: "Before a single workflow is configured, we invest in understanding your business. Our consultants conduct a comprehensive digital experience assessment — evaluating your current CX and EX capabilities, identifying process gaps, and benchmarking against industry standards.", outcome: "A clear, executive-aligned strategy that defines high-value use cases, prioritizes quick wins, and establishes a foundation for long-term platform scalability." },
+        { step: "02", title: "Implementation & Execution", desc: "Translating strategy into a production-grade platform requires precision and experience. Our implementation teams handle end-to-end platform deployment — from environment configuration and data migration to API-based integration with your existing CRM, ERP, HRMS, and communication tools.", outcome: "A fully integrated Freshworks environment deployed on schedule, with automated workflows and live integrations that eliminate manual effort from day one." },
+        { step: "03", title: "Operational Support & Managed Services", desc: "Maximizing long-term platform value requires ongoing expertise. Hadron GBS provides continuous optimization services — analyzing usage patterns, performance metrics, and support trends to identify new automation opportunities and configuration improvements.", outcome: "Sustained platform performance and continuous improvement, with proactive management that frees your internal teams to focus on core business priorities rather than platform maintenance." }
+      ]}
+      whyHadron={[
+        { title: "Experience-Led Design Approach", desc: "We design every implementation around the real needs of the people who use the platform — customers and employees alike. Our solutions prioritize intuitive interfaces, logical workflows, and measurable satisfaction outcomes." },
+        { title: "Rapid Time-to-Value", desc: "Our refined delivery methodologies eliminate deployment risk and accelerate go-live timelines. We focus on getting critical capabilities into production quickly, so your teams realize ROI early and build confidence in the platform from the start." },
+        { title: "SaaS Optimization Expertise", desc: "Deep familiarity with the Freshworks platform means we configure beyond defaults. We extract the full capability of each product — fine-tuning automation, integrations, and reporting to match the complexity of enterprise operations." },
+        { title: "AI-Driven Automation Focus", desc: "We treat Freddy AI not as a feature but as a core pillar of your service strategy. From intelligent ticket deflection and predictive agent assistance to AI-powered sales forecasting, we embed automation into every layer of your Freshworks deployment." }
+      ]}
+    />
   );
 }

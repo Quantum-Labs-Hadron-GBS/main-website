@@ -54,14 +54,14 @@ export default function HeroSection() {
 
         {/* Headline */}
         <h1 className={styles.headline}>
-          <span className={styles.headlineLine}>Think Digital, We Make</span>
-          <span className={styles.headlineLine}><span className={styles.headlineAccent}>Digital Transformation</span></span>
-          <span className={styles.headlineLine}>Easy</span>
+          <span className={styles.headlineLine}>Your Enterprise Platforms</span>
+          <span className={styles.headlineLine}>Should Work as</span>
+          <span className={styles.headlineLine}><span className={styles.headlineAccent}>Hard as You Do</span></span>
         </h1>
 
         {/* Sub copy */}
         <p className={styles.subCopy}>
-          Hadron GBS is a global business solutions provider that thrives on agility and innovation. Specialized in GenAI capabilities across ITSM, HRSD, IRM, DevOps, ITOM, and custom applications.
+          Hadron GBS turns complex technology investments into real operational outcomes. From strategy to managed services, we make enterprise platforms deliver what was promised.
         </p>
 
         {/* CTAs */}

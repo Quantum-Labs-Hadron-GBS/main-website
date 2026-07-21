@@ -6,6 +6,10 @@ import styles from "./page.module.css";
 
 // Below-fold sections — loaded after initial paint
 const FeatureScrollSection    = dynamic(() => import("./components/FeatureScroll/FeatureScrollSection"));
+const OurStorySection         = dynamic(() => import("./components/OurStorySection/OurStorySection"));
+const WhyHadronSection        = dynamic(() => import("./components/WhyHadronSection/WhyHadronSection"));
+const CoreValuesSection       = dynamic(() => import("./components/CoreValuesSection/CoreValuesSection"));
+const CoreServicesSection     = dynamic(() => import("./components/CoreServicesSection/CoreServicesSection"));
 const AssetsOfExcellenceSection = dynamic(() => import("./components/AssetsOfExcellence/AssetsOfExcellenceSection"));
 const CtaSection              = dynamic(() => import("./components/CtaSection/CtaSection"));
 const Footer                  = dynamic(() => import("./components/Footer/Footer"));
@@ -23,6 +27,18 @@ export default function HomePage() {
 
       {/* ── FEATURE NUMBER TICKER ── */}
       <FeatureScrollSection />
+
+      {/* ── OUR STORY ── */}
+      <OurStorySection />
+
+      {/* ── WHY HADRON GBS ── */}
+      <WhyHadronSection />
+
+      {/* ── MISSION & VISION (4 P's) ── */}
+      <CoreValuesSection />
+
+      {/* ── CORE SERVICES ── */}
+      <CoreServicesSection />
 
       {/* ── ASSETS OF EXCELLENCE ── */}
       <AssetsOfExcellenceSection />

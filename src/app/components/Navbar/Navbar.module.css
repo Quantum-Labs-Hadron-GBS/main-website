@@ -224,6 +224,14 @@
   z-index: 1000;
 }
 
+.megaMenu {
+  min-width: 520px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem 0.5rem;
+  padding: 1rem;
+}
+
 .dropdownContainer:hover .dropdownMenu {
   opacity: 1;
   visibility: visible;
@@ -240,11 +248,39 @@
   justify-content: space-between;
   align-items: center;
   transition: background 150ms ease, color 150ms ease;
+  position: relative; /* Anchor for nested menus */
 }
 
 .dropdownItem:hover {
   background: var(--surface-hover);
   color: var(--accent);
+}
+
+/* Nested Submenu */
+.nestedMenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: -5px; /* Slight overlap for hover continuity */
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: opacity 200ms ease, transform 200ms ease, visibility 200ms ease;
+  z-index: 1001;
+}
+
+.dropdownItem:hover > .nestedMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
 }
 
 .dropdownIcon {

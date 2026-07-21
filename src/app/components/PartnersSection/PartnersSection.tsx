@@ -31,12 +31,16 @@ const PARTNERS = [
     name: "Freshworks",
     logo: "https://res.cloudinary.com/djxbxhgat/image/upload/v1784523791/freshworks-logo_brandlogos.net_c6t5u_hu6w9j.png",
     description: "We are proud to partner with Freshworks, a global leader in customer engagement and IT service management. Through this collaboration, we deliver modern, AI-powered solutions that enhance customer satisfaction, streamline service delivery, and empower organizations to achieve operational excellence across every touchpoint.",
+    link: "/services/freshworks",
+    linkText: "Reimagine Experience with Freshworks"
   },
   {
     id: "ivanti",
     name: "Ivanti",
     logo: "https://res.cloudinary.com/djxbxhgat/image/upload/v1784523791/Logo_Ivanti_ww1j1c.png",
     description: "We have been lucky to collaborate with Ivanti to serve our customers for their need for IT Security, IT Service Management, IT Asset Management, Unified Endpoint Management, Identity Management, and supply chain management.",
+    link: "/services/ivanti",
+    linkText: "Secure & Manage with Ivanti"
   }
 ];
 
