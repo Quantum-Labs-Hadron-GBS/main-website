@@ -16,10 +16,10 @@ function fromHex(hex: string): Uint8Array {
   return new Uint8Array(matched.map((byte) => parseInt(byte, 16)));
 }
 
-// Convert ArrayBuffer to base64
-function arrayBufferToBase64(buffer: ArrayBuffer): string {
+// Convert ArrayBuffer or Uint8Array to base64
+function arrayBufferToBase64(buffer: ArrayBuffer | Uint8Array): string {
   let binary = '';
-  const bytes = new Uint8Array(buffer);
+  const bytes = buffer instanceof Uint8Array ? buffer : new Uint8Array(buffer);
   for (let i = 0; i < bytes.byteLength; i++) {
     binary += String.fromCharCode(bytes[i]);
   }
@@ -51,7 +51,7 @@ export async function browserEncryptPayload(
   // Import the raw shared secret into Web Crypto
   const cryptoKey = await window.crypto.subtle.importKey(
     "raw",
-    sharedSecret.buffer,
+    new Uint8Array(sharedSecret),
     { name: "AES-GCM" },
     false,
     ["encrypt"]
@@ -78,8 +78,8 @@ export async function browserEncryptPayload(
   // 4. Return formatted package
   return {
     ciphertext: arrayBufferToBase64(ciphertextBuffer),
-    encapsulated_key: arrayBufferToBase64(encapsulatedKey.buffer),
-    iv: arrayBufferToBase64(iv.buffer),
+    encapsulated_key: arrayBufferToBase64(encapsulatedKey),
+    iv: arrayBufferToBase64(iv),
     auth_tag: arrayBufferToBase64(authTagBuffer),
     key_version: keyVersion,
   };
