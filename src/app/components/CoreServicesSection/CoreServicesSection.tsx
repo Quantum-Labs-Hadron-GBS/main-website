@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import styles from "./CoreServicesSection.module.css";
 import Folder from "../Folder/Folder";
 
@@ -19,16 +20,16 @@ const SERVICES_2 = [
 export default function CoreServicesSection() {
   const renderPapers = (services: any[]) => {
     return services.map((srv, i) => (
-      <div key={i} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      <Link key={i} href={srv.link} style={{ display: 'flex', flexDirection: 'column', height: '100%', textDecoration: 'none', color: 'inherit' }} className="paper-card-wrapper">
         <h4 className="paper-title">{srv.title}</h4>
         <p className="paper-desc">{srv.desc}</p>
-        <a href={srv.link} className="paper-link">
+        <span className="paper-link" style={{ marginTop: 'auto' }}>
           Explore
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M3 8h10M9 4l4 4-4 4"/>
           </svg>
-        </a>
-      </div>
+        </span>
+      </Link>
     ));
   };
 

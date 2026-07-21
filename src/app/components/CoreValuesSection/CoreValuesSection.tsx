@@ -15,6 +15,22 @@ const VALUES = [
 export default function CoreValuesSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const isScrollingRef = useRef(false);
+
+  const handleScrollTo = (idx: number) => {
+    if (!sectionRef.current || isScrollingRef.current) return;
+    const el = sectionRef.current;
+    const rect = el.getBoundingClientRect();
+    const scrollable = rect.height - window.innerHeight;
+    const targetScrollY = window.scrollY + rect.top + (scrollable / (VALUES.length - 1)) * idx;
+    
+    isScrollingRef.current = true;
+    window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
+    
+    setTimeout(() => {
+      isScrollingRef.current = false;
+    }, 600);
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -32,19 +48,41 @@ export default function CoreValuesSection() {
       setActiveIndex(idx);
     };
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const el = sectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      
+      // Only hijack if the section is currently fully in view
+      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (activeIndex < VALUES.length - 1) {
+            handleScrollTo(activeIndex + 1);
+          } else {
+            window.scrollTo({ top: window.scrollY + rect.bottom, behavior: 'smooth' });
+          }
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (activeIndex > 0) {
+            handleScrollTo(activeIndex - 1);
+          } else {
+            window.scrollTo({ top: window.scrollY + rect.top - 100, behavior: 'smooth' });
+          }
+        }
+      }
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("keydown", handleKeyDown, { passive: false });
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeIndex]);
 
   const sectionHeight = (VALUES.length + 1) * 100;
-
-  const handleSkip = () => {
-    if (!sectionRef.current) return;
-    const rect = sectionRef.current.getBoundingClientRect();
-    const targetY = window.scrollY + rect.bottom;
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
-  };
 
   return (
     <section 
@@ -86,12 +124,28 @@ export default function CoreValuesSection() {
           </div>
         </div>
 
-        <button onClick={handleSkip} className={styles.skipButton} aria-label="Skip section">
-          Skip
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
-          </svg>
-        </button>
+        <div className={styles.navControls}>
+          <button 
+            className={styles.navButton} 
+            onClick={() => handleScrollTo(activeIndex - 1)}
+            disabled={activeIndex === 0}
+            aria-label="Previous core value"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+          </button>
+          <button 
+            className={styles.navButton} 
+            onClick={() => handleScrollTo(activeIndex + 1)}
+            disabled={activeIndex === VALUES.length - 1}
+            aria-label="Next core value"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
   );

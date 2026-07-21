@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar/Navbar";
-import CtaSection from "../components/CtaSection/CtaSection";
+// import CtaSection from "../components/CtaSection/CtaSection";
 import Footer from "../components/Footer/Footer";
 import styles from "./Careers.module.css";
 
@@ -70,11 +70,24 @@ export default function CareersOverviewPage() {
         </div>
       </section>
 
-      <CtaSection 
-        title="Explore Open Roles at Hadron GBS"
-        subtitle="Enterprise transformation starts with the right conversation. Tell us where your platforms are falling short."
-        buttonText="View Open Positions"
-      />
+      <section className={`${styles.section} container`} style={{ textAlign: 'center', padding: '6rem 0' }}>
+        <h2 className={styles.sectionTitle}>Ready to Transform the Enterprise?</h2>
+        <p className={styles.heroDesc} style={{ margin: '0 auto 2rem', maxWidth: '600px' }}>
+          We are always looking for exceptional talent to join our specialized practice areas.
+        </p>
+        <a href="/careers/apply" style={{
+          display: 'inline-block',
+          padding: '1rem 2rem',
+          background: 'var(--accent)',
+          color: '#000',
+          fontWeight: '700',
+          borderRadius: '8px',
+          textDecoration: 'none',
+          transition: 'all 0.3s ease'
+        }}>
+          Apply Now
+        </a>
+      </section>
 
       <Footer />
     </main>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./CtaSection.module.css";
 
 interface CtaSectionProps {
@@ -17,9 +18,9 @@ export default function CtaSection({ title, subtitle, buttonText }: CtaSectionPr
           {subtitle || "Contact us today, and let us help you achieve your business objectives."}
         </p>
         <div className={styles.demoActions}>
-          <a href="mailto:contact@hadrongbs.com" id="demo-email-cta" className={styles.demoPrimary}>
+          <Link href="/contact" id="demo-email-cta" className={styles.demoPrimary}>
             {buttonText || "Contact Us"}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

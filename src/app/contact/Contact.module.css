@@ -1,0 +1,96 @@
+.main {
+  min-height: 100vh;
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  padding-top: 150px;
+  padding-bottom: 60px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroTag {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent);
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+}
+
+.heroTitle {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+}
+
+.heroDesc {
+  font-size: 1.25rem;
+  color: var(--fg-muted);
+  line-height: 1.6;
+}
+
+.formSection {
+  position: relative;
+  padding: 0 0 100px;
+  flex: 1;
+}
+
+.formWrapper {
+  position: relative;
+  margin: -40px auto 0;
+  z-index: 10;
+  animation: floatUp 0.8s ease-out forwards;
+}
+
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.glowElement1 {
+  position: absolute;
+  top: 10%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.15) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.glowElement2 {
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(100, 100, 255, 0.1) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}

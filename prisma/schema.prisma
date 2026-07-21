@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  SALES
+  HR
+  ANALYTICS
+}
+
+model User {
+  id            String     @id @default(cuid())
+  email         String     @unique
+  name          String?
+  password_hash String?    // Used for temporary local auth
+  role          Role       @default(SALES)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  auditLogs     AuditLog[]
+}
+
+model ContactSubmission {
+  id               String   @id @default(cuid())
+  ciphertext       String
+  encapsulated_key String
+  iv               String
+  auth_tag         String
+  key_version      Int      @default(1)
+  createdAt        DateTime @default(now())
+}
+
+model JobApplication {
+  id               String   @id @default(cuid())
+  ciphertext       String
+  encapsulated_key String
+  iv               String
+  auth_tag         String
+  key_version      Int      @default(1)
+  resume_url       String?  // Reference to Blob Storage
+  status           String   @default("PENDING")
+  createdAt        DateTime @default(now())
+}
+
+model AnalyticsEvent {
+  id           String   @id @default(cuid())
+  sessionId    String
+  page         String
+  timeOnPage   Int?
+  scrollDepth  Int?
+  referrer     String?
+  serviceView  String?
+  device       String?
+  country      String?
+  eventName    String
+  createdAt    DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  action    String
+  details   String?
+  createdAt DateTime @default(now())
+}

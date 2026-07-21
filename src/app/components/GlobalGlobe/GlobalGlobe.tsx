@@ -113,6 +113,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
     let landData: any = null;
     let animId: number;
     let isVisible = !document.hidden; // Page Visibility API
+    let isUnmounted = false;
 
     /* ── Colour helper — cached, refreshed every 60 frames ── */
     const getC = () => {
@@ -188,6 +189,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
     const LTF = 0.10;   // fast (opacity)
 
     const draw = () => {
+      if (isUnmounted) return;
       frame++;
       // Refresh color cache every 60 frames instead of every frame
       if (frame % 60 === 0) colorCache = getC();
@@ -417,12 +419,13 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
     /* Page Visibility — pause RAF when tab is hidden */
     const onVisibilityChange = () => {
       isVisible = !document.hidden;
-      if (isVisible) animId = requestAnimationFrame(draw);
+      if (isVisible && !isUnmounted) animId = requestAnimationFrame(draw);
       else cancelAnimationFrame(animId);
     };
     document.addEventListener("visibilitychange", onVisibilityChange);
 
     return () => {
+      isUnmounted = true;
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
       document.removeEventListener("visibilitychange", onVisibilityChange);

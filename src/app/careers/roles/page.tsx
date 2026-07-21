@@ -1,5 +1,5 @@
 import Navbar from "../../components/Navbar/Navbar";
-import CtaSection from "../../components/CtaSection/CtaSection";
+// import CtaSection from "../../components/CtaSection/CtaSection";
 import Footer from "../../components/Footer/Footer";
 import styles from "../Careers.module.css";
 
@@ -66,7 +66,7 @@ export default function OpenRolesPage() {
                     <span>💼 {job.type}</span>
                   </div>
                 </div>
-                <a href="#apply" className={styles.btnPrimary}>Apply Now</a>
+                <a href="/careers/apply" className={styles.btnPrimary}>Apply Now</a>
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
@@ -121,11 +121,24 @@ export default function OpenRolesPage() {
         </div>
       </section>
 
-      <CtaSection 
-        title="Ready to redefine your digital workflows?"
-        subtitle="We’re growing rapidly — and some of our best hires come before we post the job. If you believe your expertise has a home at Hadron GBS, we want to hear from you."
-        buttonText="Send Us your profile"
-      />
+      <section className={`${styles.section} container`} style={{ textAlign: 'center', padding: '6rem 0' }}>
+        <h2 className={styles.sectionTitle}>Ready to redefine your digital workflows?</h2>
+        <p className={styles.heroDesc} style={{ margin: '0 auto 2rem', maxWidth: '600px' }}>
+          We’re growing rapidly — and some of our best hires come before we post the job. If you believe your expertise has a home at Hadron GBS, we want to hear from you.
+        </p>
+        <a href="/careers/apply" style={{
+          display: 'inline-block',
+          padding: '1rem 2rem',
+          background: 'var(--accent)',
+          color: '#000',
+          fontWeight: '700',
+          borderRadius: '8px',
+          textDecoration: 'none',
+          transition: 'all 0.3s ease'
+        }}>
+          Apply Now
+        </a>
+      </section>
 
       <Footer />
     </main>
