@@ -39,6 +39,13 @@ export default function CoreValuesSection() {
 
   const sectionHeight = (VALUES.length + 1) * 100;
 
+  const handleSkip = () => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    const targetY = window.scrollY + rect.bottom;
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
+  };
+
   return (
     <section 
       ref={sectionRef}
@@ -78,6 +85,13 @@ export default function CoreValuesSection() {
             </SimpleCardSwap>
           </div>
         </div>
+
+        <button onClick={handleSkip} className={styles.skipButton} aria-label="Skip section">
+          Skip
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
+          </svg>
+        </button>
       </div>
     </section>
   );
