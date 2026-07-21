@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./ContactForm.module.css";
 
 export default function ContactForm() {
@@ -13,8 +13,21 @@ export default function ContactForm() {
     message: "",
   });
 
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "encrypting" | "uploading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [pqcKey, setPqcKey] = useState<{ publicKey: string; keyVersion: number } | null>(null);
+
+  // Cache public key on mount
+  useEffect(() => {
+    fetch("/api/pqc/public-key")
+      .then(res => res.json())
+      .then(data => {
+        if (data.publicKey) {
+          setPqcKey({ publicKey: data.publicKey, keyVersion: data.keyVersion });
+        }
+      })
+      .catch(err => console.error("Failed to load PQC key:", err));
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -22,13 +35,23 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("loading");
+    setStatus("encrypting");
 
     try {
+      if (!pqcKey) throw new Error("Encryption key not ready. Please refresh the page.");
+
+      // 1. Lazy load ML-KEM to prevent bundle bloat on initial page load
+      const { browserEncryptPayload } = await import("@/lib/pqc/browserEncrypt");
+      
+      // 2. Encrypt locally in browser memory
+      const encryptedData = await browserEncryptPayload(formData, pqcKey.publicKey, pqcKey.keyVersion);
+
+      // 3. Upload Ciphertext
+      setStatus("uploading");
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(encryptedData),
       });
 
       if (!response.ok) {
@@ -154,14 +177,40 @@ export default function ContactForm() {
         <button 
           type="submit" 
           className={styles.submitBtn} 
-          disabled={status === "loading" || status === "success"}
+          disabled={status !== "idle" && status !== "error"}
         >
-          {status === "loading" ? "Encrypting & Submitting..." : "Send Message"}
+          {status === "encrypting" ? "Encrypting Locally..." : 
+           status === "uploading" ? "Uploading Ciphertext..." : "Send Message"}
         </button>
 
-        {status === "success" && (
-          <div className={`${styles.message} ${styles.success}`}>
-            Thank you! Your message has been securely submitted.
+        {(status === "encrypting" || status === "uploading" || status === "success") && (
+          <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'var(--surface)', border: '1px solid var(--accent)', borderRadius: '12px', fontSize: '0.9rem', color: 'var(--fg-muted)' }}>
+            <h4 style={{ color: 'var(--fg)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              Client-Side Post-Quantum Encryption
+            </h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ color: 'var(--accent)' }}>✓</span> Algorithm: ML-KEM-768
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ color: status === "encrypting" ? 'var(--fg-muted)' : 'var(--accent)' }}>
+                  {status === "encrypting" ? '...' : '✓'}
+                </span> 
+                AES-256-GCM Payload Encryption
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ color: status === "success" ? 'var(--accent)' : 'var(--fg-muted)' }}>
+                  {status === "success" ? '✓' : '...'}
+                </span> 
+                Secure Upload Complete
+              </div>
+            </div>
+            {status === "success" && (
+              <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--border)', color: 'var(--accent)', fontWeight: 600 }}>
+                Verified: Zero plaintext transmitted.
+              </div>
+            )}
           </div>
         )}
 

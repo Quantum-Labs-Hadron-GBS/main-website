@@ -40,6 +40,22 @@ export default function AboutScrollSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const prevRef = useRef(0);
+  const isScrollingRef = useRef(false);
+
+  const handleScrollTo = (idx: number) => {
+    if (!sectionRef.current || isScrollingRef.current) return;
+    const el = sectionRef.current;
+    const rect = el.getBoundingClientRect();
+    const scrollable = rect.height - window.innerHeight;
+    const targetScrollY = window.scrollY + rect.top + (scrollable / (FEATURES.length - 1)) * idx;
+    
+    isScrollingRef.current = true;
+    window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
+    
+    setTimeout(() => {
+      isScrollingRef.current = false;
+    }, 600);
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -57,10 +73,41 @@ export default function AboutScrollSection() {
         setActiveIndex(idx);
       }
     };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const el = sectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      
+      // Only hijack arrow keys if the sticky section is fully covering the viewport
+      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          if (activeIndex < FEATURES.length - 1) {
+            handleScrollTo(activeIndex + 1);
+          } else {
+            window.scrollTo({ top: window.scrollY + rect.bottom, behavior: 'smooth' });
+          }
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          if (activeIndex > 0) {
+            handleScrollTo(activeIndex - 1);
+          } else {
+            window.scrollTo({ top: window.scrollY + rect.top - 100, behavior: 'smooth' });
+          }
+        }
+      }
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("keydown", handleKeyDown);
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeIndex]);
 
   const sectionHeight = (FEATURES.length + 1) * 100;
   const currentAsset = FEATURES[activeIndex] || FEATURES[0];
@@ -79,7 +126,9 @@ export default function AboutScrollSection() {
             {FEATURES.map((asset, i) => (
               <div
                 key={asset.tab}
+                onClick={() => handleScrollTo(i)}
                 className={`${styles.tab} ${i === activeIndex ? styles.activeTab : ""}`}
+                style={{ cursor: 'pointer' }}
               >
                 {asset.tab}
                 {i === activeIndex && (

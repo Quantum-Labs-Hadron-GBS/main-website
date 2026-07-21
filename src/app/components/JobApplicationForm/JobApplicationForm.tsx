@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./JobApplicationForm.module.css";
 
 const STEPS = [
@@ -12,8 +12,21 @@ const STEPS = [
 
 export default function JobApplicationForm() {
   const [currentStep, setCurrentStep] = useState(0);
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "encrypting" | "uploading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [pqcKey, setPqcKey] = useState<{ publicKey: string; keyVersion: number } | null>(null);
+
+  // Cache public key on mount
+  useEffect(() => {
+    fetch("/api/pqc/public-key")
+      .then(res => res.json())
+      .then(data => {
+        if (data.publicKey) {
+          setPqcKey({ publicKey: data.publicKey, keyVersion: data.keyVersion });
+        }
+      })
+      .catch(err => console.error("Failed to load PQC key:", err));
+  }, []);
 
   const [formData, setFormData] = useState({
     // Step 1: Personal (10 fields)
@@ -51,14 +64,24 @@ export default function JobApplicationForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("loading");
+    setStatus("encrypting");
     setErrorMessage("");
 
     try {
+      if (!pqcKey) throw new Error("Encryption key not ready. Please refresh the page.");
+
+      // 1. Lazy load ML-KEM to prevent bundle bloat on initial page load
+      const { browserEncryptPayload } = await import("@/lib/pqc/browserEncrypt");
+      
+      // 2. Encrypt locally in browser memory
+      const encryptedData = await browserEncryptPayload(formData, pqcKey.publicKey, pqcKey.keyVersion);
+
+      // 3. Upload Ciphertext
+      setStatus("uploading");
       const response = await fetch("/api/apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(encryptedData),
       });
 
       if (!response.ok) {
@@ -73,15 +96,60 @@ export default function JobApplicationForm() {
     }
   };
 
-  if (status === "success") {
+  if (status === "encrypting" || status === "uploading" || status === "success") {
     return (
-      <div className={styles.formContainer}>
-        <div className={`${styles.message} ${styles.success}`}>
-          <h2>Application Securely Submitted</h2>
-          <p style={{ marginTop: '1rem', color: 'rgba(255,255,255,0.7)' }}>
-            Thank you for applying to Hadron GBS. Your application has been encrypted using Post-Quantum Cryptography and securely transmitted to our HR team.
-          </p>
+      <div className={styles.formContainer} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '3rem 1rem' }}>
+        
+        {status === "success" && (
+          <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(var(--accent-rgb), 0.1)', color: 'var(--accent)', marginBottom: '1.5rem' }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h2 style={{ color: "var(--fg)", fontSize: "2rem", marginBottom: "1rem" }}>Application Submitted Successfully</h2>
+            <p style={{ color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: "600px", margin: "0 auto" }}>
+              Thank you for applying to Hadron GBS. Your application has been encrypted using Post-Quantum Cryptography entirely in your browser and securely transmitted to our HR team.
+            </p>
+          </div>
+        )}
+
+        <div style={{ width: '100%', maxWidth: '500px', margin: '0 auto', textAlign: 'left', padding: '1.5rem', background: 'var(--surface)', border: '1px solid var(--accent)', borderRadius: '12px', fontSize: '0.9rem', color: 'var(--fg-muted)' }}>
+          <h4 style={{ color: 'var(--fg)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Client-Side Post-Quantum Encryption
+          </h4>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ color: 'var(--accent)' }}>✓</span> Algorithm: ML-KEM-768
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ color: status === "encrypting" ? 'var(--fg-muted)' : 'var(--accent)' }}>
+                {status === "encrypting" ? '...' : '✓'}
+              </span> 
+              AES-256-GCM Payload Encryption
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ color: status === "success" ? 'var(--accent)' : 'var(--fg-muted)' }}>
+                {status === "success" ? '✓' : '...'}
+              </span> 
+              Secure Upload Complete
+            </div>
+          </div>
+          {status === "success" && (
+            <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--border)', color: 'var(--accent)', fontWeight: 600 }}>
+              Verified: Zero plaintext transmitted.
+            </div>
+          )}
         </div>
+
+        {status === "success" && (
+          <button 
+            onClick={() => window.location.reload()}
+            className={styles.submitBtn}
+            style={{ marginTop: "2.5rem" }}
+          >
+            Submit Another Application
+          </button>
+        )}
       </div>
     );
   }
@@ -289,7 +357,7 @@ export default function JobApplicationForm() {
             type="button" 
             className={`${styles.btn} ${styles.btnSecondary}`}
             onClick={handlePrev}
-            disabled={currentStep === 0 || status === "loading"}
+            disabled={currentStep === 0 || (status !== "idle" && status !== "error")}
             style={{ opacity: currentStep === 0 ? 0 : 1 }}
           >
             Back
@@ -300,8 +368,13 @@ export default function JobApplicationForm() {
               Continue to {STEPS[currentStep + 1]}
             </button>
           ) : (
-            <button type="submit" className={`${styles.btn} ${styles.btnPrimary}`} disabled={status === "loading"}>
-              {status === "loading" ? "Encrypting Data..." : "Submit Application"}
+            <button 
+              type="button" 
+              onClick={handleSubmit}
+              className={`${styles.btn} ${styles.btnPrimary}`} 
+              disabled={status !== "idle" && status !== "error"}
+            >
+              Secure Submit Application
             </button>
           )}
         </div>

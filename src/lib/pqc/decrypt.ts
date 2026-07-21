@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 import { MlKem768 } from 'mlkem';
 import { getPrivateKey } from './keyManager';
-import { EncryptedPayload } from './encrypt';
+import { EncryptedPayload } from './browserEncrypt';
 
 /**
  * Decrypts a JSON payload using hybrid AES-256-GCM + ML-KEM
@@ -26,10 +26,17 @@ export async function decryptPayload(payload: EncryptedPayload): Promise<any> {
   const decipher = crypto.createDecipheriv('aes-256-gcm', sharedSecret, iv);
   decipher.setAuthTag(authTag);
 
-  // 3. Decrypt the data
-  let plaintext = decipher.update(payload.ciphertext, 'base64', 'utf8');
-  plaintext += decipher.final('utf8');
-
-  // 4. Return parsed JSON
-  return JSON.parse(plaintext);
+  // 3. Decrypt the data and verify integrity
+  try {
+    let plaintext = decipher.update(payload.ciphertext, 'base64', 'utf8');
+    plaintext += decipher.final('utf8');
+    
+    // 4. Return parsed JSON
+    return JSON.parse(plaintext);
+  } catch (error: any) {
+    if (error.message.includes('Unsupported state or unable to authenticate data')) {
+      throw new Error("Data Integrity Verification Failed: The encrypted payload was tampered with or corrupted.");
+    }
+    throw error;
+  }
 }

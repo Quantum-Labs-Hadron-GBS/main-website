@@ -1,38 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma/db";
-import { encryptPayload } from "@/lib/pqc/encrypt";
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    // In a real production app, you would add Zod validation here
-    if (!body.email || !body.name) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    // Verify it's an encrypted payload
+    if (!body.ciphertext || !body.encapsulated_key || !body.iv || !body.auth_tag || !body.key_version) {
+      return NextResponse.json({ error: "Invalid encrypted payload" }, { status: 400 });
     }
 
-    // 1. Post-Quantum Encryption Pipeline
-    // The body contains plaintext PII. We encrypt the entire JSON payload using ML-KEM + AES-256-GCM.
-    const encryptedData = await encryptPayload(body);
-
-    // 2. Persist to PostgreSQL (Only ciphertext and encapsulated key)
+    // 1. Persist to PostgreSQL (Only ciphertext and encapsulated key)
     await prisma.contactSubmission.create({
       data: {
-        ciphertext: encryptedData.ciphertext,
-        encapsulated_key: encryptedData.encapsulated_key,
-        iv: encryptedData.iv,
-        auth_tag: encryptedData.auth_tag,
-        key_version: encryptedData.key_version,
+        ciphertext: body.ciphertext,
+        encapsulated_key: body.encapsulated_key,
+        iv: body.iv,
+        auth_tag: body.auth_tag,
+        key_version: body.key_version,
       }
     });
 
-    // 3. Track a non-PII analytics event
+    // 2. Track a non-PII analytics event
     await prisma.analyticsEvent.create({
       data: {
         sessionId: req.headers.get("x-forwarded-for") || "unknown",
         page: "/contact",
         eventName: "CONTACT_FORM_SUBMITTED",
-        serviceView: body.interestedService || null,
+        serviceView: "Encrypted submission",
       }
     });
 
