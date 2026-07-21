@@ -82,14 +82,37 @@
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2.5rem;
-  transition: transform 300ms ease, box-shadow 300ms ease;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--accent), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.04);
-  border-color: var(--accent-border);
+  transform: translateY(-8px) scale(1.02);
+  background: var(--surface);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 20px var(--accent-dim);
+  border-color: transparent;
+}
+
+.card:hover::after {
+  opacity: 1;
 }
 
 .cardTitle {

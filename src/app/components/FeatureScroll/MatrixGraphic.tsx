@@ -6,9 +6,10 @@ import styles from "../FeatureScroll/FeatureScrollSection.module.css";
 
 interface MatrixGraphicProps {
   activeIndex: number;
+  colorTheme?: "orange" | "blue";
 }
 
-export default function MatrixGraphic({ activeIndex }: MatrixGraphicProps) {
+export default function MatrixGraphic({ activeIndex, colorTheme = "orange" }: MatrixGraphicProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -115,6 +116,7 @@ export default function MatrixGraphic({ activeIndex }: MatrixGraphicProps) {
     const shapeCheckers = [isCloud, isInfinity, isShield, isPulse, isRobot];
 
     const getAccentColor = () => {
+      if (colorTheme === "blue") return "#00A3FF";
       return getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#E8A020";
     };
 

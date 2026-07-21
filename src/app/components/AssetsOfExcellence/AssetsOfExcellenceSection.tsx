@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import styles from "./AssetsOfExcellenceSection.module.css";
 
 const ASSETS = [
@@ -10,24 +11,28 @@ const ASSETS = [
     tagline: "Leading Business through expertise",
     title: "Our Assets Of Excellence",
     body: "We have a team of experienced and skilled professionals who have worked with a diverse range of clients across different industries. We understand the unique challenges and requirements of each business and can provide customized solutions to meet their needs. Our team stays updated with the latest tech trends and tools to stay ahead in the game.",
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
   },
   {
     tab: "Focus on Quality Delivery",
     tagline: "Delivering exceptional results",
     title: "Uncompromising Quality",
     body: "We understand that quality is as important as timeliness for any business. Our team ensures that the solutions we deliver are of the highest quality and meet your expectations. Our processes are designed to deliver solutions that are not only efficient and effective but also reliable and scalable.",
+    img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
   },
   {
     tab: "Cost-effective Solutions",
     tagline: "Smart investment for your business",
     title: "Maximum Value, Optimal Cost",
     body: "We offer cost-effective solutions that meet your budget requirements. We work closely with our clients to understand their project scope and budget, and provide them with customized solutions that are efficient and cost-effective. We believe in building long-term relationships with our clients and strive to add value to their businesses.",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
   },
   {
     tab: "Personalized Approach",
     tagline: "Solutions tailored to your unique needs",
     title: "Tailored to Your Success",
     body: "We take a personalized approach to every project and work closely with our clients to understand their specific needs and requirements. Our team believes in open communication, transparency, and collaboration to ensure that every project is successfully delivered on time and within budget.",
+    img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
   },
 ];
 
@@ -102,9 +107,26 @@ export default function AssetsOfExcellenceSection() {
           <div className={styles.contentArea}>
             {/* Left Image */}
             <div className={styles.imageColumn}>
-              <div className={styles.imagePlaceholder}>
-                <span className={styles.imagePlaceholderText}>Image Placeholder</span>
-              </div>
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                  key={activeIndex}
+                  custom={direction}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className={styles.imagePlaceholder}
+                  style={{ position: 'relative', overflow: 'hidden', border: 'none', borderRadius: '16px' }}
+                >
+                  <Image 
+                    src={currentAsset.img} 
+                    alt={currentAsset.title} 
+                    fill 
+                    style={{ objectFit: 'cover' }} 
+                    loading="lazy"
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             {/* Right Text */}
