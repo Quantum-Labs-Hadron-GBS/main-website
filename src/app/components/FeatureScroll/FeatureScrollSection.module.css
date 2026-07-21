@@ -12,6 +12,7 @@
   height: 100vh;
   display: flex;
   align-items: center;
+  padding-top: clamp(80px, 12vh, 120px);
   overflow: hidden;
 }
 

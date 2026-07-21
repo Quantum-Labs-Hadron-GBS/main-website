@@ -45,9 +45,9 @@
 .folderContainer {
   display: flex;
   justify-content: center;
-  gap: 8rem;
+  gap: clamp(4rem, 8vw, 8rem);
   flex-wrap: wrap;
-  margin-top: 4rem;
+  margin-top: clamp(2rem, 5vw, 4rem);
 }
 
 @media (max-width: 768px) {

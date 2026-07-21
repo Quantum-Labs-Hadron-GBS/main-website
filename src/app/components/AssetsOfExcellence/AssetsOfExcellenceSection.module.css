@@ -10,7 +10,7 @@
   height: 100vh;
   display: flex;
   align-items: flex-start;
-  padding-top: 120px; /* Space for navbar */
+  padding-top: clamp(80px, 12vh, 120px);
   overflow: hidden;
 }
 
@@ -54,12 +54,12 @@
 .tabDivider {
   height: 1px;
   background: var(--border-strong);
-  margin-bottom: 4rem;
+  margin-bottom: clamp(2rem, 5vh, 4rem);
   margin-inline: 2rem;
 }
 
 .contentArea {
-  margin-top: 4rem; /* Additional space to push content to the center */
+  margin-top: clamp(2rem, 5vh, 4rem);
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 4rem;

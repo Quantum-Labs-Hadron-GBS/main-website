@@ -19,17 +19,17 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  width: 260px;
+  width: clamp(220px, 20vw, 260px);
   height: 200px;
   position: relative;
-  margin-top: 6rem; /* Vastly increased to leave room for the papers sticking out */
+  margin-top: clamp(3rem, 8vh, 6rem); /* Responsive top gap */
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .folder-wrapper.is-open {
   /* Only shift horizontally to distance themselves when opened */
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: clamp(20px, 5vw, 100px);
+  margin-right: clamp(20px, 5vw, 100px);
 }
 
 .folder {

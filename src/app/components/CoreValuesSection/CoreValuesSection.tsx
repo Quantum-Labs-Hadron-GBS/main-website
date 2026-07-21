@@ -69,7 +69,7 @@ export default function CoreValuesSection() {
             </p>
           </motion.div>
 
-          <div style={{ height: '450px', position: 'relative', marginTop: '3rem' }}>
+          <div style={{ height: '450px', position: 'relative', marginTop: '1.5rem' }}>
             <SimpleCardSwap
               cardDistance={60}
               verticalDistance={30}
