@@ -55,7 +55,8 @@ export default function ContactForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit form");
+        const errData = await response.json().catch(() => null);
+        throw new Error(errData?.error || "Failed to submit form to server.");
       }
 
       setStatus("success");
@@ -67,10 +68,10 @@ export default function ContactForm() {
         interestedService: "",
         message: "",
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       setStatus("error");
-      setErrorMessage("An error occurred while submitting your message. Please try again later.");
+      setErrorMessage(error.message || "An error occurred while submitting your message.");
     }
   };
 

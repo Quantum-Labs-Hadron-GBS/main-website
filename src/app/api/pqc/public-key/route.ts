@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getCurrentKeyPair } from "@/lib/pqc/keyManager";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     const { publicKey, version } = getCurrentKeyPair();

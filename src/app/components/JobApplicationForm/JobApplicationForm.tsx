@@ -85,14 +85,15 @@ export default function JobApplicationForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit application");
+        const errData = await response.json().catch(() => null);
+        throw new Error(errData?.error || "Failed to submit application to server.");
       }
 
       setStatus("success");
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       setStatus("error");
-      setErrorMessage("An error occurred while securely submitting your application. Please try again.");
+      setErrorMessage(error.message || "An error occurred while securely submitting your application. Please try again.");
     }
   };
 
