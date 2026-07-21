@@ -31,6 +31,7 @@
   padding-bottom: 1.5rem;
   transition: color 200ms ease;
   user-select: none;
+  cursor: pointer;
 }
 
 .tab:hover {
@@ -160,4 +161,41 @@
   .tab {
     white-space: nowrap;
   }
+}
+
+/* ── Accessibility / Manual Navigation Controls ── */
+.navControls {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 50;
+}
+
+.navButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.navButton:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--fg-muted);
+  transform: translateY(-2px);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }

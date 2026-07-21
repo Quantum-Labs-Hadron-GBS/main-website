@@ -47,6 +47,22 @@ export default function AssetsOfExcellenceSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const prevRef = useRef(0);
+  const isScrollingRef = useRef(false);
+
+  const handleScrollTo = (idx: number) => {
+    if (!sectionRef.current || isScrollingRef.current) return;
+    const el = sectionRef.current;
+    const rect = el.getBoundingClientRect();
+    const scrollable = rect.height - window.innerHeight;
+    const targetScrollY = window.scrollY + rect.top + (scrollable / (ASSETS.length - 1)) * idx;
+    
+    isScrollingRef.current = true;
+    window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
+    
+    setTimeout(() => {
+      isScrollingRef.current = false;
+    }, 600);
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -64,10 +80,58 @@ export default function AssetsOfExcellenceSection() {
         setActiveIndex(idx);
       }
     };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const el = sectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      
+      // Only hijack if the section is currently fully in view
+      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (activeIndex < ASSETS.length - 1) {
+            handleScrollTo(activeIndex + 1);
+          } else {
+            window.scrollTo({ top: window.scrollY + rect.bottom, behavior: 'smooth' });
+          }
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (activeIndex > 0) {
+            handleScrollTo(activeIndex - 1);
+          } else {
+            window.scrollTo({ top: window.scrollY + rect.top - 100, behavior: 'smooth' });
+          }
+        }
+      }
+    };
+
+    // Auto-advance every 2 seconds
+    const interval = setInterval(() => {
+      const el = sectionRef.current;
+      if (!el || isScrollingRef.current) return;
+      const rect = el.getBoundingClientRect();
+      
+      // If we are currently "sticky" inside the section
+      if (rect.top <= 10 && rect.bottom >= window.innerHeight - 10) {
+        if (activeIndex < ASSETS.length - 1) {
+          handleScrollTo(activeIndex + 1);
+        } else {
+          // After 1 whole round is finished by itself we can scroll to next section
+          window.scrollTo({ top: window.scrollY + rect.bottom, behavior: 'smooth' });
+        }
+      }
+    }, 2000);
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("keydown", handleKeyDown, { passive: false });
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("keydown", handleKeyDown);
+      clearInterval(interval);
+    };
+  }, [activeIndex]);
 
   const sectionHeight = (ASSETS.length + 1) * 100;
   const currentAsset = ASSETS[activeIndex] || ASSETS[0];
@@ -87,6 +151,7 @@ export default function AssetsOfExcellenceSection() {
               <div
                 key={asset.tab}
                 className={`${styles.tab} ${i === activeIndex ? styles.activeTab : ""}`}
+                onClick={() => handleScrollTo(i)}
               >
                 {asset.tab}
                 {i === activeIndex && (
@@ -148,6 +213,30 @@ export default function AssetsOfExcellenceSection() {
                 </motion.div>
               </AnimatePresence>
             </div>
+          </div>
+
+          {/* Manual Navigation Controls for accessibility */}
+          <div className={styles.navControls}>
+            <button 
+              className={styles.navButton} 
+              onClick={() => handleScrollTo(activeIndex - 1)}
+              disabled={activeIndex === 0}
+              aria-label="Previous asset"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+              </svg>
+            </button>
+            <button 
+              className={styles.navButton} 
+              onClick={() => handleScrollTo(activeIndex + 1)}
+              disabled={activeIndex === ASSETS.length - 1}
+              aria-label="Next asset"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
           </div>
 
         </div>

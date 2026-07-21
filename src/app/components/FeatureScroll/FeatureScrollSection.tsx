@@ -126,12 +126,30 @@ export default function FeatureScrollSection() {
       }
     };
 
+    // Auto-advance every 2 seconds
+    const interval = setInterval(() => {
+      const el = sectionRef.current;
+      if (!el || isScrollingRef.current) return;
+      const rect = el.getBoundingClientRect();
+      
+      // If we are currently "sticky" inside the section
+      if (rect.top <= 10 && rect.bottom >= window.innerHeight - 10) {
+        if (activeIndex < FEATURES.length - 1) {
+          handleScrollTo(activeIndex + 1);
+        } else {
+          // After 1 whole round is finished by itself we can scroll to next section
+          window.scrollTo({ top: window.scrollY + rect.bottom, behavior: 'smooth' });
+        }
+      }
+    }, 2000);
+
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("keydown", handleKeyDown, { passive: false });
     onScroll();
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("keydown", handleKeyDown);
+      clearInterval(interval);
     };
   }, [activeIndex]);
 
