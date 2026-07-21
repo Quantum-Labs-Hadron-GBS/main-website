@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "pqc:init": "npx tsx src/lib/pqc/initKeys.ts"
+    "pqc:init": "npx tsx src/lib/pqc/initKeys.ts",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.9.0",
