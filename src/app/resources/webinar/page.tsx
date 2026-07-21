@@ -1,5 +1,6 @@
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import BreadcrumbNav from "../../components/BreadcrumbNav/BreadcrumbNav";
 import styles from "../Resources.module.css";
 
 // Data structure prepared for future CMS integration
@@ -37,6 +38,11 @@ export default function WebinarPage() {
 
       {/* Hero Section */}
       <section className={`${styles.hero} container`}>
+        <BreadcrumbNav items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/#resources" },
+          { label: "Webinars" }
+        ]} />
         <span className={styles.heroTag}>Webinars</span>
         <h1 className={styles.heroTitle}>Live Conversations. Real Answers.</h1>
         <p className={styles.heroDesc}>

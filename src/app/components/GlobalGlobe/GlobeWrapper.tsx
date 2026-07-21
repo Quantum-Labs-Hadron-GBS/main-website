@@ -6,7 +6,7 @@ import GlobalGlobe from "./GlobalGlobe";
 export default function GlobeWrapper() {
   const pathname = usePathname();
   
-  // If we are not on the homepage, apply a blur effect
+  // If we are not on the homepage, make it a subtle background element
   const isSubPage = pathname !== "/";
 
   return (
@@ -16,8 +16,8 @@ export default function GlobeWrapper() {
         inset: 0,
         zIndex: 0,
         pointerEvents: isSubPage ? 'none' : 'auto', // disable interaction on subpages
-        filter: isSubPage ? 'blur(2px) saturate(120%) opacity(0.85)' : 'none',
-        transition: 'filter 800ms ease, opacity 800ms ease',
+        filter: isSubPage ? 'opacity(0.4)' : 'none',
+        transition: 'filter 800ms ease',
       }}
       aria-hidden={isSubPage ? "true" : "false"}
     >

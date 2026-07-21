@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar/Navbar";
-// import CtaSection from "../components/CtaSection/CtaSection";
 import Footer from "../components/Footer/Footer";
+import BreadcrumbNav from "../components/BreadcrumbNav/BreadcrumbNav";
 import styles from "./Careers.module.css";
 
 const WHY_JOIN = [
@@ -23,7 +23,11 @@ export default function CareersOverviewPage() {
     <main className={styles.main}>
       <Navbar />
 
-      <section className={`${styles.hero} container`}>
+      <section className={`${styles.hero} container`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <BreadcrumbNav items={[
+          { label: "Home", href: "/" },
+          { label: "Careers" }
+        ]} />
         <span className={styles.heroTag}>Careers at Hadron GBS</span>
         <h1 className={styles.heroTitle}>Built Together. Delivered Better.</h1>
         <p className={styles.heroDesc}>

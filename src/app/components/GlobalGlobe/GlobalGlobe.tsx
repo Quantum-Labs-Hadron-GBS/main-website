@@ -69,6 +69,11 @@ const LANG: GTarget[] = [
 ──────────────────────────────────────────────────────────────── */
 export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const isSubPageRef = useRef(isSubPage);
+
+  useEffect(() => {
+    isSubPageRef.current = isSubPage;
+  }, [isSubPage]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -129,7 +134,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
 
     /* ── Compute scroll-driven target ── */
     const getTarget = (): GTarget & { opacity: number } => {
-      if (isSubPage) {
+      if (isSubPageRef.current) {
         return {
           cxF: 1,
           cyF: 0.5,

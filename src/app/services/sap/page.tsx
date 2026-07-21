@@ -3,6 +3,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function Page() {
   return (
     <ServiceLayout
+      breadcrumbName="SAP"
       title={`Drive Intelligent Enterprise Excellence with <span style="color: var(--accent);">Hadron GBS & SAP</span>`}
       subtitle="At Hadron GBS, we believe that a truly resilient business is built on a foundation of integrated, real-time data. As a strategic SAP partner, we help organizations move beyond legacy ERP systems to become ‘Intelligent Enterprises.’"
       solutions={[

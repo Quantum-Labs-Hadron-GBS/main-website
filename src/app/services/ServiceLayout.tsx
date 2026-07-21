@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar/Navbar";
 import CtaSection from "../components/CtaSection/CtaSection";
 import Footer from "../components/Footer/Footer";
+import BreadcrumbNav from "../components/BreadcrumbNav/BreadcrumbNav";
 import styles from "./ServicePage.module.css";
 
 interface ServiceLayoutProps {
@@ -9,15 +10,21 @@ interface ServiceLayoutProps {
   solutions: { title: string; desc: string }[];
   framework: { step: string; title: string; desc: string; outcome: string }[];
   whyHadron: { title: string; desc: string }[];
+  breadcrumbName?: string;
 }
 
-export default function ServiceLayout({ title, subtitle, solutions, framework, whyHadron }: ServiceLayoutProps) {
+export default function ServiceLayout({ title, subtitle, solutions, framework, whyHadron, breadcrumbName = "Offering" }: ServiceLayoutProps) {
   return (
     <main className={styles.main}>
       <Navbar />
 
       {/* Hero Section */}
       <section className={`${styles.hero} container`}>
+        <BreadcrumbNav items={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/#services" },
+          { label: breadcrumbName }
+        ]} />
         <span className={styles.heroTag}>Service Offering</span>
         <h1 className={styles.heroTitle} dangerouslySetInnerHTML={{ __html: title }} />
         <p className={styles.heroDesc}>{subtitle}</p>

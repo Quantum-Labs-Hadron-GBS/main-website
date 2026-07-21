@@ -1,6 +1,7 @@
 import Navbar from "../../components/Navbar/Navbar";
 import CtaSection from "../../components/CtaSection/CtaSection";
 import Footer from "../../components/Footer/Footer";
+import BreadcrumbNav from "../../components/BreadcrumbNav/BreadcrumbNav";
 import styles from "../ServicePage.module.css";
 import { Metadata } from "next";
 
@@ -64,6 +65,11 @@ export default function ServiceNowPage() {
       
       {/* Hero */}
       <section className={`${styles.hero} container`}>
+        <BreadcrumbNav items={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/#services" },
+          { label: "ServiceNow" }
+        ]} />
         <span className={styles.heroTag}>ServiceNow Offerings</span>
         <h1 className={styles.heroTitle}>Unleash the Power of <span style={{color: "var(--accent)"}}>ServiceNow</span></h1>
         <p className={styles.heroDesc}>

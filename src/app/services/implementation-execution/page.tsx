@@ -3,7 +3,8 @@ import ServiceLayout from "../ServiceLayout";
 export default function ImplementationExecutionPage() {
   return (
     <ServiceLayout
-      title="Implementation and Execution"
+      breadcrumbName="Implementation & Execution"
+      title={`Precision Implementation with <span style="color: var(--accent);">Hadron GBS</span>`}
       subtitle="Turning Strategy into Systems That Deliver Under Real Conditions"
       solutions={[
         { title: "Adoption and stabilisation", desc: "A dedicated hypercare phase follows every release. The team that built the solution stays on to monitor adoption and resolve issues before they settle in." },

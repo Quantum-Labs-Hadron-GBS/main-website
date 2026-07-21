@@ -12,18 +12,24 @@
 }
 
 .heroTag {
-  display: inline-block;
-  padding: 0.4rem 1rem;
-  background: var(--accent-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   color: var(--accent);
-  border: 1px solid var(--accent-border);
-  border-radius: 9999px;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 2rem;
+}
+
+.heroTag::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
 }
 
 .heroTitle {

@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import CtaSection from "../components/CtaSection/CtaSection";
+import BreadcrumbNav from "../components/BreadcrumbNav/BreadcrumbNav";
 import AboutScrollSection from "./AboutScrollSection";
 import AboutTimeline from "./AboutTimeline";
 import styles from "./About.module.css";
@@ -70,7 +71,11 @@ export default function AboutPage() {
       
       {/* Hero */}
       <section className={styles.hero}>
-        <div className="container">
+        <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <BreadcrumbNav items={[
+            { label: "Home", href: "/" },
+            { label: "About" }
+          ]} />
           <span className={styles.heroTag}>About Us</span>
           <h1 className={styles.heroTitle}>Choose The Best IT Service Company</h1>
           <p className={styles.heroDesc}>

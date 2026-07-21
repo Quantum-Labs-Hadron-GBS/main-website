@@ -1,6 +1,7 @@
 import Navbar from "../../components/Navbar/Navbar";
 import CtaSection from "../../components/CtaSection/CtaSection";
 import Footer from "../../components/Footer/Footer";
+import BreadcrumbNav from "../../components/BreadcrumbNav/BreadcrumbNav";
 import styles from "../Resources.module.css";
 
 // Data structure prepared for future CMS integration
@@ -65,6 +66,11 @@ export default function SuccessStoriesPage() {
 
       {/* Hero Section */}
       <section className={`${styles.hero} container`}>
+        <BreadcrumbNav items={[
+          { label: "Home", href: "/" },
+          { label: "Resources", href: "/#resources" },
+          { label: "Success Stories" }
+        ]} />
         <span className={styles.heroTag}>Success Stories</span>
         <h1 className={styles.heroTitle}>Proof, Not Promises</h1>
         <p className={styles.heroDesc}>

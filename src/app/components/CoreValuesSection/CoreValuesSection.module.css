@@ -33,18 +33,25 @@
 }
 
 .tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
   font-size: 0.85rem;
   font-family: 'Space Grotesk', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 1rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 50px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+}
+
+.tag::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
 }
 
 .title {
