@@ -27,93 +27,33 @@ export default function LanguageScrollSection() {
   const sectionRef  = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction,   setDirection]   = useState(1);
-  const prevRef = useRef(0);
-  const isScrollingRef = useRef(false);
+  const handlePrev = () => {
+    setActiveIndex((current) => {
+      const next = current === 0 ? ITEMS.length - 1 : current - 1;
+      setDirection(-1);
+      return next;
+    });
+  };
 
-  const handleScrollTo = (idx: number) => {
-    if (!sectionRef.current || isScrollingRef.current) return;
-    const el = sectionRef.current;
-    const rect = el.getBoundingClientRect();
-    const scrollable = rect.height - window.innerHeight;
-    const targetScrollY = window.scrollY + rect.top + (scrollable / (ITEMS.length - 1)) * idx;
-    
-    isScrollingRef.current = true;
-    window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
-    
-    setTimeout(() => {
-      isScrollingRef.current = false;
-    }, 600);
+  const handleNext = () => {
+    setActiveIndex((current) => {
+      const next = (current + 1) % ITEMS.length;
+      setDirection(1);
+      return next;
+    });
   };
 
   useEffect(() => {
-    const onScroll = () => {
-      const el = sectionRef.current;
-      if (!el) return;
-      const rect       = el.getBoundingClientRect();
-      const scrollable = rect.height - window.innerHeight;
-      if (scrollable <= 0) return;
-      const prog = Math.max(0, Math.min(1, -rect.top / scrollable));
-      const idx  = Math.min(ITEMS.length - 1, Math.floor(prog * ITEMS.length));
-      if (idx !== prevRef.current) {
-        setDirection(idx > prevRef.current ? 1 : -1);
-        prevRef.current = idx;
-        setActiveIndex(idx);
-      }
-    };
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      const el = sectionRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      
-      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-        if (e.key === 'ArrowDown') {
-          e.preventDefault();
-          if (activeIndex < ITEMS.length - 1) {
-            handleScrollTo(activeIndex + 1);
-          } else {
-            window.scrollTo({ top: window.scrollY + rect.bottom, behavior: 'smooth' });
-          }
-        } else if (e.key === 'ArrowUp') {
-          e.preventDefault();
-          if (activeIndex > 0) {
-            handleScrollTo(activeIndex - 1);
-          } else {
-            window.scrollTo({ top: window.scrollY + rect.top - 100, behavior: 'smooth' });
-          }
-        }
-      }
-    };
-
-    // Auto-advance every 2 seconds
+    // Auto-advance every 4 seconds
     const interval = setInterval(() => {
-      const el = sectionRef.current;
-      if (!el || isScrollingRef.current) return;
-      const rect = el.getBoundingClientRect();
-      
-      // If we are currently "sticky" inside the section
-      if (rect.top <= 10 && rect.bottom >= window.innerHeight - 10) {
-        if (activeIndex < ITEMS.length - 1) {
-          handleScrollTo(activeIndex + 1);
-        } else {
-          // After 1 whole round is finished by itself we can scroll to next section
-          window.scrollTo({ top: window.scrollY + rect.bottom, behavior: 'smooth' });
-        }
-      }
-    }, 2000);
+      handleNext();
+    }, 4000);
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("keydown", handleKeyDown, { passive: false });
-    onScroll();
-    
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("keydown", handleKeyDown);
       clearInterval(interval);
     };
   }, [activeIndex]);
 
-  const sectionHeight = (ITEMS.length + 1) * 100;
   const currentItem = ITEMS[activeIndex] || ITEMS[0];
 
   return (
@@ -124,11 +64,12 @@ export default function LanguageScrollSection() {
     <div
       ref={sectionRef}
       id="language-section"
+      data-active-index={activeIndex}
       className={styles.section}
-      style={{ height: `${sectionHeight}vh` }}
+      style={{ height: `100vh`, position: 'relative' }}
       aria-label="VOXITY language support"
     >
-      <div className={styles.sticky}>
+      <div className={styles.sticky} style={{ position: 'absolute', height: '100%', width: '100%' }}>
         <div className={styles.eyebrow}>
           <span className="section-tag">Global Presence</span>
         </div>
@@ -190,8 +131,7 @@ export default function LanguageScrollSection() {
         <div className={styles.navControls}>
           <button 
             className={styles.navButton} 
-            onClick={() => handleScrollTo(activeIndex - 1)}
-            disabled={activeIndex === 0}
+            onClick={handlePrev}
             aria-label="Previous location"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -200,8 +140,7 @@ export default function LanguageScrollSection() {
           </button>
           <button 
             className={styles.navButton} 
-            onClick={() => handleScrollTo(activeIndex + 1)}
-            disabled={activeIndex === ITEMS.length - 1}
+            onClick={handleNext}
             aria-label="Next location"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

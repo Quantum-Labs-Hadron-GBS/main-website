@@ -14,6 +14,7 @@ export interface BentoCardData {
   description: string;
   label?: string | ReactNode;
   icon?: ReactNode;
+  glowColor?: string;
 }
 
 interface MagicBentoProps {
@@ -487,11 +488,12 @@ const MagicBento = ({
 
       <BentoCardGrid gridRef={gridRef}>
         {cards.map((card, index) => {
+          const cardGlowColor = card.glowColor || glowColor;
           const baseClassName = `magic-bento-card ${textAutoHide ? 'magic-bento-card--text-autohide' : ''} ${enableBorderGlow ? 'magic-bento-card--border-glow' : ''}`;
           const cardProps = {
             className: baseClassName,
             style: {
-              '--glow-color': glowColor
+              '--glow-color': cardGlowColor
             } as any
           };
 
@@ -502,7 +504,7 @@ const MagicBento = ({
                 {...cardProps}
                 disableAnimations={shouldDisableAnimations}
                 particleCount={particleCount}
-                glowColor={glowColor}
+                glowColor={cardGlowColor}
                 enableTilt={enableTilt}
                 clickEffect={clickEffect}
                 enableMagnetism={enableMagnetism}
@@ -601,7 +603,7 @@ const MagicBento = ({
                     width: ${maxDistance * 2}px;
                     height: ${maxDistance * 2}px;
                     border-radius: 50%;
-                    background: radial-gradient(circle, rgba(${glowColor}, 0.4) 0%, rgba(${glowColor}, 0.2) 30%, transparent 70%);
+                    background: radial-gradient(circle, rgba(${cardGlowColor}, 0.4) 0%, rgba(${cardGlowColor}, 0.2) 30%, transparent 70%);
                     left: ${x - maxDistance}px;
                     top: ${y - maxDistance}px;
                     pointer-events: none;

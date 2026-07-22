@@ -30,10 +30,14 @@ export function getCurrentKeyPair(): KeyPair {
   let privHex = "";
 
   // Try to load from environment variables first (for Vercel production)
-  if (process.env.PQC_PUBLIC_KEY && process.env.PQC_PRIVATE_KEY) {
+  if (process.env.PQC_PUBLIC_KEY) {
     pubHex = process.env.PQC_PUBLIC_KEY.trim();
+  }
+  if (process.env.PQC_PRIVATE_KEY) {
     privHex = process.env.PQC_PRIVATE_KEY.trim();
-  } else {
+  }
+
+  if (!pubHex || !privHex) {
     // Fallback to local files for development
     try {
       const keysDir = path.join(process.cwd(), 'keys');

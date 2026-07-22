@@ -14,7 +14,7 @@ interface CardSwapProps {
 }
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`${styles.card} ${className}`}>{children}</div>;
+  return <div className={`glass-card ${styles.card} ${className}`}>{children}</div>;
 }
 
 export default function SimpleCardSwap({

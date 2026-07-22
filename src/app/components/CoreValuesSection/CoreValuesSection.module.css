@@ -1,8 +1,7 @@
 .section {
   position: relative;
-  background-color: var(--bg);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(100, 140, 255, 0.18) 45%, rgba(100, 140, 255, 0.18) 55%, var(--bg) 100%);
   z-index: 10;
-  border-top: 1px solid var(--border);
 }
 
 .sticky {
@@ -76,9 +75,9 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--blue);
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--accent), #ffffff);
+  background: linear-gradient(135deg, var(--blue), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

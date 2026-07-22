@@ -52,7 +52,7 @@ interface GTarget {
 }
 
 const HERO: GTarget = {
-  cxF: 0.5, cyF: 1.00, rF: 0.90, zoom: 1.0,
+  cxF: 0.85, cyF: 0.45, rF: 0.35, zoom: 1.0,
   rot: [-60, -20], auto: true, marker: null,
 };
 
@@ -168,24 +168,27 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
       if (lr.bottom <= 0) return { ...LANG[4], opacity: 0 };
 
       /* Inside language section */
-      const scrollable = lr.height - H;
-      const scrolledIn = clamp(-lr.top, 0, scrollable);
-      const progress   = scrolledIn / Math.max(1, scrollable);
+      const autoCycleIdx = parseInt(langEl.getAttribute("data-active-index") || "0", 10);
+      const targetLang = LANG[autoCycleIdx] || LANG[0];
       
-      // Calculate which city we are on, and the fractional progress between cities
-      const rawIdx     = progress * 4;
-      const idx        = Math.min(3, Math.floor(rawIdx));
-      const fraction   = rawIdx - idx; // 0.0 to 1.0 between cities
-      
-      // Create a parabolic dip (pull-back) in zoom when transitioning
-      // Math.sin(fraction * Math.PI) is 0 at boundaries, and 1.0 in the exact middle.
-      // We only want the dip if we are actually moving between two valid cities.
-      let parabolicZoom = LANG[idx].zoom;
-      if (idx < 3) {
-        parabolicZoom = LANG[idx].zoom - (Math.sin(fraction * Math.PI) * 1.6);
+      // Calculate a fractional progress for entering/exiting to tie zoom to scroll!
+      // When lr.top is H, progress is 0. When lr.top is 0, progress is 1 (fully in).
+      // Let's create a smooth zoom interpolation!
+      let scrollProgress = 1;
+      if (lr.top > 0) {
+        scrollProgress = Math.max(0, 1 - (lr.top / H));
+      } else if (lr.bottom < H) {
+        scrollProgress = Math.max(0, lr.bottom / H);
       }
 
-      return { ...LANG[idx], zoom: parabolicZoom, opacity: 1 };
+      // If we are fully inside, scrollProgress is 1. We just return targetLang.
+      // The `livZoom` and `livRot` in draw() will lerp to targetLang over time!
+      // We force a manual zoom multiplier for the scroll effect.
+      return { 
+        ...targetLang, 
+        zoom: HERO.zoom + (targetLang.zoom - HERO.zoom) * scrollProgress,
+        opacity: Math.min(1, scrollProgress * 1.5) 
+      };
     };
 
     /* ── Draw loop ── */
@@ -389,22 +392,22 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
             ctx.shadowBlur = 0;
             ctx.stroke();
 
-            ctx.font = "600 12px 'Space Grotesk', sans-serif";
+            ctx.font = "600 10px 'Space Grotesk', sans-serif";
             const tw = ctx.measureText(target.name).width;
             
             ctx.shadowColor = "rgba(0,0,0,0.08)";
             ctx.shadowBlur = 12;
             ctx.shadowOffsetY = 4;
             ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
-            ctx.fillRect(mx + 35, my - 39, tw + 20, 28);
+            ctx.fillRect(mx + 30, my - 34, tw + 16, 22);
             
             ctx.shadowBlur = 0;
             ctx.shadowOffsetY = 0;
             ctx.strokeStyle = accent;
-            ctx.strokeRect(mx + 35, my - 39, tw + 20, 28);
+            ctx.strokeRect(mx + 30, my - 34, tw + 16, 22);
 
             ctx.fillStyle = accent;
-            ctx.fillText(target.name, mx + 45, my - 20);
+            ctx.fillText(target.name, mx + 38, my - 19);
           }
           
           ctx.restore();

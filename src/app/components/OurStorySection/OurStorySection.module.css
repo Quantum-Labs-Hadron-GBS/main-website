@@ -1,6 +1,6 @@
 .storySection {
   padding: 120px 0;
-  background-color: var(--bg);
+  background-color: var(--bg-alt);
   position: relative;
   z-index: 10;
   border-top: 1px solid var(--border);

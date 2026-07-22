@@ -49,14 +49,20 @@ export default function HeroSection() {
     <section className={styles.hero} id="hero" aria-label="Hero">
       <div className={styles.noiseBg} aria-hidden="true" />
 
-      <div className={`${styles.content} container`}>
-        {/* Headline */}
+      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        <div className={styles.content}>
+
+          {/* Eyebrow */}
+        <div className={styles.eyebrow}>
+          <span className={styles.eyebrowDot} />
+          Enterprise Technology Partner
+        </div>
 
         {/* Headline */}
         <h1 className={styles.headline}>
-          <span className={styles.headlineLine}>Your Enterprise Platforms</span>
-          <span className={styles.headlineLine}>Should Work as</span>
-          <span className={styles.headlineLine}><span className={styles.headlineAccent}>Hard as You Do</span></span>
+          <span className={styles.headlineLine}>Your Enterprise</span>
+          <span className={styles.headlineLine}>Platforms Should</span>
+          <span className={styles.headlineLine}>Work as <span className={styles.headlineAccent}>Hard as You Do</span></span>
         </h1>
 
         {/* Sub copy */}
@@ -64,28 +70,28 @@ export default function HeroSection() {
           Hadron GBS turns complex technology investments into real operational outcomes. From strategy to managed services, we make enterprise platforms deliver what was promised.
         </p>
 
-        {/* CTAs */}
-        <div className={styles.ctaRow}>
-          <a href="#services" id="hero-get-demo" className={styles.ctaPrimary}>Explore Services</a>
-          <a href="#contact" id="hero-see-product" className={styles.ctaSecondary}>
-            Contact Us
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </a>
-        </div>
+        {/* Action Row: CTAs and Stats adjacent */}
+        <div className={styles.actionRow}>
+          {/* CTAs */}
+          <div className={styles.ctaRow}>
+            <a href="#services" id="hero-get-demo" className={styles.ctaPrimary}>Explore Services</a>
+            <a href="#contact" id="hero-see-product" className={styles.ctaSecondary}>
+              Contact Us
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+          </div>
 
-        {/* Stats */}
-        <div className={styles.statsRow}>
-          {STATS.map(s => <StatCounter key={s.label} {...s} />)}
+          {/* Stats */}
+          <div className={styles.statsRow}>
+            {STATS.map(s => <StatCounter key={s.label} {...s} />)}
+          </div>
+        </div>
         </div>
       </div>
 
-      {/*
-        Globe is rendered by GlobalGlobe (fixed layer).
-        This spacer gives visual breathing room so the horizon globe
-        appears to rise from the bottom of the hero section.
-      */}
+      {/* Globe spacer (now hidden — globe sits to the right) */}
       <div className={styles.globeSpacer} aria-hidden="true" />
 
       {/* Marquee pinned to bottom of Hero */}
