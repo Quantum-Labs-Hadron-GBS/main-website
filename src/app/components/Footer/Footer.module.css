@@ -1,9 +1,10 @@
 .footer {
   position: relative;
-  border-top: 1px solid var(--border);
+  background-color: #07070A;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
   padding: 4rem 0 2rem;
-  margin-top: 6rem;
+  margin-top: 0;
   transition: var(--theme-transition);
 }
 
@@ -79,12 +80,12 @@
 
 .footerLink {
   font-size: 0.875rem;
-  color: var(--fg-muted);
+  color: #6B6B7A;
   transition: color 200ms ease;
 }
 
 .footerLink:hover {
-  color: var(--fg);
+  color: var(--accent);
 }
 
 /* Divider */

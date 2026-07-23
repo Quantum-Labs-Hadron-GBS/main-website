@@ -43,7 +43,6 @@ function StatCounter({ value, suffix, label, format = true }: { value: number; s
     </div>
   );
 }
-
 export default function HeroSection() {
   return (
     <section className={styles.hero} id="hero" aria-label="Hero">

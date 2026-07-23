@@ -4,83 +4,79 @@
    CSS CUSTOM PROPERTIES — THEME SYSTEM
 ───────────────────────────────────────── */
 
+/* ═══════════════════════════════════════════
+   MYNA UI DARK THEME — Hadron GBS
+   Deep black base, orange accent, dark glass
+═══════════════════════════════════════════ */
 :root {
-  --bg: #ffffff;
-  --bg-alt: #f8f9fc;          /* Barely-off-white for alternating sections */
-  --fg: #0f1117;
-  --fg-muted: #4a5568;
-  --fg-subtle: #9aa0aa;
-  --border: rgba(0, 0, 0, 0.07);
-  --border-strong: rgba(0, 0, 0, 0.14);
-  --surface: rgba(0, 0, 0, 0.025);
-  --surface-hover: rgba(0, 0, 0, 0.05);
-  --card-bg: #ffffff;
-  --card-shadow: 0 2px 24px rgba(0,0,0,0.06);
-  --glow: rgba(0, 0, 0, 0.06);
+  --bg:            #0A0A0F;
+  --bg-alt:        #0E0E15;
+  --bg-card:       #111118;
+  --fg:            #F5F5F0;
+  --fg-muted:      #A8A8B3;
+  --fg-subtle:     #6B6B7A;
+  --border:        rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --surface:       rgba(255, 255, 255, 0.03);
+  --surface-hover: rgba(255, 255, 255, 0.06);
 
-  /* ── Accent A: Hadron Orange ── */
+  /* Cards: ultra-dark glass */
+  --card-bg:       rgba(255, 255, 255, 0.035);
+  --card-fg:       #F5F5F0;
+  --card-fg-muted: #A8A8B3;
+  --card-shadow:   0 1px 0 rgba(255,255,255,0.05), 0 16px 60px rgba(0, 0, 0, 0.6);
+  --glow:          rgba(244, 124, 54, 0.08);
+
+  /* ── Accent: Hadron Orange (dominant) ── */
   --accent:        #F47C36;
   --accent-bright: #FF9B5E;
-  --accent-dim:    rgba(244, 124, 54, 0.10);
-  --accent-border: rgba(244, 124, 54, 0.30);
+  --accent-dim:    rgba(244, 124, 54, 0.12);
+  --accent-border: rgba(244, 124, 54, 0.35);
 
-  /* ── Accent B: Hadron Brand Blue ── */
-  --blue:          #00529B;
-  --blue-bright:   #0066CC;
-  --blue-dim:      rgba(0, 82, 155, 0.08);
-  --blue-border:   rgba(0, 82, 155, 0.25);
+  /* ── Accent B: Hadron Blue (secondary only) ── */
+  --blue:          #1E6FBF;
+  --blue-bright:   #2D85D8;
+  --blue-dim:      rgba(30, 111, 191, 0.10);
+  --blue-border:   rgba(30, 111, 191, 0.25);
 
-  --theme-transition: background-color 600ms ease, color 600ms ease, border-color 600ms ease, box-shadow 600ms ease, filter 600ms ease;
-
-  /* Navbar */
-  --nav-bg: rgba(255, 255, 255, 0.80);
-  --nav-border: rgba(0, 0, 0, 0.08);
-  --nav-fallback: rgba(255, 255, 255, 0.97);
-  --logo-filter: none;
-}
-
-[data-theme="dark"] {
-  --bg: #09090b;
-  --bg-alt: #0f0f12;
-  --fg: #f0f0f5;
-  --fg-muted: #a1a1aa;
-  --fg-subtle: #71717a;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.18);
-  --surface: rgba(255, 255, 255, 0.03);
-  --surface-hover: rgba(255, 255, 255, 0.07);
-  --card-bg: #141418;
-  --card-shadow: 0 4px 40px rgba(0,0,0,0.5);
-  --glow: rgba(255, 255, 255, 0.06);
-  --blue:         #3B9EFF;
-  --blue-bright:  #5BB8FF;
-  --blue-dim:     rgba(59, 158, 255, 0.12);
-  --blue-border:  rgba(59, 158, 255, 0.25);
+  --theme-transition: background-color 600ms ease, color 600ms ease, border-color 600ms ease, box-shadow 600ms ease;
 
   /* Navbar */
-  --nav-bg: rgba(9, 9, 11, 0.85);
-  --nav-border: rgba(255, 255, 255, 0.10);
-  --nav-fallback: rgba(9, 9, 11, 0.97);
-  --logo-filter: invert(1) brightness(2);
+  --nav-bg:       rgba(10, 10, 15, 0.5);
+  --nav-border:   rgba(255, 255, 255, 0.08);
+  --nav-fallback: rgba(10, 10, 15, 0.98);
+  --logo-filter:  brightness(0) invert(1);
+
+  /* Globe — orange-ember style matching reference image */
+  --globe-land:        #0D1B2E;
+  --globe-outline:     rgba(244, 124, 54, 0.7);
+  --globe-ring-bg:     rgba(8, 20, 40, 0.8);
+  --globe-ring-border: rgba(244, 124, 54, 0.3);
+  --globe-graticule:   rgba(244, 124, 54, 0.25);
+  --globe-marker:      #F47C36;
 }
 
 /* ─────────────────────────────────────────
-   CARD SURFACE — clean white cards on white bg
+   CARD SURFACE — ultra-dark glass
 ───────────────────────────────────────── */
 .glass-card {
-  background: #ffffff;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
-  border-top: 2px solid var(--blue);
-  box-shadow: 0 4px 24px rgba(0, 82, 155, 0.07), 0 1px 4px rgba(0,0,0,0.04);
+  border-top: 1px solid rgba(244, 124, 54, 0.15);
+  box-shadow: var(--card-shadow);
   border-radius: 16px;
-  /* padding provided by consuming component */
 }
 
 .glass-card h1, .glass-card h2, .glass-card h3, .glass-card h4 {
-  color: var(--fg);
+  color: var(--card-fg);
 }
 .glass-card p {
-  color: var(--fg-muted);
+  color: var(--card-fg-muted);
+}
+.glass-card {
+  color: var(--card-fg);
 }
 
 /* ─────────────────────────────────────────
@@ -101,11 +97,11 @@ html {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--bg);
-  /* Ethereal dual-tone gradient inspired by the requested image */
+  /* Deep dark with faint orange ember bloom — matches reference */
   background-image:
-    radial-gradient(100% 100% at 30% 0%, rgba(244, 124, 54, 0.12) 0%, rgba(244, 124, 54, 0.04) 30%, transparent 60%),
-    radial-gradient(100% 100% at 80% 0%, rgba(0, 102, 204, 0.10) 0%, transparent 60%),
-    radial-gradient(50% 50% at 100% 100%, rgba(244, 124, 54, 0.12) 0%, transparent 70%);
+    radial-gradient(ellipse 80% 60% at 15% 10%, rgba(244, 124, 54, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 85%, rgba(244, 124, 54, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 80% at 50% 0%, rgba(15, 30, 60, 0.4) 0%, transparent 70%);
   color: var(--fg);
   transition: var(--theme-transition);
   line-height: 1.6;
