@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import styles from "./PlanetHorizon.module.css";
 
 // Major world cities as [lng, lat] for arc line endpoints
 const CITIES: [number, number][] = [
