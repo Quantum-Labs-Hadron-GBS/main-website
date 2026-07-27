@@ -2,7 +2,7 @@
   position: relative;
   border-top: 1px solid var(--border);
   overflow: hidden;
-  padding: 4rem 0 2rem;
+  padding: 6rem 0 2.5rem;
   margin-top: 6rem;
   transition: var(--theme-transition);
 }
@@ -15,9 +15,9 @@
 /* Top row */
 .top {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 4rem;
-  align-items: flex-start;
+  grid-template-columns: minmax(520px, 1.45fr) 0.7fr 1.15fr;
+  gap: 5rem;
+  align-items: start;
 }
 
 .brandCol {
@@ -34,26 +34,21 @@
 }
 
 .logoImage {
-  height: 48px;
+  height: 60px;
   width: auto;
   object-fit: contain;
 }
 
 .tagline {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--fg-subtle);
   letter-spacing: 0.02em;
-  max-width: 480px;
-  line-height: 1.6;
+  max-width: 520px;
+  line-height: 1.75;
 }
 
 /* Links grid */
-.linksGrid {
-  display: grid;
-  grid-template-columns: 1fr 1.8fr;
-  gap: 3rem;
-  width: 100%;
-}
+
 
 .linkGroup {
   display: flex;
@@ -94,7 +89,7 @@
 .divider {
   height: 1px;
   background: var(--border);
-  margin: 2.5rem 0 1.5rem;
+  margin: 4rem 0 2rem;
 }
 
 /* Bottom row */
@@ -133,15 +128,15 @@
 /* Oversized background wordmark */
 .bgWord {
   position: absolute;
-  bottom: -1.5rem;
+  bottom: -4rem;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-space), sans-serif;
-  font-size: clamp(5rem, 18vw, 14rem);
+  font-size: clamp(12rem, 26vw, 24rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: var(--fg);
-  opacity: 0.03;
+  opacity: 0.035;
   user-select: none;
   pointer-events: none;
   white-space: nowrap;
@@ -151,7 +146,7 @@
 .locationsList {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .locationItem {
@@ -175,8 +170,8 @@
 .locAddress {
   font-size: 0.8rem;
   color: var(--fg-muted);
-  line-height: 1.4;
-  max-width: 300px;
+  line-height: 1.55;
+  max-width: 360px;
 }
 
 .mapSection {
@@ -216,16 +211,16 @@
 }
 
 .mapContainer {
-  width: 100%;
-  height: 220px;
-  border-radius: 8px;
+  width: 540px;
+  max-width: 100%;
+  height: 270px;
+  border-radius: 14px;
   overflow: hidden;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
   .top { grid-template-columns: 1fr; gap: 2.5rem; }
-  .linksGrid { grid-template-columns: 1fr; gap: 3rem; }
   .bottom { flex-direction: column; text-align: center; }
   .mapContainer iframe { pointer-events: none; }
 }

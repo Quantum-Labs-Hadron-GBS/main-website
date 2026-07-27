@@ -8,7 +8,7 @@ const PARTNERS = [
   {
     title: "ServiceNow",
     src: "https://res.cloudinary.com/djxbxhgat/image/upload/v1784523675/ServiceNow-Logo_kbaxks.png",
-    height: 48,
+    style: { height: "48px" }
   },
   {
     title: "BMC Software",
@@ -34,15 +34,14 @@ const PARTNERS = [
 
 export default function PartnerMarquee() {
   return (
-    <div style={{ width: '100%', padding: '2rem 0', opacity: 0.6 }}>
+    <div style={{ width: '100%', padding: '0.5rem 0', opacity: 0.7 }}>
       <LogoLoop 
         logos={PARTNERS} 
         speed={80} 
         direction="left"
         logoHeight={40}
-        gap={80}
-        fadeOut={true}
-        fadeOutColor="#090514"
+        gap={96}
+        fadeOut={false}
         pauseOnHover={true}
       />
     </div>

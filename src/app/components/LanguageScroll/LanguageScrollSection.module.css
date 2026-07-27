@@ -28,7 +28,9 @@
     Gradient covers only the LEFT half (behind text) and fades to transparent
     on the right so the fixed globe always shows through.
   */
-  background: linear-gradient(to right, var(--bg) 42%, transparent 68%);
+  background: 
+    radial-gradient(circle at top left, rgba(244, 124, 54, 0.15) 0%, transparent 40%),
+    linear-gradient(to right, var(--bg) 42%, transparent 68%);
 }
 
 .eyebrow {
@@ -77,7 +79,7 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #ffffff 0%, #d8b4fe 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #FF9A5A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
@@ -100,15 +102,15 @@
   margin-top: 1rem;
   padding: 0.4rem 1rem 0.4rem 0.6rem;
   width: fit-content;
-  background: rgba(168, 85, 247, 0.1);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  background: rgba(244, 124, 54, 0.1);
+  border: 1px solid rgba(244, 124, 54, 0.3);
   border-radius: 9999px;
-  color: #d8b4fe;
+  color: #FF9A5A;
   font-size: 0.85rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+  box-shadow: 0 0 20px rgba(244, 124, 54, 0.15);
   backdrop-filter: blur(8px);
 }
 
@@ -116,9 +118,9 @@
   width: 8px;
   height: 8px;
   flex-shrink: 0;
-  background-color: #06b6d4;
+  background-color: #00529B;
   border-radius: 50%;
-  box-shadow: 0 0 12px #06b6d4;
+  box-shadow: 0 0 12px #00529B;
   animation: pulse 2s infinite ease-in-out;
 }
 
@@ -159,6 +161,7 @@
 
   .eyebrow {
     left: 50%;
+    transform: translateX(-50%);
   }
 
   .textArea {
@@ -169,6 +172,7 @@
 
   .dots {
     left: 50%;
+    transform: translateX(-50%);
   }
 
   .stage { min-height: 280px; }
@@ -202,7 +206,7 @@
 }
 
 .navButton:hover:not(:disabled) {
-  background: rgba(168, 85, 247, 0.2);
+  background: rgba(244, 124, 54, 0.2);
   border-color: var(--accent);
   color: #fff;
   transform: scale(1.05);

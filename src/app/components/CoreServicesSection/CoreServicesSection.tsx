@@ -61,7 +61,7 @@ export default function CoreServicesSection() {
           >
             <Folder
               label="Platform Modernization"
-              color="#a855f7"
+              color="#F47C36"
               size={1.2}
               items={renderPapers(SERVICES_1)}
             />

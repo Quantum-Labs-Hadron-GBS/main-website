@@ -13,9 +13,9 @@
   z-index: 0;
   overflow: hidden;
   background: 
-    radial-gradient(circle at 15% 50%, rgba(132, 0, 255, 0.18), transparent 40%),
-    radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.15), transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.12), transparent 50%);
+    radial-gradient(circle at 15% 50%, rgba(244, 124, 54, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(0, 82, 155, 0.12), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(244, 124, 54, 0.08), transparent 50%);
 }
 
 .ambientGlow::after {
@@ -33,19 +33,19 @@
 .inner {
   position: relative;
   z-index: 10;
-  padding: 8rem 0;
+  padding: 8rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
 }
 
 .header {
   max-width: 800px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .tag {

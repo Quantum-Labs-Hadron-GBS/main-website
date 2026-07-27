@@ -97,32 +97,31 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links groups */}
-          <nav className={styles.linksGrid} aria-label="Footer navigation">
-            <div className={styles.linkGroup}>
-              <span className={styles.groupLabel}>Quick Links</span>
-              <ul className={styles.linkList}>
-                {QUICK_LINKS.map((link) => (
-                  <li key={link.label}>
-                    <a href={link.href} className={styles.footerLink}>{link.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Quick Links */}
+          <div className={styles.linkGroup}>
+            <span className={styles.groupLabel}>Quick Links</span>
+            <ul className={styles.linkList}>
+              {QUICK_LINKS.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className={styles.footerLink}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div className={styles.linkGroup}>
-              <span className={styles.groupLabel}>Global Offices</span>
-              <div className={styles.locationsList}>
-                {OFFICE_LOCATIONS.map((loc) => (
-                  <div key={loc.title} className={styles.locationItem}>
-                    <strong className={styles.locTitle}>{loc.title}</strong>
-                    <span className={styles.locName}>{loc.name}</span>
-                    <span className={styles.locAddress}>{loc.address}</span>
-                  </div>
-                ))}
-              </div>
+          {/* Global Offices */}
+          <div className={styles.linkGroup}>
+            <span className={styles.groupLabel}>Global Offices</span>
+            <div className={styles.locationsList}>
+              {OFFICE_LOCATIONS.map((loc) => (
+                <div key={loc.title} className={styles.locationItem}>
+                  <strong className={styles.locTitle}>{loc.title}</strong>
+                  <span className={styles.locName}>{loc.name}</span>
+                  <span className={styles.locAddress}>{loc.address}</span>
+                </div>
+              ))}
             </div>
-          </nav>
+          </div>
         </div>
 
         {/* Divider */}

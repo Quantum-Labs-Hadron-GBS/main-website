@@ -73,9 +73,9 @@ export const WavyBackground = ({
   // Subtle, theme-matching colors (cyan and deep purple variants)
   const waveColors = colors ?? [
     "#06b6d4",
-    "#a855f7",
+    "#F47C36",
     "#3b82f6",
-    "#c084fc",
+    "#FF9A5A",
     "#0ea5e9",
   ];
   

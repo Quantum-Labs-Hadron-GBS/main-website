@@ -16,6 +16,7 @@
   justify-content: center;
   overflow: hidden;
   padding-top: 5rem;
+  padding-bottom: 8rem;
 }
 
 /* Fine noise grain overlay */
@@ -120,13 +121,13 @@
   font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 4px 20px rgba(244, 124, 54, 0.4);
 }
 
 .ctaPrimary:hover {
   background: var(--accent-bright);
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6);
+  box-shadow: 0 6px 25px rgba(244, 124, 54, 0.6);
 }
 
 /* Secondary: ghost/outline pill */
@@ -153,11 +154,11 @@
 /* ── Marquee Section (Below Hero) ── */
 .marqueeSection {
   width: 100%;
-  padding: 4rem 0;
-  background: var(--bg);
-  position: relative;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
   z-index: 2;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: transparent;
 }
 
 /* ── Responsive ── */

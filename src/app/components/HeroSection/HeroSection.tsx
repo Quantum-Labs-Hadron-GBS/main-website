@@ -39,7 +39,7 @@ export default function HeroSection() {
           style={{ 
             position: 'absolute', 
             inset: 0, 
-            background: 'linear-gradient(to left, rgba(9,5,20,0.9) 0%, rgba(9,5,20,0.3) 100%)', 
+            background: 'radial-gradient(circle at bottom left, rgba(244, 124, 54, 0.15) 0%, transparent 40%), linear-gradient(to left, rgba(13,17,23,0.9) 0%, rgba(13,17,23,0.3) 100%)', 
             zIndex: -1 
           }} 
         />
@@ -48,11 +48,7 @@ export default function HeroSection() {
         <div className="container" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 1 }}>
           <div className={styles.content}>
 
-            {/* Eyebrow */}
-            <div className={styles.eyebrow}>
-              <span className={styles.eyebrowDot} />
-              Optimize Your Workflow
-            </div>
+
 
             {/* Headline */}
             <h1 className={styles.headline}>
@@ -77,14 +73,15 @@ export default function HeroSection() {
               </div>
             </div>
             
+            
           </div>
         </div>
+        
+        {/* Marquee Section exactly 10px above bottom of Hero section */}
+        <div className={styles.marqueeSection}>
+          <PartnerMarquee />
+        </div>
       </section>
-
-      {/* Marquee Section exactly below the Hero section */}
-      <div className={styles.marqueeSection}>
-        <PartnerMarquee />
-      </div>
     </div>
   );
 }

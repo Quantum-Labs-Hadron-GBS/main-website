@@ -264,7 +264,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         ctx.globalAlpha = livOpa;
         ctx.fill();
         // Subtle rim glow
-        ctx.strokeStyle = "rgba(168, 85, 247, 0.25)";
+        ctx.strokeStyle = colorCache.globeRingBorder;
         ctx.lineWidth = 1.5;
         ctx.stroke();
         ctx.restore();
@@ -305,7 +305,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         landData.features.forEach((f: any) => pathGen(f));
         ctx.strokeStyle = colorCache.globeOutline;
         ctx.lineWidth   = globeFits ? 0.8 : 0.6;
-        ctx.shadowColor = "rgba(168, 85, 247, 0.6)";
+        ctx.shadowColor = colorCache.globeOutline;
         ctx.shadowBlur  = 6;
         ctx.globalAlpha = livOpa * (globeFits ? 0.85 : 0.65);
         ctx.stroke();
@@ -330,7 +330,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
             const baseAlpha = 0.2 + (ei % 7) * 0.08;
             ctx.beginPath();
             ctx.arc(px, py, r, 0, Math.PI * 2);
-            ctx.fillStyle = "#06b6d4"; // Cyan embers
+            ctx.fillStyle = colorCache.globeMarker; // Orange embers
             ctx.globalAlpha = livOpa * baseAlpha;
             ctx.fill();
           }
@@ -350,9 +350,9 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
             if ((px - cx) * (px - cx) + (py - cy) * (py - cy) > R * R * 0.97) continue;
             // Outer glow ring
             const grd = ctx.createRadialGradient(px, py, 0, px, py, 12);
-            grd.addColorStop(0,   "rgba(6, 182, 212, 0.8)");
-            grd.addColorStop(0.4, "rgba(6, 182, 212, 0.3)");
-            grd.addColorStop(1,   "rgba(6, 182, 212, 0)");
+            grd.addColorStop(0,   "rgba(244, 124, 54, 0.8)");
+            grd.addColorStop(0.4, "rgba(244, 124, 54, 0.3)");
+            grd.addColorStop(1,   "rgba(244, 124, 54, 0)");
             ctx.beginPath();
             ctx.arc(px, py, 12, 0, Math.PI * 2);
             ctx.fillStyle = grd;
@@ -361,8 +361,8 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
             // Core dot
             ctx.beginPath();
             ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-            ctx.fillStyle = "#22d3ee"; // Bright Cyan
-            ctx.shadowColor = "#06b6d4"; // Cyan Glow
+            ctx.fillStyle = "#FF9A5A"; // Bright Orange
+            ctx.shadowColor = "#F47C36"; // Orange Glow
             ctx.shadowBlur = 12;
             ctx.globalAlpha = livOpa;
             ctx.fill();
@@ -387,7 +387,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
           const alpha = 0.15 + (si % 6) * 0.07;
           ctx.beginPath();
           ctx.arc(px, py, r, 0, Math.PI * 2);
-          ctx.fillStyle = "#a855f7"; // Purple space embers
+          ctx.fillStyle = colorCache.globeMarker; // Space embers
           ctx.globalAlpha = livOpa * alpha;
           ctx.fill();
         }
