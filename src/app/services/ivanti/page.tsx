@@ -3,7 +3,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function Page() {
   return (
     <ServiceLayout
-      title={`Secure and Manage the Everywhere Workstyle with <span style="color: var(--accent);">Hadron GBS & Ivanti</span>`}
+      title={`Secure and Manage the Everywhere Workstyle with <span >Hadron GBS & Ivanti</span>`}
       subtitle="At Hadron GBS, we understand that the modern workforce is no longer confined to a single office or network. As a strategic Ivanti partner, we help organizations discover, manage, and secure every device and endpoint across the enterprise."
       solutions={[
         { title: "Ivanti Neurons for ITSM", desc: "Modernize service delivery with a flexible, cloud-optimized platform that automates workflows and improves the employee experience." },

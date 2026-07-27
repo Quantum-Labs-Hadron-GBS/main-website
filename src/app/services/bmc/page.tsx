@@ -3,7 +3,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function Page() {
   return (
     <ServiceLayout
-      title={`Empower Your Digital Enterprise with <span style="color: var(--accent);">Hadron GBS & BMC Software</span>`}
+      title={`Empower Your Digital Enterprise with <span >Hadron GBS & BMC Software</span>`}
       subtitle="At Hadron GBS, we specialize in turning operational complexity into a competitive advantage. As a strategic BMC Software partner, we help organizations transition from traditional IT management to Autonomous Digital Enterprise models. By leveraging BMC’s robust portfolio, we enable your business to scale with agility, automate at every level, and deliver data-driven insights."
       solutions={[
         { title: "BMC Helix Operations Management (AIOps)", desc: "Use advanced machine learning to predict, find, and fix issues before they impact the business." },

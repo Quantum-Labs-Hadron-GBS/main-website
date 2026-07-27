@@ -76,10 +76,10 @@ function PipelineNode({
   return (
     <motion.div
       className={`${styles.node} ${step.accent ? styles.nodeAccent : ""}`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay }}
+      
+      
+      
+      
     >
       <span className={styles.nodeLabel}>{step.label}</span>
       <span className={styles.nodeFull}>{step.full}</span>
@@ -122,10 +122,10 @@ export default function TechSection() {
                 {i < PIPELINE_STEPS.length - 1 && (
                   <motion.div
                     className={styles.connector}
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.1 + 0.3 }}
+                    
+                    
+                    
+                    
                   />
                 )}
               </div>
@@ -141,10 +141,10 @@ export default function TechSection() {
           {/* Interruption band */}
           <motion.div
             className={styles.interruptBand}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            
+            
+            
+            
           >
             <span className={styles.interruptLabel}>
               ⟳ One-stop destination for all your Enterprise Service Management needs
@@ -158,10 +158,10 @@ export default function TechSection() {
             <motion.div
               key={f.title}
               className={styles.featureCard}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              
+              
+              
+              
             >
               <span className={styles.featureIcon}>{f.icon}</span>
               <h3 className={styles.featureTitle}>{f.title}</h3>
@@ -172,10 +172,10 @@ export default function TechSection() {
 
         <motion.blockquote
           className={styles.quote}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          
+          
+          
+          
         >
           <span className={styles.quoteText}>
             &quot;We are more than just a service provider. We are a partner on your journey towards enhanced efficiency, better customer experiences, and a stronger IT infrastructure.&quot;

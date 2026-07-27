@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <ServiceLayout
       breadcrumbName="AWS Cloud"
-      title={`Scale with Confidence: Your Journey to the <span style="color: var(--accent);">AWS Cloud</span> with Hadron GBS`}
+      title={`Scale with Confidence: Your Journey to the <span >AWS Cloud</span> with Hadron GBS`}
       subtitle="At Hadron GBS, we help organizations harness the world’s most comprehensive and broadly adopted cloud platform. As a strategic AWS partner, we specialize in transforming rigid, on-premise infrastructures into agile, cloud-native environments."
       solutions={[
         { title: "Cloud Migration & Modernization", desc: "Seamlessly transition your applications to AWS using proven frameworks (Rehost, Replatform, Refactor) to reduce data center footprints and increase agility." },

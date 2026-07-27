@@ -88,8 +88,8 @@ export default function SuccessStoriesPage() {
         ))}
       </div>
 
-      <section className={`${styles.section} container`} style={{ paddingTop: '40px' }}>
-        <p className={styles.heroDesc} style={{ margin: '0 auto 4rem', textAlign: 'center', maxWidth: '900px' }}>
+      <section className={`${styles.section} container`} >
+        <p className={styles.heroDesc} >
           Every engagement starts with a hard question and ends with a measurable outcome. These are the stories behind the systems we’ve helped stabilize, modernize, and scale — told with the detail that matters to technical and business stakeholders alike.
         </p>
 
@@ -97,26 +97,26 @@ export default function SuccessStoriesPage() {
         <div className={styles.grid}>
           {CASE_STUDIES.map((study) => (
             <div key={study.id} className={styles.card}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+              <div >
                 <span className={styles.cardTag}>{study.tag}</span>
-                <div style={{ textAlign: 'right' }}>
-                  <span style={{ display: 'block', fontSize: '1.5rem', fontWeight: 700, color: 'var(--accent)' }}>{study.metric}</span>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--fg-muted)', textTransform: 'uppercase' }}>{study.metricLabel}</span>
+                <div >
+                  <span >{study.metric}</span>
+                  <span >{study.metricLabel}</span>
                 </div>
               </div>
               
               <h3 className={styles.cardTitle}>{study.title}</h3>
-              <p className={styles.cardDesc} style={{ flexGrow: 0 }}>{study.subtitle}</p>
+              <p className={styles.cardDesc} >{study.subtitle}</p>
               
               <div className={styles.caseContent}>
                 <span className={styles.caseLabel}>Challenge</span>
                 <p className={styles.caseText}>{study.challenge}</p>
                 
-                <span className={styles.caseLabel} style={{ marginTop: '1rem' }}>Approach</span>
+                <span className={styles.caseLabel} >Approach</span>
                 <p className={styles.caseText}>{study.approach}</p>
 
-                <span className={styles.caseLabel} style={{ marginTop: '1rem' }}>Result</span>
-                <p className={styles.caseText} style={{ color: 'var(--fg)', fontWeight: 500 }}>{study.result}</p>
+                <span className={styles.caseLabel} >Result</span>
+                <p className={styles.caseText} >{study.result}</p>
               </div>
 
               <a href="#" className={styles.linkBtn}>

@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <ServiceLayout
       breadcrumbName="Low-Code Development"
-      title={`Accelerate Digital Delivery with <span style="color: var(--accent);">Low-Code Development</span>`}
+      title={`Accelerate Digital Delivery with <span >Low-Code Development</span>`}
       subtitle="At Hadron GBS, we believe that technology should be an accelerator, not a bottleneck. As a specialist partner in Low-Code and No-Code (LCNC) platforms, we empower organizations to bridge the gap between business ideas and functional software."
       solutions={[
         { title: "Rapid Application Development (RAD)", desc: "Build and deploy custom business applications quickly to solve unique challenges without the overhead of traditional coding." },

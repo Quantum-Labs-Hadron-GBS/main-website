@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import styles from "./WhyHadronSection.module.css";
 import MagicBento, { BentoCardData } from "../MagicBento/MagicBento";
+import { WavyBackground } from "../WavyBackground/WavyBackground";
 
 const FEATURES: BentoCardData[] = [
   { title: "Architecture-Led Delivery", description: "We treat every engagement as a systems problem. Our architects design for structure, coherence, and long-term platform health, not just immediate go-live requirements.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>, glowColor: "0, 82, 155" },
@@ -17,33 +18,34 @@ const FEATURES: BentoCardData[] = [
 export default function WhyHadronSection() {
   return (
     <section className={styles.section} id="why-hadron">
+      {/* Premium CSS-only background */}
+      <div className={styles.ambientGlow}></div>
+      
       <div className={`${styles.inner} container`}>
-        <motion.div 
+        <motion.div
           className={styles.header}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <span className={styles.tag}>Why Hadron GBS</span>
           <h2 className={styles.title}>What Sets Us Apart</h2>
         </motion.div>
 
-        <div style={{ marginTop: '3rem' }}>
-          <MagicBento 
-            cards={FEATURES}
-            textAutoHide={true}
-            enableStars={true}
-            enableSpotlight={true}
-            enableBorderGlow={true}
-            enableTilt={false}
-            enableMagnetism={false}
-            clickEffect={true}
-            spotlightRadius={400}
-            particleCount={12}
-            disableAnimations={false}
-          />
-        </div>
+        <MagicBento
+          cards={FEATURES}
+          textAutoHide={true}
+          enableStars={true}
+          enableSpotlight={true}
+          enableBorderGlow={true}
+          enableTilt={false}
+          enableMagnetism={false}
+          clickEffect={true}
+          spotlightRadius={400}
+          particleCount={12}
+          disableAnimations={false}
+        />
       </div>
     </section>
   );

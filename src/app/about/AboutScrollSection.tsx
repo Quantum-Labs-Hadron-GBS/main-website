@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import styles from "./AboutScroll.module.css";
 
 const FEATURES = [
@@ -116,7 +115,7 @@ export default function AboutScrollSection() {
     <div
       ref={sectionRef}
       className={styles.section}
-      style={{ height: `${sectionHeight}vh` }}
+      
     >
       <div className={styles.sticky}>
         <div className="container">
@@ -128,15 +127,15 @@ export default function AboutScrollSection() {
                 key={asset.tab}
                 onClick={() => handleScrollTo(i)}
                 className={`${styles.tab} ${i === activeIndex ? styles.activeTab : ""}`}
-                style={{ cursor: 'pointer' }}
+                
               >
                 {asset.tab}
                 {i === activeIndex && (
                   <motion.div
                     layoutId="activeTabUnderlineAbout"
                     className={styles.activeUnderline}
-                    initial={false}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    
+                    
                   />
                 )}
               </div>
@@ -153,20 +152,14 @@ export default function AboutScrollSection() {
                 <motion.div
                   key={activeIndex}
                   custom={direction}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  
+                  
                   exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  
                   className={styles.imagePlaceholder}
-                  style={{ position: 'relative', overflow: 'hidden', border: 'none', borderRadius: '16px' }}
+                  
                 >
-                  <Image 
-                    src={currentAsset.img} 
-                    alt={currentAsset.title} 
-                    fill 
-                    style={{ objectFit: 'cover' }} 
-                    loading="lazy"
-                  />
+                  
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -177,11 +170,11 @@ export default function AboutScrollSection() {
                 <motion.div
                   key={activeIndex}
                   custom={direction}
-                  variants={contentVariants}
-                  initial="enter"
-                  animate="center"
+                  
+                  
+                  
                   exit="exit"
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  
                   className={styles.textBlock}
                 >
                   <span className={styles.tagline}>{currentAsset.tagline}</span>

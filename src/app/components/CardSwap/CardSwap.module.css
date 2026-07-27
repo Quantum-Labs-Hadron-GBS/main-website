@@ -18,39 +18,18 @@
   flex-direction: column;
   gap: 0.25rem;
   padding: 0.875rem 1rem;
-  border-radius: 8px;
-  text-align: left;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid transparent;
-  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
-  color: var(--fg-subtle);
 }
 
 .labelItem:hover {
-  background: var(--surface-hover);
-  color: var(--fg-muted);
 }
 
 .labelItem.labelActive {
-  background: var(--surface);
-  border-color: var(--border-strong);
-  color: var(--fg);
 }
 
 .labelNum {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  font-weight: 500;
-  opacity: 0.5;
 }
 
 .labelTitle {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
 }
 
 /* ─── Card stack ─── */
@@ -63,17 +42,11 @@
 .card {
   position: absolute;
   inset: 0;
-  border-radius: 16px;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  box-shadow: var(--card-shadow);
-  transition: border-color 600ms ease, background 600ms ease, box-shadow 600ms ease;
   will-change: transform, opacity;
   overflow: hidden;
 }
 
 .card.cardActive {
-  border-color: var(--border-strong);
 }
 
 .cardInner {
@@ -94,41 +67,20 @@
 }
 
 .cardNum {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  font-weight: 700;
-  color: var(--fg-subtle);
-  text-transform: uppercase;
 }
 
 .cardDivider {
   flex: 1;
   height: 1px;
-  background: var(--border);
 }
 
 .cardTitle {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--fg);
-  line-height: 1.1;
 }
 
 .cardSubtitle {
-  font-size: 0.82rem;
-  color: var(--fg-subtle);
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .cardBody {
-  font-size: 0.95rem;
-  color: var(--fg-muted);
-  line-height: 1.65;
   margin-top: 0.25rem;
   flex: 1;
 }
@@ -140,15 +92,11 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--border);
   overflow: hidden;
-  border-radius: 0 0 16px 16px;
 }
 
 .progressFill {
   height: 100%;
-  background: var(--fg);
-  border-radius: 2px;
 }
 
 /* Responsive */
@@ -174,6 +122,5 @@
   }
 
   .cardTitle {
-    font-size: 1.4rem;
   }
 }

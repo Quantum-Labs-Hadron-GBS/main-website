@@ -1,5 +1,4 @@
 import styles from "./PartnersSection.module.css";
-import Image from "next/image";
 
 const PARTNERS = [
   {
@@ -62,15 +61,7 @@ export default function PartnersSection() {
           {PARTNERS.map((partner) => (
             <div key={partner.id} className={styles.partnerCard}>
               <div className={styles.logoContainer}>
-                <Image 
-                  src={partner.logo} 
-                  alt={`${partner.name} Logo`} 
-                  width={200}
-                  height={80}
-                  style={{ objectFit: 'contain' }}
-                  className={styles.partnerLogo} 
-                  loading="lazy"
-                />
+                
               </div>
               <div className={styles.partnerContent}>
                 <h3 className={styles.partnerName}>{partner.name}</h3>

@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <ServiceLayout
       breadcrumbName="Tennon"
-      title={`Unify Marketing Operations on ServiceNow with <span style="color: var(--accent);">Hadron GBS & Tennon</span>`}
+      title={`Unify Marketing Operations on ServiceNow with <span >Hadron GBS & Tennon</span>`}
       subtitle="Unlock the full potential of ServiceNow with Tennon. Hadron GBS helps marketing teams streamline planning, campaign execution, and performance tracking on a single platform eliminating silos, reducing complexity, and driving smarter collaboration across the enterprise."
       solutions={[
         { title: "Marketing Automation", desc: "Automate full-funnel customer journeys triggered by real behavioral data already living in ServiceNow. Tennon\'s automation suite eliminates manual handoffs between marketing and service teams, ensuring every customer interaction is timely, relevant, and data-driven." },

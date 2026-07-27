@@ -24,28 +24,19 @@
   position: absolute;
   bottom: 2.5rem;
   left: 50%;
-  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--fg-subtle);
-  transition: opacity 400ms ease;
 }
 
 .scrollHintDot {
   width: 5px;
   height: 5px;
-  border-radius: 50%;
-  background: var(--fg-subtle);
-  animation: scrollBounce 1.8s ease-in-out infinite;
 }
 
 @keyframes scrollBounce {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(4px); }
+  0%, 100% { }
+  50%       { }
 }
 
 @media (max-width: 768px) {

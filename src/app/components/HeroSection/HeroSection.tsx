@@ -5,98 +5,86 @@ import { useEffect, useRef } from "react";
 import styles from "./HeroSection.module.css";
 import PartnerMarquee from "../PartnerMarquee/PartnerMarquee";
 
-function useCounter(target: number, duration = 1800, format = true) {
-  const ref = useRef<HTMLSpanElement>(null);
-  useEffect(() => {
-    let start: number | null = null;
-    const step = (ts: number) => {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      if (ref.current) {
-        const val = Math.round(eased * target);
-        ref.current.textContent = format ? val.toLocaleString() : val.toString();
-      }
-      if (p < 1) requestAnimationFrame(step);
-    };
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { requestAnimationFrame(step); obs.disconnect(); }
-    });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, [target, duration]);
-  return ref;
-}
-
-const STATS = [
-  { value: 2020, suffix: "",  label: "Founded", format: false },
-  { value: 4,    suffix: "+", label: "Global Offices" },
-  { value: 100,  suffix: "%", label: "Quality Delivery" },
-];
-
-function StatCounter({ value, suffix, label, format = true }: { value: number; suffix: string; label: string; format?: boolean }) {
-  const ref = useCounter(value, 1800, format);
-  return (
-    <div className={styles.stat}>
-      <div className={styles.statValue}><span ref={ref}>0</span><span>{suffix}</span></div>
-      <div className={styles.statLabel}>{label}</div>
-    </div>
-  );
-}
 export default function HeroSection() {
   return (
-    <section className={styles.hero} id="hero" aria-label="Hero">
-      <div className={styles.noiseBg} aria-hidden="true" />
+    <div className={styles.heroWrapper}>
+      <section className={styles.hero} id="hero" aria-label="Hero">
+        
+        {/* Background Video (Optimized for performance) */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: -2,
+            transform: 'translateZ(0)',
+            willChange: 'transform',
+          }}
+        >
+          {/* Cloudinary f_auto,q_auto,h_1080,c_limit added for 1080p max resolution */}
+          <source src="https://res.cloudinary.com/djxbxhgat/video/upload/f_auto,q_auto,h_1080,c_limit/v1784804662/20610-312672589_lscygw.mp4" type="video/mp4" />
+        </video>
 
-      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        <div className={styles.content}>
+        {/* Gradient Overlay for Text Readability - Darker on the right */}
+        <div 
+          style={{ 
+            position: 'absolute', 
+            inset: 0, 
+            background: 'linear-gradient(to left, rgba(9,5,20,0.9) 0%, rgba(9,5,20,0.3) 100%)', 
+            zIndex: -1 
+          }} 
+        />
 
-          {/* Eyebrow */}
-        <div className={styles.eyebrow}>
-          <span className={styles.eyebrowDot} />
-          Enterprise Technology Partner
-        </div>
+        {/* Main Content Box */}
+        <div className="container" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 1 }}>
+          <div className={styles.content}>
 
-        {/* Headline */}
-        <h1 className={styles.headline}>
-          <span className={styles.headlineLine}>Your Enterprise</span>
-          <span className={styles.headlineLine}>Platforms Should</span>
-          <span className={styles.headlineLine}>Work as <span className={styles.headlineAccent}>Hard as You Do</span></span>
-        </h1>
+            {/* Eyebrow */}
+            <div className={styles.eyebrow}>
+              <span className={styles.eyebrowDot} />
+              Optimize Your Workflow
+            </div>
 
-        {/* Sub copy */}
-        <p className={styles.subCopy}>
-          Hadron GBS turns complex technology investments into real operational outcomes. From strategy to managed services, we make enterprise platforms deliver what was promised.
-        </p>
+            {/* Headline */}
+            <h1 className={styles.headline}>
+              <span className={styles.headlineLine}>Your Enterprise</span>
+              <span className={styles.headlineLine}>Platforms Should</span>
+              <span className={styles.headlineLine}>Work as Hard as You Do</span>
+            </h1>
 
-        {/* Action Row: CTAs and Stats adjacent */}
-        <div className={styles.actionRow}>
-          {/* CTAs */}
-          <div className={styles.ctaRow}>
-            <a href="#services" id="hero-get-demo" className={styles.ctaPrimary}>Explore Services</a>
-            <a href="#contact" id="hero-see-product" className={styles.ctaSecondary}>
-              Contact Us
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
+            {/* Sub copy */}
+            <p className={styles.subCopy}>
+              Hadron GBS turns complex technology investments into real operational outcomes. From strategy to managed services, we make enterprise platforms deliver what was promised.
+            </p>
+
+            {/* Action Row: CTAs */}
+            <div className={styles.actionRow}>
+              {/* CTAs */}
+              <div className={styles.ctaRow}>
+                <a href="#services" id="hero-get-demo" className={styles.ctaPrimary}>Start Free Trial →</a>
+                <a href="#contact" id="hero-see-product" className={styles.ctaSecondary}>
+                  Book a Demo →
+                </a>
+              </div>
+            </div>
+            
           </div>
-
-          {/* Stats */}
-          <div className={styles.statsRow}>
-            {STATS.map(s => <StatCounter key={s.label} {...s} />)}
-          </div>
         </div>
-        </div>
-      </div>
+      </section>
 
-      {/* Globe spacer (now hidden — globe sits to the right) */}
-      <div className={styles.globeSpacer} aria-hidden="true" />
-
-      {/* Marquee pinned to bottom of Hero */}
-      <div className={styles.heroMarquee}>
+      {/* Marquee Section exactly below the Hero section */}
+      <div className={styles.marqueeSection}>
         <PartnerMarquee />
       </div>
-    </section>
+    </div>
   );
 }

@@ -3,7 +3,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function Page() {
   return (
     <ServiceLayout
-      title={`Unleash Team Potential with <span style="color: var(--accent);">Hadron GBS & Atlassian</span>`}
+      title={`Unleash Team Potential with <span >Hadron GBS & Atlassian</span>`}
       subtitle="At Hadron GBS, we believe that high-performing teams are the engine of every successful enterprise. As a dedicated Atlassian partner, we help organizations break down silos, accelerate software delivery, and foster a culture of open collaboration. By optimizing the Atlassian stack, we transform how your teams plan, track, and support work."
       solutions={[
         { title: "Jira Software", desc: "The gold standard for agile project management. We configure custom workflows, boards, and roadmaps to keep your software teams aligned and shipping faster." },

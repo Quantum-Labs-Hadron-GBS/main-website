@@ -11,20 +11,10 @@
   right: 0;
   z-index: 999;
   padding: 1.1rem 0;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  transition:
-    background 400ms ease,
-    border-color 400ms ease,
-    padding 400ms ease,
-    backdrop-filter 400ms ease;
 }
 
 /* Scrolled: solid dark glass */
 .navbar.scrolled {
-  background: rgba(10, 10, 15, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
   border-bottom-color: rgba(255, 255, 255, 0.06);
   padding: 0.85rem 0;
 }
@@ -48,7 +38,6 @@
   height: 30px;
   width: auto;
   object-fit: contain;
-  filter: var(--logo-filter);
 }
 
 /* ── Nav links ── */
@@ -59,17 +48,11 @@
 }
 
 .navLink {
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: #A8A8B3;
-  letter-spacing: 0.01em;
   position: relative;
-  transition: color 200ms ease;
   white-space: nowrap;
 }
 
 .navLink:hover {
-  color: #F5F5F0;
 }
 
 /* Underline slide-in */
@@ -80,14 +63,9 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 250ms ease;
 }
 
 .navLink:hover::after {
-  transform: scaleX(1);
 }
 
 /* ── CTA ── */
@@ -101,22 +79,10 @@
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1.2rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border-radius: 6px;
-  color: #ffffff;
-  background: var(--accent);
-  border: none;
-  transition: background 200ms ease, transform 150ms ease, box-shadow 200ms ease;
-  box-shadow: 0 0 0 0 rgba(244, 124, 54, 0);
   white-space: nowrap;
 }
 
 .ctaBtn:hover {
-  background: var(--accent-bright);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(244, 124, 54, 0.4);
 }
 
 /* ── Dropdowns ── */
@@ -132,18 +98,11 @@
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  background: #111118;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-  border-radius: 12px;
   min-width: 240px;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
-  opacity: 0;
   visibility: hidden;
-  transform: translateY(8px);
-  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
   z-index: 1000;
 }
 
@@ -156,28 +115,18 @@
 }
 
 .dropdownContainer:hover .dropdownMenu {
-  opacity: 1;
   visibility: visible;
-  transform: translateY(0);
 }
 
 .dropdownItem {
   padding: 0.6rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #A8A8B3;
-  text-decoration: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 8px;
-  transition: background 150ms ease, color 150ms ease;
   position: relative;
 }
 
 .dropdownItem:hover {
-  background: rgba(244, 124, 54, 0.08);
-  color: #F5F5F0;
 }
 
 /* Nested Submenu */
@@ -186,39 +135,24 @@
   top: 0;
   left: 100%;
   margin-left: 4px;
-  background: #111118;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-  border-radius: 12px;
   min-width: 220px;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
-  opacity: 0;
   visibility: hidden;
-  transform: translateX(8px);
-  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
   z-index: 1001;
 }
 
 .dropdownItem:hover > .nestedMenu {
-  opacity: 1;
   visibility: visible;
-  transform: translateX(0);
 }
 
 .dropdownIcon {
-  font-size: 0.65rem;
-  color: var(--fg-subtle);
 }
 
 /* ── Mobile ── */
 .mobileMenuBtn {
   display: none;
-  background: transparent;
-  border: none;
-  color: var(--fg);
-  cursor: pointer;
   padding: 0.5rem;
 }
 
@@ -244,9 +178,6 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(10, 10, 15, 0.97);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
     z-index: 1000;
     flex-direction: column;
     justify-content: center;
@@ -259,25 +190,13 @@
     flex-direction: column;
     gap: 2rem;
     align-items: center;
-    text-align: center;
   }
 
   .mobileNavLink {
-    font-size: 1.5rem;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-    color: var(--fg);
-    text-decoration: none;
   }
 
   .mobileCtaBtn {
     margin-top: 2rem;
     padding: 0.9rem 2.5rem;
-    background: var(--accent);
-    color: white;
-    border-radius: 6px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-decoration: none;
   }
 }

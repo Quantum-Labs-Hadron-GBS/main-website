@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <ServiceLayout
       breadcrumbName="Precision Bridge"
-      title={`Accelerate Your ServiceNow Migrations with <span style="color: var(--accent);">Hadron GBS & Precision Bridge</span>`}
+      title={`Accelerate Your ServiceNow Migrations with <span >Hadron GBS & Precision Bridge</span>`}
       subtitle="Hadron GBS, we understand that the biggest risk in any ServiceNow transformation is not the technology, it’s the data. Migrating millions of records from legacy platforms or between ServiceNow instances is complex, time consuming, and error-prone when handled manually."
       solutions={[
         { title: "Automated Data Migration", desc: "Eliminate the risk and effort of manual data migration. Precision Bridge automates the transfer and transformation of application data from BMC Remedy, Salesforce, RSA Archer, Atlassian Jira, SharePoint, SQL Server, and Oracle-based systems to their ServiceNow equivalents, without data exports, formatting, scripting, or custom development of any kind." },

@@ -237,7 +237,12 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
       projection.translate([cx, cy]).scale(R).rotate([livRot[0], livRot[1]]);
 
       ctx.clearRect(0, 0, W, H);
-      if (livOpa < 0.01) { animId = requestAnimationFrame(draw); return; }
+      
+      // Performance Optimization: Stop rendering loop entirely if faded out and target is 0
+      if (livOpa < 0.01 && target.opacity === 0) { 
+        animId = 0; // mark as stopped
+        return; 
+      }
 
       ctx.globalAlpha = livOpa;
 
@@ -252,14 +257,14 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         ctx.arc(cx, cy, R, 0, Math.PI * 2);
         // Deep ocean fill
         const oceanGrad = ctx.createRadialGradient(cx - R*0.2, cy - R*0.2, R*0.1, cx, cy, R);
-        oceanGrad.addColorStop(0, "#0E2040");
-        oceanGrad.addColorStop(0.5, "#091830");
-        oceanGrad.addColorStop(1, "#050D1A");
+        oceanGrad.addColorStop(0, "#1c0b2b");
+        oceanGrad.addColorStop(0.5, "#10061e");
+        oceanGrad.addColorStop(1, "#090514");
         ctx.fillStyle = oceanGrad;
         ctx.globalAlpha = livOpa;
         ctx.fill();
         // Subtle rim glow
-        ctx.strokeStyle = "rgba(244, 124, 54, 0.25)";
+        ctx.strokeStyle = "rgba(168, 85, 247, 0.25)";
         ctx.lineWidth = 1.5;
         ctx.stroke();
         ctx.restore();
@@ -295,12 +300,12 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         ctx.fill();
         ctx.globalAlpha = livOpa;
 
-        /* Land outline — orange glow */
+        /* Land outline — purple glow */
         ctx.beginPath();
         landData.features.forEach((f: any) => pathGen(f));
         ctx.strokeStyle = colorCache.globeOutline;
         ctx.lineWidth   = globeFits ? 0.8 : 0.6;
-        ctx.shadowColor = "rgba(244, 124, 54, 0.6)";
+        ctx.shadowColor = "rgba(168, 85, 247, 0.6)";
         ctx.shadowBlur  = 6;
         ctx.globalAlpha = livOpa * (globeFits ? 0.85 : 0.65);
         ctx.stroke();
@@ -325,7 +330,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
             const baseAlpha = 0.2 + (ei % 7) * 0.08;
             ctx.beginPath();
             ctx.arc(px, py, r, 0, Math.PI * 2);
-            ctx.fillStyle = "#F47C36";
+            ctx.fillStyle = "#06b6d4"; // Cyan embers
             ctx.globalAlpha = livOpa * baseAlpha;
             ctx.fill();
           }
@@ -345,9 +350,9 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
             if ((px - cx) * (px - cx) + (py - cy) * (py - cy) > R * R * 0.97) continue;
             // Outer glow ring
             const grd = ctx.createRadialGradient(px, py, 0, px, py, 12);
-            grd.addColorStop(0,   "rgba(244, 124, 54, 0.8)");
-            grd.addColorStop(0.4, "rgba(244, 124, 54, 0.3)");
-            grd.addColorStop(1,   "rgba(244, 124, 54, 0)");
+            grd.addColorStop(0,   "rgba(6, 182, 212, 0.8)");
+            grd.addColorStop(0.4, "rgba(6, 182, 212, 0.3)");
+            grd.addColorStop(1,   "rgba(6, 182, 212, 0)");
             ctx.beginPath();
             ctx.arc(px, py, 12, 0, Math.PI * 2);
             ctx.fillStyle = grd;
@@ -356,8 +361,8 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
             // Core dot
             ctx.beginPath();
             ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-            ctx.fillStyle = "#FFC580";
-            ctx.shadowColor = "#F47C36";
+            ctx.fillStyle = "#22d3ee"; // Bright Cyan
+            ctx.shadowColor = "#06b6d4"; // Cyan Glow
             ctx.shadowBlur = 12;
             ctx.globalAlpha = livOpa;
             ctx.fill();
@@ -382,7 +387,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
           const alpha = 0.15 + (si % 6) * 0.07;
           ctx.beginPath();
           ctx.arc(px, py, r, 0, Math.PI * 2);
-          ctx.fillStyle = "#F47C36";
+          ctx.fillStyle = "#a855f7"; // Purple space embers
           ctx.globalAlpha = livOpa * alpha;
           ctx.fill();
         }
@@ -524,15 +529,31 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
     /* Page Visibility — pause RAF when tab is hidden */
     const onVisibilityChange = () => {
       isVisible = !document.hidden;
-      if (isVisible && !isUnmounted) animId = requestAnimationFrame(draw);
-      else cancelAnimationFrame(animId);
+      if (isVisible && !isUnmounted && !animId) animId = requestAnimationFrame(draw);
+      else if (!isVisible && animId) {
+        cancelAnimationFrame(animId);
+        animId = 0;
+      }
     };
     document.addEventListener("visibilitychange", onVisibilityChange);
 
+    /* Wake up loop on scroll if it was paused */
+    const onScroll = () => {
+      if (isUnmounted || !isVisible) return;
+      if (!animId) {
+        const target = getTarget();
+        if (target.opacity > 0) {
+          animId = requestAnimationFrame(draw);
+        }
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => {
       isUnmounted = true;
-      cancelAnimationFrame(animId);
+      if (animId) cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("scroll", onScroll);
       document.removeEventListener("visibilitychange", onVisibilityChange);
     };
   }, []);
@@ -541,15 +562,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        pointerEvents: "none",
-        zIndex: 0,
-      }}
+      
     />
   );
 }

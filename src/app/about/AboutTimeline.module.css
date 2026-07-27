@@ -1,7 +1,5 @@
 .timelineSection {
   padding: 6rem 0;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
 }
 
 .timelineInner {
@@ -27,9 +25,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  border-top: 2px dashed var(--border-strong);
   z-index: 0;
-  transform: translateY(-50%);
 }
 
 .timelineNode {
@@ -46,12 +42,8 @@
 .nodeImageWrapper {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  background: #e2e8f0;
   margin-bottom: 2rem;
   position: relative;
-  border: 4px solid #fff;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   overflow: hidden;
   z-index: 2;
 }
@@ -62,12 +54,8 @@
   position: absolute;
   bottom: -10px;
   left: 50%;
-  transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #fff;
 }
 
 .nodeImage {
@@ -78,43 +66,30 @@
 
 /* Chevron Arrow */
 .nodeArrow {
-  background: var(--accent);
-  color: #fff;
   padding: 0.75rem 2rem;
-  font-weight: 700;
-  font-size: 1.25rem;
   position: relative;
   width: 100%;
-  text-align: center;
   /* CSS Clip path for Chevron shape */
   clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%, 10% 50%);
   margin-bottom: 1.5rem;
 }
 
 /* Differentiate colors for the arrows based on index */
-.timelineNode:nth-child(1) .nodeArrow { background: #00c6ff; }
-.timelineNode:nth-child(2) .nodeArrow { background: #2f80ed; }
-.timelineNode:nth-child(3) .nodeArrow { background: #1a4fd6; }
-.timelineNode:nth-child(4) .nodeArrow { background: #0f2862; }
+.timelineNode:nth-child(1) .nodeArrow { }
+.timelineNode:nth-child(2) .nodeArrow { }
+.timelineNode:nth-child(3) .nodeArrow { }
+.timelineNode:nth-child(4) .nodeArrow { }
 
 /* Content below arrow */
 .nodeContent {
-  text-align: center;
 }
 
 .nodeTitle {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--accent);
   margin-bottom: 1rem;
   min-height: 50px;
 }
 
 .nodeDesc {
-  font-size: 0.85rem;
-  color: var(--fg-muted);
-  line-height: 1.6;
 }
 
 @media (max-width: 900px) {
@@ -126,8 +101,6 @@
     display: none;
   }
   .nodeArrow {
-    clip-path: none;
-    border-radius: 8px;
     width: fit-content;
   }
 }

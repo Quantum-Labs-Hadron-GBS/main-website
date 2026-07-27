@@ -66,8 +66,8 @@ export default async function HRDashboard() {
         <p>Post-Quantum Decryption Active. Data decrypted entirely in memory.</p>
       </div>
 
-      <h3 style={{ marginBottom: '1.5rem', color: 'var(--accent)' }}>Job Applications</h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '3rem' }}>
+      <h3 >Job Applications</h3>
+      <div >
         {applications.length === 0 ? (
           <div className={styles.card}>No applications received yet.</div>
         ) : applications.map((app) => (
@@ -75,8 +75,8 @@ export default async function HRDashboard() {
         ))}
       </div>
 
-      <h3 style={{ marginBottom: '1.5rem', color: 'var(--accent)' }}>Enterprise Inquiries</h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '3rem' }}>
+      <h3 >Enterprise Inquiries</h3>
+      <div >
         {contacts.length === 0 ? (
           <div className={styles.card}>No inquiries received yet.</div>
         ) : contacts.map((contact) => (

@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <ServiceLayout
       breadcrumbName="SAP"
-      title={`Drive Intelligent Enterprise Excellence with <span style="color: var(--accent);">Hadron GBS & SAP</span>`}
+      title={`Drive Intelligent Enterprise Excellence with <span >Hadron GBS & SAP</span>`}
       subtitle="At Hadron GBS, we believe that a truly resilient business is built on a foundation of integrated, real-time data. As a strategic SAP partner, we help organizations move beyond legacy ERP systems to become ‘Intelligent Enterprises.’"
       solutions={[
         { title: "SAP S/4HANA Cloud", desc: "The next-generation ERP. Modernize your core business processes—from finance and risk management to sales and R&D—on a single, in-memory platform." },

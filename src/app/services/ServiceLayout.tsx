@@ -54,13 +54,13 @@ export default function ServiceLayout({ title, subtitle, solutions, framework, w
         </div>
         <div className={styles.grid}>
           {framework.map((fw, i) => (
-            <div key={i} className={styles.card} style={{ borderColor: 'var(--accent-border)' }}>
-              <span className={styles.heroTag} style={{ marginBottom: '1rem' }}>{fw.step}</span>
+            <div key={i} className={styles.card} >
+              <span className={styles.heroTag} >{fw.step}</span>
               <h3 className={styles.cardTitle}>{fw.title}</h3>
-              <p className={styles.cardBody} style={{ marginBottom: '1rem' }}>{fw.desc}</p>
-              <div style={{ padding: '1rem', background: 'var(--surface)', borderRadius: '12px' }}>
-                <strong style={{ display: 'block', color: 'var(--accent)', marginBottom: '0.25rem', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Outcome</strong>
-                <p className={styles.cardBody} style={{ fontSize: '0.9rem' }}>{fw.outcome}</p>
+              <p className={styles.cardBody} >{fw.desc}</p>
+              <div >
+                <strong >Outcome</strong>
+                <p className={styles.cardBody} >{fw.outcome}</p>
               </div>
             </div>
           ))}

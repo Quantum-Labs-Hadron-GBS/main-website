@@ -23,7 +23,7 @@ export default function CareersOverviewPage() {
     <main className={styles.main}>
       <Navbar />
 
-      <section className={`${styles.hero} container`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <section className={`${styles.hero} container`} >
         <BreadcrumbNav items={[
           { label: "Home", href: "/" },
           { label: "Careers" }
@@ -35,10 +35,10 @@ export default function CareersOverviewPage() {
         </p>
       </section>
 
-      <section className={`${styles.section} container`} style={{ paddingTop: 0 }}>
+      <section className={`${styles.section} container`} >
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Why Join Hadron GBS</h2>
-          <p className={styles.heroDesc} style={{ margin: 0 }}>
+          <p className={styles.heroDesc} >
             We’re not a typical IT services firm. We’re a consulting organization built on specialization, and that changes everything about how we work, what we work on, and what you’ll learn.
           </p>
         </div>
@@ -56,39 +56,30 @@ export default function CareersOverviewPage() {
       <section className={`${styles.section} container`}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Growth & Learning</h2>
-          <p className={styles.heroDesc} style={{ margin: 0 }}>
+          <p className={styles.heroDesc} >
             We invest in your development because the quality of our work depends on it.
           </p>
         </div>
 
         <div className={styles.grid}>
           {GROWTH.map((item, i) => (
-            <div key={i} className={styles.card} style={{ padding: '1.5rem', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '1rem' }}>
-              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent)' }} />
+            <div key={i} className={styles.card} >
+              <div  />
               <div>
-                <strong style={{ color: 'var(--fg)', display: 'block', marginBottom: '0.25rem' }}>{item.title}</strong>
-                <span style={{ color: 'var(--fg-muted)', fontSize: '0.9rem' }}>{item.desc}</span>
+                <strong >{item.title}</strong>
+                <span >{item.desc}</span>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className={`${styles.section} container`} style={{ textAlign: 'center', padding: '6rem 0' }}>
+      <section className={`${styles.section} container`} >
         <h2 className={styles.sectionTitle}>Ready to Transform the Enterprise?</h2>
-        <p className={styles.heroDesc} style={{ margin: '0 auto 2rem', maxWidth: '600px' }}>
+        <p className={styles.heroDesc} >
           We are always looking for exceptional talent to join our specialized practice areas.
         </p>
-        <a href="/careers/apply" style={{
-          display: 'inline-block',
-          padding: '1rem 2rem',
-          background: 'var(--accent)',
-          color: '#000',
-          fontWeight: '700',
-          borderRadius: '8px',
-          textDecoration: 'none',
-          transition: 'all 0.3s ease'
-        }}>
+        <a href="/careers/apply" >
           Apply Now
         </a>
       </section>

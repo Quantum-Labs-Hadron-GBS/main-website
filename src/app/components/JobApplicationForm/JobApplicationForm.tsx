@@ -99,44 +99,44 @@ export default function JobApplicationForm() {
 
   if (status === "encrypting" || status === "uploading" || status === "success") {
     return (
-      <div className={styles.formContainer} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '3rem 1rem' }}>
+      <div className={styles.formContainer} >
         
         {status === "success" && (
-          <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(var(--accent-rgb), 0.1)', color: 'var(--accent)', marginBottom: '1.5rem' }}>
+          <div >
+            <div >
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
-            <h2 style={{ color: "var(--fg)", fontSize: "2rem", marginBottom: "1rem" }}>Application Submitted Successfully</h2>
-            <p style={{ color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: "600px", margin: "0 auto" }}>
+            <h2 >Application Submitted Successfully</h2>
+            <p >
               Thank you for applying to Hadron GBS. Your application has been encrypted using Post-Quantum Cryptography entirely in your browser and securely transmitted to our HR team.
             </p>
           </div>
         )}
 
-        <div style={{ width: '100%', maxWidth: '500px', margin: '0 auto', textAlign: 'left', padding: '1.5rem', background: 'var(--surface)', border: '1px solid var(--accent)', borderRadius: '12px', fontSize: '0.9rem', color: 'var(--fg-muted)' }}>
-          <h4 style={{ color: 'var(--fg)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <div >
+          <h4 >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
             Client-Side Post-Quantum Encryption
           </h4>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ color: 'var(--accent)' }}>✓</span> Algorithm: ML-KEM-768
+          <div >
+            <div >
+              <span >✓</span> Algorithm: ML-KEM-768
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ color: status === "encrypting" ? 'var(--fg-muted)' : 'var(--accent)' }}>
+            <div >
+              <span >
                 {status === "encrypting" ? '...' : '✓'}
               </span> 
               AES-256-GCM Payload Encryption
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ color: status === "success" ? 'var(--accent)' : 'var(--fg-muted)' }}>
+            <div >
+              <span >
                 {status === "success" ? '✓' : '...'}
               </span> 
               Secure Upload Complete
             </div>
           </div>
           {status === "success" && (
-            <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--border)', color: 'var(--accent)', fontWeight: 600 }}>
+            <div >
               Verified: Zero plaintext transmitted.
             </div>
           )}
@@ -146,7 +146,7 @@ export default function JobApplicationForm() {
           <button 
             onClick={() => window.location.reload()}
             className={styles.submitBtn}
-            style={{ marginTop: "2.5rem" }}
+            
           >
             Submit Another Application
           </button>
@@ -341,12 +341,12 @@ export default function JobApplicationForm() {
               </div>
               <div className={styles.formGroup}>
                 <label className={styles.label}>Date *</label>
-                <input type="date" name="date" required className={styles.input} value={formData.date} readOnly style={{ opacity: 0.7 }} />
+                <input type="date" name="date" required className={styles.input} value={formData.date} readOnly  />
               </div>
             </div>
 
             {status === "error" && (
-              <div className={`${styles.message} ${styles.error}`} style={{ marginTop: '0', marginBottom: '1rem' }}>
+              <div className={`${styles.message} ${styles.error}`} >
                 {errorMessage}
               </div>
             )}
@@ -359,7 +359,7 @@ export default function JobApplicationForm() {
             className={`${styles.btn} ${styles.btnSecondary}`}
             onClick={handlePrev}
             disabled={currentStep === 0 || (status !== "idle" && status !== "error")}
-            style={{ opacity: currentStep === 0 ? 0 : 1 }}
+            
           >
             Back
           </button>

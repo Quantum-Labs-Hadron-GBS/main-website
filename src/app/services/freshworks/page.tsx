@@ -3,7 +3,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function Page() {
   return (
     <ServiceLayout
-      title={`Reimagine Customer & Employee Experience with <span style="color: var(--accent);">Hadron GBS & Freshworks</span>`}
+      title={`Reimagine Customer & Employee Experience with <span >Hadron GBS & Freshworks</span>`}
       subtitle="Freshworks delivers a modern, AI-powered platform for customer support, IT service management, CRM, engagement, and marketing automation. As a dedicated Freshworks partner, Hadron GBS helps organizations implement, integrate, and optimize Freshworks to enhance customer experience, employee experience, and operational efficiency."
       solutions={[
         { title: "Freshdesk — Customer Support", desc: "Empower your support teams with a multi-channel helpdesk built for scale. Streamline ticket routing, SLA management, and knowledge base operations to reduce resolution times and elevate customer satisfaction scores." },

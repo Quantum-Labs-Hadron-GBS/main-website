@@ -71,7 +71,7 @@ export default function ServiceNowPage() {
           { label: "ServiceNow" }
         ]} />
         <span className={styles.heroTag}>ServiceNow Offerings</span>
-        <h1 className={styles.heroTitle}>Unleash the Power of <span style={{color: "var(--accent)"}}>ServiceNow</span></h1>
+        <h1 className={styles.heroTitle}>Unleash the Power of <span >ServiceNow</span></h1>
         <p className={styles.heroDesc}>
           Welcome to Hadron GBS, where innovation and excellence converge to redefine your ServiceNow experience. Our ServiceNow Portfolio is designed to empower your organization, streamline your operations, and elevate your customer service to new heights.
         </p>

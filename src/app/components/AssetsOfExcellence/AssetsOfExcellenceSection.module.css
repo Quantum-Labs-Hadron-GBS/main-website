@@ -23,7 +23,7 @@
 }
 
 .tab {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--fg-subtle);
@@ -39,7 +39,7 @@
 }
 
 .activeTab {
-  color: var(--blue);
+  color: #06b6d4;
 }
 
 .activeUnderline {
@@ -48,7 +48,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--blue), var(--accent));
+  background: linear-gradient(90deg, #06b6d4, var(--accent));
   border-radius: 2px 2px 0 0;
 }
 
@@ -112,7 +112,7 @@
 }
 
 .tagline {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-space), sans-serif;
   font-weight: 600;
   color: var(--accent);
   margin-bottom: 0.75rem;
@@ -120,7 +120,7 @@
 }
 
 .title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-space), sans-serif;
   font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 700;
   color: var(--fg);

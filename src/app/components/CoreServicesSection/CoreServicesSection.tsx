@@ -6,37 +6,38 @@ import styles from "./CoreServicesSection.module.css";
 import Folder from "../Folder/Folder";
 
 const SERVICES_1 = [
-  { title: "Enterprise Core Transformation", desc: "Modernise SAP, Oracle, Salesforce, and Workday environments to unify data, accelerate decisions, and eliminate manual workarounds across finance, operations, and customer systems.", link: "/services/sap" },
-  { title: "Intelligent Automation & Agentic AI", desc: "Move beyond task-level RPA to AI-driven orchestration, where intelligent agents handle routing, decisions, and execution across enterprise workflows in real time.", link: "/services/service-now" },
-  { title: "Rapid Application Engineering", desc: "Deliver enterprise applications in weeks using low-code and no-code platforms, with governance built in from the start so teams can maintain and extend what we build.", link: "/services/low-code" }
+  { title: "Enterprise Core Transformation", desc: "Modernise SAP, Oracle, Salesforce, and Workday environments to unify data, accelerate decisions, and eliminate manual workarounds.", link: "/services/sap" },
+  { title: "Intelligent Automation & Agentic AI", desc: "Move beyond task-level RPA to AI-driven orchestration — intelligent agents handle routing, decisions, and execution in real time.", link: "/services/service-now" },
+  { title: "Rapid Application Engineering", desc: "Deliver enterprise applications in weeks using low-code and no-code platforms, with governance built in from the start.", link: "/services/low-code" },
 ];
 
 const SERVICES_2 = [
-  { title: "Unified Service Experience Management", desc: "Bring ITSM, CSM, and enterprise service workflows into a single operational model with intelligent routing, unified knowledge, and consistent service delivery across every function.", link: "/services/service-now" },
-  { title: "Cloud Adoption & Engineering", desc: "Design, migrate, and operate cloud environments on AWS, Azure, and Google Cloud with cost visibility, security controls, and compliance embedded in the architecture, not added after.", link: "/services/aws-cloud" },
-  { title: "Engineering Quality & Reliability", desc: "Embed quality across the full delivery pipeline, and value engineering from automated testing gates in CI/CD to real-time production observability, so issues are caught before they reach users.", link: "/services/operational-support" }
+  { title: "Unified Service Experience Management", desc: "Bring ITSM, CSM, and enterprise workflows into a single operational model with intelligent routing and unified knowledge.", link: "/services/service-now" },
+  { title: "Cloud Adoption & Engineering", desc: "Design, migrate, and operate cloud environments on AWS, Azure, and GCP with cost visibility and security controls embedded in the architecture.", link: "/services/aws-cloud" },
+  { title: "Engineering Quality & Reliability", desc: "Embed quality across the full delivery pipeline — from automated testing gates in CI/CD to real-time production observability.", link: "/services/operational-support" },
 ];
 
-export default function CoreServicesSection() {
-  const renderPapers = (services: any[]) => {
-    return services.map((srv, i) => (
-      <Link key={i} href={srv.link} style={{ display: 'flex', flexDirection: 'column', height: '100%', textDecoration: 'none', color: 'inherit' }} className="paper-card-wrapper">
-        <h4 className="paper-title">{srv.title}</h4>
-        <p className="paper-desc">{srv.desc}</p>
-        <span className="paper-link" style={{ marginTop: 'auto' }}>
-          Explore
-          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3 8h10M9 4l4 4-4 4"/>
-          </svg>
-        </span>
-      </Link>
-    ));
-  };
+const renderPapers = (services: typeof SERVICES_1) =>
+  services.map((srv, i) => (
+    <Link key={i} href={srv.link} style={{ display: 'flex', flexDirection: 'column', height: '100%', textDecoration: 'none', color: 'inherit' }} className="paper-card-wrapper">
+      <h4 className="paper-title">{srv.title}</h4>
+      <p className="paper-desc">{srv.desc}</p>
+      <span className="paper-link" style={{ marginTop: 'auto' }}>
+        Explore
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 8h10M9 4l4 4-4 4" />
+        </svg>
+      </span>
+    </Link>
+  ));
 
+export default function CoreServicesSection() {
   return (
     <section className={styles.section} id="core-services">
       <div className={`${styles.inner} container`}>
-        <motion.div 
+
+        {/* Header */}
+        <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,6 +51,7 @@ export default function CoreServicesSection() {
           </p>
         </motion.div>
 
+        {/* Folders */}
         <div className={styles.folderContainer}>
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -57,11 +59,11 @@ export default function CoreServicesSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Folder 
-              label="Platform Modernization" 
-              color="#F47C36" 
-              size={1.2} 
-              items={renderPapers(SERVICES_1)} 
+            <Folder
+              label="Platform Modernization"
+              color="#a855f7"
+              size={1.2}
+              items={renderPapers(SERVICES_1)}
             />
           </motion.div>
 
@@ -71,14 +73,15 @@ export default function CoreServicesSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Folder 
-              label="Operational Excellence" 
-              color="#13243c" 
-              size={1.2} 
-              items={renderPapers(SERVICES_2)} 
+            <Folder
+              label="Operational Excellence"
+              color="#06b6d4"
+              size={1.2}
+              items={renderPapers(SERVICES_2)}
             />
           </motion.div>
         </div>
+
       </div>
     </section>
   );

@@ -1,8 +1,7 @@
 .main {
   position: relative;
   z-index: 1;           /* above GlobalGlobe fixed canvas (z-index:0) */
-  min-height: 100vh;
-  background: transparent; /* let GlobalGlobe show through where needed */
+  min-height: 100vh; /* let GlobalGlobe show through where needed */
 }
 
 /* ── Section tag utility (locally scoped additions) ── */
@@ -10,12 +9,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
 }
 
 .sectionTag::before {
@@ -23,7 +16,6 @@
   display: block;
   width: 18px;
   height: 1px;
-  background: var(--accent);
   flex-shrink: 0;
 }
 
@@ -47,26 +39,14 @@
 .sectionTag {
   display: inline-flex;
   align-items: center;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--fg-subtle);
-  font-weight: 600;
-  font-family: 'Space Grotesk', sans-serif;
 }
 
 .sectionTitle {
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--fg);
-  line-height: 1.15;
 }
 
 /* ── Enterprise Section ── */
 .enterprise {
   padding: 6rem 0;
-  border-top: 1px solid var(--border);
 }
 
 .enterpriseInner {}
@@ -85,17 +65,9 @@
 }
 
 .enterpriseTitle {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--fg);
-  line-height: 1.15;
 }
 
 .enterpriseCopy {
-  font-size: 0.95rem;
-  color: var(--fg-muted);
-  line-height: 1.7;
   max-width: 420px;
 }
 
@@ -104,18 +76,9 @@
   align-items: center;
   width: fit-content;
   padding: 0.65rem 1.5rem;
-  border: 1px solid var(--fg);
-  border-radius: 5px;
-  color: var(--fg);
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  transition: background 200ms ease, color 200ms ease;
 }
 
 .enterpriseBtn:hover {
-  background: var(--fg);
-  color: var(--bg);
 }
 
 /* Feature list */
@@ -134,24 +97,15 @@
 .featureMark {
   width: 8px;
   height: 8px;
-  border-radius: 50%;
-  background: var(--fg);
   flex-shrink: 0;
   margin-top: 5px;
 }
 
 .featureTitle {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--fg);
   margin-bottom: 0.25rem;
 }
 
 .featureDesc {
-  font-size: 0.875rem;
-  color: var(--fg-muted);
-  line-height: 1.6;
 }
 
 

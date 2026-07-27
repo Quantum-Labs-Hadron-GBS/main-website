@@ -67,23 +67,23 @@ export default function NewsEventsPage() {
         ))}
       </div>
 
-      <section className={`${styles.section} container`} style={{ paddingTop: '40px' }}>
-        <p className={styles.heroDesc} style={{ margin: '0 auto 4rem', textAlign: 'center', maxWidth: '900px' }}>
+      <section className={`${styles.section} container`} >
+        <p className={styles.heroDesc} >
           From industry awards to conference stages, this is where we share what’s happening at Hadron GBS — and where you can find us next.
         </p>
 
-        <div className={styles.grid} style={{ gap: '4rem' }}>
+        <div className={styles.grid} >
           {/* Left Column: News Timeline */}
           <div>
-            <h2 className={styles.sectionTitle} style={{ fontSize: '2rem', marginBottom: '2rem' }}>Latest News</h2>
+            <h2 className={styles.sectionTitle} >Latest News</h2>
             <div className={styles.eventList}>
               {NEWS.map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: '1.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid var(--border)' }}>
-                  <div style={{ minWidth: '100px' }}>
-                    <span style={{ display: 'block', fontWeight: 700, color: 'var(--fg)' }}>{item.date}</span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--accent)', textTransform: 'uppercase' }}>{item.type}</span>
+                <div key={i} >
+                  <div >
+                    <span >{item.date}</span>
+                    <span >{item.type}</span>
                   </div>
-                  <p style={{ color: 'var(--fg-muted)', lineHeight: 1.5, margin: 0 }}>{item.title}</p>
+                  <p >{item.title}</p>
                 </div>
               ))}
             </div>
@@ -91,14 +91,14 @@ export default function NewsEventsPage() {
 
           {/* Right Column: Awards */}
           <div>
-            <h2 className={styles.sectionTitle} style={{ fontSize: '2rem', marginBottom: '2rem' }}>Awards & Recognition</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
+            <h2 className={styles.sectionTitle} >Awards & Recognition</h2>
+            <div >
               {AWARDS.map((award, i) => (
-                <div key={i} className={styles.card} style={{ padding: '1.5rem', flexDirection: 'row', alignItems: 'center', gap: '1.5rem' }}>
-                  <div style={{ fontSize: '2rem' }}>{award.icon}</div>
+                <div key={i} className={styles.card} >
+                  <div >{award.icon}</div>
                   <div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.25rem', color: 'var(--fg)' }}>{award.title}</h3>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--fg-muted)', margin: 0 }}>{award.year} · {award.org}</p>
+                    <h3 >{award.title}</h3>
+                    <p >{award.year} · {award.org}</p>
                   </div>
                 </div>
               ))}
@@ -109,7 +109,7 @@ export default function NewsEventsPage() {
 
       {/* Events Table */}
       <section className={`${styles.section} container`}>
-        <div className={styles.sectionHeader} style={{ marginBottom: '2rem' }}>
+        <div className={styles.sectionHeader} >
           <h2 className={styles.sectionTitle}>Upcoming Events</h2>
         </div>
         
@@ -122,10 +122,10 @@ export default function NewsEventsPage() {
           </div>
           {EVENTS.map((evt, i) => (
             <div key={i} className={styles.eventRow}>
-              <strong style={{ color: 'var(--fg)' }}>{evt.event}</strong>
-              <span style={{ color: 'var(--fg-muted)' }}>{evt.location}</span>
-              <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{evt.date}</span>
-              <span style={{ color: 'var(--fg-muted)', fontSize: '0.9rem' }}>{evt.details}</span>
+              <strong >{evt.event}</strong>
+              <span >{evt.location}</span>
+              <span >{evt.date}</span>
+              <span >{evt.details}</span>
             </div>
           ))}
         </div>

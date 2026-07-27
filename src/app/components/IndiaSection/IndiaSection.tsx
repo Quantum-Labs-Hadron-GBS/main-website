@@ -59,10 +59,10 @@ export default function IndiaSection() {
             <motion.div
               key={cap.tag}
               className={styles.capCard}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
+              
+              
+              
+              
             >
               <span className={styles.capTag}>{cap.tag}</span>
               <h3 className={styles.capTitle}>{cap.title}</h3>
@@ -84,10 +84,10 @@ export default function IndiaSection() {
               <motion.div
                 key={lang.name}
                 className={styles.langCard}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
+                
+                
+                
+                
               >
                 <div className={styles.langLeft}>
                   <span className={styles.langScript}>{lang.script}</span>

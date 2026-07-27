@@ -19,7 +19,8 @@ export default function CtaSection({ title, subtitle, buttonText }: CtaSectionPr
         </p>
         <div className={styles.demoActions}>
           <Link href="/contact" id="demo-email-cta" className={styles.demoPrimary}>
-            {buttonText || "Contact Us"}
+            <span className={styles.btnText}>{buttonText || "Contact Us"}</span>
+            <span className={styles.btnArrow}>&rarr;</span>
           </Link>
         </div>
       </div>

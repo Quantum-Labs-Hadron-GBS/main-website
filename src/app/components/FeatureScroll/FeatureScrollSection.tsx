@@ -38,13 +38,6 @@ const FEATURES = [
   },
 ];
 
-/* Slot-machine digit variants */
-const digitVariants = {
-  enter: (dir: number) => ({ y: dir > 0 ? "100%" : "-100%", opacity: 0 }),
-  center: { y: "0%", opacity: 1 },
-  exit: (dir: number) => ({ y: dir > 0 ? "-100%" : "100%", opacity: 0 }),
-};
-
 /* Content fade variants */
 const contentVariants = {
   enter: (dir: number) => ({

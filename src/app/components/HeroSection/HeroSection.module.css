@@ -1,40 +1,44 @@
 /* ═══════════════════════════════════════════════════
-   HERO SECTION — Myna UI Dark Style
-   Full viewport height, text left / globe dominates right
+   HERO SECTION — Deep Purple Theme
 ═══════════════════════════════════════════════════ */
+
+.heroWrapper {
+  display: flex;
+  flex-direction: column;
+}
 
 .hero {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
   padding-top: 5rem;
-  padding-bottom: 9rem; /* space for marquee */
 }
 
 /* Fine noise grain overlay */
 .noiseBg {
   position: absolute;
   inset: 0;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Left text column — max 50% width */
+/* ── Content container ── */
 .content {
-  max-width: 560px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 1.75rem;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1.5rem;
   position: relative;
   z-index: 2;
+  text-align: right;
+  max-width: 800px;
+  margin-left: auto;
+  padding-right: 4rem; /* Good padding from right screen edge */
 }
 
 /* ── Eyebrow pill ── */
@@ -42,58 +46,51 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.3rem 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 6px;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  color: #A8A8B3;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  font-size: 0.85rem;
   font-weight: 500;
-  text-transform: uppercase;
-  animation: fadeSlideUp 0.5s ease both;
+  color: var(--fg);
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(8px);
 }
 
 .eyebrowDot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
+  width: 6px;
+  height: 6px;
   background: var(--accent);
-  box-shadow: 0 0 6px var(--accent);
-  animation: pulse 2s ease-in-out infinite;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent);
 }
 
 /* ── Headline ── */
 .headline {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.0;
-  color: #F5F5F0;
-  animation: fadeSlideUp 0.5s 0.07s ease both;
+  gap: 0.2rem;
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
 }
 
 .headlineLine {
   display: block;
 }
 
-/* "Hard as You Do" — same white, no muting */
 .headlineAccent {
-  color: #F5F5F0;
+  color: var(--accent-bright);
 }
 
 /* ── Sub copy ── */
 .subCopy {
-  font-size: 1rem;
-  color: #A8A8B3;
-  font-weight: 400;
-  line-height: 1.65;
-  max-width: 440px;
-  animation: fadeSlideUp 0.5s 0.14s ease both;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
 }
 
 /* ── Action row: CTAs + stats ── */
@@ -101,133 +98,72 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  animation: fadeSlideUp 0.5s 0.21s ease both;
+  width: 100%;
 }
 
 .ctaRow {
   display: flex;
   align-items: center;
   gap: 1rem;
+  justify-content: flex-end;
 }
 
-/* Primary: solid orange — exact match to reference */
+/* Primary: solid purple pill */
 .ctaPrimary {
   display: inline-flex;
   align-items: center;
-  padding: 0.7rem 1.5rem;
+  padding: 0.8rem 1.8rem;
   background: var(--accent);
   color: #ffffff;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  border-radius: 99px;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: background 200ms ease, transform 150ms ease, box-shadow 200ms ease;
-  box-shadow: 0 4px 20px rgba(244, 124, 54, 0.3);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
 }
 
 .ctaPrimary:hover {
   background: var(--accent-bright);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(244, 124, 54, 0.45);
+  box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6);
 }
 
-/* Secondary: dark ghost — matches reference "See How It Works" */
+/* Secondary: ghost/outline pill */
 .ctaSecondary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.7rem 1.5rem;
-  color: #F5F5F0;
-  font-size: 0.9rem;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  transition: background 200ms ease, border-color 200ms ease;
+  padding: 0.8rem 1.8rem;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 99px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .ctaSecondary:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* ── Stats row ── */
-.statsRow {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.1rem;
-  position: relative;
-}
-
-.stat:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: -1.25rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 22px;
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.statValue {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #F5F5F0;
-}
-
-.statLabel {
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  color: #6B6B7A;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-/* Globe spacer hidden — globe lives in GlobalGlobe wrapper */
-.globeSpacer {
-  display: none;
-}
-
-/* ── Marquee pinned to bottom ── */
-.heroMarquee {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+/* ── Marquee Section (Below Hero) ── */
+.marqueeSection {
   width: 100%;
+  padding: 4rem 0;
+  background: var(--bg);
+  position: relative;
   z-index: 2;
-}
-
-/* ── Animations ── */
-@keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.5; transform: scale(0.75); }
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* ── Responsive ── */
-@media (max-width: 900px) {
-  .content { max-width: 100%; }
-  .headline { font-size: clamp(2.2rem, 10vw, 3.5rem); }
-}
-
 @media (max-width: 768px) {
   .hero { padding-top: 5rem; }
-  .ctaRow { flex-direction: column; width: 100%; align-items: stretch; }
-  .ctaPrimary, .ctaSecondary { justify-content: center; }
-  .statsRow { flex-wrap: wrap; gap: 1.5rem; }
-  .stat:not(:last-child)::after { display: none; }
+  .content { align-items: center; text-align: center; padding-right: 0; margin-left: 0; }
+  .ctaRow { flex-direction: column; width: 100%; align-items: stretch; padding: 0 2rem; }
+  .ctaPrimary, .ctaSecondary { justify-content: center; width: 100%; }
 }

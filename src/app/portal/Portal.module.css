@@ -1,15 +1,10 @@
 .portalContainer {
   display: flex;
   min-height: 100vh;
-  background-color: var(--bg);
-  color: var(--fg);
-  font-family: var(--font-sans);
 }
 
 .sidebar {
   width: 280px;
-  background-color: var(--surface);
-  border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   padding: 2rem 0;
@@ -17,26 +12,16 @@
 
 .sidebarHeader {
   padding: 0 2rem 2rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .sidebarHeader h2 {
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
 }
 
 .roleBadge {
   margin-top: 0.5rem;
   display: inline-block;
   padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--accent);
-  background-color: var(--accent-dim);
-  border-radius: 4px;
-  letter-spacing: 0.1em;
 }
 
 .nav {
@@ -49,16 +34,9 @@
 
 .navLink {
   padding: 0.75rem 1rem;
-  border-radius: 8px;
-  color: var(--fg);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
 }
 
 .navLink:hover {
-  background-color: var(--surface-hover);
-  color: var(--accent);
 }
 
 .bottomNav {
@@ -69,21 +47,9 @@
 .logoutButton {
   width: 100%;
   padding: 0.75rem 1rem;
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--fg-subtle);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: inherit;
-  font-size: 0.95rem;
-  text-align: left;
 }
 
 .logoutButton:hover {
-  background-color: rgba(255, 50, 50, 0.1);
-  color: #ff5555;
-  border-color: rgba(255, 50, 50, 0.2);
 }
 
 .mainContent {
@@ -98,17 +64,12 @@
 }
 
 .pageHeader h1 {
-  font-size: 2rem;
   margin-bottom: 0.5rem;
 }
 
 .pageHeader p {
-  color: var(--fg-muted);
 }
 
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
   padding: 1.5rem;
 }

@@ -71,7 +71,7 @@ export default function AboutPage() {
       
       {/* Hero */}
       <section className={styles.hero}>
-        <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="container" >
           <BreadcrumbNav items={[
             { label: "Home", href: "/" },
             { label: "About" }
@@ -122,14 +122,14 @@ export default function AboutPage() {
       <AboutTimeline />
 
       {/* Partners Block */}
-      <section className={styles.textSection} style={{ borderTop: "none", paddingTop: "0" }}>
-        <div className={`${styles.textInner} container`} style={{ textAlign: "center" }}>
-          <span className={styles.heroTag} style={{ marginBottom: "1rem" }}>Our Partners</span>
-          <h2 className={styles.textTitle} style={{ marginBottom: "2rem" }}>Long Time Project, with <span className={styles.textTitleAccent}>Our Best Partner</span></h2>
-          <p className={styles.textParagraph} style={{ marginBottom: "2rem", textAlign: "left" }}>
+      <section className={styles.textSection} >
+        <div className={`${styles.textInner} container`} >
+          <span className={styles.heroTag} >Our Partners</span>
+          <h2 className={styles.textTitle} >Long Time Project, with <span className={styles.textTitleAccent}>Our Best Partner</span></h2>
+          <p className={styles.textParagraph} >
             Hadron Global Business Solutions (Hadron GBS), a leading provider of innovative IT solutions, is pleased to announce a strategic partnership with BMC Software, a global software company that specializes in providing solutions for IT service management, cloud management, and digital enterprise automation.
           </p>
-          <p className={styles.textParagraph} style={{ textAlign: "left" }}>
+          <p className={styles.textParagraph} >
             We are partnered with NetBrain who is the global leader for network automation. The fourth-generation network automation solution provides automated problem diagnosis, remediation, and end-to-end visibility for your hybrid network.
           </p>
         </div>
@@ -140,7 +140,7 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.featuresHeader}>
             <h2 className={styles.textTitle}>Preparing For Your Success</h2>
-            <p className={styles.textParagraph} style={{textAlign: "center"}}>
+            <p className={styles.textParagraph} >
               Provide Best IT Solutions appropriate for your specific business, making it easy for you to have quality IT services.
             </p>
           </div>

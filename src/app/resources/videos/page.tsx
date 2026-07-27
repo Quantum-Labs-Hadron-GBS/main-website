@@ -32,14 +32,14 @@ export default function VideosPage() {
       <Navbar />
       
       {/* Hero */}
-      <section className={`${styles.hero} container`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <section className={`${styles.hero} container`} >
         <BreadcrumbNav items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/#resources" },
           { label: "Videos" }
         ]} />
         <span className={styles.heroTag}>Video Library</span>
-        <h1 className={styles.heroTitle}>Hadron GBS <span style={{color: "var(--accent)"}}>Videos</span></h1>
+        <h1 className={styles.heroTitle}>Hadron GBS <span >Videos</span></h1>
         <p className={styles.heroDesc}>
           Check out our videos featuring Hadron GBS webinars, employee testimonials, celebrations, and success stories.
         </p>

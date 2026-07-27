@@ -3,7 +3,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function Page() {
   return (
     <ServiceLayout
-      title={`Empower Your Digital Future with <span style="color: var(--accent);">Hadron GBS & Microsoft Cloud</span>`}
+      title={`Empower Your Digital Future with <span >Hadron GBS & Microsoft Cloud</span>`}
       subtitle="At Hadron GBS, we help organizations harness the full potential of the world’s most integrated technology stack. As a strategic Microsoft Solutions Partner, we empower businesses to modernize their infrastructure, secure their data, and reinvent productivity through AI-driven workflows."
       solutions={[
         { title: "Microsoft Azure (Cloud Infrastructure)", desc: "Accelerate your digital transformation with secure cloud migrations, app modernization, and scalable data analytics." },

@@ -48,7 +48,7 @@ export default function SimpleCardSwap({
       onMouseEnter={() => setIsHovered(true)} 
       onMouseLeave={() => setIsHovered(false)}
     >
-      <AnimatePresence initial={false}>
+      <AnimatePresence >
         {childArray.map((child, i) => {
           const dist = (i - activeIdx + length) % length;
           
@@ -68,19 +68,10 @@ export default function SimpleCardSwap({
               key={i}
               className={styles.cardWrapper}
               onClick={() => !isScrollDriven && setInternalIndex(i)}
-              initial={{ opacity: 0, y: y + 50, scale: 0.8 }}
-              animate={{ 
-                opacity,
-                scale,
-                y,
-                zIndex
-              }}
+              initial={{ opacity: 0, y: 80, scale: 0.9 }}
+              animate={{ opacity, y, scale, zIndex }}
               exit={{ opacity: 0, y: -200, scale: 1.1 }}
-              transition={{ 
-                duration: 0.6, 
-                ease: [0.25, 1, 0.5, 1], // Custom spring-like easing
-                opacity: { duration: 0.4 }
-              }}
+              transition={{ type: "spring", stiffness: 260, damping: 28 }}
             >
               {child}
             </motion.div>

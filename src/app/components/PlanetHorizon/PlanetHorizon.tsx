@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import styles from "./PlanetHorizon.module.css";
 
 // Major world cities as [lng, lat] for arc line endpoints
 const CITIES: [number, number][] = [
@@ -93,7 +92,7 @@ export default function PlanetHorizon() {
 
     // --- Theme colors from CSS variables ---
     const getColors = () => {
-      const style = getComputedStyle(document.documentElement);
+      const 
       return {
         bg: style.getPropertyValue("--bg").trim() || "#000",
         fg: style.getPropertyValue("--fg").trim() || "#fff",

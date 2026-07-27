@@ -1,316 +1,140 @@
 .section {
-  position: relative;
-  z-index: 1;
-  background: var(--bg);
-}
-
-/* ── Sticky viewport ── */
-.sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: clamp(80px, 12vh, 120px);
+  padding: 8rem 0;
   overflow: hidden;
+  position: relative;
+  background-color: var(--bg);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(168, 85, 247, 0.12), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.12), transparent 40%),
+    radial-gradient(var(--border) 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 100% 100%, 24px 24px;
+  background-position: 0 0, 0 0, 12px 12px;
 }
 
-/* ── Row layout ── */
-.inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  width: 100%;
-  max-width: 1100px;
+.contentWrapper {
+  max-width: 960px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
   padding: 0 2rem;
 }
 
-/* ── Section header ── */
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
 .sectionHeader {
   text-align: center;
-  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .sectionTag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  color: var(--accent);
+  font-size: 0.75rem;
   text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 0.75rem;
-}
-
-.sectionTag::before {
-  content: '';
-  display: block;
-  width: 16px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--blue), var(--accent));
-  flex-shrink: 0;
+  letter-spacing: 0.1em;
+  font-weight: 600;
 }
 
 .sectionTitle {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  color: var(--fg);
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
-/* ────────────────────────────────
-   LEFT: Number column
-──────────────────────────────── */
-.numberCol {
-  display: flex;
-  align-items: baseline;
-  gap: 0;
-  padding-right: 3rem;
-  line-height: 1;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: clamp(5rem, 12vw, 9rem);
-  letter-spacing: -0.05em;
-  color: var(--fg);
-  /* The "0" and slot sit side by side on a shared baseline */
-}
-
-/* Static "0" — never moves, always visible */
-.staticZero {
-  display: block;
-  color: var(--fg);
-  user-select: none;
-}
-
-/*
-  Slot mask: clips to exactly one digit's height.
-  The animated digit slides up/down inside this window.
-*/
-.slotMask {
-  display: block;
-  overflow: hidden;
-  /* Height = 1em relative to the font size above → one digit visible */
-  height: 1.05em;
-  position: relative;
-}
-
-.slotDigit {
-  display: block;
-  color: var(--fg);
-  user-select: none;
-  /* Framer Motion positions this absolutely inside slotMask */
-  position: relative;
-}
-
-/* ────────────────────────────────
-   DIVIDER
-──────────────────────────────── */
-.divider {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  height: 240px;
-  padding: 0;
-}
-
-.dividerLine {
-  width: 1px;
-  height: 100%;
-  background: var(--border-strong);
-}
-
-/* ────────────────────────────────
-   RIGHT: Content column
-──────────────────────────────── */
+/* ── Content Layout ── */
 .contentCol {
-  position: relative;
-  min-height: 420px;
-  display: flex;
-  align-items: center;
   width: 100%;
+  position: relative;
+  min-height: 320px; /* Prevent layout shift during crossfade */
 }
 
 .contentBlock {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 380px;
-  padding: 3.5rem 4rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  padding: 3rem;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  border-radius: 20px;
 }
 
 .contentLeft {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  flex: 1.2;
-}
-
-.contentRight {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.imagePlaceholder {
-  width: 100%;
-  height: 320px;
-  background: linear-gradient(135deg, rgba(244, 124, 54, 0.06), rgba(244, 124, 54, 0.01));
-  border: 1px solid rgba(244, 124, 54, 0.1);
-  border-radius: 16px;
-  box-shadow: inset 0 2px 20px rgba(244, 124, 54, 0.03);
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(16px);
-}
-
-.imagePlaceholder::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--accent) 15%, transparent) 0%, transparent 60%);
-  opacity: 0.8;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .contentTag {
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  color: var(--accent-bright);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--blue);
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
 }
 
 .contentTitle {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
   font-weight: 700;
-  letter-spacing: -0.04em;
+  line-height: 1.2;
   color: var(--fg);
-  line-height: 1.05;
 }
 
 .contentBody {
   font-size: 1rem;
+  line-height: 1.6;
   color: var(--fg-muted);
-  line-height: 1.7;
-  max-width: 480px;
 }
 
-/* ────────────────────────────────
-   Progress track (left edge)
-──────────────────────────────── */
-.progressTrack {
-  position: absolute;
-  left: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.trackItem {
-  width: 2px;
-  height: 28px;
-  background: var(--border);
-  border-radius: 1px;
-  transition: background 300ms ease, height 300ms ease;
-}
-
-.trackActive {
-  background: var(--blue);
-  height: 40px;
-}
-
-.trackPast {
-  background: var(--border-strong);
-}
-
-/* ── Responsive ── */
-@media (max-width: 768px) {
-
-  .inner {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 2rem;
-    padding: 0 1.5rem;
-  }
-
-  .divider {
-    display: none;
-  }
-
-  .numberCol {
-    padding-right: 0;
-    font-size: clamp(4rem, 20vw, 6rem);
-    justify-content: flex-start;
-  }
-
-  .contentCol {
-    padding-left: 0;
-    min-height: auto;
-  }
-
-  .contentBlock {
-    flex-direction: column-reverse;
-    gap: 2rem;
-  }
-  
-  .contentLeft, .contentRight {
-    flex: 1;
-    width: 100%;
-  }
-
-  .imagePlaceholder {
-    height: 200px;
-  }
-
-  .progressTrack {
-    display: none;
-  }
-}
-
-/* ── Accessibility / Manual Navigation Controls ── */
-.navControls {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  z-index: 10;
-}
-
-.navButton {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  color: var(--fg);
+.contentRight {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  position: relative;
 }
 
-.navButton:hover:not(:disabled) {
-  background: var(--surface-hover);
-  border-color: var(--fg-muted);
-  transform: translateY(-2px);
+.imagePlaceholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 280px;
+  max-height: 280px;
+  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
 }
 
-.navButton:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
+@media (max-width: 900px) {
+  .contentBlock {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3rem 2rem;
+    position: relative; /* Let it flow normally on mobile if needed, though absolute is used for AnimatePresence wait mode */
+  }
+  
+  .contentCol {
+    min-height: 650px;
+  }
+
+  .contentRight {
+    order: -1;
+  }
+
+  .imagePlaceholder {
+    max-width: 250px;
+  }
 }

@@ -3,7 +3,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function Page() {
   return (
     <ServiceLayout
-      title={`Accelerate Enterprise Growth with <span style="color: var(--accent);">Hadron GBS & Salesforce</span>`}
+      title={`Accelerate Enterprise Growth with <span >Hadron GBS & Salesforce</span>`}
       subtitle="At Hadron GBS, we believe every interaction—whether with a customer or an employee—is an opportunity for growth. As a strategic Salesforce partner, we help organizations transition from siloed data to a unified, 360-degree view of their entire business."
       solutions={[
         { title: "Sales Cloud", desc: "Drive revenue growth with automated lead management, advanced forecasting, and AI-powered pipeline insights." },

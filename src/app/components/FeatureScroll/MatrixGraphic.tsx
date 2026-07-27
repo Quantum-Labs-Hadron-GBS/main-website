@@ -1,4 +1,3 @@
-/* eslint-disable */
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -169,19 +168,36 @@ export default function MatrixGraphic({ activeIndex, colorTheme = "orange" }: Ma
 
       ctx.globalAlpha = 1.0;
       ctx.shadowBlur = 0;
-      animationFrameId = requestAnimationFrame(render);
+    };
+
+    const loop = () => {
+      render();
+      animationFrameId = requestAnimationFrame(loop);
     };
 
     initDots();
     resize();
     window.addEventListener("resize", resize);
-    render();
+
+    // Performance Optimization: Only render when visible
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        if (!animationFrameId) loop();
+      } else {
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = 0;
+        }
+      }
+    });
+    observer.observe(canvas);
 
     return () => {
       window.removeEventListener("resize", resize);
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
     };
-  }, [activeIndex]);
+  }, [activeIndex, colorTheme]);
 
   return (
     <canvas 

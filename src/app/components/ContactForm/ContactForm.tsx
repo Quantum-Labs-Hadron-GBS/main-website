@@ -185,30 +185,30 @@ export default function ContactForm() {
         </button>
 
         {(status === "encrypting" || status === "uploading" || status === "success") && (
-          <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'var(--surface)', border: '1px solid var(--accent)', borderRadius: '12px', fontSize: '0.9rem', color: 'var(--fg-muted)' }}>
-            <h4 style={{ color: 'var(--fg)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div >
+            <h4 >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
               Client-Side Post-Quantum Encryption
             </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ color: 'var(--accent)' }}>✓</span> Algorithm: ML-KEM-768
+            <div >
+              <div >
+                <span >✓</span> Algorithm: ML-KEM-768
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ color: status === "encrypting" ? 'var(--fg-muted)' : 'var(--accent)' }}>
+              <div >
+                <span >
                   {status === "encrypting" ? '...' : '✓'}
                 </span> 
                 AES-256-GCM Payload Encryption
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ color: status === "success" ? 'var(--accent)' : 'var(--fg-muted)' }}>
+              <div >
+                <span >
                   {status === "success" ? '✓' : '...'}
                 </span> 
                 Secure Upload Complete
               </div>
             </div>
             {status === "success" && (
-              <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--border)', color: 'var(--accent)', fontWeight: 600 }}>
+              <div >
                 Verified: Zero plaintext transmitted.
               </div>
             )}

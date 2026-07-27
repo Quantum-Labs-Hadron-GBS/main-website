@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "./components/ThemeProvider/ThemeProvider";
 import GlobeWrapper from "./components/GlobalGlobe/GlobeWrapper";
+import { ThemeProvider } from "./components/ThemeProvider/ThemeProvider";
 
 import { Space_Grotesk, Inter } from "next/font/google";
 
@@ -19,6 +19,7 @@ const inter = Inter({
 
 import { generatePageMetadata } from "./lib/seo";
 import { getOrganizationSchema, getWebSiteSchema, getLocalBusinessSchema } from "./lib/schema";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   ...generatePageMetadata({
@@ -39,6 +40,7 @@ export default function RootLayout({
           GlobeWrapper handles route-based blurring of the globe canvas.
         */}
         <GlobeWrapper />
+        
         <ThemeProvider>
           {children}
         </ThemeProvider>

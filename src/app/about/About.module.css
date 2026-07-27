@@ -8,20 +8,12 @@
 /* Hero */
 .hero {
   padding: 12rem 0 6rem;
-  text-align: center;
-  background: transparent;
 }
 
 .heroTag {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--accent);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
   margin-bottom: 2rem;
 }
 
@@ -30,26 +22,16 @@
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--accent);
 }
 
 .heroTitle {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 700;
-  line-height: 1.05;
-  color: var(--fg);
   margin-bottom: 1.5rem;
-  letter-spacing: -0.04em;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .heroDesc {
-  font-size: 1.25rem;
-  color: var(--fg-muted);
-  line-height: 1.6;
   max-width: 700px;
   margin: 0 auto;
 }
@@ -57,45 +39,30 @@
 /* Text Section */
 .textSection {
   padding: 8rem 0;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
 }
 
 .textInner {
   max-width: 900px;
   margin: 0 auto;
-  text-align: left;
 }
 
 .textTitle {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--fg);
   margin-bottom: 2rem;
-  letter-spacing: -0.03em;
 }
 
 .textTitleAccent {
-  color: var(--accent);
 }
 
 .textParagraph {
-  font-size: 1.15rem;
-  color: var(--fg-muted);
-  line-height: 1.8;
   margin-bottom: 1.5rem;
 }
 
 /* Features Grid */
 .featuresSection {
   padding: 8rem 0;
-  background: transparent;
-  border-top: 1px solid var(--border);
 }
 
 .featuresHeader {
-  text-align: center;
   margin-bottom: 5rem;
 }
 
@@ -106,27 +73,15 @@
 }
 
 .featureCard {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 20px;
   padding: 2.5rem;
-  text-align: center;
-  transition: transform 300ms ease, box-shadow 300ms ease;
-  backdrop-filter: blur(12px);
 }
 
 .featureCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.04);
-  border-color: var(--accent-border);
 }
 
 .featureIcon {
   width: 60px;
   height: 60px;
-  background: var(--accent-dim);
-  color: var(--accent);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,15 +89,8 @@
 }
 
 .featureTitle {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--fg);
   margin-bottom: 1rem;
 }
 
 .featureDesc {
-  font-size: 0.95rem;
-  color: var(--fg-muted);
-  line-height: 1.6;
 }

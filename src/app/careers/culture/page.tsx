@@ -51,58 +51,58 @@ export default function WorkCulturePage() {
         </p>
       </section>
 
-      <section className={`${styles.section} container`} style={{ paddingTop: 0 }}>
+      <section className={`${styles.section} container`} >
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>A Culture Built on Craft</h2>
-          <p className={styles.heroDesc} style={{ margin: 0 }}>
+          <p className={styles.heroDesc} >
             We care deeply about the quality of our work, and that shared commitment creates a culture unlike most consulting environments. Our teams are small enough that your contribution is visible, and large enough that you’re working with some of the most experienced practitioners in the industry.
           </p>
         </div>
 
         <div className={styles.grid}>
           {PRINCIPLES.map((item, i) => (
-            <div key={i} className={styles.card} style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <strong style={{ color: 'var(--fg)', fontSize: '1.2rem' }}>{item.title}</strong>
-              <span style={{ color: 'var(--fg-muted)', fontSize: '1rem' }}>{item.desc}</span>
+            <div key={i} className={styles.card} >
+              <strong >{item.title}</strong>
+              <span >{item.desc}</span>
             </div>
           ))}
         </div>
       </section>
 
       <section className={`${styles.section} container`}>
-        <div className={styles.sectionHeader} style={{ alignItems: 'flex-start', textAlign: 'left', marginBottom: '2rem' }}>
+        <div className={styles.sectionHeader} >
           <h2 className={styles.sectionTitle}>How We Work</h2>
-          <p className={styles.heroDesc} style={{ margin: 0, textAlign: 'left' }}>
+          <p className={styles.heroDesc} >
             We’ve designed our work environment around autonomy, flexibility, and collaboration — because those three things together produce our best outcomes.
           </p>
         </div>
 
         <div className={styles.grid}>
           {WORKING.map((item, i) => (
-            <div key={i} className={styles.card} style={{ padding: '2rem' }}>
-              <span style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--accent)', opacity: 0.5, marginBottom: '1rem', display: 'block' }}>{item.step}</span>
-              <strong style={{ color: 'var(--fg)', fontSize: '1.2rem', display: 'block', marginBottom: '0.5rem' }}>{item.title}</strong>
-              <span style={{ color: 'var(--fg-muted)', fontSize: '0.95rem' }}>{item.desc}</span>
+            <div key={i} className={styles.card} >
+              <span >{item.step}</span>
+              <strong >{item.title}</strong>
+              <span >{item.desc}</span>
             </div>
           ))}
         </div>
       </section>
 
       <section className={`${styles.section} container`}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem' }}>
+        <div >
           <div>
-            <h2 className={styles.sectionTitle} style={{ fontSize: '2rem' }}>Employee Experience & Wellbeing</h2>
-            <ul style={{ color: 'var(--fg-muted)', lineHeight: 1.8, paddingLeft: '1.2rem', margin: 0, fontSize: '1.05rem' }}>
-              {BENEFITS.map((item, i) => <li key={i} style={{ marginBottom: '0.5rem' }}>{item}</li>)}
+            <h2 className={styles.sectionTitle} >Employee Experience & Wellbeing</h2>
+            <ul >
+              {BENEFITS.map((item, i) => <li key={i} >{item}</li>)}
             </ul>
           </div>
           <div>
-            <h2 className={styles.sectionTitle} style={{ fontSize: '2rem' }}>Diversity, Equity & Inclusion</h2>
-            <p style={{ color: 'var(--fg-muted)', marginBottom: '1.5rem', fontSize: '1.05rem' }}>
+            <h2 className={styles.sectionTitle} >Diversity, Equity & Inclusion</h2>
+            <p >
               Hadron GBS is a naturally diverse organization — built across four continents by professionals from dozens of backgrounds, disciplines, and cultures. That diversity isn’t a policy. It’s how we were designed.
             </p>
-            <ul style={{ color: 'var(--fg-muted)', lineHeight: 1.8, paddingLeft: '1.2rem', margin: 0, fontSize: '1.05rem' }}>
-              {INCLUSION.map((item, i) => <li key={i} style={{ marginBottom: '0.5rem' }}>{item}</li>)}
+            <ul >
+              {INCLUSION.map((item, i) => <li key={i} >{item}</li>)}
             </ul>
           </div>
         </div>
@@ -115,12 +115,12 @@ export default function WorkCulturePage() {
 
         <div className={styles.grid}>
           {QUOTES.map((item, i) => (
-            <div key={i} className={styles.card} style={{ padding: '2.5rem', background: 'transparent', border: 'none', position: 'relative' }}>
-              <span style={{ position: 'absolute', top: 0, left: '1rem', fontSize: '6rem', color: 'var(--accent)', opacity: 0.1, fontFamily: 'serif', lineHeight: 1 }}>"</span>
-              <p style={{ color: 'var(--fg)', fontSize: '1.1rem', fontStyle: 'italic', lineHeight: 1.6, marginBottom: '2rem', position: 'relative', zIndex: 2 }}>"{item.quote}"</p>
-              <div style={{ marginTop: 'auto' }}>
-                <strong style={{ color: 'var(--accent)', display: 'block' }}>{item.role}</strong>
-                <span style={{ color: 'var(--fg-muted)', fontSize: '0.9rem' }}>{item.location}</span>
+            <div key={i} className={styles.card} >
+              <span >"</span>
+              <p >"{item.quote}"</p>
+              <div >
+                <strong >{item.role}</strong>
+                <span >{item.location}</span>
               </div>
             </div>
           ))}

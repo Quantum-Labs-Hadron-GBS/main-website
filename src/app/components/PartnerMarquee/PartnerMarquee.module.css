@@ -1,11 +1,6 @@
 /* ─── Wrapper strip ─────────────────────────────────────── */
 .marqueeWrapper {
   width: 100%;
-  background: color-mix(in srgb, var(--bg) 70%, transparent);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
   padding: 1.25rem 0;
   overflow: hidden;
   position: relative;
@@ -24,7 +19,6 @@
   display: flex;
   align-items: center;
   white-space: nowrap;
-  animation: scroll 30s linear infinite;
 }
 
 /* ─── Individual partner slot ───────────────────────────── */
@@ -33,13 +27,10 @@
   align-items: center;
   justify-content: center;
   padding: 0 3.5rem;
-  opacity: 0.8;
-  transition: opacity 250ms ease, filter 250ms ease;
   flex-shrink: 0;
 }
 
 .partnerItem:hover {
-  opacity: 1;
 }
 
 /* ─── Logo image ────────────────────────────────────────── */
@@ -51,13 +42,12 @@
 }
 
 .partnerItem:hover .partnerLogo {
-  transform: scale(1.06);
 }
 
 /* ─── Scroll animation ──────────────────────────────────── */
 @keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0%   { }
+  100% { }
 }
 
 /* ─── Edge fade ─────────────────────────────────────────── */
@@ -74,20 +64,10 @@
 
 .marqueeWrapper::before {
   left: 0;
-  background: linear-gradient(
-    to right,
-    color-mix(in srgb, var(--bg) 90%, transparent),
-    transparent
-  );
 }
 
 .marqueeWrapper::after {
   right: 0;
-  background: linear-gradient(
-    to left,
-    color-mix(in srgb, var(--bg) 90%, transparent),
-    transparent
-  );
 }
 
 /* ─── Mobile ─────────────────────────────────────────────── */
@@ -104,7 +84,6 @@
 /* ─── Accessibility & Reduced Motion ─────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .marqueeContent {
-    animation: none;
     flex-wrap: wrap;
     justify-content: center;
     white-space: normal;

@@ -3,85 +3,74 @@
 /* ─────────────────────────────────────────
    CSS CUSTOM PROPERTIES — THEME SYSTEM
 ───────────────────────────────────────── */
-
-/* ═══════════════════════════════════════════
-   MYNA UI DARK THEME — Hadron GBS
-   Deep black base, orange accent, dark glass
-═══════════════════════════════════════════ */
 :root {
-  --bg:            #0A0A0F;
-  --bg-alt:        #0E0E15;
-  --bg-card:       #111118;
+  --bg:            #090514;
+  --bg-alt:        #0d071a;
+  --bg-card:       #160a26;
   --fg:            #F5F5F0;
-  --fg-muted:      #A8A8B3;
-  --fg-subtle:     #6B6B7A;
-  --border:        rgba(255, 255, 255, 0.07);
-  --border-strong: rgba(255, 255, 255, 0.12);
-  --surface:       rgba(255, 255, 255, 0.03);
-  --surface-hover: rgba(255, 255, 255, 0.06);
+  --fg-muted:      #a288c9;
+  --fg-subtle:     #7356a0;
+  --border:        rgba(168, 85, 247, 0.15);
+  --border-strong: rgba(168, 85, 247, 0.3);
+  --surface:       rgba(168, 85, 247, 0.05);
+  --surface-hover: rgba(168, 85, 247, 0.1);
 
-  /* Cards: ultra-dark glass */
-  --card-bg:       rgba(255, 255, 255, 0.035);
+  /* Cards */
+  --card-bg:       rgba(22, 10, 38, 0.4);
   --card-fg:       #F5F5F0;
-  --card-fg-muted: #A8A8B3;
-  --card-shadow:   0 1px 0 rgba(255,255,255,0.05), 0 16px 60px rgba(0, 0, 0, 0.6);
-  --glow:          rgba(244, 124, 54, 0.08);
+  --card-fg-muted: #a288c9;
+  --card-shadow:   0 4px 24px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(168, 85, 247, 0.2);
+  --glow:          rgba(168, 85, 247, 0.15);
 
-  /* ── Accent: Hadron Orange (dominant) ── */
-  --accent:        #F47C36;
-  --accent-bright: #FF9B5E;
-  --accent-dim:    rgba(244, 124, 54, 0.12);
-  --accent-border: rgba(244, 124, 54, 0.35);
+  /* ── Accent: Purple Glow ── */
+  --accent:        #a855f7;
+  --accent-bright: #d8b4fe;
+  --accent-dim:    rgba(168, 85, 247, 0.15);
+  --accent-border: rgba(168, 85, 247, 0.4);
 
-  /* ── Accent B: Hadron Blue (secondary only) ── */
-  --blue:          #1E6FBF;
-  --blue-bright:   #2D85D8;
-  --blue-dim:      rgba(30, 111, 191, 0.10);
-  --blue-border:   rgba(30, 111, 191, 0.25);
+  /* ── Accent B: Cyan/Pink (for gradients) ── */
+  --blue:          #06b6d4;
+  --blue-bright:   #22d3ee;
+  --blue-dim:      rgba(6, 182, 212, 0.10);
+  --blue-border:   rgba(6, 182, 212, 0.25);
 
   --theme-transition: background-color 600ms ease, color 600ms ease, border-color 600ms ease, box-shadow 600ms ease;
 
   /* Navbar */
-  --nav-bg:       rgba(10, 10, 15, 0.5);
-  --nav-border:   rgba(255, 255, 255, 0.08);
-  --nav-fallback: rgba(10, 10, 15, 0.98);
+  --nav-bg:       rgba(9, 5, 20, 0.5);
+  --nav-border:   rgba(168, 85, 247, 0.15);
+  --nav-fallback: rgba(9, 5, 20, 0.98);
   --logo-filter:  brightness(0) invert(1);
 
-  /* Globe — orange-ember style matching reference image */
-  --globe-land:        #0D1B2E;
-  --globe-outline:     rgba(244, 124, 54, 0.7);
-  --globe-ring-bg:     rgba(8, 20, 40, 0.8);
-  --globe-ring-border: rgba(244, 124, 54, 0.3);
-  --globe-graticule:   rgba(244, 124, 54, 0.25);
-  --globe-marker:      #F47C36;
+  /* Globe — deep purple style matching reference */
+  --globe-land:        #1e0d36;
+  --globe-outline:     rgba(168, 85, 247, 0.6);
+  --globe-ring-bg:     rgba(9, 5, 20, 0.8);
+  --globe-ring-border: rgba(168, 85, 247, 0.3);
+  --globe-graticule:   rgba(168, 85, 247, 0.2);
+  --globe-marker:      #d8b4fe;
 }
 
-/* ─────────────────────────────────────────
-   CARD SURFACE — ultra-dark glass
-───────────────────────────────────────── */
+body {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(168, 85, 247, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 85%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 80% at 50% 100%, rgba(22, 10, 38, 0.8) 0%, transparent 70%);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
 .glass-card {
   background: var(--card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
-  border-top: 1px solid rgba(244, 124, 54, 0.15);
   box-shadow: var(--card-shadow);
-  border-radius: 16px;
-}
-
-.glass-card h1, .glass-card h2, .glass-card h3, .glass-card h4 {
   color: var(--card-fg);
+  border-radius: 24px;
 }
-.glass-card p {
-  color: var(--card-fg-muted);
-}
-.glass-card {
-  color: var(--card-fg);
-}
-
-/* ─────────────────────────────────────────
-   RESET & BASE
-───────────────────────────────────────── */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -91,42 +80,6 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--bg);
-  /* Deep dark with faint orange ember bloom — matches reference */
-  background-image:
-    radial-gradient(ellipse 80% 60% at 15% 10%, rgba(244, 124, 54, 0.10) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 85% 85%, rgba(244, 124, 54, 0.07) 0%, transparent 50%),
-    radial-gradient(ellipse 100% 80% at 50% 0%, rgba(15, 30, 60, 0.4) 0%, transparent 70%);
-  color: var(--fg);
-  transition: var(--theme-transition);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-  font-family: inherit;
-  border: none;
-  background: none;
 }
 
 img, canvas {
@@ -134,82 +87,13 @@ img, canvas {
   max-width: 100%;
 }
 
-/* ─────────────────────────────────────────
-   UTILITY CLASSES
-───────────────────────────────────────── */
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* ─────────────────────────────────────────
-   SECTION LABEL / TAG — global
-───────────────────────────────────────── */
-.section-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.section-tag::before {
-  content: '';
-  display: block;
-  width: 18px;
-  height: 1px;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-
-/* ─────────────────────────────────────────
-   SCROLLBAR
-───────────────────────────────────────── */
-
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-/* ─────────────────────────────────────────
-   SELECTION
-───────────────────────────────────────── */
-
-::selection { background: var(--accent); color: #fff; }
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--border-strong) 60%, transparent);
-  border-radius: 999px;
-  border: 2px solid var(--bg);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--fg-muted);
-}
-
-/* ─────────────────────────────────────────
-   REDUCED MOTION — respect user preference
-───────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }

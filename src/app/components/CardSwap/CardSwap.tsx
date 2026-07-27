@@ -91,17 +91,10 @@ export default function CardSwap({
                 key={card.number}
                 className={`${styles.card} ${isActive ? styles.cardActive : ""}`}
                 layout
-                initial={{ opacity: 0, y: 40, scale: 0.94 }}
-                animate={{
-                  opacity: isActive ? 1 : 1 - depth * 0.25,
-                  y: isActive ? 0 : depth * 28,
-                  x: isActive ? 0 : depth * 18,
-                  scale: isActive ? 1 : 1 - depth * 0.04,
-                  zIndex: cards.length - depth,
-                  rotateY: isActive ? 0 : depth * -4,
-                }}
+                
+                
                 exit={{ opacity: 0, y: -60, scale: 0.9 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                
               >
                 <div className={styles.cardInner}>
                   <div className={styles.cardHeader}>
@@ -117,13 +110,10 @@ export default function CardSwap({
                     <div className={styles.progressBar} key={`progress-${activeIndex}`}>
                       <motion.div
                         className={styles.progressFill}
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        transition={{
-                          duration: isScrollDriven ? 0.4 : delay / 1000,
-                          ease: isScrollDriven ? "easeOut" : "linear",
-                        }}
-                        style={{ transformOrigin: "left" }}
+                        
+                        
+                        
+                        
                       />
                     </div>
                   )}

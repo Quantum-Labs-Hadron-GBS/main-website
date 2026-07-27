@@ -46,7 +46,7 @@ export default function AssetsOfExcellenceSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
-  const prevRef = useRef(0);
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((current) => {

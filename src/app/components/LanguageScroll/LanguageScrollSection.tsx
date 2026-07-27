@@ -66,10 +66,10 @@ export default function LanguageScrollSection() {
       id="language-section"
       data-active-index={activeIndex}
       className={styles.section}
-      style={{ height: `100vh`, position: 'relative' }}
+      
       aria-label="VOXITY language support"
     >
-      <div className={styles.sticky} style={{ position: 'absolute', height: '100%', width: '100%' }}>
+      <div className={styles.sticky} >
         <div className={styles.eyebrow}>
           <span className="section-tag">Global Presence</span>
         </div>
@@ -85,7 +85,7 @@ export default function LanguageScrollSection() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 className={styles.textBlock}
               >
                 <span className={styles.mainText}>{currentItem.text}</span>
@@ -99,7 +99,7 @@ export default function LanguageScrollSection() {
                       initial="enter"
                       animate="center"
                       exit="exit"
-                      transition={{ duration: 0.35, delay: 0.15 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
                       className={styles.regionTag}
                     >
                       <span className={styles.regionDot} />
@@ -117,12 +117,12 @@ export default function LanguageScrollSection() {
           {ITEMS.map((_, i) => (
             <motion.div
               key={i}
-              className={styles.dot}
-              animate={{
-                background: i === activeIndex ? "var(--accent)" : "var(--border-strong)",
-                scale:      i === activeIndex ? 1.5 : 1,
+              className={`${styles.dot} ${i === activeIndex ? styles.dotActive : ""}`}
+              animate={{ 
+                scale: i === activeIndex ? 1.5 : 1,
+                opacity: i === activeIndex ? 1 : 0.4
               }}
-              transition={{ duration: 0.3 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             />
           ))}
         </div>

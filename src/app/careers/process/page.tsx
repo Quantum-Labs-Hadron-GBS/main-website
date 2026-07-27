@@ -25,14 +25,14 @@ export default function RecruitmentProcessPage() {
         </p>
       </section>
 
-      <section className={`${styles.section} container`} style={{ paddingTop: 0 }}>
+      <section className={`${styles.section} container`} >
         <div className={styles.timeline}>
           {PROCESS.map((item, i) => (
             <div key={i} className={styles.timelineItem}>
               <div className={styles.timelineNumber}>{item.step}</div>
               <div className={styles.timelineContent}>
-                <h3 className={styles.cardTitle} style={{ marginBottom: '0.5rem' }}>{item.title}</h3>
-                <p className={styles.cardDesc} style={{ margin: 0 }}>{item.desc}</p>
+                <h3 className={styles.cardTitle} >{item.title}</h3>
+                <p className={styles.cardDesc} >{item.desc}</p>
               </div>
             </div>
           ))}

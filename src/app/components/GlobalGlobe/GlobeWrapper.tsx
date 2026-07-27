@@ -1,7 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import GlobalGlobe from "./GlobalGlobe";
+import dynamic from "next/dynamic";
+
+const GlobalGlobe = dynamic(() => import("./GlobalGlobe"), { ssr: false });
 
 export default function GlobeWrapper() {
   const pathname = usePathname();
@@ -11,13 +13,11 @@ export default function GlobeWrapper() {
 
   return (
     <div 
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 0,
-        pointerEvents: isSubPage ? 'none' : 'auto', // disable interaction on subpages
-        filter: isSubPage ? 'opacity(0.4)' : 'none',
-        transition: 'filter 800ms ease',
+      style={{ 
+        position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none',
+        filter: isSubPage ? 'blur(8px)' : 'none', 
+        opacity: isSubPage ? 0.3 : 1, 
+        transition: 'all 0.5s ease' 
       }}
       aria-hidden={isSubPage ? "true" : "false"}
     >

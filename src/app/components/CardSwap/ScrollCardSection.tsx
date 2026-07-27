@@ -44,7 +44,7 @@ export default function ScrollCardSection({ cards, sectionHeader }: ScrollCardSe
     <div
       ref={sectionRef}
       className={styles.scrollSection}
-      style={{ height: `${sectionHeight}vh` }}
+      
       id="product"
       aria-label="Product features"
     >
@@ -61,7 +61,7 @@ export default function ScrollCardSection({ cards, sectionHeader }: ScrollCardSe
         {/* Scroll hint (only shown at top) */}
         <div
           className={styles.scrollHint}
-          style={{ opacity: activeIndex === 0 ? 1 : 0 }}
+          
           aria-hidden="true"
         >
           <span className={styles.scrollHintDot} />

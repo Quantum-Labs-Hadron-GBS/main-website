@@ -33,8 +33,8 @@ export default function ApplicationCard({ app }: ApplicationCardProps) {
               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
             </svg>
             <div>
-              <strong style={{ display: 'block' }}>Data Locked</strong>
-              <span style={{ fontSize: '0.85rem' }}>ML-KEM Private Key missing or invalid for this record.</span>
+              <strong >Data Locked</strong>
+              <span >ML-KEM Private Key missing or invalid for this record.</span>
             </div>
           </div>
         </div>
@@ -55,11 +55,11 @@ export default function ApplicationCard({ app }: ApplicationCardProps) {
           </span>
           <span className={styles.timestamp}>{new Date(app.createdAt).toLocaleString()}</span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div >
           <span className={styles.badge}>{isContact ? "ENTERPRISE INQUIRY" : app.status}</span>
           <svg 
             width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" 
-            style={{ transform: expanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s' }}
+            
           >
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
@@ -85,10 +85,10 @@ export default function ApplicationCard({ app }: ApplicationCardProps) {
                   <span className={styles.fieldValue}>{data.location || 'N/A'}</span>
                 </div>
               </div>
-              <div className={styles.section} style={{ gridColumn: '1 / -1' }}>
+              <div className={styles.section} >
                 <div className={styles.sectionTitle}>Message</div>
                 <div className={styles.field}>
-                  <span className={styles.fieldValue} style={{ lineHeight: '1.6', whiteSpace: 'pre-wrap' }}>
+                  <span className={styles.fieldValue} >
                     {data.message}
                   </span>
                 </div>
@@ -153,7 +153,7 @@ export default function ApplicationCard({ app }: ApplicationCardProps) {
             </>
           )}
 
-          <div style={{ gridColumn: '1 / -1' }}>
+          <div >
             <button className={styles.btnAction}>{isContact ? 'Mark as Responded' : 'Advance Candidate to Next Stage'}</button>
           </div>
         </div>

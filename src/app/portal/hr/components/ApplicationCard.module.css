@@ -1,22 +1,14 @@
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
   padding: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: var(--card-shadow);
 }
 
 .card:hover {
-  border-color: var(--border-strong);
-  box-shadow: 0 8px 30px var(--glow), inset 0 1px 0 var(--border);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  cursor: pointer;
 }
 
 .headerLeft {
@@ -26,47 +18,29 @@
 }
 
 .name {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--fg);
 }
 
 .position {
-  font-size: 0.95rem;
-  color: var(--accent);
-  font-weight: 500;
 }
 
 .timestamp {
-  font-size: 0.8rem;
-  color: var(--fg-subtle);
 }
 
 .badge {
   padding: 0.25rem 0.75rem;
-  background: rgba(var(--accent-rgb), 0.1);
-  color: var(--accent);
-  border: 1px solid rgba(var(--accent-rgb), 0.2);
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .details {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  animation: slideDown 0.3s ease forwards;
 }
 
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { }
+  to { }
 }
 
 .section {
@@ -76,12 +50,6 @@
 }
 
 .sectionTitle {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--fg-subtle);
-  font-weight: 600;
-  border-bottom: 1px solid var(--border);
   padding-bottom: 0.5rem;
 }
 
@@ -92,52 +60,29 @@
 }
 
 .fieldLabel {
-  font-size: 0.75rem;
-  color: var(--fg-subtle);
 }
 
 .fieldValue {
-  font-size: 0.95rem;
-  color: var(--fg);
 }
 
 .link {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
 }
 
 .link:hover {
-  text-decoration: underline;
 }
 
 .btnAction {
   padding: 0.75rem 1.5rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--fg);
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
   width: 100%;
   margin-top: 1rem;
 }
 
 .btnAction:hover {
-  background: var(--surface-hover);
-  color: var(--accent);
-  border-color: var(--accent-border);
 }
 
 .locked {
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: #ff5555;
-  background: rgba(255, 85, 85, 0.05);
   padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 85, 85, 0.2);
 }

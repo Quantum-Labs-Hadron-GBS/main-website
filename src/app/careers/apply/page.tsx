@@ -4,10 +4,10 @@ import JobApplicationForm from "@/app/components/JobApplicationForm/JobApplicati
 
 export default function ApplyPage() {
   return (
-    <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg)' }}>
+    <main >
       <Navbar />
 
-      <section style={{ paddingTop: '120px', paddingBottom: '60px', flex: 1 }}>
+      <section >
         <div className="container">
           <JobApplicationForm />
         </div>

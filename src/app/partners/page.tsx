@@ -9,13 +9,13 @@ export default function PartnersPage() {
   return (
     <main className={styles.main}>
       <Navbar />
-      <div className="container" style={{ paddingTop: "120px", paddingBottom: "2rem", display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div className="container" >
         <BreadcrumbNav items={[
           { label: "Home", href: "/" },
           { label: "Partners" }
         ]} />
       </div>
-      <div style={{ minHeight: "80vh" }}>
+      <div >
         <PartnersSection />
       </div>
       <CtaSection />

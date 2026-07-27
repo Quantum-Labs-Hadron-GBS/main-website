@@ -49,18 +49,18 @@ export default function OpenRolesPage() {
         </p>
       </section>
 
-      <section className={`${styles.section} container`} style={{ paddingTop: 0 }}>
-        <div className={styles.sectionHeader} style={{ marginBottom: '2rem', alignItems: 'flex-start' }}>
+      <section className={`${styles.section} container`} >
+        <div className={styles.sectionHeader} >
           <h2 className={styles.sectionTitle}>Featured Postings</h2>
         </div>
 
-        <div className={styles.grid} style={{ gridTemplateColumns: '1fr' }}>
+        <div className={styles.grid} >
           {POSTINGS.map((job, i) => (
-            <div key={i} className={styles.card} style={{ padding: '2.5rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
+            <div key={i} className={styles.card} >
+              <div >
                 <div>
-                  <h3 className={styles.cardTitle} style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>{job.title}</h3>
-                  <div style={{ display: 'flex', gap: '1rem', color: 'var(--fg-muted)', fontSize: '0.95rem' }}>
+                  <h3 className={styles.cardTitle} >{job.title}</h3>
+                  <div >
                     <span>📍 {job.location}</span>
                     <span>⏳ {job.experience}</span>
                     <span>💼 {job.type}</span>
@@ -69,29 +69,29 @@ export default function OpenRolesPage() {
                 <a href="/careers/apply" className={styles.btnPrimary}>Apply Now</a>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+              <div >
                 <div>
-                  <strong style={{ color: 'var(--accent)', display: 'block', marginBottom: '1rem' }}>About the Role</strong>
-                  <p style={{ color: 'var(--fg-muted)', lineHeight: 1.6 }}>{job.about}</p>
+                  <strong >About the Role</strong>
+                  <p >{job.about}</p>
                   
-                  <strong style={{ color: 'var(--accent)', display: 'block', margin: '2rem 0 1rem' }}>What You'll Do</strong>
-                  <ul style={{ color: 'var(--fg-muted)', lineHeight: 1.6, paddingLeft: '1.2rem', margin: 0 }}>
-                    {job.duties.map((duty, idx) => <li key={idx} style={{ marginBottom: '0.5rem' }}>{duty}</li>)}
+                  <strong >What You'll Do</strong>
+                  <ul >
+                    {job.duties.map((duty, idx) => <li key={idx} >{duty}</li>)}
                   </ul>
                 </div>
 
                 <div>
-                  <strong style={{ color: 'var(--accent)', display: 'block', marginBottom: '1rem' }}>What You Bring</strong>
-                  <ul style={{ color: 'var(--fg-muted)', lineHeight: 1.6, paddingLeft: '1.2rem', margin: 0 }}>
-                    {job.requirements.map((req, idx) => <li key={idx} style={{ marginBottom: '0.5rem' }}>{req}</li>)}
+                  <strong >What You Bring</strong>
+                  <ul >
+                    {job.requirements.map((req, idx) => <li key={idx} >{req}</li>)}
                   </ul>
 
-                  <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'var(--bg)', borderRadius: '12px', border: '1px solid var(--border)' }}>
-                    <strong style={{ color: 'var(--accent)', display: 'block', marginBottom: '1rem' }}>What You'll Get</strong>
-                    <ul style={{ color: 'var(--fg)', lineHeight: 1.6, paddingLeft: '1.2rem', margin: 0 }}>
-                      <li style={{ marginBottom: '0.5rem' }}>Competitive salary + performance bonus</li>
-                      <li style={{ marginBottom: '0.5rem' }}>Certification and training budget</li>
-                      <li style={{ marginBottom: '0.5rem' }}>Hybrid/remote flexibility and global project exposure</li>
+                  <div >
+                    <strong >What You'll Get</strong>
+                    <ul >
+                      <li >Competitive salary + performance bonus</li>
+                      <li >Certification and training budget</li>
+                      <li >Hybrid/remote flexibility and global project exposure</li>
                       <li>A clear career path in a high-growth consulting environment</li>
                     </ul>
                   </div>
@@ -103,39 +103,30 @@ export default function OpenRolesPage() {
       </section>
 
       <section className={`${styles.section} container`}>
-        <div className={styles.sectionHeader} style={{ marginBottom: '2rem' }}>
+        <div className={styles.sectionHeader} >
           <h2 className={styles.sectionTitle}>Practice Areas We're Hiring In</h2>
         </div>
 
         <div className={styles.jobList}>
-          <div className={styles.jobHeader} style={{ gridTemplateColumns: '1fr 2fr' }}>
+          <div className={styles.jobHeader} >
             <span>Category</span>
             <span>Roles</span>
           </div>
           {CATEGORIES.map((cat, i) => (
-            <div key={i} className={styles.jobRow} style={{ gridTemplateColumns: '1fr 2fr' }}>
-              <strong style={{ color: 'var(--accent)', fontSize: '1.1rem' }}>{cat.category}</strong>
-              <span style={{ color: 'var(--fg-muted)', lineHeight: 1.5 }}>{cat.roles}</span>
+            <div key={i} className={styles.jobRow} >
+              <strong >{cat.category}</strong>
+              <span >{cat.roles}</span>
             </div>
           ))}
         </div>
       </section>
 
-      <section className={`${styles.section} container`} style={{ textAlign: 'center', padding: '6rem 0' }}>
+      <section className={`${styles.section} container`} >
         <h2 className={styles.sectionTitle}>Ready to redefine your digital workflows?</h2>
-        <p className={styles.heroDesc} style={{ margin: '0 auto 2rem', maxWidth: '600px' }}>
+        <p className={styles.heroDesc} >
           We’re growing rapidly — and some of our best hires come before we post the job. If you believe your expertise has a home at Hadron GBS, we want to hear from you.
         </p>
-        <a href="/careers/apply" style={{
-          display: 'inline-block',
-          padding: '1rem 2rem',
-          background: 'var(--accent)',
-          color: '#000',
-          fontWeight: '700',
-          borderRadius: '8px',
-          textDecoration: 'none',
-          transition: 'all 0.3s ease'
-        }}>
+        <a href="/careers/apply" >
           Apply Now
         </a>
       </section>

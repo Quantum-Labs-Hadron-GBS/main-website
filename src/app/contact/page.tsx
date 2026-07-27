@@ -10,7 +10,7 @@ export default function ContactPage() {
       <Navbar />
 
       <section className={`${styles.hero} container`}>
-        <div className={styles.heroContent} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className={styles.heroContent} >
           <BreadcrumbNav items={[
             { label: "Home", href: "/" },
             { label: "Contact Us" }
@@ -24,7 +24,7 @@ export default function ContactPage() {
       </section>
 
       <section className={styles.formSection}>
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        <div className="container" >
           <div className={styles.formWrapper}>
             <ContactForm />
           </div>
