@@ -19,7 +19,6 @@ const inter = Inter({
 
 import { generatePageMetadata } from "./lib/seo";
 import { getOrganizationSchema, getWebSiteSchema, getLocalBusinessSchema } from "./lib/schema";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   ...generatePageMetadata({
