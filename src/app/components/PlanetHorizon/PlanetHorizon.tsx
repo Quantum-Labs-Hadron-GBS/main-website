@@ -92,6 +92,7 @@ export default function PlanetHorizon() {
 
     // --- Theme colors from CSS variables ---
     const getColors = () => {
+      const style = getComputedStyle(document.documentElement);
       return {
         bg: style.getPropertyValue("--bg").trim() || "#000",
         fg: style.getPropertyValue("--fg").trim() || "#fff",
