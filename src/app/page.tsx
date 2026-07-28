@@ -16,14 +16,12 @@ const Footer                  = dynamic(() => import("./components/Footer/Footer
 
 export default function HomePage() {
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} light-theme`}>
       <Navbar />
 
       {/* ── HERO ── */}
       <HeroSection />
 
-      {/* ── LANGUAGE REEL + zooming globe ── */}
-      <LanguageScrollSection />
 
       {/* ── FEATURE NUMBER TICKER ── */}
       <FeatureScrollSection />
@@ -42,6 +40,9 @@ export default function HomePage() {
 
       {/* ── ASSETS OF EXCELLENCE ── */}
       <AssetsOfExcellenceSection />
+
+      {/* ── LANGUAGE REEL + zooming globe ── */}
+      <LanguageScrollSection />
 
       {/* ── CONTACT CTA ── */}
       <CtaSection />

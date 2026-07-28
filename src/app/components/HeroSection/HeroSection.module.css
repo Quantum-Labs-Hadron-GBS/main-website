@@ -5,18 +5,21 @@
 .heroWrapper {
   display: flex;
   flex-direction: column;
+  padding: 1rem 1rem 0; /* White bezel around the hero video */
+  background: var(--bg);
 }
 
 .hero {
   position: relative;
   z-index: 1;
-  height: 100vh;
+  height: calc(100vh - 1rem); /* Account for top padding */
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
   padding-top: 5rem;
   padding-bottom: 8rem;
+  border-radius: 24px; /* Curve the inner video container */
 }
 
 /* Fine noise grain overlay */

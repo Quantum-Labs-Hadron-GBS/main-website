@@ -21,8 +21,15 @@ export default function WhyHadronSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className={styles.tag}>Why Hadron GBS</span>
-          <h2 className={styles.title}>What Sets Us Apart</h2>
+          <h2 className={styles.title} style={{ fontSize: '2.5rem', color: 'var(--fg)', fontWeight: 600, marginBottom: '1rem', textTransform: 'none', letterSpacing: 'normal' }}>
+            Crafting <span style={{ color: 'var(--blue)' }}>Intelligent</span> Experiences
+          </h2>
+          <p style={{ color: 'var(--fg-muted)', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto 2rem', lineHeight: 1.6, textTransform: 'none' }}>
+            Whether you're building your own models, transforming your cloud strategy, or amplifying your digital efforts, we provide the foundation for enterprise success.
+          </p>
+          <button style={{ background: '#111', color: '#fff', padding: '0.8rem 2rem', borderRadius: '8px', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
+            I'm Curious ↗
+          </button>
         </motion.div>
 
         <InteractiveBento />
