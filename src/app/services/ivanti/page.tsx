@@ -1,15 +1,18 @@
+"use client";
+
 import ServiceLayout from "../ServiceLayout";
 
-export default function Page() {
+export default function IvantiPage() {
   return (
     <ServiceLayout
-      title={`Secure and Manage the Everywhere Workstyle with <span >Hadron GBS & Ivanti</span>`}
-      subtitle="At Hadron GBS, we understand that the modern workforce is no longer confined to a single office or network. As a strategic Ivanti partner, we help organizations discover, manage, and secure every device and endpoint across the enterprise."
+      title="Secure and Manage the Everywhere Workstyle with Hadron GBS & Ivanti"
+      subtitle="At Hadron GBS, we understand that the modern workforce is no longer confined to a single office or network. As a strategic Ivanti partner, we help organizations discover, manage, and secure every device and endpoint across the enterprise. By unifying IT Service Management (ITSM) with robust cybersecurity and endpoint intelligence, we ensure your employees remain productive and protected, regardless of their location."
+      heroBgUrl="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
       solutions={[
         { title: "Ivanti Neurons for ITSM", desc: "Modernize service delivery with a flexible, cloud-optimized platform that automates workflows and improves the employee experience." },
         { title: "Ivanti Neurons for UEM (Unified Endpoint Management)", desc: "Gain a 360-degree view of your entire device estate—including mobile, desktop, and IoT—to manage them through a single pane of glass." },
         { title: "Ivanti Neurons for Patch Management", desc: "Proactively identify and patch vulnerabilities across your environment to stay ahead of cyber threats." },
-        { title: "Ivanti Neurons for Zero Trust Access", desc: "Secure your digital perimeter by ensuring only authorized users and healthy devices can access sensitive corporate data." },
+        { title: "Ivanti Neurons for Zero Trust Access", desc: "Secure your digital perimeter by ensuring only authorized users and 'healthy' devices can access sensitive corporate data." },
         { title: "Ivanti Neurons for DEX (Digital Employee Experience)", desc: "Proactively measure and optimize the digital experience of your workforce by identifying and resolving device issues before they are reported." },
         { title: "Ivanti Neurons for Asset Management", desc: "Track the complete lifecycle of your hardware and software assets to maximize utilization and ensure compliance." }
       ]}

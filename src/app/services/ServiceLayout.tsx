@@ -1,118 +1,234 @@
-import Navbar from "../components/Navbar/Navbar";
-import CtaSection from "../components/CtaSection/CtaSection";
-import Footer from "../components/Footer/Footer";
-import BreadcrumbNav from "../components/BreadcrumbNav/BreadcrumbNav";
-import styles from "./ServicePage.module.css";
+"use client";
 
-interface ServiceLayoutProps {
+import React, { useState } from "react";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
+import styles from "./ServiceLayout.module.css";
+import { motion, AnimatePresence } from "framer-motion";
+
+export interface SolutionItem {
   title: string;
-  subtitle: string;
-  solutions: { title: string; desc: string; img?: string; category?: string }[];
-  framework: { step: string; title: string; desc: string; outcome: string; img?: string }[];
-  whyHadron: { title: string; desc: string; img?: string }[];
-  breadcrumbName?: string;
+  desc: string;
 }
 
-export default function ServiceLayout({ title, subtitle, solutions, framework, whyHadron, breadcrumbName = "Offering" }: ServiceLayoutProps) {
+export interface FrameworkItem {
+  step: string;
+  title: string;
+  desc: string;
+  outcome: string;
+}
+
+export interface WhyHadronItem {
+  title: string;
+  desc: string;
+}
+
+export interface ServiceLayoutProps {
+  title: string;
+  subtitle: string;
+  heroBgUrl?: string;
+  solutionsImgUrl?: string;
+  solutions: SolutionItem[];
+  framework: FrameworkItem[];
+  whyHadron: WhyHadronItem[];
+}
+
+export default function ServiceLayout({
+  title,
+  subtitle,
+  heroBgUrl = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
+  solutionsImgUrl = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop", // vivid abstract blue wave default
+  solutions,
+  framework,
+  whyHadron,
+}: ServiceLayoutProps) {
+  const [activeTab, setActiveTab] = useState<'offerings' | 'framework'>('offerings');
+
+  // Reduce content length to prevent overwhelming the hero section
+  const trimSubtitle = (text: string) => {
+    const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+    if (sentences.length > 2) {
+      return sentences.slice(0, 2).join(' ').trim();
+    }
+    return text;
+  };
+
+  const shortSubtitle = trimSubtitle(subtitle);
+
+  const defaultWhyImages = [
+    "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop", // AI abstract
+    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop", // Tech abstract
+    "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop", // Growth/Network
+    "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=800&auto=format&fit=crop"  // Pattern
+  ];
+
   return (
-    <main className={styles.main}>
+    <>
       <Navbar />
-
-      {/* Hero Section */}
-      <section className={styles.hero}>
-        <div className={`container ${styles.heroInner}`}>
-          <div className={styles.heroTextColumn}>
-            <BreadcrumbNav items={[
-              { label: "Home", href: "/" },
-              { label: "Services", href: "/#services" },
-              { label: breadcrumbName }
-            ]} />
-            <span className={styles.heroTag}>Service Offering</span>
-            <h1 className={styles.heroTitle} dangerouslySetInnerHTML={{ __html: title }} />
-            <p className={styles.heroDesc}>{subtitle}</p>
+      <main className={styles.main}>
+        {/* HERO BANNER */}
+        <section className={styles.heroBanner}>
+          <img src={heroBgUrl} alt="Hero background" className={styles.heroBg} />
+          <div className={styles.heroOverlay}></div>
+          <div className={`${styles.container} ${styles.heroContent}`}>
+            <motion.h1 
+              className={styles.heroTitle}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              {title}
+            </motion.h1>
+            <motion.p 
+              className={styles.heroSubtitle}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              {shortSubtitle}
+            </motion.p>
           </div>
-          
-          <div className={styles.heroVideoStrip}>
-            <video autoPlay loop muted playsInline preload="auto" disablePictureInPicture>
-              <source src="https://res.cloudinary.com/djxbxhgat/video/upload/f_auto,q_auto,h_1080,c_limit/v1784804662/20610-312672589_lscygw.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Comprehensive Solutions Grid */}
-      <section className={`${styles.section} container`}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Comprehensive Solutions</h2>
-          <p className={styles.sectionSubtitle}>End-to-end expertise delivering unified, high-performing outcomes.</p>
-        </div>
-        <div className={styles.grid}>
-          {solutions.map((sol, i) => (
-            <div key={i} className={styles.card}>
-              <img 
-                src={sol.img || `https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600&sig=${i}`} 
-                alt={sol.title} 
-                className={styles.cardImage} 
-              />
-              <div className={styles.cardContent}>
-                <span className={styles.cardPill}>{sol.category || "Solution"}</span>
-                <h3 className={styles.cardTitle}>{sol.title}</h3>
-                <p className={styles.cardBody}>{sol.desc}</p>
-                <a href="#contact" className={styles.cardLink}>Read More ↗</a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Service Framework */}
-      <section className={`${styles.section} container`}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Our Service Framework</h2>
-          <p className={styles.sectionSubtitle}>From Strategy to Scale. Our three-pillar approach ensures operational success.</p>
-        </div>
-        <div className={styles.grid}>
-          {framework.map((fw, i) => (
-            <div key={i} className={styles.card}>
-              <img 
-                src={fw.img || `https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600&sig=${i}`} 
-                alt={fw.title} 
-                className={styles.cardImage} 
-              />
-              <div className={styles.cardContent}>
-                <span className={styles.cardPill}>Step {fw.step}</span>
-                <h3 className={styles.cardTitle}>{fw.title}</h3>
-                <p className={styles.cardBody}>{fw.desc}</p>
-                <div style={{ marginTop: 'auto', background: '#f8fafc', padding: '1rem', borderRadius: '8px', width: '100%' }}>
-                  <strong style={{ color: '#111827', display: 'block', marginBottom: '0.25rem', fontSize: '0.85rem' }}>Outcome:</strong>
-                  <p style={{ color: '#4b5563', margin: 0, fontSize: '0.9rem' }}>{fw.outcome}</p>
+        {/* COMPREHENSIVE SOLUTIONS (New Asymmetric Layout) */}
+        {solutions.length > 0 && (
+          <section id="offerings" className={styles.solutionsSection}>
+            <div className={styles.solutionsContainer}>
+              {/* Left Sticky Sidebar */}
+              <div className={styles.solutionsLeft}>
+                <h2 className={styles.solutionsLeftTitle}>Our Offerings</h2>
+                <p className={styles.solutionsLeftDesc}>
+                  Leverage our end-to-end services and solutions that deliver measurable business impact across your entire enterprise.
+                </p>
+                <div className={styles.solutionsTabs}>
+                  <div 
+                    className={`${styles.solutionsTab} ${activeTab === 'offerings' ? styles.active : ''}`}
+                    onClick={() => setActiveTab('offerings')}
+                  >
+                    Service Offerings
+                  </div>
+                  {framework.length > 0 && (
+                    <div 
+                      className={`${styles.solutionsTab} ${activeTab === 'framework' ? styles.active : ''}`}
+                      onClick={() => setActiveTab('framework')}
+                    >
+                      Our Service Framework
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Why Hadron GBS? */}
-      <section className={`${styles.section} container`}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Why Hadron GBS?</h2>
-        </div>
-        <div className={styles.grid}>
-          {whyHadron.map((why, i) => (
-            <div key={i} className={styles.card}>
-              <div className={styles.cardContent}>
-                <span className={styles.cardPill}>Differentiator</span>
-                <h3 className={styles.cardTitle}>{why.title}</h3>
-                <p className={styles.cardBody} style={{ marginBottom: 0 }}>{why.desc}</p>
+              {/* Right Content Area */}
+              <div className={styles.solutionsRight} style={{ minHeight: '600px', backgroundColor: activeTab === 'framework' ? 'transparent' : '#ffffff', boxShadow: activeTab === 'framework' ? 'none' : '' }}>
+                <AnimatePresence mode="wait">
+                  {activeTab === 'offerings' && (
+                    <motion.div 
+                      key="offerings"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
+                    >
+                      <div className={styles.solutionsImageWrapper}>
+                        <img src={solutionsImgUrl} alt="Solutions banner" className={styles.solutionsImage} />
+                      </div>
+                      <div className={styles.solutionsListWrapper}>
+                        <div className={styles.solutionsList}>
+                          {solutions.map((sol, i) => (
+                            <div key={i} className={styles.solutionItem}>
+                              <span className={styles.solutionNumber}>
+                                {String(i + 1).padStart(2, '0')}.
+                              </span>
+                              <div className={styles.solutionTextWrapper}>
+                                <span className={styles.solutionTitle}>{sol.title}</span>
+                                <span className={styles.solutionDesc}>{sol.desc}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {activeTab === 'framework' && (
+                    <motion.div 
+                      key="framework"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
+                    >
+                      <div className={styles.solutionsImageWrapper}>
+                        <img src={solutionsImgUrl} alt="Framework banner" className={styles.solutionsImage} />
+                      </div>
+                      <div className={styles.solutionsListWrapper}>
+                        <div className={styles.solutionsList}>
+                          {framework.map((step, i) => (
+                            <div key={i} className={styles.solutionItem}>
+                              <span className={styles.solutionNumber}>
+                                {step.step}.
+                              </span>
+                              <div className={styles.solutionTextWrapper}>
+                                <span className={styles.solutionTitle}>{step.title}</span>
+                                <span className={styles.solutionDesc}>{step.desc}</span>
+                                <span className={styles.solutionDesc} style={{ fontWeight: 600, color: '#1e3a8a', marginTop: '0.5rem' }}>
+                                  Outcome: <span style={{ fontWeight: 400, color: '#6b7280' }}>{step.outcome}</span>
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
+        )}
 
-      <CtaSection />
+        {/* WHY HADRON GBS? */}
+        {whyHadron.length > 0 && (
+          <section className={styles.whySection}>
+            <div className={styles.container}>
+              <div className={styles.whyHeader}>
+                <h2 className={styles.whyTitle}>Why Hadron GBS?</h2>
+              </div>
+              <div className={styles.whyGrid}>
+                {whyHadron.map((why, i) => (
+                  <motion.div 
+                    key={i} 
+                    className={styles.whyCard}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                  >
+                    <div className={styles.whyCardImgWrapper}>
+                      <img src={defaultWhyImages[i % defaultWhyImages.length]} alt={why.title} className={styles.whyCardImg} />
+                    </div>
+                    <div className={styles.whyCardBody}>
+                      <h3 className={styles.whyCardTitle}>{why.title}</h3>
+                      <p className={styles.whyCardDesc}>{why.desc}</p>
+                      <a href="#" className={styles.whyCardLink} onClick={(e) => e.preventDefault()}>
+                        Read More 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </a>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

@@ -1,11 +1,13 @@
+"use client";
+
 import ServiceLayout from "../ServiceLayout";
 
-export default function Page() {
+export default function AwsCloudPage() {
   return (
     <ServiceLayout
-      breadcrumbName="AWS Cloud"
-      title={`Scale with Confidence: Your Journey to the <span >AWS Cloud</span> with Hadron GBS`}
-      subtitle="At Hadron GBS, we help organizations harness the world’s most comprehensive and broadly adopted cloud platform. As a strategic AWS partner, we specialize in transforming rigid, on-premise infrastructures into agile, cloud-native environments."
+      title="Scale Without Limits with Hadron GBS & Amazon Web Services (AWS)"
+      subtitle="At Hadron GBS, we help organizations harness the world’s most comprehensive and broadly adopted cloud platform. As a strategic AWS partner, we specialize in transforming rigid, on-premise infrastructures into agile, cloud-native environments. Whether you are looking to migrate mission-critical workloads, build data lakes, or deploy generative AI, we provide the technical depth and operational rigor to help you innovate at the speed of the cloud."
+      heroBgUrl="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
       solutions={[
         { title: "Cloud Migration & Modernization", desc: "Seamlessly transition your applications to AWS using proven frameworks (Rehost, Replatform, Refactor) to reduce data center footprints and increase agility." },
         { title: "AWS Data & Analytics", desc: "Break down data silos by building robust data lakes and warehouses using Amazon Redshift and AWS Glue for real-time business intelligence." },
@@ -16,8 +18,8 @@ export default function Page() {
         { title: "Storage & Content Delivery", desc: "Optimize data availability and web performance using Amazon S3 and Amazon CloudFront for global reach and durability." }
       ]}
       framework={[
-        { step: "01", title: "Consulting & Advisory", desc: "Not every platform is right for every problem. We assess your technical landscape and business goals to recommend the right AWS stack—whether it’s focused on compute, database complexity, or deep integration.", outcome: "A strategic AWS roadmap and a governed framework that prevents shadow IT while fostering innovation." },
-        { step: "02", title: "Implementation & Execution", desc: "Our agile delivery model focuses on MVPs that deliver value fast. We work in short sprints, involving your stakeholders at every step to ensure the final architecture matches user needs.", outcome: "A fully functional, integrated application deployed in a fraction of the time required for traditional development." },
+        { step: "01", title: "Consulting & Advisory", desc: "Not every cloud platform is right for every problem. We assess your technical landscape and business goals to recommend the right stack—whether it’s focused on UI, database complexity, or deep integration.", outcome: "A strategic cloud roadmap and a governed framework that prevents ‘Shadow IT’ while fostering innovation." },
+        { step: "02", title: "Implementation & Execution", desc: "Our agile delivery model focuses on ‘Minimum Viable Products’ (MVPs) that deliver value fast. We work in short sprints, involving your stakeholders at every step to ensure the final product perfectly matches user needs.", outcome: "A fully functional, integrated application deployed in a fraction of the time required for traditional development." },
         { step: "03", title: "Operational Support & Managed Services", desc: "As your portfolio of cloud apps grows, management becomes critical. We provide ongoing support, platform updates, and security audits to ensure your apps remain performant and compliant with enterprise standards.", outcome: "A sustainable and secure application ecosystem that evolves as your business processes change." }
       ]}
       whyHadron={[

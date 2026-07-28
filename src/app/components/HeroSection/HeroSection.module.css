@@ -17,7 +17,7 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  padding-top: 5rem;
+  padding-top: 8rem; /* Increased to ensure content stays below navbar */
   padding-bottom: 8rem;
   border-radius: 24px; /* Curve the inner video container */
 }

@@ -5,13 +5,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import styles from "./glow-menu.module.css";
 
+export interface SubMenuItem {
+  label: string;
+  href: string;
+  nestedItems?: { label: string; href: string }[];
+}
+
 export interface MenuItem {
   label: string;
   href: string;
   gradient: string;
-  subItems?: { label: string; href: string }[];
+  subItems?: SubMenuItem[];
   isLogo?: boolean;
   logoSrc?: string;
+  textColor?: string;
 }
 
 interface MenuBarProps {
@@ -22,6 +29,7 @@ interface MenuBarProps {
 
 export function MenuBar({ items, activeItem, onItemClick }: MenuBarProps) {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [hoveredSubItem, setHoveredSubItem] = useState<string | null>(null);
 
   return (
     <div className={styles.menuBarContainer}>
@@ -64,7 +72,14 @@ export function MenuBar({ items, activeItem, onItemClick }: MenuBarProps) {
                     style={{ height: '20px', width: 'auto', display: 'block', opacity: isActive ? 1 : 0.8 }} 
                   />
                 ) : (
-                  <span className={styles.label} style={{ opacity: isActive ? 1 : 0.7 }}>
+                  <span 
+                    className={styles.label} 
+                    style={{ 
+                      opacity: isActive ? 1 : (item.textColor ? 1 : 0.7),
+                      color: item.textColor || undefined,
+                      fontWeight: item.textColor ? 'bold' : 'normal'
+                    }}
+                  >
                     {item.label}
                   </span>
                 )}
@@ -82,17 +97,55 @@ export function MenuBar({ items, activeItem, onItemClick }: MenuBarProps) {
                       className={styles.dropdownMenu}
                     >
                       {item.subItems!.map((sub) => (
-                        <Link 
-                          key={sub.label} 
-                          href={sub.href} 
-                          className={styles.dropdownItem}
-                          onClick={() => {
-                            setHoveredMenu(null);
-                            onItemClick(item.label);
-                          }}
+                        <div 
+                          key={sub.label}
+                          className={styles.dropdownItemWrapper}
+                          onMouseEnter={() => setHoveredSubItem(sub.label)}
+                          onMouseLeave={() => setHoveredSubItem(null)}
                         >
-                          {sub.label}
-                        </Link>
+                          <Link 
+                            href={sub.href} 
+                            className={styles.dropdownItem}
+                            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                            onClick={() => {
+                              setHoveredMenu(null);
+                              setHoveredSubItem(null);
+                              onItemClick(item.label);
+                            }}
+                          >
+                            <span>{sub.label}</span>
+                            {sub.nestedItems && (
+                              <span style={{ color: hoveredSubItem === sub.label ? '#F47C36' : 'inherit' }}>
+                                &gt;
+                              </span>
+                            )}
+                          </Link>
+
+                          {sub.nestedItems && hoveredSubItem === sub.label && (
+                            <motion.div
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: -10 }}
+                              transition={{ duration: 0.2 }}
+                              className={styles.nestedDropdownMenu}
+                            >
+                              {sub.nestedItems.map(nested => (
+                                <Link
+                                  key={nested.label}
+                                  href={nested.href}
+                                  className={styles.dropdownItem}
+                                  onClick={() => {
+                                    setHoveredMenu(null);
+                                    setHoveredSubItem(null);
+                                    onItemClick(item.label);
+                                  }}
+                                >
+                                  {nested.label}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </div>
                       ))}
                     </motion.div>
                   )}

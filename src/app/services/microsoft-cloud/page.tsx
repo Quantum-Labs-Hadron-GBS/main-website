@@ -1,10 +1,13 @@
+"use client";
+
 import ServiceLayout from "../ServiceLayout";
 
-export default function Page() {
+export default function MicrosoftCloudPage() {
   return (
     <ServiceLayout
-      title={`Empower Your Digital Future with <span >Hadron GBS & Microsoft Cloud</span>`}
-      subtitle="At Hadron GBS, we help organizations harness the full potential of the world’s most integrated technology stack. As a strategic Microsoft Solutions Partner, we empower businesses to modernize their infrastructure, secure their data, and reinvent productivity through AI-driven workflows."
+      title="Empower Your Digital Future with Hadron GBS & Microsoft Cloud"
+      subtitle="At Hadron GBS, we help organizations harness the full potential of the world’s most integrated technology stack. As a strategic Microsoft Solutions Partner, we empower businesses to modernize their infrastructure, secure their data, and reinvent productivity through AI-driven workflows. From migrating legacy workloads to Azure to deploying Microsoft 365 and Dynamics 365, we ensure your technology drives measurable business impact."
+      heroBgUrl="https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop"
       solutions={[
         { title: "Microsoft Azure (Cloud Infrastructure)", desc: "Accelerate your digital transformation with secure cloud migrations, app modernization, and scalable data analytics." },
         { title: "Dynamics 365 (Business Applications)", desc: "Unify your front and back-office operations with intelligent CRM and ERP solutions that streamline sales, finance, and supply chain management." },

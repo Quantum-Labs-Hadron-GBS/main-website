@@ -1,10 +1,13 @@
+"use client";
+
 import ServiceLayout from "../ServiceLayout";
 
-export default function Page() {
+export default function SalesforcePage() {
   return (
     <ServiceLayout
-      title={`Accelerate Enterprise Growth with <span >Hadron GBS & Salesforce</span>`}
-      subtitle="At Hadron GBS, we believe every interaction—whether with a customer or an employee—is an opportunity for growth. As a strategic Salesforce partner, we help organizations transition from siloed data to a unified, 360-degree view of their entire business."
+      title="Accelerate Enterprise Growth with Hadron GBS & Salesforce"
+      subtitle="At Hadron GBS, we believe every interaction—whether with a customer or an employee—is an opportunity for growth. As a strategic Salesforce partner, we help organizations transition from siloed data to a unified, 360-degree view of their entire business. By leveraging the world’s #1 AI CRM and its expanding service capabilities, we empower your teams to work smarter, close deals faster, and deliver seamless internal support."
+      heroBgUrl="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
       solutions={[
         { title: "Sales Cloud", desc: "Drive revenue growth with automated lead management, advanced forecasting, and AI-powered pipeline insights." },
         { title: "Service Cloud", desc: "Modernize your internal service desk by bringing IT Service Management onto the Salesforce platform. Unify employee support, asset tracking, and incident resolution within the same interface your business already trusts." },
@@ -12,7 +15,7 @@ export default function Page() {
         { title: "Experience Cloud", desc: "Build branded communities and portals for customers and partners to collaborate and access self-service resources." },
         { title: "Data Cloud", desc: "Harmonize all your enterprise data into a single, real-time profile to power smarter, AI-driven decision-making." },
         { title: "Einstein AI", desc: "Integrate predictive and generative AI across your workflows to automate routine tasks and provide hyper-personalized experiences." },
-        { title: "Agentforce", desc: "Deploy autonomous AI agents directly within Salesforce to handle complex, multi-step business tasks across sales, service, and operations—without human intervention. Agentforce agents act on real-time data from the Salesforce platform, enabling your teams to scale capacity, accelerate resolution, and focus on high-value work." }
+        { title: "Agentforce", desc: "Deploy autonomous AI agents directly within Salesforce to handle complex, multi-step business tasks across sales, service, and operations—without human intervention." }
       ]}
       framework={[
         { step: "01", title: "Consulting & Advisory", desc: "We start by understanding your sales cycles and internal service requirements. We help you navigate Salesforce’s extensive feature set to build a roadmap that prioritizes user adoption and high-impact business outcomes.", outcome: "A strategic CRM and ITSM blueprint that eliminates process friction and aligns technology with your revenue and operational goals." },

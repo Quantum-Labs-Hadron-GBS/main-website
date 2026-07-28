@@ -1,10 +1,13 @@
+"use client";
+
 import ServiceLayout from "../ServiceLayout";
 
-export default function Page() {
+export default function BmcPage() {
   return (
     <ServiceLayout
-      title={`Empower Your Digital Enterprise with <span >Hadron GBS & BMC Software</span>`}
+      title="Empower Your Digital Enterprise with Hadron GBS & BMC Software"
       subtitle="At Hadron GBS, we specialize in turning operational complexity into a competitive advantage. As a strategic BMC Software partner, we help organizations transition from traditional IT management to Autonomous Digital Enterprise models. By leveraging BMC’s robust portfolio, we enable your business to scale with agility, automate at every level, and deliver data-driven insights."
+      heroBgUrl="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
       solutions={[
         { title: "BMC Helix Operations Management (AIOps)", desc: "Use advanced machine learning to predict, find, and fix issues before they impact the business." },
         { title: "Control-M (Workflow Orchestration)", desc: "Simplify application and data workflow orchestration, making it easy to build, deploy, manage, and monitor complex business services." },

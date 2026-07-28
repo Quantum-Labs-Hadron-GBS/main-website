@@ -1,11 +1,13 @@
+"use client";
+
 import ServiceLayout from "../ServiceLayout";
 
-export default function Page() {
+export default function LowCodePage() {
   return (
     <ServiceLayout
-      breadcrumbName="Low-Code Development"
-      title={`Accelerate Digital Delivery with <span >Low-Code Development</span>`}
-      subtitle="At Hadron GBS, we believe that technology should be an accelerator, not a bottleneck. As a specialist partner in Low-Code and No-Code (LCNC) platforms, we empower organizations to bridge the gap between business ideas and functional software."
+      title="Accelerate Innovation with Hadron GBS: Your Low-Code & No-Code Partner"
+      subtitle="At Hadron GBS, we believe that technology should be an accelerator, not a bottleneck. As a specialist partner in Low-Code and No-Code (LCNC) platforms, we empower organizations to bridge the gap between business ideas and functional software. By democratizing app development, we help you launch enterprise-grade solutions in weeks—not months—enabling your team to respond to market changes at the speed of thought."
+      heroBgUrl="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
       solutions={[
         { title: "Rapid Application Development (RAD)", desc: "Build and deploy custom business applications quickly to solve unique challenges without the overhead of traditional coding." },
         { title: "Workflow & Process Automation", desc: "Modernize manual, paper-based, or Excel-driven processes with automated digital workflows that reduce errors and save time." },
