@@ -75,10 +75,10 @@
 }
 
 /* Differentiate colors for the arrows based on index */
-.timelineNode:nth-child(1) .nodeArrow { }
-.timelineNode:nth-child(2) .nodeArrow { }
-.timelineNode:nth-child(3) .nodeArrow { }
-.timelineNode:nth-child(4) .nodeArrow { }
+.timelineNode:nth-child(1) .nodeArrow { background: var(--blue); color: #fff; }
+.timelineNode:nth-child(2) .nodeArrow { background: var(--accent); color: #fff; }
+.timelineNode:nth-child(3) .nodeArrow { background: var(--blue); color: #fff; }
+.timelineNode:nth-child(4) .nodeArrow { background: var(--accent); color: #fff; }
 
 /* Content below arrow */
 .nodeContent {
@@ -87,9 +87,12 @@
 .nodeTitle {
   margin-bottom: 1rem;
   min-height: 50px;
+  color: var(--fg);
 }
 
 .nodeDesc {
+  color: var(--fg-muted);
+  line-height: 1.6;
 }
 
 @media (max-width: 900px) {

@@ -27,9 +27,12 @@
 }
 
 .tab:hover {
+  color: var(--fg);
 }
 
 .activeTab {
+  color: var(--blue);
+  font-weight: 600;
 }
 
 .activeUnderline {
@@ -38,12 +41,15 @@
   left: 0;
   right: 0;
   height: 4px;
+  background-color: var(--blue);
+  border-radius: 2px 2px 0 0;
 }
 
 .tabDivider {
   height: 1px;
   margin-bottom: 4rem;
   margin-inline: 2rem;
+  background-color: var(--border);
 }
 
 .contentArea {
@@ -66,6 +72,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
 .imagePlaceholder::before {
@@ -89,13 +99,23 @@
 
 .tagline {
   margin-bottom: 0.75rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
 }
 
 .title {
   margin-bottom: 1.25rem;
+  font-size: 2.5rem;
+  color: var(--fg);
 }
 
 .body {
+  color: var(--fg-muted);
+  line-height: 1.7;
+  font-size: 1.05rem;
 }
 
 @media (max-width: 900px) {

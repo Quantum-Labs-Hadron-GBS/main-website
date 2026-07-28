@@ -8,7 +8,6 @@
 /* Hero */
 .hero {
   padding: 12rem 0 6rem;
-  background-image: radial-gradient(circle at 50% 0%, rgba(26, 115, 232, 0.15), transparent 70%);
 }
 
 .heroTag {
@@ -16,7 +15,7 @@
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 2rem;
-  color: var(--blue-bright);
+  color: var(--blue);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -28,7 +27,7 @@
   display: block;
   width: 24px;
   height: 2px;
-  background-color: var(--blue-bright);
+  background-color: var(--blue);
 }
 
 .heroTitle {
@@ -77,8 +76,8 @@
 
 .card:hover {
   transform: translateY(-5px);
-  border-color: rgba(26, 115, 232, 0.3);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(26, 115, 232, 0.1);
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .cardTitle {
@@ -88,7 +87,7 @@
 }
 
 .cardBody {
-  color: var(--text-dim);
+  color: var(--fg-muted);
   line-height: 1.6;
 }
 
@@ -109,7 +108,7 @@
 }
 
 .faqItem:hover {
-  border-color: rgba(26, 115, 232, 0.4);
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .faqQ {
@@ -148,7 +147,7 @@
 
 .faqA {
   padding: 0 1.5rem 1.5rem;
-  color: var(--text-dim);
+  color: var(--fg-muted);
   line-height: 1.6;
 }
 
