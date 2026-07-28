@@ -87,34 +87,42 @@ export default function AboutPage() {
       {/* Horizontal Scroll Section */}
       <AboutScrollSection />
 
-      {/* About Company Text Block */}
-      <section className={styles.textSection}>
-        <div className={`${styles.textInner} container`}>
-          <h2 className={styles.textTitle}>About Our Company!</h2>
-          <p className={styles.textParagraph}>
-            <strong>Welcome to Hadron GBS: Powering the Universe of Enterprise Service Management, Operation Management & Many more….</strong>
-          </p>
-          <p className={styles.textParagraph}>
-            At Hadron GBS, we believe in harnessing the immense power of the universe’s fundamental forces and translating it into the very essence of our business. Just as the Hadron is an integral part of one of the strongest forces in the universe, we aim to make our presence felt as a formidable entity in the world of Enterprise Service Management, Operation Management & Many more.
-          </p>
-          <p className={styles.textParagraph}>
-            Our journey is guided by a strong belief in the power of fundamental interactions. We understand that the core level interactions are what drive the creation of exceptional customer experiences. At Hadron GBS, these interactions are not just a part of our ethos; they are at the heart of our existence.
-          </p>
-          <p className={styles.textParagraph}>
-            With a core technical team boasting more than 15 years of experience in Enterprise Service Management, Operation Management & other niche technologies we bring a wealth of knowledge and expertise to the table. Our team members have a background deeply rooted in this field, making us well-equipped to navigate the complex and ever-evolving landscape of IT & Other LOBs services.
-          </p>
-          <p className={styles.textParagraph}>
-            But our commitment doesn’t stop at expertise alone. We pride ourselves on being a one-stop destination for all your Enterprise Service Management needs. Not only do we excel in delivering top-notch ESM solutions, but we also offer comprehensive end-to-end consulting services.
-          </p>
-          <p className={styles.textParagraph}>
-            We believe that true success in this domain lies not just in implementing solutions but in understanding the unique needs and challenges of each organization. One of our proudest achievements is our track record of successful migration projects in Enterprise Service Management. We have seamlessly transitioned organizations into more efficient and effective ESM systems, ensuring minimal disruption and maximum benefits.
-          </p>
-          <p className={styles.textParagraph}>
-            At Hadron GBS, we are more than just a service provider. We are a partner on your journey towards enhanced efficiency, better customer experiences, and a stronger IT infrastructure. Our commitment to excellence and our deep-rooted understanding of Enterprise Service Management and other niche technologies services makes us the ideal choice for organizations seeking to unlock their full potential in the digital age.
-          </p>
-          <p className={styles.textParagraph}>
-            Join us on this exciting journey as we continue to explore and harness the fundamental forces of the universe, applying them to the world of IT & Other LOBs services for your benefit. Together, we’ll achieve greatness and push the boundaries of what’s possible in Enterprise Service Management, Operation Management & Many more.
-          </p>
+      {/* Quote Section with Floating Card */}
+      <section className={styles.quoteSection}>
+        <div className={`${styles.quoteInner} container`}>
+          
+          <div className={styles.quoteTextColumn}>
+            <h2 className={styles.quoteTitle}>Our corporate governance philosophy</h2>
+            <p className={styles.quoteBody}>
+              "Good corporate governance is about maximizing shareholder value on a sustainable basis while ensuring fairness to all stakeholders: customers, vendor partners, investors, employees, government and society."
+            </p>
+            <span className={styles.quoteAuthor}>N. R. Narayana Murthy</span>
+          </div>
+
+          <div className={styles.floatingCard}>
+            <h3 className={styles.floatingCardTitle}>For queries</h3>
+            <span className={styles.contactPerson}>Jayesh Sanghrajka</span>
+            <span className={styles.contactRole}>Chief Financial Officer</span>
+
+            <div className={styles.contactMethod}>
+              <svg className={styles.contactMethodIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div className={styles.contactMethodText}>
+                <span className={styles.contactMethodLabel}>Phone</span>
+                <span className={styles.contactMethodValue}>+91 80 2852 1705</span>
+              </div>
+            </div>
+
+            <div className={styles.contactMethod}>
+              <svg className={styles.contactMethodIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div className={styles.contactMethodText}>
+                <span className={styles.contactMethodLabel}>Email</span>
+                <span className={styles.contactMethodValue}>jayesh.sanghrajka@infosys.com</span>
+              </div>
+            </div>
+
+            <a href="#contact" className={styles.contactBtn}>Investor Contacts ↗</a>
+          </div>
+
         </div>
       </section>
 

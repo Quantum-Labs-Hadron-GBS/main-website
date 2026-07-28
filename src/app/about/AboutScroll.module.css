@@ -12,52 +12,64 @@
   overflow: hidden;
 }
 
+.layoutWrapper {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 4rem;
+  align-items: start;
+  width: 100%;
+}
+
 .tabsContainer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0;
-  padding: 0 2rem;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 0;
 }
 
 .tab {
   position: relative;
-  padding-bottom: 1.5rem;
+  padding: 1rem 1.5rem;
   user-select: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  background: transparent;
+  transition: all 0.2s ease;
 }
 
 .tab:hover {
+  background: #f8fafc;
   color: var(--fg);
 }
 
 .activeTab {
+  background: #ffffff;
   color: var(--blue);
   font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .activeUnderline {
   position: absolute;
-  bottom: 0;
   left: 0;
-  right: 0;
-  height: 4px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  height: 100%;
   background-color: var(--blue);
-  border-radius: 2px 2px 0 0;
+  border-radius: 4px 0 0 4px;
 }
 
 .tabDivider {
-  height: 1px;
-  margin-bottom: 4rem;
-  margin-inline: 2rem;
-  background-color: var(--border);
+  display: none;
 }
 
 .contentArea {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
 }
 
 .imageColumn {
@@ -119,15 +131,28 @@
 }
 
 @media (max-width: 900px) {
-  .tabsContainer {
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: flex-start;
-  }
-  .contentArea {
+  .layoutWrapper {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+  .tabsContainer {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 1rem 0;
+  }
+  .activeUnderline {
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px 4px 0 0;
+  }
+  .contentArea {
+    padding: 0;
+  }
+}
   .imagePlaceholder {
     aspect-ratio: 16/9;
   }

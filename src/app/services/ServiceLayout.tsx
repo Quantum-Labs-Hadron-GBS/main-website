@@ -7,9 +7,9 @@ import styles from "./ServicePage.module.css";
 interface ServiceLayoutProps {
   title: string;
   subtitle: string;
-  solutions: { title: string; desc: string }[];
-  framework: { step: string; title: string; desc: string; outcome: string }[];
-  whyHadron: { title: string; desc: string }[];
+  solutions: { title: string; desc: string; img?: string; category?: string }[];
+  framework: { step: string; title: string; desc: string; outcome: string; img?: string }[];
+  whyHadron: { title: string; desc: string; img?: string }[];
   breadcrumbName?: string;
 }
 
@@ -39,8 +39,17 @@ export default function ServiceLayout({ title, subtitle, solutions, framework, w
         <div className={styles.grid}>
           {solutions.map((sol, i) => (
             <div key={i} className={styles.card}>
-              <h3 className={styles.cardTitle}>{sol.title}</h3>
-              <p className={styles.cardBody}>{sol.desc}</p>
+              <img 
+                src={sol.img || `https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600&sig=${i}`} 
+                alt={sol.title} 
+                className={styles.cardImage} 
+              />
+              <div className={styles.cardContent}>
+                <span className={styles.cardPill}>{sol.category || "Solution"}</span>
+                <h3 className={styles.cardTitle}>{sol.title}</h3>
+                <p className={styles.cardBody}>{sol.desc}</p>
+                <a href="#contact" className={styles.cardLink}>Read More ↗</a>
+              </div>
             </div>
           ))}
         </div>
@@ -54,13 +63,20 @@ export default function ServiceLayout({ title, subtitle, solutions, framework, w
         </div>
         <div className={styles.grid}>
           {framework.map((fw, i) => (
-            <div key={i} className={styles.card} >
-              <span className={styles.heroTag} >{fw.step}</span>
-              <h3 className={styles.cardTitle}>{fw.title}</h3>
-              <p className={styles.cardBody} >{fw.desc}</p>
-              <div >
-                <strong >Outcome</strong>
-                <p className={styles.cardBody} >{fw.outcome}</p>
+            <div key={i} className={styles.card}>
+              <img 
+                src={fw.img || `https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600&sig=${i}`} 
+                alt={fw.title} 
+                className={styles.cardImage} 
+              />
+              <div className={styles.cardContent}>
+                <span className={styles.cardPill}>Step {fw.step}</span>
+                <h3 className={styles.cardTitle}>{fw.title}</h3>
+                <p className={styles.cardBody}>{fw.desc}</p>
+                <div style={{ marginTop: 'auto', background: '#f8fafc', padding: '1rem', borderRadius: '8px', width: '100%' }}>
+                  <strong style={{ color: '#111827', display: 'block', marginBottom: '0.25rem', fontSize: '0.85rem' }}>Outcome:</strong>
+                  <p style={{ color: '#4b5563', margin: 0, fontSize: '0.9rem' }}>{fw.outcome}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -75,8 +91,11 @@ export default function ServiceLayout({ title, subtitle, solutions, framework, w
         <div className={styles.grid}>
           {whyHadron.map((why, i) => (
             <div key={i} className={styles.card}>
-              <h3 className={styles.cardTitle}>{why.title}</h3>
-              <p className={styles.cardBody}>{why.desc}</p>
+              <div className={styles.cardContent}>
+                <span className={styles.cardPill}>Differentiator</span>
+                <h3 className={styles.cardTitle}>{why.title}</h3>
+                <p className={styles.cardBody} style={{ marginBottom: 0 }}>{why.desc}</p>
+              </div>
             </div>
           ))}
         </div>

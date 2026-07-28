@@ -120,32 +120,31 @@ export default function AboutScrollSection() {
       <div className={styles.sticky}>
         <div className="container">
           
-          {/* Top Tabs */}
-          <div className={styles.tabsContainer}>
-            {FEATURES.map((asset, i) => (
-              <div
-                key={asset.tab}
-                onClick={() => handleScrollTo(i)}
-                className={`${styles.tab} ${i === activeIndex ? styles.activeTab : ""}`}
-                
-              >
-                {asset.tab}
-                {i === activeIndex && (
-                  <motion.div
-                    layoutId="activeTabUnderlineAbout"
-                    className={styles.activeUnderline}
-                    
-                    
-                  />
-                )}
-              </div>
-            ))}
-          </div>
+          <div className={styles.layoutWrapper}>
+            {/* Top Tabs */}
+            <div className={styles.tabsContainer}>
+              {FEATURES.map((asset, i) => (
+                <div
+                  key={asset.tab}
+                  onClick={() => handleScrollTo(i)}
+                  className={`${styles.tab} ${i === activeIndex ? styles.activeTab : ""}`}
+                  
+                >
+                  {asset.tab}
+                  {i === activeIndex && (
+                    <motion.div
+                      layoutId="activeTabUnderlineAbout"
+                      className={styles.activeUnderline}
+                      
+                      
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
 
-          <div className={styles.tabDivider} />
-
-          {/* Content Area */}
-          <div className={styles.contentArea}>
+            {/* Content Area */}
+            <div className={styles.contentArea}>
             {/* Left Image */}
             <div className={styles.imageColumn}>
               <AnimatePresence mode="wait" custom={direction}>
@@ -182,6 +181,7 @@ export default function AboutScrollSection() {
                   <p className={styles.body}>{currentAsset.body}</p>
                 </motion.div>
               </AnimatePresence>
+            </div>
             </div>
           </div>
 

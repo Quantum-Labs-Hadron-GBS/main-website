@@ -46,8 +46,12 @@ export default function CareersOverviewPage() {
         <div className={styles.grid}>
           {WHY_JOIN.map((item, i) => (
             <div key={i} className={styles.card}>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardDesc}>{item.desc}</p>
+              <img src={`https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600&sig=${i}`} alt={item.title} className={styles.cardImage} />
+              <div className={styles.cardContent}>
+                <span className={styles.cardTag}>Benefit</span>
+                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <p className={styles.cardDesc}>{item.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -63,11 +67,12 @@ export default function CareersOverviewPage() {
 
         <div className={styles.grid}>
           {GROWTH.map((item, i) => (
-            <div key={i} className={styles.card} >
-              <div  />
-              <div>
-                <strong >{item.title}</strong>
-                <span >{item.desc}</span>
+            <div key={i} className={styles.card}>
+              <img src={`https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600&sig=${i+10}`} alt={item.title} className={styles.cardImage} />
+              <div className={styles.cardContent}>
+                <span className={styles.cardTag}>Opportunity</span>
+                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <p className={styles.cardDesc}>{item.desc}</p>
               </div>
             </div>
           ))}

@@ -95,36 +95,40 @@ export default function SuccessStoriesPage() {
 
         {/* Case Studies Grid */}
         <div className={styles.grid}>
-          {CASE_STUDIES.map((study) => (
+          {CASE_STUDIES.map((study, i) => (
             <div key={study.id} className={styles.card}>
-              <div >
-                <span className={styles.cardTag}>{study.tag}</span>
-                <div >
-                  <span >{study.metric}</span>
-                  <span >{study.metricLabel}</span>
+              <img src={`https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600&sig=${i+20}`} alt={study.title} className={styles.cardImage} />
+              
+              <div className={styles.cardContent}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', width: '100%', marginBottom: '1rem' }}>
+                  <span className={styles.cardTag}>{study.tag}</span>
+                  <div style={{ textAlign: 'right' }}>
+                    <span style={{ display: 'block', fontSize: '1.5rem', fontWeight: 'bold', color: '#1A73E8', lineHeight: 1 }}>{study.metric}</span>
+                    <span style={{ fontSize: '0.75rem', color: '#6b7280', textTransform: 'uppercase' }}>{study.metricLabel}</span>
+                  </div>
                 </div>
-              </div>
-              
-              <h3 className={styles.cardTitle}>{study.title}</h3>
-              <p className={styles.cardDesc} >{study.subtitle}</p>
-              
-              <div className={styles.caseContent}>
-                <span className={styles.caseLabel}>Challenge</span>
-                <p className={styles.caseText}>{study.challenge}</p>
                 
-                <span className={styles.caseLabel} >Approach</span>
-                <p className={styles.caseText}>{study.approach}</p>
+                <h3 className={styles.cardTitle}>{study.title}</h3>
+                <p className={styles.cardDesc}>{study.subtitle}</p>
+                
+                <div className={styles.caseContent}>
+                  <span className={styles.caseLabel}>Challenge</span>
+                  <p className={styles.caseText}>{study.challenge}</p>
+                  
+                  <span className={styles.caseLabel}>Approach</span>
+                  <p className={styles.caseText}>{study.approach}</p>
 
-                <span className={styles.caseLabel} >Result</span>
-                <p className={styles.caseText} >{study.result}</p>
+                  <span className={styles.caseLabel}>Result</span>
+                  <p className={styles.caseText}>{study.result}</p>
+                </div>
+
+                <a href="#" className={styles.linkBtn}>
+                  Read Full Story
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 8h10M9 4l4 4-4 4"/>
+                  </svg>
+                </a>
               </div>
-
-              <a href="#" className={styles.linkBtn}>
-                Read Full Story
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 8h10M9 4l4 4-4 4"/>
-                </svg>
-              </a>
             </div>
           ))}
         </div>
