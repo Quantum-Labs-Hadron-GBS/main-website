@@ -54,6 +54,11 @@ const menuItems = [
     gradient: "radial-gradient(circle, rgba(6,182,212,0.15) 0%, rgba(8,145,178,0.06) 50%, rgba(14,116,144,0) 100%)",
   },
   {
+    label: "Quantum",
+    href: "https://quantum-landing-page.pages.dev/",
+    gradient: "radial-gradient(circle, rgba(244,124,54,0.15) 0%, rgba(244,124,54,0.06) 50%, rgba(244,124,54,0) 100%)",
+  },
+  {
     label: "Careers",
     href: "/careers",
     gradient: "radial-gradient(circle, rgba(239,68,68,0.15) 0%, rgba(220,38,38,0.06) 50%, rgba(185,28,28,0) 100%)",
@@ -63,11 +68,6 @@ const menuItems = [
       { label: "Work Culture", href: "/careers/culture" },
       { label: "Recruitment Process", href: "/careers/process" },
     ]
-  },
-  {
-    label: "Quantum",
-    href: "https://quantum-landing-page.pages.dev/",
-    gradient: "radial-gradient(circle, rgba(244,124,54,0.2) 0%, rgba(59,130,246,0.1) 50%, rgba(29,78,216,0) 100%)",
   },
 ];
 
@@ -88,14 +88,14 @@ export default function Navbar() {
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`} role="banner" style={{ justifyContent: 'center', zIndex: 999 }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'center', padding: '1rem 0' }}>
-        
+
         {/* Glow Menu Bar (Now with restored dropdown connections) */}
         <MenuBar
           items={menuItems}
           activeItem={activeItem}
           onItemClick={setActiveItem}
         />
-        
+
       </div>
     </header>
   );

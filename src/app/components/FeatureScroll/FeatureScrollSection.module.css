@@ -3,10 +3,10 @@
   overflow: hidden;
   position: relative;
   background-color: var(--bg);
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(244, 124, 54, 0.12), transparent 40%),
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(26, 115, 232, 0.12), transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(0, 82, 155, 0.12), transparent 40%),
-    radial-gradient(var(--border) 1.5px, transparent 1.5px);
+    radial-gradient(var(--blue-border) 1.5px, transparent 1.5px);
   background-size: 100% 100%, 100% 100%, 24px 24px;
   background-position: 0 0, 0 0, 12px 12px;
 }
@@ -35,7 +35,7 @@
 }
 
 .sectionTag {
-  color: var(--accent);
+  color: var(--blue-bright);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -52,7 +52,8 @@
 .contentCol {
   width: 100%;
   position: relative;
-  min-height: 320px; /* Prevent layout shift during crossfade */
+  min-height: 320px;
+  /* Prevent layout shift during crossfade */
 }
 
 .contentBlock {
@@ -65,9 +66,9 @@
   gap: 2.5rem;
   padding: 3rem;
   align-items: center;
-  background: linear-gradient(135deg, rgba(244, 124, 54, 0.08) 0%, var(--card-bg) 80%);
-  border: 1px solid rgba(244, 124, 54, 0.25);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2), 0 0 40px rgba(244, 124, 54, 0.05);
+  background: var(--bg-alt); /* Opaque dark background */
+  border: 3px solid var(--blue); /* Strong blue outline */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
 }
 
@@ -115,7 +116,7 @@
   max-height: 280px;
   position: relative;
   border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(26, 115, 232, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(26, 115, 232, 0.1) 0%, transparent 70%);
 }
 
 @media (max-width: 900px) {
@@ -123,9 +124,10 @@
     grid-template-columns: 1fr;
     gap: 3rem;
     padding: 3rem 2rem;
-    position: relative; /* Let it flow normally on mobile if needed, though absolute is used for AnimatePresence wait mode */
+    position: relative;
+    /* Let it flow normally on mobile if needed, though absolute is used for AnimatePresence wait mode */
   }
-  
+
   .contentCol {
     min-height: 650px;
   }

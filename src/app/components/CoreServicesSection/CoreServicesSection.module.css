@@ -2,7 +2,7 @@
   position: relative;
   background-color: var(--bg);
   background-image: 
-    radial-gradient(60% 80% at 85% 50%, rgba(0, 82, 155, 0.18) 0%, transparent 70%),
+    radial-gradient(60% 80% at 85% 50%, rgba(244, 124, 54, 0.18) 0%, transparent 70%),
     radial-gradient(60% 80% at 15% 50%, rgba(244, 124, 54, 0.18) 0%, transparent 70%);
   padding: 8rem 0;
   z-index: 10;

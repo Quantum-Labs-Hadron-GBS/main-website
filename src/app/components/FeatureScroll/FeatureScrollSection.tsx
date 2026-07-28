@@ -128,7 +128,7 @@ export default function FeatureScrollSection() {
         </div>
 
         {/* Circular Timer Controls */}
-        <div style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '1rem', zIndex: 100, pointerEvents: 'auto' }}>
+        <div style={{ position: 'absolute', bottom: '0rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '1rem', zIndex: 100, pointerEvents: 'auto' }}>
           {FEATURES.map((_, i) => (
             <button 
               key={i}
@@ -141,10 +141,10 @@ export default function FeatureScrollSection() {
               aria-label={`Go to feature ${i + 1}`}
             >
               <svg width="32" height="32" viewBox="0 0 32 32" style={{ position: 'absolute', inset: 0, transform: 'rotate(-90deg)' }}>
-                <circle cx="16" cy="16" r="14" fill="none" stroke="var(--border-strong)" strokeWidth="2" />
+                <circle cx="16" cy="16" r="14" fill="none" stroke="var(--blue-border)" strokeWidth="2" />
                 {i === activeIndex && (
                   <motion.circle 
-                    cx="16" cy="16" r="14" fill="none" stroke="var(--accent)" strokeWidth="2"
+                    cx="16" cy="16" r="14" fill="none" stroke="var(--blue)" strokeWidth="2"
                     strokeDasharray="88" // 2 * pi * r (14) ~= 88
                     strokeDashoffset="88"
                     initial={{ strokeDashoffset: 88 }}
@@ -154,7 +154,7 @@ export default function FeatureScrollSection() {
                   />
                 )}
               </svg>
-              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: i === activeIndex ? 'var(--accent)' : 'var(--fg-subtle)' }} />
+              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: i === activeIndex ? 'var(--blue)' : 'var(--fg-subtle)' }} />
             </button>
           ))}
         </div>

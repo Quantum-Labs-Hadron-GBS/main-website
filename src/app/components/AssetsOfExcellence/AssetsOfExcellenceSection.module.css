@@ -1,6 +1,7 @@
 .section {
   position: relative;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at 50% 50%, rgba(244, 124, 54, 0.08), transparent 70%);
   z-index: 10; /* Above globe */
 }
 
@@ -40,7 +41,7 @@
 }
 
 .activeTab {
-  color: #3b82f6;
+  color: var(--accent-bright);
 }
 
 .activeUnderline {
@@ -49,7 +50,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #3b82f6, var(--accent));
+  background: linear-gradient(90deg, var(--accent-bright), var(--accent));
   border-radius: 2px 2px 0 0;
 }
 
@@ -70,6 +71,11 @@
   padding: 2.5rem;
   min-height: 460px;
   border-radius: 28px;
+  
+  /* Bold orange outline and dark formal background */
+  background: #0f0f11;
+  border: 3px solid var(--accent);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
 .imageColumn {

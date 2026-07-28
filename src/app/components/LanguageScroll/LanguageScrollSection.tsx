@@ -71,7 +71,7 @@ export default function LanguageScrollSection() {
     >
       <div className={styles.sticky} >
         <div className={styles.eyebrow}>
-          <span className="section-tag">Global Presence</span>
+          <span className={styles.eyebrowTag}>Global Presence</span>
         </div>
 
         {/* Text sits on the LEFT — GlobalGlobe renders the globe on the RIGHT via fixed canvas */}

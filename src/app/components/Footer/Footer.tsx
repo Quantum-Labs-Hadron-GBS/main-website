@@ -58,7 +58,7 @@ export default function Footer() {
           <div className={styles.brandCol}>
             <div className={styles.brand}>
               <Image 
-                src="https://res.cloudinary.com/djxbxhgat/image/upload/v1784309674/Hadron-Logo_sb3pfk.png" 
+                src="https://res.cloudinary.com/djxbxhgat/image/upload/v1784806399/hadron_logo_white_jsl37p.png" 
                 alt="Hadron GBS" 
                 width={160}
                 height={40}

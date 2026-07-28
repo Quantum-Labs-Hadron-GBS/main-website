@@ -29,7 +29,7 @@
     on the right so the fixed globe always shows through.
   */
   background: 
-    radial-gradient(circle at top left, rgba(244, 124, 54, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.15) 0%, transparent 40%),
     linear-gradient(to right, var(--bg) 42%, transparent 68%);
 }
 
@@ -37,6 +37,15 @@
   position: absolute;
   top: 6rem;
   left: max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+}
+
+.eyebrowTag {
+  color: var(--blue-bright);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  display: block;
 }
 
 /* ── Text area — LEFT half of viewport ── */
@@ -79,7 +88,7 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #ffffff 0%, #FF9A5A 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;

@@ -43,13 +43,13 @@
   --nav-fallback: rgba(18, 24, 34, 0.98);
   --logo-filter:  brightness(0) invert(1);
 
-  /* Globe — Corporate Blue & Orange */
-  --globe-land:        #1e293b;
-  --globe-outline:     rgba(59, 130, 246, 0.8);
+  /* Globe — Blue (Top Section) */
+  --globe-land:        #1A73E8; /* var(--blue) */
+  --globe-outline:     rgba(26, 115, 232, 0.9);
   --globe-ring-bg:     rgba(18, 24, 34, 0.85);
-  --globe-ring-border: rgba(59, 130, 246, 0.4);
-  --globe-graticule:   rgba(59, 130, 246, 0.3);
-  --globe-marker:      #F47C36;
+  --globe-ring-border: rgba(26, 115, 232, 0.6);
+  --globe-graticule:   rgba(26, 115, 232, 0.4);
+  --globe-marker:      #4285F4; /* var(--blue-bright) */
 }
 
 body {
