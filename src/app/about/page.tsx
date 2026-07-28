@@ -71,16 +71,24 @@ export default function AboutPage() {
       
       {/* Hero */}
       <section className={styles.hero}>
-        <div className="container" >
-          <BreadcrumbNav items={[
-            { label: "Home", href: "/" },
-            { label: "About" }
-          ]} />
-          <span className={styles.heroTag}>About Us</span>
-          <h1 className={styles.heroTitle}>Choose The Best IT Service Company</h1>
-          <p className={styles.heroDesc}>
-            Hadron Global Business Solutions is a highly motivated group with creative minds.
-          </p>
+        <div className={`container ${styles.heroInner}`}>
+          <div className={styles.heroTextColumn}>
+            <BreadcrumbNav items={[
+              { label: "Home", href: "/" },
+              { label: "About" }
+            ]} />
+            <span className={styles.heroTag}>About Us</span>
+            <h1 className={styles.heroTitle}>Choose The Best IT Service Company</h1>
+            <p className={styles.heroDesc}>
+              Hadron Global Business Solutions is a highly motivated group with creative minds.
+            </p>
+          </div>
+          
+          <div className={styles.heroVideoStrip}>
+            <video autoPlay loop muted playsInline preload="auto" disablePictureInPicture>
+              <source src="https://res.cloudinary.com/djxbxhgat/video/upload/f_auto,q_auto,h_1080,c_limit/v1784804662/20610-312672589_lscygw.mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
       </section>
 

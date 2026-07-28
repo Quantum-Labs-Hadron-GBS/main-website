@@ -19,15 +19,25 @@ export default function ServiceLayout({ title, subtitle, solutions, framework, w
       <Navbar />
 
       {/* Hero Section */}
-      <section className={`${styles.hero} container`}>
-        <BreadcrumbNav items={[
-          { label: "Home", href: "/" },
-          { label: "Services", href: "/#services" },
-          { label: breadcrumbName }
-        ]} />
-        <span className={styles.heroTag}>Service Offering</span>
-        <h1 className={styles.heroTitle} dangerouslySetInnerHTML={{ __html: title }} />
-        <p className={styles.heroDesc}>{subtitle}</p>
+      <section className={styles.hero}>
+        <div className={`container ${styles.heroInner}`}>
+          <div className={styles.heroTextColumn}>
+            <BreadcrumbNav items={[
+              { label: "Home", href: "/" },
+              { label: "Services", href: "/#services" },
+              { label: breadcrumbName }
+            ]} />
+            <span className={styles.heroTag}>Service Offering</span>
+            <h1 className={styles.heroTitle} dangerouslySetInnerHTML={{ __html: title }} />
+            <p className={styles.heroDesc}>{subtitle}</p>
+          </div>
+          
+          <div className={styles.heroVideoStrip}>
+            <video autoPlay loop muted playsInline preload="auto" disablePictureInPicture>
+              <source src="https://res.cloudinary.com/djxbxhgat/video/upload/f_auto,q_auto,h_1080,c_limit/v1784804662/20610-312672589_lscygw.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
       </section>
 
       {/* Comprehensive Solutions Grid */}

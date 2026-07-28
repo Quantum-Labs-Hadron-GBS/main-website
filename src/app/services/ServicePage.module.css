@@ -8,7 +8,21 @@
 
 /* Hero */
 .hero {
-  padding: 12rem 0 6rem;
+  padding: 10rem 0 6rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.heroInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.heroTextColumn {
+  flex: 1;
+  max-width: 700px;
 }
 
 .heroTag {
@@ -33,11 +47,42 @@
 
 .heroTitle {
   margin-bottom: 1.5rem;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  color: #111827;
 }
 
 .heroDesc {
-  max-width: 800px;
-  margin-bottom: 2rem;
+  color: #4b5563;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.heroVideoStrip {
+  width: 260px;
+  height: 420px;
+  border-radius: 200px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  flex-shrink: 0;
+  display: flex;
+}
+
+.heroVideoStrip video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .heroInner {
+    flex-direction: column;
+    text-align: left;
+  }
+  .heroVideoStrip {
+    display: none;
+  }
 }
 
 /* Grids */

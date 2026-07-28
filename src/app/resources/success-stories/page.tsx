@@ -65,17 +65,27 @@ export default function SuccessStoriesPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className={`${styles.hero} container`}>
-        <BreadcrumbNav items={[
-          { label: "Home", href: "/" },
-          { label: "Resources", href: "/#resources" },
-          { label: "Success Stories" }
-        ]} />
-        <span className={styles.heroTag}>Success Stories</span>
-        <h1 className={styles.heroTitle}>Proof, Not Promises</h1>
-        <p className={styles.heroDesc}>
-          Real transformations, real numbers, real teams. See how enterprises worked with Hadron GBS to build platforms that hold together.
-        </p>
+      <section className={styles.hero}>
+        <div className={`container ${styles.heroInner}`}>
+          <div className={styles.heroTextColumn}>
+            <BreadcrumbNav items={[
+              { label: "Home", href: "/" },
+              { label: "Resources", href: "/#resources" },
+              { label: "Success Stories" }
+            ]} />
+            <span className={styles.heroTag}>Success Stories</span>
+            <h1 className={styles.heroTitle}>Proof, Not Promises</h1>
+            <p className={styles.heroDesc}>
+              Real transformations, real numbers, real teams. See how enterprises worked with Hadron GBS to build platforms that hold together.
+            </p>
+          </div>
+          
+          <div className={styles.heroVideoStrip}>
+            <video autoPlay loop muted playsInline preload="auto" disablePictureInPicture>
+              <source src="https://res.cloudinary.com/djxbxhgat/video/upload/f_auto,q_auto,h_1080,c_limit/v1784804662/20610-312672589_lscygw.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
       </section>
 
       {/* Stats Grid */}

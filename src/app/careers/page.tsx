@@ -23,16 +23,26 @@ export default function CareersOverviewPage() {
     <main className={styles.main}>
       <Navbar />
 
-      <section className={`${styles.hero} container`} >
-        <BreadcrumbNav items={[
-          { label: "Home", href: "/" },
-          { label: "Careers" }
-        ]} />
-        <span className={styles.heroTag}>Careers at Hadron GBS</span>
-        <h1 className={styles.heroTitle}>Built Together. Delivered Better.</h1>
-        <p className={styles.heroDesc}>
-          We believe the most powerful enterprise transformations happen at the intersection of complementary capabilities. That’s why we build deep, lasting alliances with technology leaders worldwide.
-        </p>
+      <section className={styles.hero}>
+        <div className={`container ${styles.heroInner}`}>
+          <div className={styles.heroTextColumn}>
+            <BreadcrumbNav items={[
+              { label: "Home", href: "/" },
+              { label: "Careers" }
+            ]} />
+            <span className={styles.heroTag}>Careers at Hadron GBS</span>
+            <h1 className={styles.heroTitle}>Built Together. Delivered Better.</h1>
+            <p className={styles.heroDesc}>
+              We believe the most powerful enterprise transformations happen at the intersection of complementary capabilities. That’s why we build deep, lasting alliances with technology leaders worldwide.
+            </p>
+          </div>
+          
+          <div className={styles.heroVideoStrip}>
+            <video autoPlay loop muted playsInline preload="auto" disablePictureInPicture>
+              <source src="https://res.cloudinary.com/djxbxhgat/video/upload/f_auto,q_auto,h_1080,c_limit/v1784804662/20610-312672589_lscygw.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
       </section>
 
       <section className={`${styles.section} container`} >
