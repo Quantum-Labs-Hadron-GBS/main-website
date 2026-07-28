@@ -4,51 +4,51 @@
    CSS CUSTOM PROPERTIES — THEME SYSTEM
 ───────────────────────────────────────── */
 :root {
-  /* Slightly lighter, more corporate dark slate */
-  --bg:            #0d1117;
-  --bg-alt:        #161b22;
-  --bg-card:       #1c2128;
-  --fg:            #F5F5F0;
-  --fg-muted:      #8b949e;
-  --fg-subtle:     #6e7681;
-  --border:        rgba(244, 124, 54, 0.15);
-  --border-strong: rgba(244, 124, 54, 0.3);
-  --surface:       rgba(244, 124, 54, 0.05);
-  --surface-hover: rgba(244, 124, 54, 0.1);
+  /* Brighter, more visible dark navy theme */
+  --bg:            #121822;
+  --bg-alt:        #1a2230;
+  --bg-card:       #212b3c;
+  --fg:            #ffffff;
+  --fg-muted:      #9ea7b8;
+  --fg-subtle:     #828c9e;
+  --border:        rgba(244, 124, 54, 0.25);
+  --border-strong: rgba(244, 124, 54, 0.45);
+  --surface:       rgba(244, 124, 54, 0.08);
+  --surface-hover: rgba(244, 124, 54, 0.15);
 
   /* Cards */
-  --card-bg:       rgba(28, 33, 40, 0.4);
-  --card-fg:       #F5F5F0;
-  --card-fg-muted: #8b949e;
-  --card-shadow:   0 4px 24px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(244, 124, 54, 0.2);
-  --glow:          rgba(244, 124, 54, 0.15);
+  --card-bg:       rgba(33, 43, 60, 0.7);
+  --card-fg:       #ffffff;
+  --card-fg-muted: #9ea7b8;
+  --card-shadow:   0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(244, 124, 54, 0.3);
+  --glow:          rgba(244, 124, 54, 0.25);
 
   /* ── Accent: Light Orange Glow ── */
   --accent:        #F47C36;
   --accent-bright: #FF9A5A;
-  --accent-dim:    rgba(244, 124, 54, 0.15);
-  --accent-border: rgba(244, 124, 54, 0.4);
+  --accent-dim:    rgba(244, 124, 54, 0.25);
+  --accent-border: rgba(244, 124, 54, 0.5);
 
   /* ── Accent B: Corporate Blue (for gradients) ── */
-  --blue:          #00529B;
-  --blue-bright:   #1A73E8;
-  --blue-dim:      rgba(0, 82, 155, 0.15);
-  --blue-border:   rgba(0, 82, 155, 0.3);
+  --blue:          #1A73E8;
+  --blue-bright:   #4285F4;
+  --blue-dim:      rgba(26, 115, 232, 0.25);
+  --blue-border:   rgba(26, 115, 232, 0.5);
 
   --theme-transition: background-color 600ms ease, color 600ms ease, border-color 600ms ease, box-shadow 600ms ease;
 
   /* Navbar */
-  --nav-bg:       rgba(13, 17, 23, 0.5);
-  --nav-border:   rgba(255, 255, 255, 0.08);
-  --nav-fallback: rgba(13, 17, 23, 0.98);
+  --nav-bg:       rgba(18, 24, 34, 0.7);
+  --nav-border:   rgba(255, 255, 255, 0.12);
+  --nav-fallback: rgba(18, 24, 34, 0.98);
   --logo-filter:  brightness(0) invert(1);
 
   /* Globe — Corporate Blue & Orange */
-  --globe-land:        #161b22;
-  --globe-outline:     rgba(0, 82, 155, 0.6);
-  --globe-ring-bg:     rgba(13, 17, 23, 0.8);
-  --globe-ring-border: rgba(0, 82, 155, 0.3);
-  --globe-graticule:   rgba(0, 82, 155, 0.2);
+  --globe-land:        #1e293b;
+  --globe-outline:     rgba(59, 130, 246, 0.8);
+  --globe-ring-bg:     rgba(18, 24, 34, 0.85);
+  --globe-ring-border: rgba(59, 130, 246, 0.4);
+  --globe-graticule:   rgba(59, 130, 246, 0.3);
   --globe-marker:      #F47C36;
 }
 
