@@ -128,12 +128,12 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         subtle: s.getPropertyValue("--fg-subtle").trim()     || "#555",
         border: s.getPropertyValue("--border-strong").trim() || "rgba(255,255,255,0.2)",
         accent: s.getPropertyValue("--accent").trim()        || "#E8A020",
-        globeLand: s.getPropertyValue("--globe-land").trim() || "#1E293B",
-        globeOutline: s.getPropertyValue("--globe-outline").trim() || "#60A5FA",
-        globeRingBg: s.getPropertyValue("--globe-ring-bg").trim() || "rgba(31, 41, 55, 0.6)",
-        globeRingBorder: s.getPropertyValue("--globe-ring-border").trim() || "rgba(96, 165, 250, 0.5)",
-        globeGraticule: s.getPropertyValue("--globe-graticule").trim() || "#60A5FA",
-        globeMarker: s.getPropertyValue("--globe-marker").trim() || "#F59E0B"
+        globeLand: "#ffffff",
+        globeOutline: "rgba(0, 0, 0, 0.1)",
+        globeRingBg: "rgba(255, 255, 255, 0.6)",
+        globeRingBorder: "rgba(0, 0, 0, 0.08)",
+        globeGraticule: "rgba(0, 0, 0, 0.05)",
+        globeMarker: "rgba(37, 99, 235, 0.5)" // Blue
       };
     };
     let colorCache = getC();
@@ -255,15 +255,15 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         ctx.save();
         ctx.beginPath();
         ctx.arc(cx, cy, R, 0, Math.PI * 2);
-        // Deep ocean fill
+        // Bright ocean fill
         const oceanGrad = ctx.createRadialGradient(cx - R*0.2, cy - R*0.2, R*0.1, cx, cy, R);
-        oceanGrad.addColorStop(0, "#1c0b2b");
-        oceanGrad.addColorStop(0.5, "#10061e");
-        oceanGrad.addColorStop(1, "#090514");
+        oceanGrad.addColorStop(0, "#f8fafc");
+        oceanGrad.addColorStop(0.5, "#f1f5f9");
+        oceanGrad.addColorStop(1, "#e2e8f0");
         ctx.fillStyle = oceanGrad;
         ctx.globalAlpha = livOpa;
         ctx.fill();
-        // Subtle rim glow
+        // Subtle rim
         ctx.strokeStyle = colorCache.globeRingBorder;
         ctx.lineWidth = 1.5;
         ctx.stroke();
@@ -300,16 +300,15 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         ctx.fill();
         ctx.globalAlpha = livOpa;
 
-        /* Land outline — purple glow */
+        /* Land outline */
         ctx.beginPath();
         landData.features.forEach((f: any) => pathGen(f));
         ctx.strokeStyle = colorCache.globeOutline;
         ctx.lineWidth   = globeFits ? 0.8 : 0.6;
-        ctx.shadowColor = colorCache.globeOutline;
-        ctx.shadowBlur  = 6;
+        ctx.shadowColor = "transparent";
+        ctx.shadowBlur  = 0;
         ctx.globalAlpha = livOpa * (globeFits ? 0.85 : 0.65);
         ctx.stroke();
-        ctx.shadowBlur  = 0;
         ctx.globalAlpha = livOpa;
 
         /* Scatter orange ember dots across visible land + ocean */
@@ -348,11 +347,11 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
             if (!pt) continue;
             const [px, py] = pt;
             if ((px - cx) * (px - cx) + (py - cy) * (py - cy) > R * R * 0.97) continue;
-            // Outer glow ring
+            // Outer glow ring (blue)
             const grd = ctx.createRadialGradient(px, py, 0, px, py, 12);
-            grd.addColorStop(0,   "rgba(244, 124, 54, 0.8)");
-            grd.addColorStop(0.4, "rgba(244, 124, 54, 0.3)");
-            grd.addColorStop(1,   "rgba(244, 124, 54, 0)");
+            grd.addColorStop(0,   "rgba(37, 99, 235, 0.4)");
+            grd.addColorStop(0.4, "rgba(37, 99, 235, 0.15)");
+            grd.addColorStop(1,   "rgba(37, 99, 235, 0)");
             ctx.beginPath();
             ctx.arc(px, py, 12, 0, Math.PI * 2);
             ctx.fillStyle = grd;
@@ -361,12 +360,11 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
             // Core dot
             ctx.beginPath();
             ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-            ctx.fillStyle = "#FF9A5A"; // Bright Orange
-            ctx.shadowColor = "#F47C36"; // Orange Glow
-            ctx.shadowBlur = 12;
+            ctx.fillStyle = "#2563eb"; // Blue
+            ctx.shadowColor = "transparent";
+            ctx.shadowBlur = 0;
             ctx.globalAlpha = livOpa;
             ctx.fill();
-            ctx.shadowBlur = 0;
           }
           ctx.globalAlpha = livOpa;
         }
@@ -374,20 +372,19 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
 
       ctx.restore();
 
-      /* ── Floating ember particles OUTSIDE the globe (space atmosphere) ── */
+      /* ── Floating space dots OUTSIDE the globe (minimalist) ── */
       if (globeFits) {
-        const SPACE_EMBERS = 120;
+        const SPACE_EMBERS = 60;
         for (let si = 0; si < SPACE_EMBERS; si++) {
-          // Stable positions based on index, distributed in a ring around the globe
           const angle = (si / SPACE_EMBERS) * Math.PI * 2 + (si * 0.37);
           const dist  = R * (1.05 + (si % 9) * 0.08);
           const px = cx + Math.cos(angle) * dist * ((si % 3 === 0) ? 1.1 : 0.9);
           const py = cy + Math.sin(angle) * dist * 0.65;
-          const r = 0.8 + (si % 4) * 0.4;
-          const alpha = 0.15 + (si % 6) * 0.07;
+          const r = 0.5 + (si % 4) * 0.25;
+          const alpha = 0.05 + (si % 6) * 0.05;
           ctx.beginPath();
           ctx.arc(px, py, r, 0, Math.PI * 2);
-          ctx.fillStyle = colorCache.globeMarker; // Space embers
+          ctx.fillStyle = "rgba(0, 0, 0, 0.5)"; // Subtle dark dots
           ctx.globalAlpha = livOpa * alpha;
           ctx.fill();
         }

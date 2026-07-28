@@ -76,20 +76,7 @@ export default function CoreValuesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
           >
-            {/* Skewed gradient panel */}
-            <span
-              className={styles.panelSkew}
-              style={{ background: `linear-gradient(315deg, ${card.gradientFrom}, ${card.gradientTo})` }}
-            />
-            {/* Blurred glow clone */}
-            <span
-              className={styles.panelGlow}
-              style={{ background: `linear-gradient(315deg, ${card.gradientFrom}, ${card.gradientTo})` }}
-            />
 
-            {/* Floating blob corners */}
-            <span className={styles.blobTL} />
-            <span className={styles.blobBR} />
 
             {/* Content */}
             <div className={styles.cardContent}>

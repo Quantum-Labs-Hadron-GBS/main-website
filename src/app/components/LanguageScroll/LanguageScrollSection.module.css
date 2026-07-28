@@ -29,8 +29,8 @@
     on the right so the fixed globe always shows through.
   */
   background: 
-    radial-gradient(circle at top left, rgba(56, 189, 248, 0.15) 0%, transparent 40%),
-    linear-gradient(to right, var(--bg) 42%, transparent 68%);
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.05) 0%, transparent 40%),
+    linear-gradient(to right, #ffffff 42%, transparent 68%);
 }
 
 .eyebrow {
@@ -40,7 +40,7 @@
 }
 
 .eyebrowTag {
-  color: var(--blue-bright);
+  color: var(--blue);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -88,9 +88,7 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--fg);
   margin-bottom: 0.5rem;
 }
 
@@ -111,15 +109,15 @@
   margin-top: 1rem;
   padding: 0.4rem 1rem 0.4rem 0.6rem;
   width: fit-content;
-  background: rgba(244, 124, 54, 0.1);
-  border: 1px solid rgba(244, 124, 54, 0.3);
+  background: rgba(37, 99, 235, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.2);
   border-radius: 9999px;
-  color: #FF9A5A;
+  color: var(--blue);
   font-size: 0.85rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 0 20px rgba(244, 124, 54, 0.15);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.1);
   backdrop-filter: blur(8px);
 }
 
@@ -157,8 +155,8 @@
 }
 
 .dotActive {
-  background: var(--accent);
-  box-shadow: 0 0 10px var(--accent);
+  background: var(--blue);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
 }
 
 /* Responsive */
@@ -205,7 +203,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(9, 5, 20, 0.6);
+  background: #ffffff;
   border: 1px solid var(--border-strong);
   border-radius: 50%;
   color: var(--fg);
@@ -215,9 +213,9 @@
 }
 
 .navButton:hover:not(:disabled) {
-  background: rgba(244, 124, 54, 0.2);
-  border-color: var(--accent);
-  color: #fff;
+  background: #f8fafc;
+  border-color: var(--blue);
+  color: var(--blue);
   transform: scale(1.05);
 }
 

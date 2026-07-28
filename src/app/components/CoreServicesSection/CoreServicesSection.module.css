@@ -1,9 +1,6 @@
 .section {
   position: relative;
   background-color: var(--bg);
-  background-image: 
-    radial-gradient(60% 80% at 85% 50%, rgba(244, 124, 54, 0.18) 0%, transparent 70%),
-    radial-gradient(60% 80% at 15% 50%, rgba(244, 124, 54, 0.18) 0%, transparent 70%);
   padding: 8rem 0;
   z-index: 10;
 }
@@ -24,7 +21,7 @@
 }
 
 .tag {
-  color: var(--accent);
+  color: var(--blue);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -36,9 +33,7 @@
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #ffffff 0%, #FF9A5A 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--fg);
 }
 
 .subtitle {
