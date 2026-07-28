@@ -52,7 +52,7 @@ interface GTarget {
 }
 
 const HERO: GTarget = {
-  cxF: 0.78, cyF: 0.50, rF: 0.42, zoom: 1.0,
+  cxF: 0.85, cyF: 0.45, rF: 0.35, zoom: 1.0,
   rot: [-60, -20], auto: true, marker: null,
 };
 
@@ -128,12 +128,6 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         subtle: s.getPropertyValue("--fg-subtle").trim()     || "#555",
         border: s.getPropertyValue("--border-strong").trim() || "rgba(255,255,255,0.2)",
         accent: s.getPropertyValue("--accent").trim()        || "#E8A020",
-        globeLand: "#eef2f6",
-        globeOutline: "rgba(0, 0, 0, 0.1)",
-        globeRingBg: "transparent",
-        globeRingBorder: "transparent",
-        globeGraticule: "rgba(0, 0, 0, 0.03)",
-        globeMarker: "#F47C36" // Orange
       };
     };
     let colorCache = getC();
@@ -237,12 +231,7 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
       projection.translate([cx, cy]).scale(R).rotate([livRot[0], livRot[1]]);
 
       ctx.clearRect(0, 0, W, H);
-      
-      // Performance Optimization: Stop rendering loop entirely if faded out and target is 0
-      if (livOpa < 0.01 && target.opacity === 0) { 
-        animId = 0; // mark as stopped
-        return; 
-      }
+      if (livOpa < 0.01) { animId = requestAnimationFrame(draw); return; }
 
       ctx.globalAlpha = livOpa;
 
@@ -250,14 +239,14 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
       const globeFits = (cx - R > -20) && (cx + R < W + 20) &&
                         (cy - R > -20) && (cy + R < H + 20);
 
-      /* ── Globe ring ── */
+      /* Globe ring (when full circle visible) */
       if (globeFits) {
         ctx.save();
         ctx.beginPath();
         ctx.arc(cx, cy, R, 0, Math.PI * 2);
-        // Fully transparent ocean to blend with background
-        ctx.fillStyle = "transparent";
-        ctx.fill();
+        ctx.strokeStyle = border;
+        ctx.lineWidth = 1;
+        ctx.stroke();
         ctx.restore();
       }
 
@@ -272,42 +261,36 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
       ctx.clip();
 
       if (landData) {
-        /* Graticule — very faint orange tint */
+        /* Graticule */
         const step = globeFits ? 20 : 5;
         const grat = d3.geoGraticule().step([step, step])();
         ctx.beginPath();
         pathGen(grat);
-        ctx.strokeStyle = colorCache.globeGraticule;
-        ctx.lineWidth   = globeFits ? 0.8 : 0.4;
-        ctx.globalAlpha = livOpa * (globeFits ? 0.35 : 0.25);
+        ctx.strokeStyle = accent;
+        ctx.lineWidth   = globeFits ? 0.45 : 0.3;
+        ctx.globalAlpha = livOpa * (globeFits ? 0.22 : 0.16);
         ctx.stroke();
         ctx.globalAlpha = livOpa;
 
-        /* Land fill — deep dark navy */
+        /* Land fill */
         ctx.beginPath();
         landData.features.forEach((f: any) => pathGen(f));
-        ctx.fillStyle   = colorCache.globeLand;
-        ctx.globalAlpha = livOpa * 0.95;
+        ctx.fillStyle   = fg;
+        ctx.globalAlpha = livOpa * 0.05;
         ctx.fill();
         ctx.globalAlpha = livOpa;
 
         /* Land outline */
         ctx.beginPath();
         landData.features.forEach((f: any) => pathGen(f));
-        ctx.strokeStyle = colorCache.globeOutline;
-        ctx.lineWidth   = globeFits ? 0.8 : 0.6;
-        ctx.shadowColor = "transparent";
-        ctx.shadowBlur  = 0;
-        ctx.globalAlpha = livOpa * (globeFits ? 0.85 : 0.65);
+        ctx.strokeStyle = fg;
+        ctx.lineWidth   = globeFits ? 0.85 : 0.65;
+        ctx.globalAlpha = livOpa * (globeFits ? 0.55 : 0.5);
         ctx.stroke();
         ctx.globalAlpha = livOpa;
-
-        /* Removed embers and bright city markers to match minimal reference */
       }
 
       ctx.restore();
-
-      /* Removed Floating space dots OUTSIDE the globe (minimalist) */
 
       /* Arc lines — visible only when in hero phase (globe near bottom) */
       const arcOpacity = clamp((livCyF - 0.65) / 0.35, 0, 1); // 0 at cy=0.65, 1 at cy=1.0
@@ -392,9 +375,9 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
           /* Core dot */
           ctx.beginPath();
           ctx.arc(mx, my, 4.5, 0, Math.PI * 2);
-          ctx.fillStyle  = colorCache.globeMarker;
-          ctx.shadowColor = "transparent";
-          ctx.shadowBlur  = 0;
+          ctx.fillStyle  = accent;
+          ctx.shadowColor = accent;
+          ctx.shadowBlur  = 10;
           ctx.globalAlpha = livOpa;
           ctx.fill();
           
@@ -444,31 +427,15 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
     /* Page Visibility — pause RAF when tab is hidden */
     const onVisibilityChange = () => {
       isVisible = !document.hidden;
-      if (isVisible && !isUnmounted && !animId) animId = requestAnimationFrame(draw);
-      else if (!isVisible && animId) {
-        cancelAnimationFrame(animId);
-        animId = 0;
-      }
+      if (isVisible && !isUnmounted) animId = requestAnimationFrame(draw);
+      else cancelAnimationFrame(animId);
     };
     document.addEventListener("visibilitychange", onVisibilityChange);
 
-    /* Wake up loop on scroll if it was paused */
-    const onScroll = () => {
-      if (isUnmounted || !isVisible) return;
-      if (!animId) {
-        const target = getTarget();
-        if (target.opacity > 0) {
-          animId = requestAnimationFrame(draw);
-        }
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-
     return () => {
       isUnmounted = true;
-      if (animId) cancelAnimationFrame(animId);
+      cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
-      window.removeEventListener("scroll", onScroll);
       document.removeEventListener("visibilitychange", onVisibilityChange);
     };
   }, []);
@@ -477,7 +444,18 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        pointerEvents: "none",
+        zIndex: 0,
+      }}
     />
   );
 }
+
+// Ensure GlobeWrapper logic is also retained if they provided it, though they just gave `GlobalGlobe`.
+// Wait, the user's code snippet has `GlobalGlobe` and `GlobeWrapper`. I will paste exactly what they gave!
