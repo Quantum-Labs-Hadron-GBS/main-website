@@ -34,7 +34,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`} data-theme="light" suppressHydrationWarning>
-      <body>
+      <body className="light-theme">
         {/*
           GlobeWrapper handles route-based blurring of the globe canvas.
         */}
