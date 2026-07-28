@@ -29,8 +29,7 @@
     on the right so the fixed globe always shows through.
   */
   background: 
-    radial-gradient(circle at top left, rgba(37, 99, 235, 0.05) 0%, transparent 40%),
-    linear-gradient(to right, #ffffff 42%, transparent 68%);
+    linear-gradient(to right, #ffffff 30%, rgba(255, 255, 255, 0.8) 45%, transparent 70%);
 }
 
 .eyebrow {
@@ -40,7 +39,7 @@
 }
 
 .eyebrowTag {
-  color: var(--blue);
+  color: #F47C36;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -109,15 +108,15 @@
   margin-top: 1rem;
   padding: 0.4rem 1rem 0.4rem 0.6rem;
   width: fit-content;
-  background: rgba(37, 99, 235, 0.05);
-  border: 1px solid rgba(37, 99, 235, 0.2);
+  background: rgba(244, 124, 54, 0.08);
+  border: 1px solid rgba(244, 124, 54, 0.3);
   border-radius: 9999px;
-  color: var(--blue);
+  color: #F47C36;
   font-size: 0.85rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 20px rgba(244, 124, 54, 0.15);
   backdrop-filter: blur(8px);
 }
 
@@ -125,9 +124,9 @@
   width: 8px;
   height: 8px;
   flex-shrink: 0;
-  background-color: #00529B;
+  background-color: #F47C36;
   border-radius: 50%;
-  box-shadow: 0 0 12px #00529B;
+  box-shadow: 0 0 12px #F47C36;
   animation: pulse 2s infinite ease-in-out;
 }
 
@@ -155,8 +154,8 @@
 }
 
 .dotActive {
-  background: var(--blue);
-  box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+  background: #F47C36;
+  box-shadow: 0 0 10px rgba(244, 124, 54, 0.4);
 }
 
 /* Responsive */
@@ -214,8 +213,8 @@
 
 .navButton:hover:not(:disabled) {
   background: #f8fafc;
-  border-color: var(--blue);
-  color: var(--blue);
+  border-color: #F47C36;
+  color: #F47C36;
   transform: scale(1.05);
 }
 
