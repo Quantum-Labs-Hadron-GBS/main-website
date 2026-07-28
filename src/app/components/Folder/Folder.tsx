@@ -40,10 +40,10 @@ const Folder = ({ color = '#F47C36', size = 1, items = [], className = '', label
   const [paperOffsets, setPaperOffsets] = useState(Array.from({ length: maxItems }, () => ({ x: 0, y: 0 })));
 
   const folderBackColor = darkenColor(color, 0.08);
-  // Using light papers so they contrast well with the colored folder and light mode site
-  const paper1 = darkenColor('#ffffff', 0.1);
-  const paper2 = darkenColor('#ffffff', 0.05);
-  const paper3 = '#ffffff';
+  // Papers take on the folder's color scheme, getting progressively lighter/brighter
+  const paper1 = darkenColor(color, 0.4);
+  const paper2 = darkenColor(color, 0.25);
+  const paper3 = darkenColor(color, 0.1);
 
   const handleClick = () => {
     setOpen(prev => !prev);
