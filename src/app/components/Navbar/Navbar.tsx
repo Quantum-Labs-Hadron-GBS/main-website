@@ -64,6 +64,11 @@ const menuItems = [
       { label: "Recruitment Process", href: "/careers/process" },
     ]
   },
+  {
+    label: "Quantum",
+    href: "https://quantum-landing-page.pages.dev/",
+    gradient: "radial-gradient(circle, rgba(244,124,54,0.2) 0%, rgba(59,130,246,0.1) 50%, rgba(29,78,216,0) 100%)",
+  },
 ];
 
 export default function Navbar() {
