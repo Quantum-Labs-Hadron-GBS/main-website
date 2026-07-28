@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "./FeatureScrollSection.module.css";
-import MatrixGraphic from "./MatrixGraphic";
 
 const FEATURES = [
   {
@@ -43,37 +42,16 @@ const FEATURES = [
   },
 ];
 
-/* Content fade variants */
-const contentVariants = {
-  enter: (dir: number) => ({
-    opacity: 0,
-    y: dir > 0 ? 32 : -32,
-  }),
-  center: { opacity: 1, y: 0 },
-  exit: (dir: number) => ({
-    opacity: 0,
-    y: dir > 0 ? -32 : 32,
-  }),
-};
-
 export default function FeatureScrollSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
+
   const handlePrev = () => {
-    setActiveIndex((current) => {
-      const next = current === 0 ? FEATURES.length - 1 : current - 1;
-      setDirection(-1);
-      return next;
-    });
+    setActiveIndex((current) => (current === 0 ? FEATURES.length - 1 : current - 1));
   };
 
   const handleNext = () => {
-    setActiveIndex((current) => {
-      const next = (current + 1) % FEATURES.length;
-      setDirection(1);
-      return next;
-    });
+    setActiveIndex((current) => (current + 1) % FEATURES.length);
   };
 
   useEffect(() => {
@@ -81,10 +59,7 @@ export default function FeatureScrollSection() {
     const interval = setInterval(() => {
       handleNext();
     }, 6000);
-
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [activeIndex]);
 
   return (
@@ -93,80 +68,98 @@ export default function FeatureScrollSection() {
       className={styles.section}
       id="product"
       aria-label="Product features"
-      style={{ position: 'relative', minHeight: '80vh', display: 'flex', alignItems: 'center' }}
+      style={{ 
+        position: 'relative', 
+        padding: '6rem 0',
+        background: '#e2e8f0', // The slate blue background from the screenshot
+        display: 'flex', 
+        alignItems: 'center',
+        overflow: 'hidden'
+      }}
     >
-      <div className={styles.contentWrapper} style={{ width: '100%', maxWidth: '1100px', margin: '0 auto', padding: '4rem 2rem' }}>
+      <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
         
-        {/* ── Section Header (Infosys Style) ── */}
+        {/* ── Section Header ── */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-          <h2 style={{ fontSize: '1rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--fg)', fontWeight: 600 }}>
-            OUR CAPABILITIES
+          <h2 style={{ fontSize: '0.95rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#0f172a', fontWeight: 600 }}>
+            TOP STORIES
           </h2>
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <button 
               onClick={handlePrev} 
-              style={{ background: 'transparent', border: '1px solid var(--border)', borderRadius: '50%', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--fg)' }}
+              style={{ background: 'transparent', border: '1px solid #cbd5e1', borderRadius: '4px', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#0f172a' }}
             >
               ←
             </button>
-            <span style={{ fontSize: '0.9rem', color: 'var(--fg-muted)', fontWeight: 500 }}>{activeIndex + 1} / {FEATURES.length}</span>
+            <span style={{ fontSize: '0.9rem', color: '#334155', fontWeight: 500 }}>
+              {activeIndex + 1} / {FEATURES.length}
+            </span>
             <button 
               onClick={handleNext} 
-              style={{ background: 'transparent', border: '1px solid var(--border)', borderRadius: '50%', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--fg)' }}
+              style={{ background: 'transparent', border: '1px solid #cbd5e1', borderRadius: '4px', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#0f172a' }}
             >
               →
             </button>
           </div>
         </div>
 
-        {/* ── Content Card ── */}
-        <div style={{ position: 'relative', width: '100%', minHeight: '400px' }}>
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={activeIndex}
-              custom={direction}
-              variants={contentVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                background: 'var(--card-bg)',
-                borderRadius: '16px',
-                border: '1px solid var(--border)',
-                boxShadow: 'var(--card-shadow)',
-                overflow: 'hidden'
-              }}
-            >
-              {/* Left Image */}
-              <div style={{ position: 'relative', width: '100%', height: '100%', minHeight: '400px' }}>
-                <img 
-                  src={FEATURES[activeIndex].img} 
-                  alt={FEATURES[activeIndex].title} 
-                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} 
-                />
-              </div>
+        {/* ── Horizontal Carousel Track ── */}
+        <div style={{ position: 'relative', width: '100%' }}>
+          <motion.div
+            animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 2}rem)` }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            style={{ display: 'flex', gap: '2rem', width: 'max-content' }}
+          >
+            {FEATURES.map((feature, i) => {
+              const isActive = i === activeIndex;
+              const isPast = i < activeIndex;
+              
+              return (
+                <motion.div
+                  key={i}
+                  animate={{
+                    opacity: isActive ? 1 : 0.4,
+                    filter: isActive ? 'blur(0px)' : 'blur(4px)',
+                    scale: isActive ? 1 : 0.95
+                  }}
+                  transition={{ duration: 0.5 }}
+                  style={{
+                    width: 'calc(100vw - 4rem)', // Fallback for mobile
+                    maxWidth: '850px',
+                    height: '320px', // Small heighted strip
+                    background: '#f8fafc',
+                    borderRadius: '20px',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    overflow: 'hidden',
+                    boxShadow: isActive ? '0 10px 30px rgba(0,0,0,0.05)' : 'none'
+                  }}
+                >
+                  {/* Left Image */}
+                  <div style={{ width: '40%', height: '100%', position: 'relative' }}>
+                    <img 
+                      src={feature.img} 
+                      alt={feature.title} 
+                      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} 
+                    />
+                  </div>
 
-              {/* Right Text */}
-              <div style={{ padding: '3.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <h3 style={{ fontSize: '1.75rem', fontWeight: 600, color: 'var(--fg)', marginBottom: '1rem', lineHeight: 1.2 }}>
-                  {FEATURES[activeIndex].title}
-                </h3>
-                <p style={{ color: 'var(--fg-muted)', fontSize: '1.05rem', lineHeight: 1.6, marginBottom: '2rem' }}>
-                  {FEATURES[activeIndex].body}
-                </p>
-                <a href={`/services`} style={{ color: 'var(--fg)', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
-                  Read More ↗
-                </a>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+                  {/* Right Text */}
+                  <div style={{ width: '60%', padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <h3 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#0f172a', marginBottom: '1rem', lineHeight: 1.2 }}>
+                      {feature.title}
+                    </h3>
+                    <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: 1.5, marginBottom: '2rem' }}>
+                      {feature.body}
+                    </p>
+                    <a href={`/services`} style={{ color: '#0f172a', textDecoration: 'none', fontWeight: 500, display: 'inline-flex', alignItems: 'center', fontSize: '0.9rem', borderBottom: '1px solid #0f172a', width: 'max-content', paddingBottom: '2px' }}>
+                      Read More ↗
+                    </a>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
 
       </div>
