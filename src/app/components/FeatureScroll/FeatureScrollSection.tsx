@@ -106,7 +106,7 @@ export default function FeatureScrollSection() {
         {/* ── Horizontal Carousel Track ── */}
         <div style={{ position: 'relative', width: '100%' }}>
           <motion.div
-            animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 2}rem)` }}
+            animate={{ x: `calc(-${activeIndex} * min(100vw - 4rem, 850px) - ${activeIndex * 2}rem)` }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             style={{ display: 'flex', gap: '2rem', width: 'max-content' }}
           >
