@@ -1,8 +1,7 @@
 .section {
   position: relative;
   z-index: 10;
-  background-color: var(--bg);
-  padding: 4rem 0 8rem;
+  padding: 4rem 0 2rem;
 }
 
 /* ── Header ── */
@@ -30,12 +29,12 @@
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--fg);
+  color: #ffffff;
 }
 
 .subtitle {
   font-size: 1.05rem;
-  color: var(--fg-muted);
+  color: #94a3b8;
   max-width: 520px;
   line-height: 1.6;
 }
@@ -95,15 +94,7 @@
 
 /* ── Badge ── */
 .badge {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: 1px solid;
-  border-radius: 6px;
-  padding: 0.25rem 0.75rem;
-  width: fit-content;
-  margin-bottom: 1.5rem;
+  display: none;
 }
 
 .cardTitle {

@@ -32,11 +32,13 @@ export default function HomePage() {
       {/* ── WHY HADRON GBS ── */}
       <WhyHadronSection />
 
-      {/* ── MISSION & VISION (4 P's) ── */}
-      <CoreValuesSection />
+      <div style={{ backgroundColor: '#0f172a' }}>
+        {/* ── MISSION & VISION (4 P's) ── */}
+        <CoreValuesSection />
 
-      {/* ── CORE SERVICES ── */}
-      <CoreServicesSection />
+        {/* ── CORE SERVICES ── */}
+        <CoreServicesSection />
+      </div>
 
       {/* ── ASSETS OF EXCELLENCE ── */}
       <AssetsOfExcellenceSection />
