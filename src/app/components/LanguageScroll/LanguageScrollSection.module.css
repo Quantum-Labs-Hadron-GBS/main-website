@@ -28,23 +28,13 @@
     Gradient covers only the LEFT half (behind text) and fades to transparent
     on the right so the fixed globe always shows through.
   */
-  background: 
-    linear-gradient(to right, #ffffff 30%, rgba(255, 255, 255, 0.8) 45%, transparent 70%);
+  background: linear-gradient(to right, var(--bg) 42%, transparent 68%);
 }
 
 .eyebrow {
   position: absolute;
   top: 6rem;
   left: max(2rem, calc((100vw - 1200px) / 2 + 2rem));
-}
-
-.eyebrowTag {
-  color: #F47C36;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  display: block;
 }
 
 /* ── Text area — LEFT half of viewport ── */
@@ -83,56 +73,54 @@
 
 .mainText {
   display: block;
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1.1;
-  letter-spacing: -0.03em;
   color: var(--fg);
-  margin-bottom: 0.5rem;
 }
 
 .subText {
   display: block;
-  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
   color: var(--fg-subtle);
-  line-height: 1.6;
-  max-width: 90%;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
+  line-height: 1.5;
 }
 
 /* Amber region pill */
 .regionTag {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  margin-top: 1rem;
-  padding: 0.4rem 1rem 0.4rem 0.6rem;
-  width: fit-content;
-  background: rgba(244, 124, 54, 0.08);
-  border: 1px solid rgba(244, 124, 54, 0.3);
-  border-radius: 9999px;
-  color: #F47C36;
-  font-size: 0.85rem;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  padding: 0.3rem 0.75rem 0.3rem 0.5rem;
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  box-shadow: 0 0 20px rgba(244, 124, 54, 0.15);
-  backdrop-filter: blur(8px);
+  background: var(--accent-dim);
+  width: fit-content;
 }
 
 .regionDot {
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  background-color: #F47C36;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  box-shadow: 0 0 12px #F47C36;
-  animation: pulse 2s infinite ease-in-out;
+  background: var(--accent);
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50%      { transform: scale(1.3); opacity: 0.6; }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
 }
 
 /* Progress dots */
@@ -146,16 +134,10 @@
 }
 
 .dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--border-strong);
-  transition: background-color 0.3s ease;
-}
-
-.dotActive {
-  background: #F47C36;
-  box-shadow: 0 0 10px rgba(244, 124, 54, 0.4);
 }
 
 /* Responsive */
@@ -172,6 +154,7 @@
 
   .textArea {
     width: 100%;
+    text-align: center;
   }
 
   .textBlock { align-items: center; }
@@ -182,7 +165,7 @@
   }
 
   .stage { min-height: 280px; }
-  .mainText { }
+  .mainText { font-size: clamp(3rem, 15vw, 5rem); }
 }
 
 /* ── Accessibility / Manual Navigation Controls ── */
@@ -197,28 +180,27 @@
 }
 
 .navButton {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--fg);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
-  border: 1px solid var(--border-strong);
-  border-radius: 50%;
-  color: var(--fg);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .navButton:hover:not(:disabled) {
-  background: #f8fafc;
-  border-color: #F47C36;
-  color: #F47C36;
-  transform: scale(1.05);
+  background: var(--surface-hover);
+  border-color: var(--fg-muted);
+  transform: translateY(-2px);
 }
 
 .navButton:disabled {
-  opacity: 0.4;
+  opacity: 0.3;
   cursor: not-allowed;
 }

@@ -457,5 +457,30 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
   );
 }
 
-// Ensure GlobeWrapper logic is also retained if they provided it, though they just gave `GlobalGlobe`.
-// Wait, the user's code snippet has `GlobalGlobe` and `GlobeWrapper`. I will paste exactly what they gave!
+"use client";
+
+import { usePathname } from "next/navigation";
+import GlobalGlobe from "./GlobalGlobe";
+
+export default function GlobeWrapper() {
+  const pathname = usePathname();
+  
+  // If we are not on the homepage, make it a subtle background element
+  const isSubPage = pathname !== "/";
+
+  return (
+    <div 
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 0,
+        pointerEvents: isSubPage ? 'none' : 'auto', // disable interaction on subpages
+        filter: isSubPage ? 'opacity(0.4)' : 'none',
+        transition: 'filter 800ms ease',
+      }}
+      aria-hidden={isSubPage ? "true" : "false"}
+    >
+      <GlobalGlobe isSubPage={isSubPage} />
+    </div>
+  );
+}
