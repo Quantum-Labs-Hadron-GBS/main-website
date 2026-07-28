@@ -108,7 +108,9 @@ img, canvas {
 }
 
 /* LIGHT THEME SANDBOX */
-.light-theme {
+.light-theme,
+[data-theme="light"],
+[data-theme="light"] body {
   --bg: #f8fafc;
   --bg-alt: #ffffff;
   --bg-card: #ffffff;
