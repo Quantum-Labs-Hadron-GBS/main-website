@@ -128,12 +128,12 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         subtle: s.getPropertyValue("--fg-subtle").trim()     || "#555",
         border: s.getPropertyValue("--border-strong").trim() || "rgba(255,255,255,0.2)",
         accent: s.getPropertyValue("--accent").trim()        || "#E8A020",
-        globeLand: "#ffffff",
+        globeLand: "#eef2f6",
         globeOutline: "rgba(0, 0, 0, 0.1)",
-        globeRingBg: "rgba(255, 255, 255, 0.6)",
-        globeRingBorder: "rgba(0, 0, 0, 0.08)",
-        globeGraticule: "rgba(0, 0, 0, 0.05)",
-        globeMarker: "rgba(37, 99, 235, 0.5)" // Blue
+        globeRingBg: "transparent",
+        globeRingBorder: "transparent",
+        globeGraticule: "rgba(0, 0, 0, 0.03)",
+        globeMarker: "#F47C36" // Orange
       };
     };
     let colorCache = getC();
@@ -255,18 +255,9 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         ctx.save();
         ctx.beginPath();
         ctx.arc(cx, cy, R, 0, Math.PI * 2);
-        // Bright ocean fill
-        const oceanGrad = ctx.createRadialGradient(cx - R*0.2, cy - R*0.2, R*0.1, cx, cy, R);
-        oceanGrad.addColorStop(0, "#f8fafc");
-        oceanGrad.addColorStop(0.5, "#f1f5f9");
-        oceanGrad.addColorStop(1, "#e2e8f0");
-        ctx.fillStyle = oceanGrad;
-        ctx.globalAlpha = livOpa;
+        // Fully transparent ocean to blend with background
+        ctx.fillStyle = "transparent";
         ctx.fill();
-        // Subtle rim
-        ctx.strokeStyle = colorCache.globeRingBorder;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
         ctx.restore();
       }
 
@@ -311,85 +302,12 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
         ctx.stroke();
         ctx.globalAlpha = livOpa;
 
-        /* Scatter orange ember dots across visible land + ocean */
-        if (globeFits) {
-          // Seed is stable within a frame but varies with rotation
-          const EMBER_COUNT = 280;
-          ctx.shadowBlur = 0;
-          for (let ei = 0; ei < EMBER_COUNT; ei++) {
-            // Use a fixed pseudo-random distribution based on index
-            const lng = (ei * 137.508) % 360 - 180;  // Golden-angle spread
-            const lat = Math.asin(((ei * 0.618033) % 1) * 2 - 1) * (180 / Math.PI);
-            const pt = projection([lng, lat]);
-            if (!pt) continue;
-            const px = pt[0], py = pt[1];
-            // Only draw if inside globe disc
-            if ((px - cx) * (px - cx) + (py - cy) * (py - cy) > R * R) continue;
-            const r = 0.6 + (ei % 5) * 0.35;
-            const baseAlpha = 0.2 + (ei % 7) * 0.08;
-            ctx.beginPath();
-            ctx.arc(px, py, r, 0, Math.PI * 2);
-            ctx.fillStyle = colorCache.globeMarker; // Orange embers
-            ctx.globalAlpha = livOpa * baseAlpha;
-            ctx.fill();
-          }
-          ctx.globalAlpha = livOpa;
-
-          /* Bright city-node glow markers */
-          const cityMarkers = [
-            [106.845, -6.209], [139.692, 35.690], [-74.006, 40.713],
-            [-0.128, 51.507],  [28.978, 41.008],  [103.820, 1.352],
-            [55.271, 25.205],  [77.103, 28.704],  [-99.133, 19.433],
-            [151.209, -33.869],[37.617, 55.756],  [2.352, 48.857],
-          ];
-          for (const [lng, lat] of cityMarkers) {
-            const pt = projection([lng, lat]);
-            if (!pt) continue;
-            const [px, py] = pt;
-            if ((px - cx) * (px - cx) + (py - cy) * (py - cy) > R * R * 0.97) continue;
-            // Outer glow ring (blue)
-            const grd = ctx.createRadialGradient(px, py, 0, px, py, 12);
-            grd.addColorStop(0,   "rgba(37, 99, 235, 0.4)");
-            grd.addColorStop(0.4, "rgba(37, 99, 235, 0.15)");
-            grd.addColorStop(1,   "rgba(37, 99, 235, 0)");
-            ctx.beginPath();
-            ctx.arc(px, py, 12, 0, Math.PI * 2);
-            ctx.fillStyle = grd;
-            ctx.globalAlpha = livOpa * 0.7;
-            ctx.fill();
-            // Core dot
-            ctx.beginPath();
-            ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-            ctx.fillStyle = "#2563eb"; // Blue
-            ctx.shadowColor = "transparent";
-            ctx.shadowBlur = 0;
-            ctx.globalAlpha = livOpa;
-            ctx.fill();
-          }
-          ctx.globalAlpha = livOpa;
-        }
+        /* Removed embers and bright city markers to match minimal reference */
       }
 
       ctx.restore();
 
-      /* ── Floating space dots OUTSIDE the globe (minimalist) ── */
-      if (globeFits) {
-        const SPACE_EMBERS = 60;
-        for (let si = 0; si < SPACE_EMBERS; si++) {
-          const angle = (si / SPACE_EMBERS) * Math.PI * 2 + (si * 0.37);
-          const dist  = R * (1.05 + (si % 9) * 0.08);
-          const px = cx + Math.cos(angle) * dist * ((si % 3 === 0) ? 1.1 : 0.9);
-          const py = cy + Math.sin(angle) * dist * 0.65;
-          const r = 0.5 + (si % 4) * 0.25;
-          const alpha = 0.05 + (si % 6) * 0.05;
-          ctx.beginPath();
-          ctx.arc(px, py, r, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(0, 0, 0, 0.5)"; // Subtle dark dots
-          ctx.globalAlpha = livOpa * alpha;
-          ctx.fill();
-        }
-        ctx.globalAlpha = livOpa;
-      }
+      /* Removed Floating space dots OUTSIDE the globe (minimalist) */
 
       /* Arc lines — visible only when in hero phase (globe near bottom) */
       const arcOpacity = clamp((livCyF - 0.65) / 0.35, 0, 1); // 0 at cy=0.65, 1 at cy=1.0
@@ -474,9 +392,9 @@ export default function GlobalGlobe({ isSubPage = false }: { isSubPage?: boolean
           /* Core dot */
           ctx.beginPath();
           ctx.arc(mx, my, 4.5, 0, Math.PI * 2);
-          ctx.fillStyle  = accent;
-          ctx.shadowColor = accent;
-          ctx.shadowBlur  = 10;
+          ctx.fillStyle  = colorCache.globeMarker;
+          ctx.shadowColor = "transparent";
+          ctx.shadowBlur  = 0;
           ctx.globalAlpha = livOpa;
           ctx.fill();
           
