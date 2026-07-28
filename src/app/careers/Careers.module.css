@@ -12,6 +12,7 @@
   align-items: center;
   position: relative;
   z-index: 10;
+  background-image: radial-gradient(circle at 50% 0%, rgba(26, 115, 232, 0.15), transparent 70%);
 }
 
 .heroTag {
@@ -19,6 +20,11 @@
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 2rem;
+  color: var(--blue-bright);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
 }
 
 .heroTag::before {
@@ -26,22 +32,30 @@
   display: block;
   width: 24px;
   height: 2px;
+  background-color: var(--blue-bright);
 }
 
 .heroTitle {
   margin-bottom: 1.5rem;
   max-width: 900px;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  text-align: center;
 }
 
 .heroDesc {
   max-width: 800px;
   margin-bottom: 3rem;
+  color: var(--text-dim);
+  font-size: 1.125rem;
+  text-align: center;
 }
 
 .section {
   padding: 100px 0;
   position: relative;
   z-index: 10;
+  background-image: radial-gradient(circle at 50% 100%, rgba(244, 124, 54, 0.08), transparent 70%);
 }
 
 .sectionHeader {
@@ -64,26 +78,42 @@
 }
 
 .card {
-  padding: 2rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   height: 100%;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(26, 115, 232, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(26, 115, 232, 0.1);
 }
 
 .cardTag {
   margin-bottom: 1rem;
+  color: var(--accent);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
 }
 
 .cardTitle {
   margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 .cardDesc {
   margin-bottom: 1.5rem;
   flex-grow: 1;
+  color: var(--text-dim);
+  line-height: 1.6;
 }
 
 /* Job Board / Roles */
@@ -99,9 +129,15 @@
   gap: 1rem;
   align-items: center;
   padding: 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .jobRow:hover {
+  transform: translateX(10px);
+  border-color: var(--blue);
 }
 
 .jobHeader {
@@ -133,6 +169,7 @@
   bottom: 0;
   left: 24px;
   width: 2px;
+  background: var(--border);
 }
 
 .timelineItem {
@@ -149,11 +186,18 @@
   justify-content: center;
   flex-shrink: 0;
   z-index: 1;
+  background: var(--blue-bright);
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 700;
 }
 
 .timelineContent {
   padding: 2rem;
   flex-grow: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
 }
 
 .btnPrimary {
@@ -161,7 +205,14 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.8rem 1.5rem;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 99px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s ease;
 }
 
 .btnPrimary:hover {
+  background: var(--blue-bright);
 }

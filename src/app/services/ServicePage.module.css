@@ -8,6 +8,7 @@
 /* Hero */
 .hero {
   padding: 12rem 0 6rem;
+  background-image: radial-gradient(circle at 50% 0%, rgba(26, 115, 232, 0.15), transparent 70%);
 }
 
 .heroTag {
@@ -15,6 +16,11 @@
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 2rem;
+  color: var(--blue-bright);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
 }
 
 .heroTag::before {
@@ -22,6 +28,7 @@
   display: block;
   width: 24px;
   height: 2px;
+  background-color: var(--blue-bright);
 }
 
 .heroTitle {
@@ -61,30 +68,28 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
-}
-
-.card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
-}
-
-.card:hover::after {
+  transform: translateY(-5px);
+  border-color: rgba(26, 115, 232, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(26, 115, 232, 0.1);
 }
 
 .cardTitle {
   margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: var(--fg);
 }
 
 .cardBody {
+  color: var(--text-dim);
+  line-height: 1.6;
 }
 
 /* FAQ Accordion */
@@ -96,6 +101,15 @@
 }
 
 .faqItem {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.faqItem:hover {
+  border-color: rgba(26, 115, 232, 0.4);
 }
 
 .faqQ {
@@ -104,18 +118,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 /* Custom arrow */
 .faqQ::after {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 10px;
-  margin-right: 0.5rem;
+  content: '+';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 1.5rem;
+  color: var(--blue-bright);
+  transition: transform 0.3s ease;
 }
 
 .faqItem[open] .faqQ::after {
+  content: '-';
+  transform: rotate(180deg);
 }
 
 /* Remove default details marker in webkit */
@@ -125,6 +148,8 @@
 
 .faqA {
   padding: 0 1.5rem 1.5rem;
+  color: var(--text-dim);
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
