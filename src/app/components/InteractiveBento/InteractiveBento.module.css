@@ -1,477 +1,119 @@
-.bentoContainer {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.bentoGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(280px, auto);
+.container {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.bentoCard {
+.card {
+  position: relative;
+  flex: 1 1 30%;
+  min-width: 300px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   border-radius: 24px;
-  padding: 2.5rem;
-  position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.bentoCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-/* Specific Card Backgrounds */
-.card1 {
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-  background-color: #00529B; /* Corporate Blue */
-  color: #fff;
-  padding-bottom: 0; 
-}
-
-.card2 {
-  grid-column: 2 / 4;
-  grid-row: 1 / 2;
-  background-color: #0A192F; /* Deep Dark Blue */
-  color: #F3E4D6;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-right: 0;
-}
-
-.card3 {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  background-color: #1E3A8A; /* Slate Blue */
-  color: #E2F0E2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.card4 {
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
-  background-color: #00529B; /* Corporate Blue */
-  color: #fff;
-}
-
-.card5 {
-  grid-column: 1 / 3;
-  grid-row: 3 / 4;
-  background-color: #0A192F; /* Deep Dark Blue */
-  color: #F3E4D6;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-right: 0;
-}
-
-.card6 {
-  grid-column: 3 / 4;
-  grid-row: 3 / 4;
-  background-color: #1E3A8A; /* Slate Blue */
-  color: #E2F0E2;
-}
-
-.card7 {
-  grid-column: 1 / 4;
-  grid-row: 4 / 5;
-  background-color: #00529B; /* Corporate Blue */
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-/* Typography */
-.cardTitle {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 1rem;
-  letter-spacing: -0.03em;
-}
-
-.cardDesc {
-  font-size: 1rem;
-  line-height: 1.5;
-  opacity: 0.85;
-  margin-bottom: 2rem;
-}
-
-.darkText { color: #111; }
-.lightText { color: #fff; }
-.subtleText { color: rgba(255,255,255,0.6); }
-
-/* Card 1: Blueprint Mockup */
-.blueprintMockup {
-  background: #ffffff;
-  border-radius: 32px 32px 0 0;
-  width: 90%;
-  margin: 0 auto;
-  margin-top: auto; 
-  flex-grow: 1;
-  box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem;
-  position: relative;
-}
-
-.blueprintHeader {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 1.5rem;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ccc;
-}
-.dot:nth-child(1) { background: #FF5F56; }
-.dot:nth-child(2) { background: #FFBD2E; }
-.dot:nth-child(3) { background: #27C93F; }
-
-.blueprintGrid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.bpNode {
-  background: #f4f4f4;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.bpNodeMain {
-  background: #3B82F6;
-  border-color: #2563EB;
-  color: #fff;
-  width: 100%;
-  text-align: center;
-}
-
-.bpConnection {
-  width: 2px;
-  height: 30px;
-  background: #ddd;
-}
-
-.bpRow {
-  display: flex;
-  gap: 1rem;
-  width: 100%;
-  justify-content: space-between;
-}
-
-/* Card 2: KPI Mockup */
-.capexContent {
-  width: 50%;
-  padding-right: 2rem;
-}
-
-.kpiMockup {
-  width: 50%;
-  background: #ffffff;
-  border-radius: 32px 32px 0 0;
-  box-shadow: -10px 0 40px rgba(0,0,0,0.2);
-  margin-top: auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem;
-  margin-right: 2rem;
-}
-
-.kpiHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #999;
-  margin-bottom: 1.5rem;
-}
-
-.kpiStatus {
-  background: rgba(59, 130, 246, 0.1);
-  color: #3B82F6;
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.7rem;
-}
-
-.kpiMain {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-end;
-  height: 100%;
-}
-
-.kpiStat {
-  flex-grow: 1;
-}
-
-.kpiStat h4 {
-  font-size: 1rem;
-  color: #111;
-  margin-bottom: 0.5rem;
-}
-
-.kpiValue {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #27C93F;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.chartArea {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.5rem;
-  height: 100px;
-  width: 50%;
-}
-
-.bar {
-  flex-grow: 1;
-  background: #eee;
-  border-radius: 4px 4px 0 0;
-}
-
-.barActive {
-  background: #3B82F6;
-}
-
-/* Card 3: GenAI Chat */
-.chatInterface {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-}
-
-.chatBubble {
-  padding: 1rem;
-  border-radius: 16px;
-  font-size: 0.9rem;
-  max-width: 90%;
-}
-
-.chatUser {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: #fff;
-  align-self: flex-end;
-  border-bottom-right-radius: 4px;
-}
-
-.chatAI {
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  color: #E2F0E2;
-  align-self: flex-start;
-  border-bottom-left-radius: 4px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Card 4: Governance Logs */
-.approvalWidget {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: auto;
-}
-
-.approvalItem {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #3B82F6;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.8rem;
-}
-
-.approvalText {
-  flex-grow: 1;
-  color: #111;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.statusIcon {
-  color: #27C93F;
-  font-weight: bold;
-}
-
-/* Card 5: Discovery Checklist */
-.checklistWidget {
-  width: 50%;
-  background: rgba(255,255,255,0.05);
-  border-radius: 32px 0 0 32px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-.checklistItem {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-weight: 600;
-  color: white;
-}
-
-.checkCircle {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid #3B82F6;
-  background: rgba(59, 130, 246, 0.2);
-}
-
-/* Card 6: Lifecycle */
-.lifecycleTracker {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: auto;
-}
-
-.lcStep {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  color: rgba(255,255,255,0.5);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.lcDot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  border: 2px solid rgba(255,255,255,0.2);
-}
-
-.lcDone {
-  background: #3B82F6;
-  border-color: #3B82F6;
-}
-
-.lcActive {
-  background: transparent;
-  border-color: #3B82F6;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-}
-
-.lcLine {
-  width: 2px;
-  height: 20px;
-  background: rgba(255,255,255,0.1);
-  margin-left: 7px;
-  align-self: flex-start;
-}
-
-.lcTextActive {
-  color: white;
-}
-
-/* Card 7: Segmented Control */
-.segmentedControl {
-  background: rgba(0,0,0,0.1);
-  border-radius: 100px;
-  display: flex;
-  padding: 0.5rem;
-  gap: 0.5rem;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.segment {
-  flex-grow: 1;
-  text-align: center;
-  padding: 1rem;
-  border-radius: 100px;
-  font-weight: 600;
-  color: rgba(17,17,17,0.6);
+  transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   cursor: pointer;
 }
 
-.segmentActive {
-  background: #111;
-  color: #fff;
+.card:hover {
+  flex: 1.5 1 40%;
 }
 
+.cardBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+
+.cardBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover .cardBg img {
+  transform: scale(1.05);
+}
+
+.textBox {
+  position: relative;
+  background: #ffffff;
+  margin: 0 1rem 1rem 1rem;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), padding 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 2;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.card:hover .textBox {
+  transform: translateY(-10px);
+  padding-bottom: 2.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.desc {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.link {
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card:hover .link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fallback for smaller screens */
 @media (max-width: 900px) {
-  .bentoGrid {
-    grid-template-columns: 1fr;
-  }
-  .card1, .card2, .card3, .card4, .card5, .card6, .card7 {
-    grid-column: 1 / -1;
-    grid-row: auto;
-  }
-  .card2, .card5 {
+  .container {
     flex-direction: column;
-    padding: 2.5rem;
   }
-  .capexContent {
-    width: 100%;
-    padding-right: 0;
-    margin-bottom: 2rem;
+  .card {
+    min-height: 400px;
   }
-  .kpiMockup, .checklistWidget {
-    width: 90%;
-    margin: 0 auto;
-    border-radius: 32px;
-  }
-  .segmentedControl {
-    flex-direction: column;
-    width: 100%;
-    border-radius: 24px;
-  }
-  .segment {
-    border-radius: 16px;
+  .card:hover {
+    flex: 1 1 100%;
   }
 }
