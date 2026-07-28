@@ -39,7 +39,7 @@ export default function HeroSection() {
           style={{ 
             position: 'absolute', 
             inset: 0, 
-            background: 'radial-gradient(circle at bottom left, rgba(244, 124, 54, 0.15) 0%, transparent 40%), linear-gradient(to left, rgba(13,17,23,0.9) 0%, rgba(13,17,23,0.3) 100%)', 
+            background: 'radial-gradient(circle at bottom left, rgba(26, 115, 232, 0.4) 0%, transparent 50%), linear-gradient(to left, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.4) 100%)', 
             zIndex: -1 
           }} 
         />
@@ -52,14 +52,13 @@ export default function HeroSection() {
 
             {/* Headline */}
             <h1 className={styles.headline}>
-              <span className={styles.headlineLine}>Your Enterprise</span>
-              <span className={styles.headlineLine}>Platforms Should</span>
-              <span className={styles.headlineLine}>Work as Hard as You Do</span>
+              <span className={styles.headlineLine}>Connecting Enterprise</span>
+              <span className={styles.headlineLine}>Systems That Matter</span>
             </h1>
 
             {/* Sub copy */}
             <p className={styles.subCopy}>
-              Hadron GBS turns complex technology investments into real operational outcomes. From strategy to managed services, we make enterprise platforms deliver what was promised.
+              We consult, build, and manage enterprise platforms so digital and cloud systems run reliably every day.
             </p>
 
             {/* Action Row: CTAs */}
