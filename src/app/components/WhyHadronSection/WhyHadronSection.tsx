@@ -22,14 +22,11 @@ export default function WhyHadronSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className={styles.title} style={{ fontSize: '2.5rem', color: 'var(--fg)', fontWeight: 600, marginBottom: '1rem', textTransform: 'none', letterSpacing: 'normal' }}>
-            Crafting <span style={{ color: 'var(--blue)' }}>Intelligent</span> Experiences
+            The <span style={{ color: 'var(--blue)' }}>Hadron</span> Advantage
           </h2>
           <p style={{ color: 'var(--fg-muted)', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto 2rem', lineHeight: 1.6, textTransform: 'none' }}>
-            Whether you're building your own models, transforming your cloud strategy, or amplifying your digital efforts, we provide the foundation for enterprise success.
+            What sets us apart is our commitment to engineering world-class solutions. From intelligent automation to seamless cloud integration, we empower your business to scale with absolute confidence.
           </p>
-          <button style={{ background: '#111', color: '#fff', padding: '0.8rem 2rem', borderRadius: '8px', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
-            I'm Curious ↗
-          </button>
         </motion.div>
 
         <InteractiveBento />

@@ -37,7 +37,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+  background: linear-gradient(to right, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.5) 100%);
   z-index: 1;
 }
 
@@ -115,7 +115,7 @@
   padding: 1rem 1.5rem;
   font-size: 1.1rem;
   font-weight: 500;
-  color: #1e3a8a; /* Dark blue text */
+  color: #312e81; /* Shifted from standard blue to deep indigo */
   cursor: pointer;
   border-radius: 0 8px 8px 0;
   transition: all 0.2s ease;
@@ -125,7 +125,7 @@
 .solutionsTab.active {
   background-color: #ffffff;
   color: #111827;
-  border-left-color: #3b82f6; /* Bright blue indicator */
+  border-left-color: #F47C36; /* Quantum Orange indicator */
   box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
 
@@ -133,7 +133,7 @@
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  border-radius: 12px;
+  border-radius: 8px; /* Sharper SaaS border radius */
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0,0,0,0.05);
 }
@@ -183,7 +183,7 @@
 
 .solutionNumber {
   font-weight: 500;
-  color: #1e3a8a;
+  color: #4f46e5; /* Hadron Indigo */
   font-size: 1rem;
   min-width: 24px;
 }
@@ -195,10 +195,10 @@
 
 .solutionTitle {
   font-weight: 500;
-  color: #1e3a8a;
+  color: #4f46e5; /* Hadron Indigo */
   font-size: 1rem;
   text-decoration: none;
-  border-bottom: 1px solid #1e3a8a;
+  border-bottom: 1px solid rgba(79, 70, 229, 0.3);
   display: inline-block;
   padding-bottom: 1px;
   cursor: default;
@@ -318,9 +318,9 @@
 
 .whyCard {
   background-color: #ffffff;
-  border-radius: 1rem; /* rounded-4 */
+  border-radius: 0.5rem; /* Sharper modern corners */
   overflow: hidden;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* shadow-sm */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05); /* Softer resting shadow */
   border: 1px solid rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -330,8 +330,8 @@
 }
 
 .whyCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transform: translateY(-4px); /* Grounded hover instead of bouncy */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
 }
 
 .whyCardImgWrapper {
@@ -374,7 +374,7 @@
 
 .whyCardLink {
   font-weight: 700;
-  color: #2563eb; /* text-primary */
+  color: #F47C36; /* Quantum Orange */
   text-decoration: none;
   display: inline-flex;
   align-items: center;

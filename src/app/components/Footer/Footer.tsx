@@ -14,7 +14,7 @@ const QUICK_LINKS = [
 
 const OFFICE_LOCATIONS = [
   { 
-    title: "Pune (Baner)", 
+    title: "Pune", 
     name: "Hadron Global Business Solutions Pvt Ltd", 
     address: "Pyramid Axis 10th Floor, Veerbhadra Nagar, Baner, Pune, Maharashtra 411045",
     mapUrl: "https://maps.google.com/maps?q=Hadron%20GBS%20India%20Office&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -22,8 +22,7 @@ const OFFICE_LOCATIONS = [
   { 
     title: "Pune (Hinjewadi)", 
     name: "Hadron Global Business Solutions Pvt Ltd", 
-    address: "A 1004, High Mont, Phase 2, Hinjewadi, Pune, Maharashtra-411057",
-    mapUrl: "https://maps.google.com/maps?q=High%20Mont,%20Hinjewadi,%20Pune&t=&z=14&ie=UTF8&iwloc=&output=embed"
+    address: "A 1004, High Mont, Phase 2, Hinjewadi, Pune, Maharashtra-411057"
   },
   { 
     title: "Singapore", 
@@ -58,7 +57,7 @@ export default function Footer() {
           <div className={styles.brandCol}>
             <div className={styles.brand}>
               <Image 
-                src="https://res.cloudinary.com/djxbxhgat/image/upload/v1784806399/hadron_logo_white_jsl37p.png" 
+                src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png" 
                 alt="Hadron GBS" 
                 width={160}
                 height={40}
@@ -72,27 +71,29 @@ export default function Footer() {
             
             <div className={styles.mapSection}>
               <div className={styles.mapTabs}>
-                {OFFICE_LOCATIONS.map((loc, i) => (
+                {OFFICE_LOCATIONS.filter(loc => loc.mapUrl).map((loc, i) => (
                   <button 
                     key={loc.title}
-                    onClick={() => setActiveMapIndex(i)}
-                    className={`${styles.mapTab} ${i === activeMapIndex ? styles.mapTabActive : ''}`}
+                    onClick={() => setActiveMapIndex(OFFICE_LOCATIONS.indexOf(loc))}
+                    className={`${styles.mapTab} ${OFFICE_LOCATIONS.indexOf(loc) === activeMapIndex ? styles.mapTabActive : ''}`}
                   >
                     {loc.title}
                   </button>
                 ))}
               </div>
               <div className={styles.mapContainer}>
-                <iframe 
-                  key={OFFICE_LOCATIONS[activeMapIndex].title} /* forces re-render of iframe to prevent caching bugs */
-                  src={OFFICE_LOCATIONS[activeMapIndex].mapUrl} 
-                  width="100%" 
-                  height="260" 
-                  style={{ border: 0, borderRadius: '8px', filter: 'grayscale(0.8) contrast(1.2)' }} 
-                  allowFullScreen 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                {OFFICE_LOCATIONS[activeMapIndex]?.mapUrl && (
+                  <iframe 
+                    key={OFFICE_LOCATIONS[activeMapIndex].title}
+                    src={OFFICE_LOCATIONS[activeMapIndex].mapUrl} 
+                    width="100%" 
+                    height="260" 
+                    style={{ border: 0, borderRadius: '8px', filter: 'grayscale(0.8) contrast(1.2)' }} 
+                    allowFullScreen 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                )}
               </div>
             </div>
           </div>

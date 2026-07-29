@@ -7,27 +7,42 @@ import LogoLoop from "./LogoLoop";
 const PARTNERS = [
   {
     title: "ServiceNow",
-    src: "https://res.cloudinary.com/djxbxhgat/image/upload/v1784523675/ServiceNow-Logo_kbaxks.png",
-    style: { height: "48px" }
+    src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324489/ServiceNow_Logo_Reversed_aqxmfe.png",
+    style: { height: "78px" },
   },
   {
     title: "BMC Software",
-    src: "https://res.cloudinary.com/djxbxhgat/image/upload/v1784523792/Logo_BMC_Software_oqiorh.png",
+    src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/Logo_BMC_Software_olyhgt.png",
     height: 36,
   },
   {
     title: "Salesforce",
-    src: "https://res.cloudinary.com/djxbxhgat/image/upload/v1784523790/Salesforce-Logo_y5q2ir.png",
-    height: 52,
+    src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324490/salesforce_ivtogr.png",
+    style: { height: "85px" },
+  },
+  {
+    title: "SAP",
+    src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324488/Logo-sap-white-3ew137nnu3s9plvqegzf9c_equux0.png",
+    style: { height: "52px" },
+  },
+  {
+    title: "AWS",
+    src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324488/aws_acbntn.png",
+    style: { height: "60px" },
+  },
+  {
+    title: "Microsoft",
+    src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324490/microsoft-logo-png-white-31_tzq0t0.png",
+    style: { height: "90px" },
   },
   {
     title: "Freshworks",
-    src: "https://res.cloudinary.com/djxbxhgat/image/upload/v1784523791/freshworks-logo_brandlogos.net_c6t5u_hu6w9j.png",
+    src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324494/freshworks-logo_brandlogos.net_c6t5u_r8oarq.png",
     height: 28,
   },
   {
     title: "Ivanti",
-    src: "https://res.cloudinary.com/djxbxhgat/image/upload/v1784523791/Logo_Ivanti_ww1j1c.png",
+    src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324495/Logo_Ivanti_txrbc9.png",
     height: 36,
   },
 ];

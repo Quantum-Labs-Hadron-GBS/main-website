@@ -82,7 +82,7 @@ export default function FeatureScrollSection() {
         {/* ── Section Header ── */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
           <h2 style={{ fontSize: '0.95rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#0f172a', fontWeight: 600 }}>
-            TOP STORIES
+            OUR CAPABILITIES
           </h2>
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <button 

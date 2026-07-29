@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     path: "/",
   }),
   metadataBase: new URL("https://www.hadrongbs.com"),
+  icons: {
+    icon: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/favicon-hadron_g5wrvr.png",
+  },
 };
 
 export default function RootLayout({

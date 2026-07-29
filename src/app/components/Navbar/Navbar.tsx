@@ -10,7 +10,12 @@ const menuItems = [
     href: "/",
     gradient: "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
     isLogo: true,
-    logoSrc: "https://res.cloudinary.com/djxbxhgat/image/upload/v1784806399/hadron_logo_white_jsl37p.png",
+    logoSrc: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png",
+  },
+  {
+    label: "About Us",
+    href: "/about",
+    gradient: "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
   },
   {
     label: "Services",

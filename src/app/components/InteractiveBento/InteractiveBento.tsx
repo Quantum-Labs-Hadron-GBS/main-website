@@ -3,7 +3,13 @@
 import React from 'react';
 import styles from './InteractiveBento.module.css';
 
-export default function InteractiveBento() {
+export interface BentoItem {
+  title: string;
+  desc: string;
+  img: string;
+}
+
+export default function InteractiveBento({ items }: { items?: BentoItem[] }) {
   const cards = [
     {
       title: "Architecture-Led Delivery",
@@ -42,9 +48,11 @@ export default function InteractiveBento() {
     }
   ];
 
+  const cardsToRender = items || cards;
+
   return (
     <div className={styles.container}>
-      {cards.map((card, i) => (
+      {cardsToRender.map((card, i) => (
         <div key={i} className={styles.card}>
           <div className={styles.cardBg}>
              <img src={card.img} alt={card.title} loading="lazy" />
