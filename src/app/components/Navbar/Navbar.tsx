@@ -43,6 +43,11 @@ const menuItems = [
     ]
   },
   {
+    label: "Partners",
+    href: "/partners",
+    gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
+  },
+  {
     label: "Quantum",
     href: "https://quantum-landing-page.pages.dev/",
     gradient: "radial-gradient(circle, rgba(244,124,54,0.15) 0%, rgba(244,124,54,0.06) 50%, rgba(244,124,54,0) 100%)",
