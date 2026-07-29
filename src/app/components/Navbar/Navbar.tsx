@@ -43,6 +43,15 @@ const menuItems = [
     ]
   },
   {
+    label: "Resources",
+    href: "#",
+    gradient: "radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(219,39,119,0.06) 50%, rgba(190,24,93,0) 100%)",
+    subItems: [
+      { label: "Success Stories", href: "/resources/success-stories" },
+      { label: "Videos", href: "/resources/videos" }
+    ]
+  },
+  {
     label: "Partners",
     href: "/partners",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
