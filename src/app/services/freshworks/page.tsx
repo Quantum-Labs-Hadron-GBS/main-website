@@ -7,7 +7,9 @@ export default function FreshworksPage() {
     <ServiceLayout
       title="Reimagine Customer & Employee Experience with Hadron GBS & Freshworks"
       subtitle="At Hadron GBS, we accelerate enterprise transformation by aligning proven implementation expertise with best-in-class SaaS platforms. Freshworks delivers a modern, AI-powered platform for customer support, IT service management, CRM, engagement, and marketing automation. As a dedicated Freshworks partner, Hadron GBS helps organizations implement, integrate, and optimize Freshworks to enhance customer experience, employee experience, and operational efficiency."
-      heroBgUrl="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2070&auto=format&fit=crop"
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326079/From_Klickpin.com-_Smart_entryway_makeover_ideas_for_a_polished_look_people_will_notice_using_practical_inspiration_that_still_feels_highly_aesthe_1_uetggx.mp4"
+      heroVideoRotated={true}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324505/ChatGPT_Image_Jul_29_2026_04_38_36_PM_lk2skj.png"
       solutions={[
         { title: "Freshdesk — Customer Support", desc: "Empower your support teams with a multi-channel helpdesk built for scale. Streamline ticket routing, SLA management, and knowledge base operations to reduce resolution times and elevate customer satisfaction scores." },
         { title: "Freshservice — IT Service Management (ITSM)", desc: "Modernize internal IT operations with a purpose-built ITSM platform. Automate incident, change, and asset management workflows to improve service delivery and reduce operational overhead for IT teams." },

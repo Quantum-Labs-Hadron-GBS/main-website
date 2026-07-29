@@ -36,22 +36,22 @@ export default function AboutPage() {
     {
       title: "Customer Centric Approach",
       desc: "We work in a customer-centric manner to meet the demands of our clients. This enables our clients to achieve their greatest growth and Returns of Interest.",
-      img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600"
+      img: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324496/ChatGPT_Image_Jul_29_2026_03_20_31_PM_j7g9xc.png"
     },
     {
       title: "Agile Methodology",
       desc: "By following agile methodology we assure you to quick delivery with excellent technology solution. We keep complete transparency to our customers throughout the whole development cycle without additional cost.",
-      img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600"
+      img: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/ChatGPT_Image_Jul_29_2026_04_31_38_PM_nsgc22.png"
     },
     {
       title: "Dedicated Development Team",
       desc: "With their expertise, our staff will deliver the greatest outcomes for your requirements. The team puts in all of its effort and does not look back until goals are achieved.",
-      img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=600"
+      img: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/ChatGPT_Image_Jul_29_2026_04_50_46_PM_tppenb.png"
     },
     {
       title: "Outstanding Support",
       desc: "We provide end to end support for your business needs to ensure that the client gets satisfied with what they want.",
-      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600"
+      img: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324503/ChatGPT_Image_Jul_29_2026_04_22_55_PM_zej7ad.png"
     }
   ];
 
@@ -61,7 +61,14 @@ export default function AboutPage() {
       
       {/* HERO SECTION */}
       <section className={styles.heroBanner}>
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop" alt="Corporate office" className={styles.heroBg} />
+        <video 
+          src="https://res.cloudinary.com/ax6dtcht/video/upload/v1785324882/Great_great__Do_one_thing_1_gm5vhr.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className={styles.heroBg}
+        />
         <div className={styles.heroOverlay}></div>
         <div className={`${styles.container} ${styles.heroContent}`}>
           <motion.h1 

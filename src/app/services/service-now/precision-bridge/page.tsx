@@ -7,7 +7,9 @@ export default function PrecisionBridgePage() {
     <ServiceLayout
       title="Accelerate Your ServiceNow Migrations with Hadron GBS & Precision Bridge"
       subtitle="At Hadron GBS, we understand that the biggest risk in any ServiceNow transformation is not the technology, it’s the data. Migrating millions of records from legacy platforms or between ServiceNow instances is complex, time consuming, and error-prone when handled manually. As a specialist implementation partner for Precision Bridge, we ensure your data moves accurately, completely, and at pace without the cost and risk of custom development."
-      heroBgUrl="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326115/From_Klickpin.com-_Classy_DIY_gift_ideas_that_feel_fresh_elevated_and_surprisingly_easy_to_recreate_at_home_for_people_who_want_stylish_ideas_on_a_brkwa8.mp4"
+      heroVideoRotated={true}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324511/ChatGPT_Image_Jul_29_2026_04_41_26_PM_sxuoeq.png"
       solutions={[
         { title: "Automated Data Migration", desc: "Eliminate the risk and effort of manual data migration. Precision Bridge automates the transfer and transformation of application data from BMC Remedy, Salesforce, RSA Archer, Atlassian Jira, SharePoint, SQL Server, and Oracle-based systems to their ServiceNow equivalents." },
         { title: "ServiceNow Instance-to-Instance Migration", desc: "Move data cleanly between ServiceNow instances, Greenfield, domain-separated, or consolidated environments, with complete relationship integrity preserved across records, attachments, and associated data." },

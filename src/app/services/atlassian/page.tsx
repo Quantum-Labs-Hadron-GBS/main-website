@@ -7,7 +7,9 @@ export default function AtlassianPage() {
     <ServiceLayout
       title="Unleash Team Potential with Hadron GBS & Atlassian"
       subtitle="At Hadron GBS, we believe that high-performing teams are the engine of every successful enterprise. As a dedicated Atlassian partner, we help organizations break down silos, accelerate software delivery, and foster a culture of open collaboration. By optimizing the Atlassian stack, we transform how your teams plan, track, and support work—moving you from fragmented communication to unified project mastery."
-      heroBgUrl="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785324524/I_want_light_themed_D_abstrac_ogyy4a.mp4"
+      heroVideoRotated={false}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324512/ChatGPT_Image_Jul_29_2026_04_43_09_PM_akexyx.png"
       solutions={[
         { title: "Jira Software", desc: "The gold standard for agile project management. We configure custom workflows, boards, and roadmaps to keep your software teams aligned and shipping faster." },
         { title: "Jira Service Management (JSM)", desc: "Modernize your IT and business support with a high-velocity service desk that integrates seamlessly with development workflows." },

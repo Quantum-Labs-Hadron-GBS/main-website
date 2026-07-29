@@ -7,7 +7,9 @@ export default function SAPPage() {
     <ServiceLayout
       title="Drive Intelligent Enterprise Excellence with Hadron GBS & SAP"
       subtitle="At Hadron GBS, we believe that a truly resilient business is built on a foundation of integrated, real-time data. As a strategic SAP partner, we help organizations move beyond legacy ERP systems to become ‘Intelligent Enterprises.’ By leveraging SAP’s powerful suite of cloud solutions, we enable you to streamline global operations, optimize supply chains, and make data-driven decisions with absolute confidence."
-      heroBgUrl="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326099/From_Klickpin.com-_Refresh_these_fresh_ways_to_style_your_craft_project_that_bring_style_function_and_personality_together_for_a_stylish_result_th_qpwyfp.mp4"
+      heroVideoRotated={true}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324512/ChatGPT_Image_Jul_29_2026_04_43_09_PM_akexyx.png"
       solutions={[
         { title: "SAP S/4HANA Cloud", desc: "The next-generation ERP. Modernize your core business processes—from finance and risk management to sales and R&D—on a single, in-memory platform." },
         { title: "SAP SuccessFactors (HXM)", desc: "Transform the employee experience with human experience management (HXM) solutions that simplify payroll, talent management, and core HR." },

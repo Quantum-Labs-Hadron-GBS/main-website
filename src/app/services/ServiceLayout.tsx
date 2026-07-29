@@ -27,6 +27,8 @@ export interface ServiceLayoutProps {
   title: string;
   subtitle: string;
   heroBgUrl?: string;
+  heroVideoUrl?: string;
+  heroVideoRotated?: boolean;
   solutionsImgUrl?: string;
   solutions: SolutionItem[];
   framework: FrameworkItem[];
@@ -37,6 +39,8 @@ export default function ServiceLayout({
   title,
   subtitle,
   heroBgUrl = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
+  heroVideoUrl,
+  heroVideoRotated = false,
   solutionsImgUrl = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop", // vivid abstract blue wave default
   solutions,
   framework,
@@ -55,12 +59,20 @@ export default function ServiceLayout({
 
   const shortSubtitle = trimSubtitle(subtitle);
 
-  const defaultWhyImages = [
-    "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop", // AI abstract
-    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop", // Tech abstract
-    "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop", // Growth/Network
-    "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=800&auto=format&fit=crop"  // Pattern
+  const allAiImages = [
+    "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324512/ChatGPT_Image_Jul_29_2026_04_43_09_PM_akexyx.png",
+    "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324511/ChatGPT_Image_Jul_29_2026_04_41_26_PM_sxuoeq.png",
+    "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324510/ChatGPT_Image_Jul_29_2026_03_33_33_PM_p6zjbb.png",
+    "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324505/ChatGPT_Image_Jul_29_2026_04_38_36_PM_lk2skj.png",
+    "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324503/ChatGPT_Image_Jul_29_2026_04_22_55_PM_zej7ad.png",
+    "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/ChatGPT_Image_Jul_29_2026_04_50_46_PM_tppenb.png",
+    "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/ChatGPT_Image_Jul_29_2026_04_31_38_PM_nsgc22.png",
+    "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324496/ChatGPT_Image_Jul_29_2026_03_20_31_PM_j7g9xc.png"
   ];
+
+  // Filter out the solutionsImgUrl to guarantee no duplicates
+  const availableWhyImages = allAiImages.filter(img => img !== solutionsImgUrl);
+  const defaultWhyImages = availableWhyImages.slice(0, Math.max(4, whyHadron.length));
 
   return (
     <>
@@ -68,7 +80,18 @@ export default function ServiceLayout({
       <main className={styles.main}>
         {/* HERO BANNER */}
         <section className={styles.heroBanner}>
-          <img src={heroBgUrl} alt="Hero background" className={styles.heroBg} />
+          {heroVideoUrl ? (
+            <video 
+              src={heroVideoUrl}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={heroVideoRotated ? styles.heroVideoRotated : styles.heroVideo}
+            />
+          ) : (
+            <img src={heroBgUrl} alt="Hero background" className={styles.heroBg} />
+          )}
           <div className={styles.heroOverlay}></div>
           <div className={`${styles.container} ${styles.heroContent}`}>
             <motion.h1 

@@ -29,22 +29,22 @@ export default function InteractiveBento({ items }: { items?: BentoItem[] }) {
     {
       title: "Collaborative Governance",
       desc: "No black boxes. Open patterns and structured governance cadences.",
-      img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600"
+      img: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324512/ChatGPT_Image_Jul_29_2026_04_43_09_PM_akexyx.png"
     },
     {
       title: "Rigorous Discovery",
       desc: "Decisions grounded in real operating conditions and workflows, not untested assumptions.",
-      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600"
+      img: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324511/ChatGPT_Image_Jul_29_2026_04_41_26_PM_sxuoeq.png"
     },
     {
       title: "Lifecycle Accountability",
       desc: "From hypercare to managed services, keeping platforms optimized.",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600"
+      img: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324510/ChatGPT_Image_Jul_29_2026_03_33_33_PM_p6zjbb.png"
     },
     {
       title: "Flexible Engagement Models",
       desc: "We adapt our operating model to match your business priorities, not the other way around.",
-      img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600"
+      img: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324505/ChatGPT_Image_Jul_29_2026_04_38_36_PM_lk2skj.png"
     }
   ];
 

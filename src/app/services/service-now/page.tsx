@@ -14,10 +14,13 @@ export default function ServiceNowHubPage() {
       <main className={styles.main}>
         {/* HERO BANNER */}
         <section className={styles.heroBanner}>
-          <img 
-            src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop" 
-            alt="ServiceNow Ecosystem" 
-            className={styles.heroBg} 
+          <video 
+            src="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326115/From_Klickpin.com-_Classy_DIY_gift_ideas_that_feel_fresh_elevated_and_surprisingly_easy_to_recreate_at_home_for_people_who_want_stylish_ideas_on_a_brkwa8.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={styles.heroVideoRotated}
           />
           <div className={styles.heroOverlay}></div>
           <div className={`${styles.container} ${styles.heroContent}`}>

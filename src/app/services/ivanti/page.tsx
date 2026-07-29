@@ -7,7 +7,9 @@ export default function IvantiPage() {
     <ServiceLayout
       title="Secure and Manage the Everywhere Workstyle with Hadron GBS & Ivanti"
       subtitle="At Hadron GBS, we understand that the modern workforce is no longer confined to a single office or network. As a strategic Ivanti partner, we help organizations discover, manage, and secure every device and endpoint across the enterprise. By unifying IT Service Management (ITSM) with robust cybersecurity and endpoint intelligence, we ensure your employees remain productive and protected, regardless of their location."
-      heroBgUrl="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326082/From_Klickpin.com-_Smart_entryway_makeover_ideas_for_a_polished_look_people_will_notice_using_practical_inspiration_that_still_feels_highly_aesthe_3_f90ffh.mp4"
+      heroVideoRotated={false}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324503/ChatGPT_Image_Jul_29_2026_04_22_55_PM_zej7ad.png"
       solutions={[
         { title: "Ivanti Neurons for ITSM", desc: "Modernize service delivery with a flexible, cloud-optimized platform that automates workflows and improves the employee experience." },
         { title: "Ivanti Neurons for UEM (Unified Endpoint Management)", desc: "Gain a 360-degree view of your entire device estate—including mobile, desktop, and IoT—to manage them through a single pane of glass." },

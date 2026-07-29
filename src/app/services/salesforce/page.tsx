@@ -7,7 +7,9 @@ export default function SalesforcePage() {
     <ServiceLayout
       title="Accelerate Enterprise Growth with Hadron GBS & Salesforce"
       subtitle="At Hadron GBS, we believe every interaction—whether with a customer or an employee—is an opportunity for growth. As a strategic Salesforce partner, we help organizations transition from siloed data to a unified, 360-degree view of their entire business. By leveraging the world’s #1 AI CRM and its expanding service capabilities, we empower your teams to work smarter, close deals faster, and deliver seamless internal support."
-      heroBgUrl="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326087/414330dbc452b6e40004da2889ac168c_nuytqv.mp4"
+      heroVideoRotated={true}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324496/ChatGPT_Image_Jul_29_2026_03_20_31_PM_j7g9xc.png"
       solutions={[
         { title: "Sales Cloud", desc: "Drive revenue growth with automated lead management, advanced forecasting, and AI-powered pipeline insights." },
         { title: "Service Cloud", desc: "Modernize your internal service desk by bringing IT Service Management onto the Salesforce platform. Unify employee support, asset tracking, and incident resolution within the same interface your business already trusts." },

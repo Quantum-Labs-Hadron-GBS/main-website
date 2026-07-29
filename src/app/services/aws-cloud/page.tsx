@@ -7,7 +7,9 @@ export default function AwsCloudPage() {
     <ServiceLayout
       title="Scale Without Limits with Hadron GBS & Amazon Web Services (AWS)"
       subtitle="At Hadron GBS, we help organizations harness the world’s most comprehensive and broadly adopted cloud platform. As a strategic AWS partner, we specialize in transforming rigid, on-premise infrastructures into agile, cloud-native environments. Whether you are looking to migrate mission-critical workloads, build data lakes, or deploy generative AI, we provide the technical depth and operational rigor to help you innovate at the speed of the cloud."
-      heroBgUrl="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785324517/now_in_this_same_theme_like_amrowr.mp4"
+      heroVideoRotated={false}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324511/ChatGPT_Image_Jul_29_2026_04_41_26_PM_sxuoeq.png"
       solutions={[
         { title: "Cloud Migration & Modernization", desc: "Seamlessly transition your applications to AWS using proven frameworks (Rehost, Replatform, Refactor) to reduce data center footprints and increase agility." },
         { title: "AWS Data & Analytics", desc: "Break down data silos by building robust data lakes and warehouses using Amazon Redshift and AWS Glue for real-time business intelligence." },

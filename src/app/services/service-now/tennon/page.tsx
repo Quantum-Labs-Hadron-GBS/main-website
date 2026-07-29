@@ -7,7 +7,9 @@ export default function TennonPage() {
     <ServiceLayout
       title="Unify Marketing & Enterprise Operations with Hadron GBS & Tennon"
       subtitle="Unlock the full potential of ServiceNow with Tennon. Hadron GBS helps marketing teams streamline planning, campaign execution, and performance tracking on a single platform eliminating silos, reducing complexity, and driving smarter collaboration across the enterprise."
-      heroBgUrl="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326115/From_Klickpin.com-_Classy_DIY_gift_ideas_that_feel_fresh_elevated_and_surprisingly_easy_to_recreate_at_home_for_people_who_want_stylish_ideas_on_a_brkwa8.mp4"
+      heroVideoRotated={true}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324510/ChatGPT_Image_Jul_29_2026_03_33_33_PM_p6zjbb.png"
       solutions={[
         { title: "Marketing Automation", desc: "Automate full-funnel customer journeys triggered by real behavioral data already living in ServiceNow. Tennon's automation suite eliminates manual handoffs between marketing and service teams, ensuring every customer interaction is timely, relevant, and data-driven." },
         { title: "Audience Segmentation & List Management", desc: "Build precise, dynamic audience segments using the unified data already in your ServiceNow environment. Intelligent segmentation, automatic list updates, and advanced account insights ensure every campaign reaches exactly the right audience." },

@@ -7,7 +7,9 @@ export default function BmcPage() {
     <ServiceLayout
       title="Empower Your Digital Enterprise with Hadron GBS & BMC Software"
       subtitle="At Hadron GBS, we specialize in turning operational complexity into a competitive advantage. As a strategic BMC Software partner, we help organizations transition from traditional IT management to Autonomous Digital Enterprise models. By leveraging BMC’s robust portfolio, we enable your business to scale with agility, automate at every level, and deliver data-driven insights."
-      heroBgUrl="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326078/From_Klickpin.com-_Smart_entryway_makeover_ideas_for_a_polished_look_people_will_notice_using_practical_inspiration_that_still_feels_highly_aesthe_4_dc5qsc.mp4"
+      heroVideoRotated={true}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324510/ChatGPT_Image_Jul_29_2026_03_33_33_PM_p6zjbb.png"
       solutions={[
         { title: "BMC Helix Operations Management (AIOps)", desc: "Use advanced machine learning to predict, find, and fix issues before they impact the business." },
         { title: "Control-M (Workflow Orchestration)", desc: "Simplify application and data workflow orchestration, making it easy to build, deploy, manage, and monitor complex business services." },

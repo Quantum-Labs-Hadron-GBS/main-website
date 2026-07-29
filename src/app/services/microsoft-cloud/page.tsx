@@ -7,7 +7,9 @@ export default function MicrosoftCloudPage() {
     <ServiceLayout
       title="Empower Your Digital Future with Hadron GBS & Microsoft Cloud"
       subtitle="At Hadron GBS, we help organizations harness the full potential of the world’s most integrated technology stack. As a strategic Microsoft Solutions Partner, we empower businesses to modernize their infrastructure, secure their data, and reinvent productivity through AI-driven workflows. From migrating legacy workloads to Azure to deploying Microsoft 365 and Dynamics 365, we ensure your technology drives measurable business impact."
-      heroBgUrl="https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop"
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326085/From_Klickpin.com-_Smart_entryway_makeover_ideas_for_a_polished_look_people_will_notice_using_practical_inspiration_that_still_feels_highly_aesthe_hzkbhs.mp4"
+      heroVideoRotated={true}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/ChatGPT_Image_Jul_29_2026_04_31_38_PM_nsgc22.png"
       solutions={[
         { title: "Microsoft Azure (Cloud Infrastructure)", desc: "Accelerate your digital transformation with secure cloud migrations, app modernization, and scalable data analytics." },
         { title: "Dynamics 365 (Business Applications)", desc: "Unify your front and back-office operations with intelligent CRM and ERP solutions that streamline sales, finance, and supply chain management." },

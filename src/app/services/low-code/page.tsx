@@ -7,7 +7,9 @@ export default function LowCodePage() {
     <ServiceLayout
       title="Accelerate Innovation with Hadron GBS: Your Low-Code & No-Code Partner"
       subtitle="At Hadron GBS, we believe that technology should be an accelerator, not a bottleneck. As a specialist partner in Low-Code and No-Code (LCNC) platforms, we empower organizations to bridge the gap between business ideas and functional software. By democratizing app development, we help you launch enterprise-grade solutions in weeks—not months—enabling your team to respond to market changes at the speed of thought."
-      heroBgUrl="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326083/From_Klickpin.com-_Smart_entryway_makeover_ideas_for_a_polished_look_people_will_notice_using_practical_inspiration_that_still_feels_highly_aesthe_2_iubfgk.mp4"
+      heroVideoRotated={true}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/ChatGPT_Image_Jul_29_2026_04_50_46_PM_tppenb.png"
       solutions={[
         { title: "Rapid Application Development (RAD)", desc: "Build and deploy custom business applications quickly to solve unique challenges without the overhead of traditional coding." },
         { title: "Workflow & Process Automation", desc: "Modernize manual, paper-based, or Excel-driven processes with automated digital workflows that reduce errors and save time." },
