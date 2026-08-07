@@ -197,6 +197,7 @@
   .content { align-items: center; text-align: center; padding-right: 0; margin-left: 0; }
   .ctaRow { flex-direction: column; width: 100%; align-items: stretch; padding: 0 2rem; }
   .ctaPrimary, .ctaSecondary { justify-content: center; width: 100%; }
+  .introCaptionText { white-space: normal; line-height: 1.2; font-size: clamp(1.8rem, 8vw, 2.5rem); }
 }
 
 /* ── Intro Caption ── */
@@ -209,5 +210,50 @@
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   max-width: 90%;
   margin: 0 auto;
-  white-space: nowrap;
+  white-space: nowrap; /* Forces a single line on desktop */
+}
+
+.mobileBreak {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileBreak {
+    display: block;
+  }
+}
+
+/* ── Skip Button ── */
+.skipBtn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.skipBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .skipBtn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
 }

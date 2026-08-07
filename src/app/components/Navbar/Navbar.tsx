@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MenuBar } from "@/components/ui/glow-menu";
 import styles from "./Navbar.module.css";
 
@@ -68,35 +68,45 @@ export default function Navbar() {
   const [activeItem, setActiveItem] = useState<string>("Home");
   const [scrolled, setScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isLightMode, setIsLightMode] = useState(false);
+  
+  // Use a ref for lastScrollY to avoid re-attaching the event listener on every scroll tick
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 50);
+      if (typeof window === "undefined") return;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      const currentScrollY = window.scrollY;
+      const heroHeight = window.innerHeight * 0.9;
+      
+      setScrolled(currentScrollY > 50);
+      setIsLightMode(currentScrollY > heroHeight);
+
+      // Hide only if scrolling down AND past the hero section
+      if (currentScrollY > lastScrollY.current && currentScrollY > heroHeight) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
       }
-      setLastScrollY(currentScrollY);
+      
+      lastScrollY.current = currentScrollY;
     };
 
-    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`} role="banner" style={{ justifyContent: 'center', zIndex: 999, transform: isVisible ? 'translateY(0)' : 'translateY(-100%)', transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s' }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'center', padding: '1rem 0' }}>
 
-        {/* Glow Menu Bar (Now with restored dropdown connections) */}
+        {/* Glow Menu Bar (Now with restored dropdown connections and dynamic light mode) */}
         <MenuBar
           items={menuItems}
           activeItem={activeItem}
           onItemClick={setActiveItem}
+          isLightMode={isLightMode}
         />
 
       </div>

@@ -68,14 +68,6 @@ export default function FeatureScrollSection() {
       className={styles.section}
       id="product"
       aria-label="Product features"
-      style={{ 
-        position: 'relative', 
-        padding: '6rem 0',
-        background: '#e2e8f0', // The slate blue background from the screenshot
-        display: 'flex', 
-        alignItems: 'center',
-        overflow: 'hidden'
-      }}
     >
       <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
         
@@ -120,32 +112,23 @@ export default function FeatureScrollSection() {
                   animate={{
                     opacity: isActive ? 1 : 0.4,
                     filter: isActive ? 'blur(0px)' : 'blur(4px)',
-                    scale: isActive ? 1 : 0.95
-                  }}
-                  transition={{ duration: 0.5 }}
-                  style={{
-                    width: 'calc(100vw - 4rem)', // Fallback for mobile
-                    maxWidth: '850px',
-                    height: '320px', // Small heighted strip
-                    background: '#f8fafc',
-                    borderRadius: '20px',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    overflow: 'hidden',
+                    scale: isActive ? 1 : 0.95,
                     boxShadow: isActive ? '0 10px 30px rgba(0,0,0,0.05)' : 'none'
                   }}
+                  transition={{ duration: 0.5 }}
+                  className={styles.featureCard}
                 >
                   {/* Left Image */}
-                  <div style={{ width: '40%', height: '100%', position: 'relative' }}>
+                  <div className={styles.featureImageContainer}>
                     <img 
                       src={feature.img} 
                       alt={feature.title} 
-                      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} 
+                      className={styles.featureImage} 
                     />
                   </div>
 
                   {/* Right Text */}
-                  <div style={{ width: '60%', padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <div className={styles.featureTextContainer}>
                     <h3 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#0f172a', marginBottom: '1rem', lineHeight: 1.2 }}>
                       {feature.title}
                     </h3>

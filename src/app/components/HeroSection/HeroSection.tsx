@@ -6,30 +6,43 @@ import { AnimatePresence, motion } from "framer-motion";
 import styles from "./HeroSection.module.css";
 import PartnerMarquee from "../PartnerMarquee/PartnerMarquee";
 
+const INTRO_CAPTIONS = [
+  { key: 'intro-0', node: <>Where Challenges <br className={styles.mobileBreak} />Meet Intelligence.</> },
+  { key: 'intro-1', node: <>Powered by <br className={styles.mobileBreak} />Hadron GBS</> },
+  { key: 'intro-2', node: <>AI That Works <br className={styles.mobileBreak} />Beside You</> },
+  { key: 'intro-3', node: <>Designed for <br className={styles.mobileBreak} />Simplicity</> },
+  { key: 'intro-4', node: <>Connecting IT. <br className={styles.mobileBreak} />AI. Quantum.</> },
+  { key: 'intro-5', node: <>Build <br className={styles.mobileBreak} />What's Next</> }
+];
+
 export default function HeroSection() {
-  const [activeCaption, setActiveCaption] = useState<string | null>("Where Challenges Meet Intelligence.");
+  const [activeCaptionIndex, setActiveCaptionIndex] = useState<number | null>(0);
   const [isIntroFinished, setIsIntroFinished] = useState(false);
+
+  const handleSkip = () => {
+    setIsIntroFinished(true);
+    setActiveCaptionIndex(null);
+  };
 
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
     if (isIntroFinished) return;
     const time = e.currentTarget.currentTime;
     
-    // Changed to 16.4s because video might loop before exactly hitting 16.600s
     if (time >= 16.4) {
       setIsIntroFinished(true);
-      setActiveCaption(null);
+      setActiveCaptionIndex(null);
     } else if (time >= 14.0) {
-      setActiveCaption("Build What's Next");
+      setActiveCaptionIndex(5);
     } else if (time >= 10.8) {
-      setActiveCaption("Connecting IT. AI. Quantum.");
+      setActiveCaptionIndex(4);
     } else if (time >= 8.0) {
-      setActiveCaption("Designed for Simplicity");
+      setActiveCaptionIndex(3);
     } else if (time >= 4.8) {
-      setActiveCaption("AI That Works Beside You");
+      setActiveCaptionIndex(2);
     } else if (time >= 2.5) {
-      setActiveCaption("Powered by Hadron GBS");
+      setActiveCaptionIndex(1);
     } else {
-      setActiveCaption("Where Challenges Meet Intelligence.");
+      setActiveCaptionIndex(0);
     }
   };
 
@@ -40,7 +53,7 @@ export default function HeroSection() {
       // Failsafe timer: force the intro to end after 16.6s real-time
       const timer = setTimeout(() => {
         setIsIntroFinished(true);
-        setActiveCaption(null);
+        setActiveCaptionIndex(null);
       }, 16600);
       return () => {
         clearTimeout(timer);
@@ -97,21 +110,38 @@ export default function HeroSection() {
         />
 
         {/* Intro Captions */}
-        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1, pointerEvents: 'none', width: '100vw' }}>
           <AnimatePresence mode="wait">
-            {!isIntroFinished && activeCaption && (
+            {!isIntroFinished && activeCaptionIndex !== null && (
               <motion.div
-                key={activeCaption}
+                key={INTRO_CAPTIONS[activeCaptionIndex].key}
                 initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
+                style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
               >
-                <h2 className={styles.introCaptionText}>{activeCaption}</h2>
+                <h2 className={styles.introCaptionText}>{INTRO_CAPTIONS[activeCaptionIndex].node}</h2>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
+
+        {/* Skip Button */}
+        <AnimatePresence>
+          {!isIntroFinished && (
+            <motion.button
+              className={styles.skipBtn}
+              onClick={handleSkip}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              Skip Intro ↗
+            </motion.button>
+          )}
+        </AnimatePresence>
 
         {/* Main Content Box */}
         <div className="container" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 2 }}>
