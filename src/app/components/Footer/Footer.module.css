@@ -157,7 +157,7 @@
 
 .locTitle {
   font-size: 0.9rem;
-  color: var(--blue);
+  color: var(--accent);
   font-family: var(--font-space), sans-serif;
 }
 
@@ -205,8 +205,8 @@
 }
 
 .mapTabActive {
-  background: var(--blue);
-  border-color: var(--blue);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 

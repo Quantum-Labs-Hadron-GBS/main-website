@@ -22,7 +22,7 @@ export default function WhyHadronSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className={styles.title} style={{ fontSize: '2.5rem', color: 'var(--fg)', fontWeight: 600, marginBottom: '1rem', textTransform: 'none', letterSpacing: 'normal' }}>
-            The <span style={{ color: 'var(--blue)' }}>Hadron</span> Advantage
+            The <span style={{ color: 'var(--accent)' }}>Hadron</span> Advantage
           </h2>
           <p style={{ color: 'var(--fg-muted)', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto 2rem', lineHeight: 1.6, textTransform: 'none' }}>
             What sets us apart is our commitment to engineering world-class solutions. From intelligent automation to seamless cloud integration, we empower your business to scale with absolute confidence.

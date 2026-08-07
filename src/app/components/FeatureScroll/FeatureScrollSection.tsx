@@ -152,7 +152,7 @@ export default function FeatureScrollSection() {
                     <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: 1.5, marginBottom: '2rem' }}>
                       {feature.body}
                     </p>
-                    <a href={`/services`} style={{ color: '#0f172a', textDecoration: 'none', fontWeight: 500, display: 'inline-flex', alignItems: 'center', fontSize: '0.9rem', borderBottom: '1px solid #0f172a', width: 'max-content', paddingBottom: '2px' }}>
+                    <a href={`/services`} style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 500, display: 'inline-flex', alignItems: 'center', fontSize: '0.9rem', borderBottom: '1px solid var(--accent)', width: 'max-content', paddingBottom: '2px' }}>
                       Read More ↗
                     </a>
                   </div>

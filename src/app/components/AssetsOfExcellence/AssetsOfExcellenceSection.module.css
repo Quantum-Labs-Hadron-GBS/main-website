@@ -89,11 +89,11 @@
 .readMore {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--fg);
+  color: var(--accent);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  border-bottom: 1px solid var(--fg);
+  border-bottom: 1px solid var(--accent);
   padding-bottom: 2px;
   width: fit-content;
   transition: opacity 0.2s ease;

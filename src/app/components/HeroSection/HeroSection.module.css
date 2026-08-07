@@ -133,6 +133,33 @@
   box-shadow: 0 6px 25px rgba(26, 115, 232, 0.6);
 }
 
+/* Glassmorphism Pill */
+.ctaGlass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2.5rem;
+  background: rgba(244, 124, 54, 0.15); /* Orange glass */
+  color: var(--accent); /* Orange text */
+  border: 1px solid var(--accent); /* Orange border */
+  border-radius: 99px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(244, 124, 54, 0.15);
+}
+
+.ctaGlass:hover {
+  background: var(--accent);
+  color: #ffffff; /* White text on hover */
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(244, 124, 54, 0.5);
+}
+
 /* Secondary: ghost/outline pill */
 .ctaSecondary {
   display: inline-flex;
@@ -170,4 +197,17 @@
   .content { align-items: center; text-align: center; padding-right: 0; margin-left: 0; }
   .ctaRow { flex-direction: column; width: 100%; align-items: stretch; padding: 0 2rem; }
   .ctaPrimary, .ctaSecondary { justify-content: center; width: 100%; }
+}
+
+/* ── Intro Caption ── */
+.introCaptionText {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  max-width: 90%;
+  margin: 0 auto;
+  white-space: nowrap;
 }

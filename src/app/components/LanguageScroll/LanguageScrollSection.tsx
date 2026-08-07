@@ -67,7 +67,7 @@ export default function LanguageScrollSection() {
       data-active-index={activeIndex}
       className={styles.section}
       style={{ height: `100vh`, position: 'relative' }}
-      aria-label="VOXITY language support"
+      aria-label="Hadron GBS language support"
     >
       <div className={styles.sticky} style={{ position: 'absolute', height: '100%', width: '100%' }}>
         <div className={styles.eyebrow}>

@@ -134,3 +134,14 @@ img, canvas {
   background-image: none !important;
   color: var(--fg);
 }
+
+/* ── Intro Sequence Styles ── */
+body.intro-running header {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-20px);
+}
+
+header {
+  transition: opacity 1.2s ease, transform 1.2s ease !important;
+}
