@@ -50,10 +50,10 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 2.5rem;
-  background: #ffffff;
-  border: 1px solid #ffffff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
   border-radius: 999px;
-  color: #0f172a;
+  color: #ffffff;
   text-decoration: none;
   font-family: var(--font-inter), sans-serif;
   font-size: 1rem;
@@ -77,9 +77,9 @@
 }
 
 .demoPrimary:hover {
-  background: var(--blue);
-  color: #fff;
-  border-color: var(--blue);
+  background: #ffffff;
+  color: var(--accent);
+  border-color: #ffffff;
   gap: 0.5rem;
 }
 
