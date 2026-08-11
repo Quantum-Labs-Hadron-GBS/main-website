@@ -1,7 +1,7 @@
 /* eslint-disable */
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import styles from "./HeroSection.module.css";
 import PartnerMarquee from "../PartnerMarquee/PartnerMarquee";
@@ -18,6 +18,19 @@ const INTRO_CAPTIONS = [
 export default function HeroSection() {
   const [activeCaptionIndex, setActiveCaptionIndex] = useState<number | null>(0);
   const [isIntroFinished, setIsIntroFinished] = useState(false);
+  const [isLoadingFinished, setIsLoadingFinished] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Loading Screen Timer & Video Trigger
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoadingFinished(true);
+      if (videoRef.current) {
+        videoRef.current.play().catch(e => console.warn("Auto-play blocked:", e));
+      }
+    }, 2800); // 2.8s total loading screen duration
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSkip = () => {
     setIsIntroFinished(true);
@@ -50,18 +63,22 @@ export default function HeroSection() {
   useEffect(() => {
     if (!isIntroFinished) {
       document.body.classList.add("intro-running");
-      // Failsafe timer: force the intro to end after 16.6s real-time
-      const timer = setTimeout(() => {
-        setIsIntroFinished(true);
-        setActiveCaptionIndex(null);
-      }, 16600);
+      
+      // Failsafe timer: force the intro to end after 16.6s real-time, but only start counting after loading finishes
+      let timer: NodeJS.Timeout;
+      if (isLoadingFinished) {
+        timer = setTimeout(() => {
+          setIsIntroFinished(true);
+          setActiveCaptionIndex(null);
+        }, 16600);
+      }
       return () => {
-        clearTimeout(timer);
+        if (timer) clearTimeout(timer);
       }
     } else {
       document.body.classList.remove("intro-running");
     }
-  }, [isIntroFinished]);
+  }, [isIntroFinished, isLoadingFinished]);
 
   return (
     <div className={styles.heroWrapper}>
@@ -69,7 +86,7 @@ export default function HeroSection() {
         
         {/* Background Video */}
         <video
-          autoPlay
+          ref={videoRef}
           loop
           muted
           playsInline
@@ -109,10 +126,27 @@ export default function HeroSection() {
           }} 
         />
 
-        {/* Intro Captions */}
-        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1, pointerEvents: 'none', width: '100vw' }}>
+        {/* Intro Elements (Logo + Captions) */}
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', zIndex: 1, pointerEvents: 'none', width: '100vw' }}>
+          
+          {/* Static Logo during intro */}
+          <AnimatePresence>
+            {!isIntroFinished && isLoadingFinished && (
+              <motion.img 
+                src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png" 
+                alt="Hadron Logo" 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                style={{ width: '180px', height: 'auto', marginBottom: '2rem' }}
+              />
+            )}
+          </AnimatePresence>
+
+          {/* Cycling Captions */}
           <AnimatePresence mode="wait">
-            {!isIntroFinished && activeCaptionIndex !== null && (
+            {!isIntroFinished && isLoadingFinished && activeCaptionIndex !== null && (
               <motion.div
                 key={INTRO_CAPTIONS[activeCaptionIndex].key}
                 initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
@@ -189,6 +223,52 @@ export default function HeroSection() {
             </motion.div>
           )}
         </AnimatePresence>
+        {/* Loading Screen Overlay */}
+        <AnimatePresence>
+          {!isLoadingFinished && (
+            <motion.div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundColor: '#050508', // Deep cinematic black
+                zIndex: 100,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden'
+              }}
+              exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
+            >
+              <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <motion.img 
+                  src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/favicon-hadron_g5wrvr.png"
+                  alt="Hadron Favicon"
+                  style={{ width: '48px', height: '48px', zIndex: 2 }}
+                  initial={{ marginRight: '-48px' }} // Start centered (overlapping text origin)
+                  animate={{ marginRight: '16px' }} // Slide left to create a gap
+                  transition={{ delay: 0.8, duration: 1, ease: [0.16, 1, 0.3, 1] }} 
+                />
+                <motion.span
+                  style={{ 
+                    color: 'white', 
+                    fontSize: '2.5rem', 
+                    fontWeight: 700, 
+                    letterSpacing: '-0.03em',
+                    zIndex: 1,
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden'
+                  }}
+                  initial={{ width: 0, opacity: 0, paddingLeft: 0 }}
+                  animate={{ width: 'auto', opacity: 1, paddingLeft: '8px' }}
+                  transition={{ delay: 0.85, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  Hadron GBS
+                </motion.span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
       </section>
     </div>
   );
