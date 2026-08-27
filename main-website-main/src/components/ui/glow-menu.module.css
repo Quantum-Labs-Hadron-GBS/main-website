@@ -178,8 +178,21 @@
   .menuBar {
     width: 100%;
     justify-content: flex-start;
+    padding-left: 1.5rem;
     padding-right: 4rem;
-    /* Leave space for the orange hamburger */
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+  
+  .menuItemWrapper.isLogo .menuItem {
+    padding: 0.5rem 0;
+    background: transparent !important;
+  }
+  
+  .menuItemWrapper.isLogo .activeBackground {
+    display: none;
   }
 
   .menuItemWrapper:not(.isLogo) {

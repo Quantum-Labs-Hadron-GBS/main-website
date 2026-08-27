@@ -169,7 +169,7 @@
 
 @media (max-width: 1024px) {
   .navContainer {
-    padding: 0.5rem 1rem;
+    padding: 0;
   }
 
   .links,
