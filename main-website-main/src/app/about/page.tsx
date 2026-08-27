@@ -7,6 +7,7 @@ import styles from "./About.module.css";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import InteractiveBento from "../components/InteractiveBento/InteractiveBento";
+import OurStorySection from "../components/OurStorySection/OurStorySection";
 
 export default function AboutPage() {
   const timelineEvents = [
@@ -143,6 +144,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* OUR STORY */}
+      <OurStorySection />
 
       {/* TIMELINE */}
       <section className={styles.timelineSection}>
