@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import styles from "./FeatureScrollSection.module.css";
 
 const FEATURES = [
@@ -75,25 +74,23 @@ export default function FeatureScrollSection() {
         {/* ── Section Header ── */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
           <h2 style={{ fontSize: '0.95rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#0f172a', fontWeight: 600 }}>
-            OUR EXPERTISE
+            OUR CAPABILITIES
           </h2>
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <button 
               onClick={handlePrev} 
-              className={`${styles.navArrow} ${styles.navArrowLeft}`}
-              aria-label="Previous feature"
+              style={{ background: 'transparent', border: '1px solid #cbd5e1', borderRadius: '4px', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#0f172a' }}
             >
-              <ArrowLeft size={24} strokeWidth={3} color="black" />
+              ←
             </button>
             <span style={{ fontSize: '0.9rem', color: '#334155', fontWeight: 500 }}>
               {activeIndex + 1} / {FEATURES.length}
             </span>
             <button 
               onClick={handleNext} 
-              className={`${styles.navArrow} ${styles.navArrowRight}`}
-              aria-label="Next feature"
+              style={{ background: 'transparent', border: '1px solid #cbd5e1', borderRadius: '4px', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#0f172a' }}
             >
-              <ArrowRight size={24} strokeWidth={3} color="black" />
+              →
             </button>
           </div>
         </div>
