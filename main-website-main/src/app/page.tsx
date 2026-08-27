@@ -6,7 +6,6 @@ import styles from "./page.module.css";
 
 // Below-fold sections — loaded after initial paint
 const FeatureScrollSection    = dynamic(() => import("./components/FeatureScroll/FeatureScrollSection"));
-const OurStorySection         = dynamic(() => import("./components/OurStorySection/OurStorySection"));
 const WhyHadronSection        = dynamic(() => import("./components/WhyHadronSection/WhyHadronSection"));
 const CoreValuesSection       = dynamic(() => import("./components/CoreValuesSection/CoreValuesSection"));
 const CoreServicesSection     = dynamic(() => import("./components/CoreServicesSection/CoreServicesSection"));
@@ -26,18 +25,15 @@ export default function HomePage() {
       {/* ── FEATURE NUMBER TICKER ── */}
       <FeatureScrollSection />
 
-      {/* ── OUR STORY ── */}
-      <OurStorySection />
-
       {/* ── WHY HADRON GBS ── */}
       <WhyHadronSection />
 
       <div style={{ backgroundColor: '#0f172a' }}>
-        {/* ── MISSION & VISION (4 P's) ── */}
-        <CoreValuesSection />
-
         {/* ── CORE SERVICES ── */}
         <CoreServicesSection />
+
+        {/* ── MISSION & VISION (4 P's) ── */}
+        <CoreValuesSection />
       </div>
 
       {/* ── ASSETS OF EXCELLENCE ── */}
