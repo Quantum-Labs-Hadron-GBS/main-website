@@ -91,18 +91,11 @@
   font-weight: 600;
   font-size: 0.9rem;
   text-decoration: none;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease;
   margin-top: auto;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.card:hover .link {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* Fallback for smaller screens */

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
 import { MenuBar } from "@/components/ui/glow-menu";
 import styles from "./Navbar.module.css";
 
@@ -43,15 +45,6 @@ const menuItems = [
     ]
   },
   {
-    label: "Resources",
-    href: "#",
-    gradient: "radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(219,39,119,0.06) 50%, rgba(190,24,93,0) 100%)",
-    subItems: [
-      { label: "Success Stories", href: "/resources/success-stories" },
-      { label: "Videos", href: "/resources/videos" }
-    ]
-  },
-  {
     label: "Partners",
     href: "/partners",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
@@ -65,10 +58,23 @@ const menuItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isServicesPage = pathname === "/services";
+
   const [activeItem, setActiveItem] = useState<string>("Home");
   const [scrolled, setScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [isLightMode, setIsLightMode] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(isServicesPage);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [openTrees, setOpenTrees] = useState<Record<string, boolean>>({});
+
+  const toggleTree = (key: string, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setOpenTrees(prev => ({ ...prev, [key]: !prev[key] }));
+  };
   
   // Use a ref for lastScrollY to avoid re-attaching the event listener on every scroll tick
   const lastScrollY = useRef(0);
@@ -78,13 +84,14 @@ export default function Navbar() {
       if (typeof window === "undefined") return;
 
       const currentScrollY = window.scrollY;
-      const heroHeight = window.innerHeight * 0.9;
+      const hideThreshold = isServicesPage ? 200 : window.innerHeight * 0.9;
+      const themeThreshold = window.innerHeight * 0.9;
       
       setScrolled(currentScrollY > 50);
-      setIsLightMode(currentScrollY > heroHeight);
+      setIsLightMode(isServicesPage || currentScrollY > themeThreshold);
 
-      // Hide only if scrolling down AND past the hero section
-      if (currentScrollY > lastScrollY.current && currentScrollY > heroHeight) {
+      // Hide only if scrolling down AND past the threshold
+      if (currentScrollY > lastScrollY.current && currentScrollY > hideThreshold) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
@@ -94,14 +101,19 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    // Initial check on mount
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isServicesPage]);
 
   return (
-    <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`} role="banner" style={{ justifyContent: 'center', zIndex: 999, transform: isVisible ? 'translateY(0)' : 'translateY(-100%)', transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s' }}>
-      <div className="container" style={{ display: 'flex', justifyContent: 'center', padding: '1rem 0' }}>
+    <>
+      <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`} role="banner" style={{ transform: isVisible ? 'translateY(0)' : 'translateY(-100%)' }}>
+      <div className={styles.navContainer}>
 
-        {/* Glow Menu Bar (Now with restored dropdown connections and dynamic light mode) */}
+        {/* Glow Menu Bar */}
         <MenuBar
           items={menuItems}
           activeItem={activeItem}
@@ -109,7 +121,68 @@ export default function Navbar() {
           isLightMode={isLightMode}
         />
 
+        {/* Unique Orange Hamburger Menu Button */}
+        <button 
+          className={`${styles.hamburgerBtn} ${isDrawerOpen ? styles.hamburgerOpen : ""}`} 
+          onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+          aria-label="Toggle secondary menu"
+        >
+          <span className={styles.hamburgerLine}></span>
+          <span className={styles.hamburgerLine}></span>
+          <span className={styles.hamburgerLine}></span>
+        </button>
+
       </div>
     </header>
+
+      {/* Slide-in Secondary Menu Drawer */}
+      <div className={`${styles.drawerOverlay} ${isDrawerOpen ? styles.drawerOverlayOpen : ""}`} onClick={() => setIsDrawerOpen(false)}></div>
+      <div className={`${styles.drawerMenu} ${isDrawerOpen ? styles.drawerMenuOpen : ""}`}>
+        <button className={styles.drawerCloseBtn} onClick={() => setIsDrawerOpen(false)} aria-label="Close menu">✕</button>
+        <nav className={styles.drawerNav}>
+          {/* Services Tree Node */}
+          <div className={styles.treeNode} onMouseEnter={() => setOpenTrees(prev => ({ ...prev, 'services': true }))} onMouseLeave={() => setOpenTrees(prev => ({ ...prev, 'services': false }))}>
+            <div className={styles.treeNodeHeader}>
+              <a href="/#services" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Services</a>
+              <button className={styles.treeToggleBtn} onClick={(e) => toggleTree('services', e)}>
+                <ChevronLeft size={20} />
+              </button>
+            </div>
+            <div className={`${styles.treeBranch} ${openTrees['services'] ? styles.treeBranchOpen : ""}`}>
+              <a href="/services" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Our Services</a>
+              <a href="/services/service-now" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>ServiceNow</a>
+              <a href="/services/salesforce" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Salesforce</a>
+              <a href="/services/bmc" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>BMC Software</a>
+              <a href="/services/ivanti" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Ivanti</a>
+              <a href="/services/sap" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>SAP</a>
+              <a href="/services/atlassian" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Atlassian</a>
+              <a href="/services/microsoft-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Microsoft Cloud</a>
+              <a href="/services/aws-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>AWS Cloud</a>
+              <a href="/services/freshworks" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Freshworks</a>
+            </div>
+          </div>
+
+          <a href="/partners" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Partners</a>
+          
+          {/* Resources Tree Node */}
+          <div className={styles.treeNode} onMouseEnter={() => setOpenTrees(prev => ({ ...prev, 'resources': true }))} onMouseLeave={() => setOpenTrees(prev => ({ ...prev, 'resources': false }))}>
+            <div className={styles.treeNodeHeader}>
+              <a href="#" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Resources</a>
+              <button className={styles.treeToggleBtn} onClick={(e) => toggleTree('resources', e)}>
+                <ChevronLeft size={20} />
+              </button>
+            </div>
+            <div className={`${styles.treeBranch} ${openTrees['resources'] ? styles.treeBranchOpen : ""}`}>
+              <a href="/resources/success-stories" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Success Stories</a>
+              <a href="/resources/videos" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Videos</a>
+            </div>
+          </div>
+
+          <a href="#" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Careers</a>
+          <a href="/about" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>About us</a>
+          <a href="https://quantum-landing-page.pages.dev/" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} style={{ color: '#F47C36' }} onClick={() => setIsDrawerOpen(false)}>Quantum</a>
+        </nav>
+      </div>
+    </>
   );
 }
