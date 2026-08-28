@@ -90,29 +90,81 @@
   background-color: #ffffff;
 }
 
+.partnersGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .partnersGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .partnerCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   background: #ffffff;
   border-radius: 12px;
   padding: 3rem;
-  margin-bottom: 3rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #f1f5f9;
+  height: 100%;
+  overflow: hidden; /* For the border animations */
+}
+
+/* 3D Border Lines */
+.borderTop, .borderRight, .borderBottom, .borderLeft {
+  position: absolute;
+  background: #f47c36;
+  transition: all 0.4s ease-in-out;
+  z-index: 10;
+}
+
+.borderTop {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+}
+
+.borderRight {
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 0;
+}
+
+.borderBottom {
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+}
+
+.borderLeft {
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+}
+
+.partnerCard:hover .borderTop,
+.partnerCard:hover .borderBottom {
+  width: 100%;
+}
+
+.partnerCard:hover .borderRight,
+.partnerCard:hover .borderLeft {
+  height: 100%;
 }
 
 .partnerCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-@media (min-width: 768px) {
-  .partnerCard {
-    flex-direction: row;
-    align-items: center;
-    gap: 4rem;
-  }
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .partnerLogoWrapper {
@@ -141,6 +193,12 @@
 
 .partnerContent {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.btnWrapper {
+  margin-top: auto; /* Pushes the button to the bottom */
 }
 
 .partnerTitle {

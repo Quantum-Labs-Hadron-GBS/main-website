@@ -110,7 +110,7 @@ export default function PartnersPage() {
 
         {/* PARTNERS LIST */}
         <section className={styles.partnersSection}>
-          <div className={styles.container}>
+          <div className={`${styles.container} ${styles.partnersGrid}`}>
             {partners.map((partner, index) => (
               <motion.div 
                 key={partner.name}
@@ -120,6 +120,12 @@ export default function PartnersPage() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
               >
+                {/* 3D Border Hover Lines */}
+                <span className={styles.borderTop}></span>
+                <span className={styles.borderRight}></span>
+                <span className={styles.borderBottom}></span>
+                <span className={styles.borderLeft}></span>
+
                 <div className={styles.partnerLogoWrapper}>
                   <img 
                     src={partner.logo} 
@@ -131,13 +137,15 @@ export default function PartnersPage() {
                 <div className={styles.partnerContent}>
                   <h2 className={styles.partnerTitle}>{partner.name}</h2>
                   <p className={styles.partnerDesc}>{partner.desc}</p>
-                  <Link href={partner.link} className={styles.partnerBtn}>
-                    {partner.btnText}
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </Link>
+                  <div className={styles.btnWrapper}>
+                    <Link href={partner.link} className={styles.partnerBtn}>
+                      {partner.btnText}
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
