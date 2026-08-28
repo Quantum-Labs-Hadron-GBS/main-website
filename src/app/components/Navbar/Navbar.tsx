@@ -59,7 +59,7 @@ const menuItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isAlwaysLight = pathname === "/services" || pathname === "/contact";
+  const isAlwaysLight = pathname === "/contact";
 
   const [activeItem, setActiveItem] = useState<string>("Home");
   const [scrolled, setScrolled] = useState(false);
