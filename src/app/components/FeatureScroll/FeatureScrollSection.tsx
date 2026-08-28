@@ -102,7 +102,7 @@ export default function FeatureScrollSection() {
         <div style={{ position: 'relative', width: '100%' }}>
           <motion.div
             animate={{ x: `calc(-${activeIndex} * min(100vw - 4rem, 850px) - ${activeIndex * 2}rem)` }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            transition={{ type: "tween", ease: "easeInOut", duration: 0.6 }}
             style={{ display: 'flex', gap: '2rem', width: 'max-content' }}
           >
             {FEATURES.map((feature, i) => {
@@ -114,9 +114,7 @@ export default function FeatureScrollSection() {
                   key={i}
                   animate={{
                     opacity: isActive ? 1 : 0.4,
-                    filter: isActive ? 'blur(0px)' : 'blur(4px)',
-                    scale: isActive ? 1 : 0.95,
-                    boxShadow: isActive ? '0 10px 30px rgba(0,0,0,0.05)' : 'none'
+                    scale: isActive ? 1 : 0.95
                   }}
                   transition={{ duration: 0.5 }}
                   className={styles.featureCard}

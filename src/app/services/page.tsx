@@ -52,7 +52,7 @@ const CAROUSEL_DATA = [
   {
     title: "AWS Cloud",
     desc: "Architect, migrate, and manage resilient cloud infrastructures powered by Amazon Web Services.",
-    href: "/services/aws",
+    href: "/services/aws-cloud",
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736501/aws_bbwpm7.png"
   },
   {

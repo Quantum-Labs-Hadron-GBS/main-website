@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import GlobeWrapper from "./components/GlobalGlobe/GlobeWrapper";
 import { ThemeProvider } from "./components/ThemeProvider/ThemeProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 import { Space_Grotesk, Inter } from "next/font/google";
 
@@ -71,6 +72,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema()) }}
         />
+        <Analytics />
       </body>
     </html>
   );

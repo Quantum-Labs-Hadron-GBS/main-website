@@ -122,6 +122,17 @@
   z-index: 50;
 }
 
+/* Invisible bridge to prevent dropdown from closing when moving mouse from item to dropdown */
+.dropdownMenu::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
 .dropdownItem {
   padding: 0.75rem 1rem;
   border-radius: 12px;
