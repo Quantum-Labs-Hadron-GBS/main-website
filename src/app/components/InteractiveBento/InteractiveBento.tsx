@@ -60,9 +60,11 @@ export default function InteractiveBento({ items }: { items?: BentoItem[] }) {
           <div className={styles.textBox}>
             <h3 className={styles.title}>{card.title}</h3>
             <p className={styles.desc}>{card.desc}</p>
-            <a href="#" className={styles.link}>
-              Learn More ↗
-            </a>
+            {(card.title === "Flexible Engagement Models" || card.title === "Outstanding Support") && (
+              <a href="/contact" className={styles.link}>
+                Learn More ↗
+              </a>
+            )}
           </div>
         </div>
       ))}
