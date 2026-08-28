@@ -85,7 +85,14 @@ export default function Navbar() {
 
       const currentScrollY = window.scrollY;
       const hideThreshold = isServicesPage ? 200 : window.innerHeight * 0.9;
-      const themeThreshold = window.innerHeight * 0.9;
+      let themeThreshold = window.innerHeight * 0.9;
+      if (pathname === "/") {
+        themeThreshold = window.innerHeight * 0.9;
+      } else if (pathname === "/services") {
+        themeThreshold = 0;
+      } else {
+        themeThreshold = Math.max(window.innerHeight * 0.55, 450);
+      }
       
       setScrolled(currentScrollY > 50);
       setIsLightMode(isServicesPage || currentScrollY > themeThreshold);
