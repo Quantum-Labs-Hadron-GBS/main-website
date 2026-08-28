@@ -59,12 +59,12 @@ const menuItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isServicesPage = pathname === "/services";
+  const isAlwaysLight = pathname === "/services" || pathname === "/contact";
 
   const [activeItem, setActiveItem] = useState<string>("Home");
   const [scrolled, setScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [isLightMode, setIsLightMode] = useState(isServicesPage);
+  const [isLightMode, setIsLightMode] = useState(isAlwaysLight);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [openTrees, setOpenTrees] = useState<Record<string, boolean>>({});
 
@@ -84,18 +84,18 @@ export default function Navbar() {
       if (typeof window === "undefined") return;
 
       const currentScrollY = window.scrollY;
-      const hideThreshold = isServicesPage ? 200 : window.innerHeight * 0.9;
+      const hideThreshold = isAlwaysLight ? 200 : window.innerHeight * 0.9;
       let themeThreshold = window.innerHeight * 0.9;
       if (pathname === "/") {
         themeThreshold = window.innerHeight * 0.9;
-      } else if (pathname === "/services") {
+      } else if (isAlwaysLight) {
         themeThreshold = 0;
       } else {
         themeThreshold = Math.max(window.innerHeight * 0.55, 450);
       }
       
       setScrolled(currentScrollY > 50);
-      setIsLightMode(isServicesPage || currentScrollY > themeThreshold);
+      setIsLightMode(isAlwaysLight || currentScrollY > themeThreshold);
 
       // Hide only if scrolling down AND past the threshold
       if (currentScrollY > lastScrollY.current && currentScrollY > hideThreshold) {
@@ -113,7 +113,7 @@ export default function Navbar() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isServicesPage]);
+  }, [isAlwaysLight, pathname]);
 
   return (
     <>
