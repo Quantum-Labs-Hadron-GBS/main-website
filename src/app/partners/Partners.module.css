@@ -93,13 +93,8 @@
 .partnersGrid {
   display: grid;
   grid-template-columns: 1fr;
+  grid-auto-rows: 1fr; /* Forces equal height for all cards in a 1-column layout */
   gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .partnersGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .partnerCard {
@@ -114,6 +109,14 @@
   border: 1px solid #f1f5f9;
   height: 100%;
   overflow: hidden; /* For the border animations */
+}
+
+@media (min-width: 768px) {
+  .partnerCard {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
 }
 
 /* 3D Border Lines */
