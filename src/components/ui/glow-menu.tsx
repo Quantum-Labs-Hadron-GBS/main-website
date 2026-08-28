@@ -77,8 +77,7 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                     className={styles.label} 
                     style={{ 
                       opacity: isActive ? 1 : (item.textColor ? 1 : 0.7),
-                      color: item.textColor || undefined,
-                      fontWeight: item.textColor ? 'bold' : 'normal'
+                      color: item.textColor || undefined
                     }}
                   >
                     {item.label}
