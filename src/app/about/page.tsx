@@ -207,7 +207,7 @@ export default function AboutPage() {
           <p className={styles.ctaDesc}>
             Contact us today, and let us help you achieve your business objectives.
           </p>
-          <Link href="/#contact" className={styles.ctaButton}>
+          <Link href="/contact" className={styles.ctaButton}>
             Contact Us
           </Link>
         </div>
