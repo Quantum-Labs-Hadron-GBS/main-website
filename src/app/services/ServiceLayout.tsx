@@ -235,13 +235,6 @@ export default function ServiceLayout({
                     <div className={styles.whyCardBody}>
                       <h3 className={styles.whyCardTitle}>{why.title}</h3>
                       <p className={styles.whyCardDesc}>{why.desc}</p>
-                      <a href="#" className={styles.whyCardLink} onClick={(e) => e.preventDefault()}>
-                        Read More 
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                          <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                      </a>
                     </div>
                   </motion.div>
                 ))}
