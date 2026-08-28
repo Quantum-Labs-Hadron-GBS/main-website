@@ -19,16 +19,16 @@ const SERVICES_2 = [
 
 const renderPapers = (services: typeof SERVICES_1) =>
   services.map((srv, i) => (
-    <Link key={i} href={srv.link} style={{ display: 'flex', flexDirection: 'column', height: '100%', textDecoration: 'none', color: 'inherit' }} className="paper-card-wrapper">
+    <div key={i} style={{ display: 'flex', flexDirection: 'column', height: '100%', color: 'inherit' }} className="paper-card-wrapper">
       <h4 className="paper-title">{srv.title}</h4>
       <p className="paper-desc">{srv.desc}</p>
-      <span className="paper-link" style={{ marginTop: 'auto' }}>
+      <Link href={srv.link} className="paper-link" style={{ marginTop: 'auto', textDecoration: 'none' }}>
         Explore
         <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M3 8h10M9 4l4 4-4 4" />
         </svg>
-      </span>
-    </Link>
+      </Link>
+    </div>
   ));
 
 export default function CoreServicesSection() {
