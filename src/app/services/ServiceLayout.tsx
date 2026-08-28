@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import CtaSection from "../components/CtaSection/CtaSection";
 import styles from "./ServiceLayout.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -33,6 +34,7 @@ export interface ServiceLayoutProps {
   solutions: SolutionItem[];
   framework: FrameworkItem[];
   whyHadron: WhyHadronItem[];
+  expertName?: string;
 }
 
 export default function ServiceLayout({
@@ -45,6 +47,7 @@ export default function ServiceLayout({
   solutions,
   framework,
   whyHadron,
+  expertName,
 }: ServiceLayoutProps) {
   const [activeTab, setActiveTab] = useState<'offerings' | 'framework'>('offerings');
 
@@ -244,6 +247,10 @@ export default function ServiceLayout({
         )}
 
       </main>
+      <CtaSection 
+        title={`Contact our ${expertName || "IT"} expert`} 
+        subtitle="Contact us today, and let us help you achieve your business objectives." 
+      />
       <Footer />
     </>
   );

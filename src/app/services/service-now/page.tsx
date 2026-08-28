@@ -6,6 +6,7 @@ import Footer from "../../components/Footer/Footer";
 import styles from "../ServiceLayout.module.css";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import CtaSection from "../../components/CtaSection/CtaSection";
 
 export default function ServiceNowHubPage() {
   return (
@@ -103,6 +104,10 @@ export default function ServiceNowHubPage() {
         </section>
 
       </main>
+      <CtaSection 
+        title="Contact our ServiceNow expert" 
+        subtitle="Contact us today, and let us help you achieve your business objectives." 
+      />
       <Footer />
     </>
   );

@@ -5,6 +5,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function AwsCloudPage() {
   return (
     <ServiceLayout
+      expertName="AWS Cloud"
       title="Scale Without Limits with Hadron GBS & Amazon Web Services (AWS)"
       subtitle="At Hadron GBS, we help organizations harness the world’s most comprehensive and broadly adopted cloud platform. As a strategic AWS partner, we specialize in transforming rigid, on-premise infrastructures into agile, cloud-native environments. Whether you are looking to migrate mission-critical workloads, build data lakes, or deploy generative AI, we provide the technical depth and operational rigor to help you innovate at the speed of the cloud."
       heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785324517/now_in_this_same_theme_like_amrowr.mp4"
@@ -32,3 +33,4 @@ export default function AwsCloudPage() {
     />
   );
 }
+

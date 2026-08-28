@@ -5,6 +5,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function MicrosoftCloudPage() {
   return (
     <ServiceLayout
+      expertName="Microsoft Cloud"
       title="Empower Your Digital Future with Hadron GBS & Microsoft Cloud"
       subtitle="At Hadron GBS, we help organizations harness the full potential of the world’s most integrated technology stack. As a strategic Microsoft Solutions Partner, we empower businesses to modernize their infrastructure, secure their data, and reinvent productivity through AI-driven workflows. From migrating legacy workloads to Azure to deploying Microsoft 365 and Dynamics 365, we ensure your technology drives measurable business impact."
       heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326085/From_Klickpin.com-_Smart_entryway_makeover_ideas_for_a_polished_look_people_will_notice_using_practical_inspiration_that_still_feels_highly_aesthe_hzkbhs.mp4"
@@ -32,3 +33,4 @@ export default function MicrosoftCloudPage() {
     />
   );
 }
+
