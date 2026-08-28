@@ -28,6 +28,15 @@ export default function HeroSection() {
       if (hasPlayed) {
         setIsIntroFinished(true);
         setIsLoadingFinished(true);
+        // Ensure video plays immediately on subsequent visits
+        if (videoRef.current) {
+          videoRef.current.play().catch(e => console.warn("Auto-play blocked:", e));
+        }
+        setTimeout(() => {
+          if (videoRef.current) {
+            videoRef.current.play().catch(e => console.warn("Auto-play blocked:", e));
+          }
+        }, 100);
       } else {
         const timer = setTimeout(() => {
           setIsLoadingFinished(true);
