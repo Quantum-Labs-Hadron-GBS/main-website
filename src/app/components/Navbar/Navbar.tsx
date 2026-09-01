@@ -45,6 +45,19 @@ const menuItems = [
     ]
   },
   {
+    label: "Solutions",
+    href: "#",
+    gradient: "radial-gradient(circle, rgba(14,165,233,0.15) 0%, rgba(2,132,199,0.06) 50%, rgba(3,105,161,0) 100%)",
+    subItems: [
+      { label: "Enterprise Core Transformation", href: "#" },
+      { label: "Intelligent Automation & Agentic AI", href: "#" },
+      { label: "Rapid Application Engineering", href: "#" },
+      { label: "Unified Service Experience Management", href: "#" },
+      { label: "Cloud Adoption And Cloud-First Engineering", href: "#" },
+      { label: "Engineering Quality And Reliability", href: "#" }
+    ]
+  },
+  {
     label: "Partners",
     href: "/partners",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
@@ -183,6 +196,41 @@ export default function Navbar() {
               <a href="/services/microsoft-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Microsoft Cloud</a>
               <a href="/services/aws-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>AWS Cloud</a>
               <a href="/services/freshworks" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Freshworks</a>
+            </div>
+          </div>
+
+          {/* Solutions Tree Node */}
+          <div 
+            className={styles.treeNode} 
+            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'solutions': true })) }} 
+            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'solutions': false })) }}
+          >
+            <div className={styles.treeNodeHeader}>
+              <a 
+                href="#" 
+                className={styles.drawerLink} 
+                onClick={(e) => {
+                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggleTree('solutions', e as any);
+                  } else {
+                    setIsDrawerOpen(false);
+                  }
+                }}
+              >
+                Solutions
+              </a>
+              <button className={styles.treeToggleBtn} onClick={(e) => toggleTree('solutions', e)}>
+                <ChevronLeft size={20} />
+              </button>
+            </div>
+            <div className={`${styles.treeBranch} ${openTrees['solutions'] ? styles.treeBranchOpen : ""}`}>
+              <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Enterprise Core Transformation</a>
+              <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Intelligent Automation & Agentic AI</a>
+              <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Rapid Application Engineering</a>
+              <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Unified Service Experience Management</a>
+              <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Cloud Adoption And Cloud-First Engineering</a>
+              <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Engineering Quality And Reliability</a>
             </div>
           </div>
 
