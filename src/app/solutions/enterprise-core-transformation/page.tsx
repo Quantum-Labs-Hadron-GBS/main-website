@@ -265,19 +265,20 @@ export default function EnterpriseCoreTransformationPage() {
             </div>
           </section>
 
-          {/* BOTTOM CTA */}
-          <section className={styles.ctaSection}>
-            <h2 className={styles.ctaTitle}>Build a Digital Core Ready for</h2>
-            <h2 className={`${styles.ctaTitle} ${styles.highlightOrange}`}>Enterprise Growth</h2>
-            <p className={styles.ctaDesc}>
-              To transform your ERP and CRM into a strategic advantage, build a digital core that drives intelligence, speed, and growth.
-            </p>
-            <Link href="/contact" className={styles.ctaButton}>
-              Consult with us ↗
-            </Link>
-          </section>
-
         </div>
+
+        {/* BOTTOM CTA */}
+        <section className={styles.ctaSection}>
+          <h2 className={styles.ctaTitle}>Build a Digital Core Ready for</h2>
+          <h2 className={`${styles.ctaTitle} ${styles.highlightOrange}`}>Enterprise Growth</h2>
+          <p className={styles.ctaDesc}>
+            To transform your ERP and CRM into a strategic advantage, build a digital core that drives intelligence, speed, and growth.
+          </p>
+          <Link href="/contact" className={styles.ctaButton}>
+            Consult with us ↗
+          </Link>
+        </section>
+
       </main>
       <Footer />
     </>
