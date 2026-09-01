@@ -23,6 +23,32 @@ export default function EnterpriseCoreTransformationPage() {
     <>
       <Navbar />
       <main className={styles.main}>
+        {/* HERO TITLE SECTION */}
+        <section className={styles.heroSection}>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={styles.heroVideo}
+          >
+            <source src="https://res.cloudinary.com/ax6dtcht/video/upload/v1786108868/Untitled_design_czx0vh.mp4" type="video/mp4" />
+          </video>
+          <div className={styles.heroOverlay}></div>
+          <div className={styles.heroContent}>
+            <div className={styles.heroPill}>
+              <span className={styles.heroDot}></span> Enterprise Core Transformation
+            </div>
+            <h1 className={styles.heroTitle}>
+              Enterprise Core Systems Designed for <br/>
+              <span className={styles.highlightOrange}>Operational Alignment</span>
+            </h1>
+            <p className={styles.heroSubText}>
+              Hadron GBS translates deep platform expertise into measurable business value through outcomes-driven execution across ERP and CRM environments.
+            </p>
+          </div>
+        </section>
+
         <div className={styles.container}>
           
           {/* CARDS SECTION */}
