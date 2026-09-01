@@ -61,22 +61,18 @@ export default function EnterpriseCoreTransformationPage() {
 
             <div className={styles.executionGrid}>
               <div className={styles.execCard}>
-                <Search className={styles.execIcon} />
                 <h4 className={styles.execTitle}>Assess</h4>
                 <p className={styles.execDesc}>Evaluate the current ERP and CRM landscape, identify gaps, and surface opportunities.</p>
               </div>
               <div className={styles.execCard}>
-                <PenTool className={styles.execIcon} />
                 <h4 className={styles.execTitle}>Design</h4>
                 <p className={styles.execDesc}>Define a future-state architecture aligned to business goals.</p>
               </div>
               <div className={styles.execCard}>
-                <RefreshCw className={styles.execIcon} />
                 <h4 className={styles.execTitle}>Transform</h4>
                 <p className={styles.execDesc}>Execute modernization through agile, outcome-driven delivery.</p>
               </div>
               <div className={styles.execCard}>
-                <TrendingUp className={styles.execIcon} />
                 <h4 className={styles.execTitle}>Optimize</h4>
                 <p className={styles.execDesc}>Continuously improve with insights, automation, and innovation.</p>
               </div>
