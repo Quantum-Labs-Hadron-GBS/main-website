@@ -60,12 +60,11 @@ export default function ServiceNowHubPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <div className={styles.iconCircle} style={{ margin: '0 auto 2rem auto', backgroundColor: 'rgba(244, 124, 54, 0.1)', color: '#F47C36' }}>
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                    </svg>
-                  </div>
+                  <img 
+                    src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788243993/servicenow-tennon_i4wwxn.png" 
+                    alt="Tennon Logo" 
+                    style={{ display: 'block', margin: '0 auto 2rem auto', height: '60px', width: 'auto', objectFit: 'contain' }} 
+                  />
                   <h3 className={styles.whyCardTitle} style={{ fontSize: '1.8rem' }}>Tennon</h3>
                   <p className={styles.whyCardDesc} style={{ fontSize: '1.1rem', marginTop: '1rem' }}>
                     Unify Marketing & Enterprise Operations with Hadron GBS & Tennon. Streamline planning and campaign execution directly within ServiceNow.
@@ -83,14 +82,11 @@ export default function ServiceNowHubPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  <div className={styles.iconCircle} style={{ margin: '0 auto 2rem auto', backgroundColor: 'rgba(13, 110, 253, 0.1)', color: '#0d6efd' }}>
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="16 16 12 12 8 16"></polyline>
-                      <line x1="12" y1="12" x2="12" y2="21"></line>
-                      <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
-                      <polyline points="16 16 12 12 8 16"></polyline>
-                    </svg>
-                  </div>
+                  <img 
+                    src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788244505/servicenow-presicionbridge_mhiiug.png" 
+                    alt="Precision Bridge Logo" 
+                    style={{ display: 'block', margin: '0 auto 2rem auto', height: '60px', width: 'auto', objectFit: 'contain' }} 
+                  />
                   <h3 className={styles.whyCardTitle} style={{ fontSize: '1.8rem' }}>Precision Bridge</h3>
                   <p className={styles.whyCardDesc} style={{ fontSize: '1.1rem', marginTop: '1rem' }}>
                     Accelerate your ServiceNow migrations. Move millions of records accurately without custom development or risk.
