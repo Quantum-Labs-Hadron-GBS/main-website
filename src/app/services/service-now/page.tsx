@@ -88,7 +88,7 @@ export default function ServiceNowHubPage() {
                     <img 
                       src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788245410/pb_iptauc.png" 
                       alt="Precision Bridge Logo" 
-                      style={{ height: '80px', width: 'auto', objectFit: 'contain' }} 
+                      style={{ height: '80px', width: 'auto', objectFit: 'contain', transform: 'scale(1.8)' }} 
                     />
                   </div>
                   <h3 className={styles.whyCardTitle} style={{ fontSize: '1.8rem' }}>Precision Bridge</h3>
