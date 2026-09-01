@@ -26,22 +26,19 @@ export default function RapidApplicationPage() {
         {/* HERO SECTION */}
         <section className={styles.heroSection}>
           {/* Background Video/Image placeholder - Using a dark gradient as fallback if video isn't available */}
-          <div className={styles.heroVideo} style={{ background: 'linear-gradient(135deg, #1b0a0a 0%, #241a1a 100%)' }}>
-            {/* 
-              Since no specific background was provided, we use a dark placeholder matching the theme. 
-              The user can replace this with a <video> or <img> tag if they have the specific asset.
-            */}
-          </div>
+          <video 
+            className={styles.heroVideo} 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            src="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788272661/Animate_the_attached_image_usi_a13sng.mp4" 
+          />
           <div className={styles.heroOverlay}></div>
           <div className={`${styles.heroContentWrapper} container`}>
             <div className={styles.heroContent}>
-              {/* Optional badge based on mockup */}
-              <div style={{ display: 'inline-block', padding: '0.4rem 1.2rem', border: '1px solid #F47C36', borderRadius: '50px', color: '#F47C36', fontSize: '0.9rem', marginBottom: '1.5rem', fontWeight: 600 }}>
-                Rapid Application Engineering
-              </div>
               <h1 className={styles.heroTitle} style={{ color: 'white' }}>
-                Accelerate Enterprise Application Delivery <br />
-                With <span className={styles.highlightOrange}>No-Code/Low-Code Platforms</span>
+                Rapid Application Engineering
               </h1>
               <p className={styles.heroSubText}>
                 Hadron GBS accelerates application engineering, delivering high-impact solutions with speed, scalability, and engineering discipline
