@@ -64,10 +64,7 @@ export default function RapidApplicationPage() {
               {/* Card 1 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  {/* Placeholder for Card Image */}
-                  <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af', fontSize: '0.9rem' }}>
-                    [Image Placeholder]
-                  </div>
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273529/rapid_5_zsiara.avif" alt="Accelerated Application Modernization" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -87,10 +84,7 @@ export default function RapidApplicationPage() {
               {/* Card 2 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  {/* Placeholder for Card Image */}
-                  <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af', fontSize: '0.9rem' }}>
-                    [Image Placeholder]
-                  </div>
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_3_zg4b5o.avif" alt="Business-Led Development Enablement" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -110,10 +104,7 @@ export default function RapidApplicationPage() {
               {/* Card 3 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  {/* Placeholder for Card Image */}
-                  <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af', fontSize: '0.9rem' }}>
-                    [Image Placeholder]
-                  </div>
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_2_q0t1eq.avif" alt="Agile and Scalable Delivery Models" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -133,10 +124,7 @@ export default function RapidApplicationPage() {
               {/* Card 4 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  {/* Placeholder for Card Image */}
-                  <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af', fontSize: '0.9rem' }}>
-                    [Image Placeholder]
-                  </div>
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_4_dio2iw.avif" alt="Integration With Enterprise Ecosystems" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -156,10 +144,7 @@ export default function RapidApplicationPage() {
               {/* Card 5 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  {/* Placeholder for Card Image */}
-                  <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af', fontSize: '0.9rem' }}>
-                    [Image Placeholder]
-                  </div>
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273531/rapid_1_mirfhs.avif" alt="Governance, Security, and Quality by Design" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
