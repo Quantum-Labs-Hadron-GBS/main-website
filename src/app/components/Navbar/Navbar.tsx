@@ -215,7 +215,7 @@ export default function Navbar() {
             </div>
             <div className={`${styles.treeBranch} ${openTrees['solutions'] ? styles.treeBranchOpen : ""}`}>
               <a href="/solutions/enterprise-core-transformation" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Enterprise Core Transformation</a>
-              <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Intelligent Automation & Agentic AI</a>
+              <a href="/solutions/intelligent-automation-agentic-ai" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Intelligent Automation & Agentic AI</a>
               <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Rapid Application Engineering</a>
               <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Unified Service Experience Management</a>
               <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Cloud Adoption And Cloud-First Engineering</a>
