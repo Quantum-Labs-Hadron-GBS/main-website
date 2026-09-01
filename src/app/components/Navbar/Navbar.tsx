@@ -59,7 +59,7 @@ const menuItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isAlwaysLight = pathname === "/contact";
+  const isAlwaysLight = pathname === "/services" || pathname === "/contact";
 
   const [activeItem, setActiveItem] = useState<string>("Home");
   const [scrolled, setScrolled] = useState(false);
@@ -148,9 +148,26 @@ export default function Navbar() {
         <button className={styles.drawerCloseBtn} onClick={() => setIsDrawerOpen(false)} aria-label="Close menu">✕</button>
         <nav className={styles.drawerNav}>
           {/* Services Tree Node */}
-          <div className={styles.treeNode} onMouseEnter={() => setOpenTrees(prev => ({ ...prev, 'services': true }))} onMouseLeave={() => setOpenTrees(prev => ({ ...prev, 'services': false }))}>
+          <div 
+            className={styles.treeNode} 
+            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'services': true })) }} 
+            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'services': false })) }}
+          >
             <div className={styles.treeNodeHeader}>
-              <a href="/#services" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Services</a>
+              <a 
+                href="/#services" 
+                className={styles.drawerLink} 
+                onClick={(e) => {
+                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggleTree('services', e as any);
+                  } else {
+                    setIsDrawerOpen(false);
+                  }
+                }}
+              >
+                Services
+              </a>
               <button className={styles.treeToggleBtn} onClick={(e) => toggleTree('services', e)}>
                 <ChevronLeft size={20} />
               </button>
@@ -172,9 +189,26 @@ export default function Navbar() {
           <a href="/partners" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Partners</a>
           
           {/* Resources Tree Node */}
-          <div className={styles.treeNode} onMouseEnter={() => setOpenTrees(prev => ({ ...prev, 'resources': true }))} onMouseLeave={() => setOpenTrees(prev => ({ ...prev, 'resources': false }))}>
+          <div 
+            className={styles.treeNode} 
+            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'resources': true })) }} 
+            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'resources': false })) }}
+          >
             <div className={styles.treeNodeHeader}>
-              <a href="#" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Resources</a>
+              <a 
+                href="#" 
+                className={styles.drawerLink} 
+                onClick={(e) => {
+                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggleTree('resources', e as any);
+                  } else {
+                    setIsDrawerOpen(false);
+                  }
+                }}
+              >
+                Resources
+              </a>
               <button className={styles.treeToggleBtn} onClick={(e) => toggleTree('resources', e)}>
                 <ChevronLeft size={20} />
               </button>
