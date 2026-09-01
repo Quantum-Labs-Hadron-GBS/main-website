@@ -48,7 +48,7 @@ export default function IntelligentAutomationPage() {
         </section>
 
         {/* MAIN CONTENT CONTAINER (White Background) */}
-        <div className={styles.pageContent}>
+        <div className={styles.container}>
           
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
