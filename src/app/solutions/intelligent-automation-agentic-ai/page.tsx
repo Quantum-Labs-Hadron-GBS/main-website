@@ -26,18 +26,19 @@ export default function IntelligentAutomationPage() {
         {/* HERO SECTION */}
         <section className={styles.heroSection}>
           {/* Background Video/Image placeholder - Using a dark gradient as fallback if video isn't available */}
-          <div className={styles.heroVideo} style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a24 100%)' }}>
-            {/* 
-              Since no specific background was provided, we use a dark placeholder matching the theme. 
-              The user can replace this with a <video> tag if they have the specific asset.
-            */}
-          </div>
+          <video 
+            className={styles.heroVideo} 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            src="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788267903/Animate_the_attached_image_as_xmqsid.mp4" 
+          />
           <div className={styles.heroOverlay}></div>
           <div className={`${styles.heroContentWrapper} container`}>
             <div className={styles.heroContent}>
               <h1 className={styles.heroTitle}>
-                AI-Driven Enterprise Operations Built for <br />
-                <span className={styles.highlightOrange}>Real-Time Decision Execution</span>
+                Intelligent Automation & Agentic AI
               </h1>
               <p className={styles.heroSubText}>
                 Hadron GBS translates deep automation expertise into measurable business value through outcomes-driven execution across intelligent automation and agentic AI
@@ -64,9 +65,7 @@ export default function IntelligentAutomationPage() {
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
                   {/* Placeholder for Card Image */}
-                  <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af', fontSize: '0.9rem' }}>
-                    [Image Placeholder]
-                  </div>
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_1_htjhug.jpg" alt="From Automation to Autonomy" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -87,9 +86,7 @@ export default function IntelligentAutomationPage() {
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
                   {/* Placeholder for Card Image */}
-                  <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af', fontSize: '0.9rem' }}>
-                    [Image Placeholder]
-                  </div>
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_2_wyepkk.jpg" alt="Intelligent Orchestration at Scale" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -110,9 +107,7 @@ export default function IntelligentAutomationPage() {
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
                   {/* Placeholder for Card Image */}
-                  <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af', fontSize: '0.9rem' }}>
-                    [Image Placeholder]
-                  </div>
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_5_syh8hy.jpg" alt="Hyper Automation of Business Operations" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -133,9 +128,7 @@ export default function IntelligentAutomationPage() {
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
                   {/* Placeholder for Card Image */}
-                  <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af', fontSize: '0.9rem' }}>
-                    [Image Placeholder]
-                  </div>
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_3_tshlif.jpg" alt="Data-Driven Decision Intelligence" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -156,9 +149,7 @@ export default function IntelligentAutomationPage() {
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
                   {/* Placeholder for Card Image */}
-                  <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af', fontSize: '0.9rem' }}>
-                    [Image Placeholder]
-                  </div>
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268273/ai_4_tllrcx.jpg" alt="Human and AI Collaboration" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
