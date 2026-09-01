@@ -201,9 +201,7 @@ export default function RapidApplicationPage() {
             <div className={styles.infoContent}>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af' }}>
-                  [Image Placeholder]
-                </div>
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788274236/rapid_m1_k0gb78.jpg" alt="Why Hadron GBS for Rapid Application Engineering" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className={styles.infoText}>
                 <h2 className={styles.infoTitle}>Why Hadron GBS for Rapid Application Engineering</h2>
@@ -258,9 +256,7 @@ export default function RapidApplicationPage() {
               </div>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af' }}>
-                  [Image Placeholder]
-                </div>
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788274434/rapid_m2_ztjofs.jpg" alt="Enterprise Performance Improvements" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
           </section>
