@@ -78,6 +78,17 @@
   max-width: 700px;
 }
 
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.2rem;
+    word-break: break-word;
+  }
+  
+  .heroSubText {
+    font-size: 1rem;
+  }
+}
+
 /* SECTION HEADERS */
 .sectionHeader {
   text-align: center;
