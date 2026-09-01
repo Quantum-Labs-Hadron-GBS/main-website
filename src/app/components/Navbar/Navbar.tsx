@@ -101,6 +101,8 @@ export default function Navbar() {
       let themeThreshold = window.innerHeight * 0.9;
       if (pathname === "/") {
         themeThreshold = window.innerHeight * 0.9;
+      } else if (pathname === "/solutions/enterprise-core-transformation") {
+        themeThreshold = window.innerHeight * 0.65;
       } else if (isAlwaysLight) {
         themeThreshold = 0;
       } else {
