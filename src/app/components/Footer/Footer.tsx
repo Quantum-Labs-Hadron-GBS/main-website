@@ -7,7 +7,7 @@ import Image from "next/image";
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "Partners", href: "/partners" },
   { label: "Contact Us", href: "#contact" }
 ];

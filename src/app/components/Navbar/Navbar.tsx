@@ -45,19 +45,6 @@ const menuItems = [
     ]
   },
   {
-    label: "Solutions",
-    href: "#",
-    gradient: "radial-gradient(circle, rgba(14,165,233,0.15) 0%, rgba(2,132,199,0.06) 50%, rgba(3,105,161,0) 100%)",
-    subItems: [
-      { label: "Enterprise Core Transformation", href: "/solutions/enterprise-core-transformation" },
-      { label: "Intelligent Automation & Agentic AI", href: "#" },
-      { label: "Rapid Application Engineering", href: "#" },
-      { label: "Unified Service Experience Management", href: "#" },
-      { label: "Cloud Adoption And Cloud-First Engineering", href: "#" },
-      { label: "Engineering Quality And Reliability", href: "#" }
-    ]
-  },
-  {
     label: "Partners",
     href: "/partners",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
