@@ -60,7 +60,7 @@ export default function ServiceNowHubPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <div style={{ height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem auto' }}>
+                  <div style={{ height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem auto' }}>
                     <img 
                       src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788245410/Tenon_Logos-Dark_zelsgc.jpg" 
                       alt="Tennon Logo" 
@@ -84,11 +84,11 @@ export default function ServiceNowHubPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  <div style={{ height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem auto' }}>
+                  <div style={{ height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem auto' }}>
                     <img 
                       src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788245410/pb_iptauc.png" 
                       alt="Precision Bridge Logo" 
-                      style={{ height: '45px', width: 'auto', objectFit: 'contain' }} 
+                      style={{ height: '80px', width: 'auto', objectFit: 'contain' }} 
                     />
                   </div>
                   <h3 className={styles.whyCardTitle} style={{ fontSize: '1.8rem' }}>Precision Bridge</h3>
