@@ -49,7 +49,7 @@ const menuItems = [
     href: "#",
     gradient: "radial-gradient(circle, rgba(14,165,233,0.15) 0%, rgba(2,132,199,0.06) 50%, rgba(3,105,161,0) 100%)",
     subItems: [
-      { label: "Enterprise Core Transformation", href: "#" },
+      { label: "Enterprise Core Transformation", href: "/solutions/enterprise-core-transformation" },
       { label: "Intelligent Automation & Agentic AI", href: "#" },
       { label: "Rapid Application Engineering", href: "#" },
       { label: "Unified Service Experience Management", href: "#" },
@@ -225,7 +225,7 @@ export default function Navbar() {
               </button>
             </div>
             <div className={`${styles.treeBranch} ${openTrees['solutions'] ? styles.treeBranchOpen : ""}`}>
-              <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Enterprise Core Transformation</a>
+              <a href="/solutions/enterprise-core-transformation" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Enterprise Core Transformation</a>
               <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Intelligent Automation & Agentic AI</a>
               <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Rapid Application Engineering</a>
               <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Unified Service Experience Management</a>
