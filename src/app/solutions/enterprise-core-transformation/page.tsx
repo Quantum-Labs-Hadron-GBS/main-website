@@ -186,10 +186,7 @@ export default function EnterpriseCoreTransformationPage() {
             <div className={styles.infoContent}>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                {/* User to replace with actual image */}
-                <div style={{ width: '100%', height: '100%', backgroundColor: '#1a1a24', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6b7280' }}>
-                  [Image Placeholder]
-                </div>
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788259026/ET_M1_cdjlli.jpg" alt="Why Hadron GBS" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className={styles.infoText}>
                 <h2 className={styles.infoTitle}>Why Hadron GBS for Enterprise Core Transformation</h2>
@@ -248,10 +245,7 @@ export default function EnterpriseCoreTransformationPage() {
               </div>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                {/* User to replace with actual image */}
-                <div style={{ width: '100%', height: '100%', backgroundColor: '#1a1a24', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6b7280' }}>
-                  [Image Placeholder]
-                </div>
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788259020/ET_M2_qtl4pc.jpg" alt="Measurable Business Impact" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
           </section>
