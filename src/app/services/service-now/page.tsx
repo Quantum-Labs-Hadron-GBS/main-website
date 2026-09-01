@@ -62,7 +62,7 @@ export default function ServiceNowHubPage() {
                 >
                   <div style={{ height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem auto' }}>
                     <img 
-                      src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788243993/servicenow-tennon_i4wwxn.png" 
+                      src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788245410/Tenon_Logos-Dark_zelsgc.jpg" 
                       alt="Tennon Logo" 
                       style={{ height: '60px', width: 'auto', objectFit: 'contain' }} 
                     />
@@ -86,7 +86,7 @@ export default function ServiceNowHubPage() {
                 >
                   <div style={{ height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem auto' }}>
                     <img 
-                      src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788244505/servicenow-presicionbridge_mhiiug.png" 
+                      src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788245410/pb_iptauc.png" 
                       alt="Precision Bridge Logo" 
                       style={{ height: '45px', width: 'auto', objectFit: 'contain' }} 
                     />
