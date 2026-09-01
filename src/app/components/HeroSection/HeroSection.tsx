@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import styles from "./HeroSection.module.css";
 import PartnerMarquee from "../PartnerMarquee/PartnerMarquee";
 
@@ -222,7 +223,7 @@ export default function HeroSection() {
                 <div className={styles.actionRow}>
                   {/* CTAs */}
                   <div className={styles.ctaRow}>
-                    <a href="#services" id="hero-learn-more" className={styles.ctaGlass}>Explore</a>
+                    <Link href="/services" id="hero-learn-more" className={styles.ctaGlass}>Explore Services</Link>
                   </div>
                 </div>
               </motion.div>
