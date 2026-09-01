@@ -60,11 +60,13 @@ export default function ServiceNowHubPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <img 
-                    src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788243993/servicenow-tennon_i4wwxn.png" 
-                    alt="Tennon Logo" 
-                    style={{ display: 'block', margin: '0 auto 2rem auto', height: '60px', width: 'auto', objectFit: 'contain' }} 
-                  />
+                  <div style={{ height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem auto' }}>
+                    <img 
+                      src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788243993/servicenow-tennon_i4wwxn.png" 
+                      alt="Tennon Logo" 
+                      style={{ height: '60px', width: 'auto', objectFit: 'contain' }} 
+                    />
+                  </div>
                   <h3 className={styles.whyCardTitle} style={{ fontSize: '1.8rem' }}>Tennon</h3>
                   <p className={styles.whyCardDesc} style={{ fontSize: '1.1rem', marginTop: '1rem' }}>
                     Unify Marketing & Enterprise Operations with Hadron GBS & Tennon. Streamline planning and campaign execution directly within ServiceNow.
@@ -82,11 +84,13 @@ export default function ServiceNowHubPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                  <img 
-                    src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788244505/servicenow-presicionbridge_mhiiug.png" 
-                    alt="Precision Bridge Logo" 
-                    style={{ display: 'block', margin: '0 auto 2rem auto', height: '45px', width: 'auto', objectFit: 'contain' }} 
-                  />
+                  <div style={{ height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem auto' }}>
+                    <img 
+                      src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788244505/servicenow-presicionbridge_mhiiug.png" 
+                      alt="Precision Bridge Logo" 
+                      style={{ height: '45px', width: 'auto', objectFit: 'contain' }} 
+                    />
+                  </div>
                   <h3 className={styles.whyCardTitle} style={{ fontSize: '1.8rem' }}>Precision Bridge</h3>
                   <p className={styles.whyCardDesc} style={{ fontSize: '1.1rem', marginTop: '1rem' }}>
                     Accelerate your ServiceNow migrations. Move millions of records accurately without custom development or risk.
