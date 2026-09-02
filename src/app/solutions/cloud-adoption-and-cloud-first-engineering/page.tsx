@@ -200,9 +200,7 @@ export default function CloudAdoptionPage() {
             <div className={styles.infoContent}>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af' }}>
-                  [Image Placeholder]
-                </div>
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788328794/cloud_m1_xopdvs.png" alt="Why Hadron GBS for Cloud Adoption and Cloud-First Engineering" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className={styles.infoText}>
                 <h2 className={styles.infoTitle}>Why Hadron GBS for Cloud Adoption and Cloud-First Engineering</h2>
@@ -253,9 +251,7 @@ export default function CloudAdoptionPage() {
               </div>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af' }}>
-                  [Image Placeholder]
-                </div>
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788328792/cloud_m2_seg0hy.jpg" alt="Real Business Results From Cloud-First Operations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
           </section>
