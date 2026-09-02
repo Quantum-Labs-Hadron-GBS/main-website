@@ -200,9 +200,7 @@ export default function UnifiedServicePage() {
             <div className={styles.infoContent}>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af' }}>
-                  [Image Placeholder]
-                </div>
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327256/unified_m1_auvyhg.webp" alt="Why Hadron GBS for Unified Service Experience Management" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className={styles.infoText}>
                 <h2 className={styles.infoTitle}>Why Hadron GBS for Unified Service Experience Management</h2>
@@ -261,9 +259,7 @@ export default function UnifiedServicePage() {
               </div>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af' }}>
-                  [Image Placeholder]
-                </div>
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327255/unified_m2_wiorfu.jpg" alt="The Measurable Value of Connected Service Operations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
           </section>
