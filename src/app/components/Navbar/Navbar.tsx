@@ -88,7 +88,7 @@ export default function Navbar() {
       let themeThreshold = window.innerHeight * 0.9;
       if (pathname === "/") {
         themeThreshold = window.innerHeight * 0.9;
-      } else if (pathname === "/solutions/enterprise-core-transformation" || pathname === "/solutions/intelligent-automation-agentic-ai" || pathname === "/solutions/rapid-application-engineering") {
+      } else if (pathname === "/solutions/enterprise-core-transformation" || pathname === "/solutions/intelligent-automation-agentic-ai" || pathname === "/solutions/rapid-application-engineering" || pathname === "/solutions/unified-service-experience-management") {
         themeThreshold = window.innerHeight * 0.65;
       } else if (isAlwaysLight) {
         themeThreshold = 0;
@@ -217,7 +217,7 @@ export default function Navbar() {
               <a href="/solutions/enterprise-core-transformation" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Enterprise Core Transformation</a>
               <a href="/solutions/intelligent-automation-agentic-ai" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Intelligent Automation & Agentic AI</a>
               <a href="/solutions/rapid-application-engineering" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Rapid Application Engineering</a>
-              <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Unified Service Experience Management</a>
+              <a href="/solutions/unified-service-experience-management" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Unified Service Experience Management</a>
               <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Cloud Adoption And Cloud-First Engineering</a>
               <a href="#" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Engineering Quality And Reliability</a>
             </div>
