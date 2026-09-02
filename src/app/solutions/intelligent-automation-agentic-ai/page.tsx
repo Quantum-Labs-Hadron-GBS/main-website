@@ -243,7 +243,7 @@ export default function IntelligentAutomationPage() {
                 <ul className={styles.bulletList} style={{ marginTop: '1rem' }}>
                   <li className={styles.bulletItem}>
                     <ChevronsRight className={styles.bulletIcon} size={20} />
-                    <span>30-50% reduction in manual effort across operations</span>
+                    <span>30-60% reduction in manual effort across operations</span>
                   </li>
                   <li className={styles.bulletItem}>
                     <ChevronsRight className={styles.bulletIcon} size={20} />

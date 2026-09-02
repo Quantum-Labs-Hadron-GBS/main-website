@@ -243,10 +243,6 @@ export default function CloudAdoptionPage() {
                     <ChevronsRight className={styles.bulletIcon} size={20} />
                     <span>Proven experience in large-scale, complex cloud transformations</span>
                   </li>
-                  <li className={styles.bulletItem}>
-                    <ChevronsRight className={styles.bulletIcon} size={20} />
-                    <span>Proven experience in large-scale, complex cloud transformations</span>
-                  </li>
                 </ul>
               </div>
               {/* Image Placeholder */}

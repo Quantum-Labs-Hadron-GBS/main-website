@@ -215,6 +215,10 @@ export default function RapidApplicationPage() {
                   </li>
                   <li className={styles.bulletItem}>
                     <ChevronsRight className={styles.bulletIcon} size={20} />
+                    <span>Outcome-focused approach aligned to business priorities</span>
+                  </li>
+                  <li className={styles.bulletItem}>
+                    <ChevronsRight className={styles.bulletIcon} size={20} />
                     <span>Proven capability to accelerate delivery across complex environments</span>
                   </li>
                   <li className={styles.bulletItem}>
