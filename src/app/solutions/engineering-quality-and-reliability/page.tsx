@@ -200,9 +200,7 @@ export default function EngineeringQualityPage() {
             <div className={styles.infoContent}>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af' }}>
-                  [Image Placeholder]
-                </div>
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330310/eng_m1_h8hlcu.webp" alt="Why Hadron GBS for Engineering Quality and Reliability" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className={styles.infoText}>
                 <h2 className={styles.infoTitle}>Why Hadron GBS for Engineering Quality and Reliability</h2>
@@ -253,9 +251,7 @@ export default function EngineeringQualityPage() {
               </div>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <div style={{ width: '100%', height: '100%', backgroundColor: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af' }}>
-                  [Image Placeholder]
-                </div>
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330307/eng_m2_me3czz.avif" alt="Measurable Impact of Quality Engineering" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
           </section>
