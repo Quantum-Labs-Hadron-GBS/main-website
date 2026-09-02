@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import styles from "./HeroSection.module.css";
 import PartnerMarquee from "../PartnerMarquee/PartnerMarquee";
@@ -21,6 +21,9 @@ export default function HeroSection() {
   const [isIntroFinished, setIsIntroFinished] = useState(false);
   const [isLoadingFinished, setIsLoadingFinished] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, 250]); // Parallax scroll effect
 
   // Loading Screen Timer & Video Trigger
   useEffect(() => {
@@ -105,29 +108,29 @@ export default function HeroSection() {
     <div className={styles.heroWrapper}>
       <section className={styles.hero} id="hero" aria-label="Hero">
         
-        {/* Background Video */}
-        <video
-          ref={videoRef}
+        {/* Background Video with Parallax */}
+        <motion.video
+          ref={videoRef as any}
           loop
           muted
           playsInline
           preload="auto"
           disablePictureInPicture
-          onTimeUpdate={handleTimeUpdate}
+          onTimeUpdate={handleTimeUpdate as any}
           style={{
             position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
+            top: '-15%',
+            left: '-10%',
+            width: '120%',
+            height: '130%',
             objectFit: 'cover',
             zIndex: -2,
-            transform: 'translateZ(0)',
+            y,
             willChange: 'transform',
           }}
         >
           <source src="https://res.cloudinary.com/ax6dtcht/video/upload/v1786108868/Untitled_design_czx0vh.mp4" type="video/mp4" />
-        </video>
+        </motion.video>
 
         {/* Darkening Overlay for Video (appears after intro) */}
         <motion.div 
