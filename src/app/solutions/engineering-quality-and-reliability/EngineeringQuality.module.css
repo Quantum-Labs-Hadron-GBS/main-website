@@ -17,7 +17,7 @@
 .heroSection {
   position: relative;
   width: 100%;
-  min-height: 70vh;
+  min-height: calc(70vh + 4px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
