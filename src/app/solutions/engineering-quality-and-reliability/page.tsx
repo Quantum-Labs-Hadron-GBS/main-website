@@ -36,13 +36,8 @@ export default function EngineeringQualityPage() {
           <div className={styles.heroOverlay}></div>
           <div className={`${styles.heroContentWrapper} container`}>
             <div className={styles.heroContent}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', border: '1px solid #F47C36', borderRadius: '50rem', padding: '0.5rem 1.25rem', color: '#F47C36', fontSize: '0.9rem', marginBottom: '1.5rem', fontWeight: 500 }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#F47C36' }}></span>
-                Engineering Quality and Reliability
-              </div>
               <h1 className={styles.heroTitle}>
-                Engineer Predictable Releases Across the <br />
-                <span className={styles.highlightOrange}>Software Lifecycle</span>
+                Engineering Quality and Reliability
               </h1>
               <p className={styles.heroSubText}>
                 Hadron GBS embeds quality engineering across every stage, enabling resilient systems and predictable delivery.
