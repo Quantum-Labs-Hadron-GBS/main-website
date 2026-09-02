@@ -9,7 +9,7 @@ const QUICK_LINKS = [
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Partners", href: "/partners" },
-  { label: "Contact Us", href: "#contact" }
+  { label: "Contact Us", href: "/contact" }
 ];
 
 const OFFICE_LOCATIONS = [
