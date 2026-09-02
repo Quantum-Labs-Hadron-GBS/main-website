@@ -260,6 +260,7 @@ export default function Navbar() {
 
           <a href="#" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Careers</a>
           <a href="/about" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>About us</a>
+          <a href="/contact" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Contact Us</a>
           <a href="https://quantum-landing-page.pages.dev/" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} style={{ color: '#F47C36' }} onClick={() => setIsDrawerOpen(false)}>Quantum</a>
         </nav>
       </div>
