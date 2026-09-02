@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import styles from "./HeroSection.module.css";
 import PartnerMarquee from "../PartnerMarquee/PartnerMarquee";
 
@@ -28,6 +29,15 @@ export default function HeroSection() {
       if (hasPlayed) {
         setIsIntroFinished(true);
         setIsLoadingFinished(true);
+        // Ensure video plays immediately on subsequent visits
+        if (videoRef.current) {
+          videoRef.current.play().catch(e => console.warn("Auto-play blocked:", e));
+        }
+        setTimeout(() => {
+          if (videoRef.current) {
+            videoRef.current.play().catch(e => console.warn("Auto-play blocked:", e));
+          }
+        }, 100);
       } else {
         const timer = setTimeout(() => {
           setIsLoadingFinished(true);
@@ -213,7 +223,7 @@ export default function HeroSection() {
                 <div className={styles.actionRow}>
                   {/* CTAs */}
                   <div className={styles.ctaRow}>
-                    <a href="#services" id="hero-learn-more" className={styles.ctaGlass}>Explore</a>
+                    <Link href="/services" id="hero-learn-more" className={styles.ctaGlass}>Explore Services</Link>
                   </div>
                 </div>
               </motion.div>

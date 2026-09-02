@@ -6,15 +6,15 @@ import styles from "./CoreServicesSection.module.css";
 import Folder from "../Folder/Folder";
 
 const SERVICES_1 = [
-  { title: "Enterprise Core Transformation", desc: "Modernise SAP, Oracle, Salesforce, and Workday environments to unify data, accelerate decisions, and eliminate manual workarounds.", link: "/services/sap" },
-  { title: "Intelligent Automation & Agentic AI", desc: "Move beyond task-level RPA to AI-driven orchestration — intelligent agents handle routing, decisions, and execution in real time.", link: "/services/service-now" },
-  { title: "Rapid Application Engineering", desc: "Deliver enterprise applications in weeks using low-code and no-code platforms, with governance built in from the start.", link: "/services/low-code" },
+  { title: "Enterprise Core Transformation", desc: "Modernise SAP, Oracle, Salesforce, and Workday environments to unify data, accelerate decisions, and eliminate manual workarounds.", link: "/solutions/enterprise-core-transformation" },
+  { title: "Intelligent Automation & Agentic AI", desc: "Move beyond task-level RPA to AI-driven orchestration — intelligent agents handle routing, decisions, and execution in real time.", link: "/solutions/intelligent-automation-agentic-ai" },
+  { title: "Rapid Application Engineering", desc: "Deliver enterprise applications in weeks using low-code and no-code platforms, with governance built in from the start.", link: "/solutions/rapid-application-engineering" },
 ];
 
 const SERVICES_2 = [
-  { title: "Unified Service Experience Management", desc: "Bring ITSM, CSM, and enterprise workflows into a single operational model with intelligent routing and unified knowledge.", link: "/services/service-now" },
-  { title: "Cloud Adoption & Engineering", desc: "Design, migrate, and operate cloud environments on AWS, Azure, and GCP with cost visibility and security controls embedded in the architecture.", link: "/services/aws-cloud" },
-  { title: "Engineering Quality & Reliability", desc: "Embed quality across the full delivery pipeline — from automated testing gates in CI/CD to real-time production observability.", link: "/services/operational-support" },
+  { title: "Unified Service Experience Management", desc: "Bring ITSM, CSM, and enterprise workflows into a single operational model with intelligent routing and unified knowledge.", link: "/solutions/unified-service-experience-management" },
+  { title: "Cloud Adoption & Engineering", desc: "Design, migrate, and operate cloud environments on AWS, Azure, and GCP with cost visibility and security controls embedded in the architecture.", link: "/solutions/cloud-adoption-and-cloud-first-engineering" },
+  { title: "Engineering Quality & Reliability", desc: "Embed quality across the full delivery pipeline — from automated testing gates in CI/CD to real-time production observability.", link: "/solutions/engineering-quality-and-reliability" },
 ];
 
 const renderPapers = (services: typeof SERVICES_1) =>

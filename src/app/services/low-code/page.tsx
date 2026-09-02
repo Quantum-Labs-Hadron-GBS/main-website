@@ -5,6 +5,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function LowCodePage() {
   return (
     <ServiceLayout
+      expertName="Low-Code"
       title="Accelerate Innovation with Hadron GBS: Your Low-Code & No-Code Partner"
       subtitle="At Hadron GBS, we believe that technology should be an accelerator, not a bottleneck. As a specialist partner in Low-Code and No-Code (LCNC) platforms, we empower organizations to bridge the gap between business ideas and functional software. By democratizing app development, we help you launch enterprise-grade solutions in weeks—not months—enabling your team to respond to market changes at the speed of thought."
       heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326083/From_Klickpin.com-_Smart_entryway_makeover_ideas_for_a_polished_look_people_will_notice_using_practical_inspiration_that_still_feels_highly_aesthe_2_iubfgk.mp4"
@@ -32,3 +33,4 @@ export default function LowCodePage() {
     />
   );
 }
+

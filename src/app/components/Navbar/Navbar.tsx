@@ -59,12 +59,12 @@ const menuItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isServicesPage = pathname === "/services";
+  const isAlwaysLight = pathname === "/contact";
 
   const [activeItem, setActiveItem] = useState<string>("Home");
   const [scrolled, setScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [isLightMode, setIsLightMode] = useState(isServicesPage);
+  const [isLightMode, setIsLightMode] = useState(isAlwaysLight);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [openTrees, setOpenTrees] = useState<Record<string, boolean>>({});
 
@@ -84,11 +84,22 @@ export default function Navbar() {
       if (typeof window === "undefined") return;
 
       const currentScrollY = window.scrollY;
-      const hideThreshold = isServicesPage ? 200 : window.innerHeight * 0.9;
-      const themeThreshold = window.innerHeight * 0.9;
+      const hideThreshold = isAlwaysLight ? 200 : window.innerHeight * 0.9;
+      let themeThreshold = window.innerHeight * 0.9;
+      if (pathname === "/") {
+        themeThreshold = window.innerHeight * 0.9;
+      } else if (pathname === "/solutions/enterprise-core-transformation" || pathname === "/solutions/intelligent-automation-agentic-ai" || pathname === "/solutions/rapid-application-engineering" || pathname === "/solutions/unified-service-experience-management" || pathname === "/solutions/cloud-adoption-and-cloud-first-engineering" || pathname === "/solutions/engineering-quality-and-reliability") {
+        themeThreshold = window.innerHeight * 0.65;
+      } else if (pathname === "/services") {
+        themeThreshold = window.innerHeight * 0.65;
+      } else if (isAlwaysLight) {
+        themeThreshold = 0;
+      } else {
+        themeThreshold = Math.max(window.innerHeight * 0.55, 450);
+      }
       
       setScrolled(currentScrollY > 50);
-      setIsLightMode(isServicesPage || currentScrollY > themeThreshold);
+      setIsLightMode(isAlwaysLight || currentScrollY > themeThreshold);
 
       // Hide only if scrolling down AND past the threshold
       if (currentScrollY > lastScrollY.current && currentScrollY > hideThreshold) {
@@ -106,7 +117,7 @@ export default function Navbar() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isServicesPage]);
+  }, [isAlwaysLight, pathname]);
 
   return (
     <>
@@ -141,9 +152,26 @@ export default function Navbar() {
         <button className={styles.drawerCloseBtn} onClick={() => setIsDrawerOpen(false)} aria-label="Close menu">✕</button>
         <nav className={styles.drawerNav}>
           {/* Services Tree Node */}
-          <div className={styles.treeNode} onMouseEnter={() => setOpenTrees(prev => ({ ...prev, 'services': true }))} onMouseLeave={() => setOpenTrees(prev => ({ ...prev, 'services': false }))}>
+          <div 
+            className={styles.treeNode} 
+            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'services': true })) }} 
+            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'services': false })) }}
+          >
             <div className={styles.treeNodeHeader}>
-              <a href="/#services" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Services</a>
+              <a 
+                href="/#services" 
+                className={styles.drawerLink} 
+                onClick={(e) => {
+                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggleTree('services', e as any);
+                  } else {
+                    setIsDrawerOpen(false);
+                  }
+                }}
+              >
+                Services
+              </a>
               <button className={styles.treeToggleBtn} onClick={(e) => toggleTree('services', e)}>
                 <ChevronLeft size={20} />
               </button>
@@ -162,12 +190,64 @@ export default function Navbar() {
             </div>
           </div>
 
+          {/* Solutions Tree Node */}
+          <div 
+            className={styles.treeNode} 
+            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'solutions': true })) }} 
+            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'solutions': false })) }}
+          >
+            <div className={styles.treeNodeHeader}>
+              <a 
+                href="#" 
+                className={styles.drawerLink} 
+                onClick={(e) => {
+                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggleTree('solutions', e as any);
+                  } else {
+                    setIsDrawerOpen(false);
+                  }
+                }}
+              >
+                Solutions
+              </a>
+              <button className={styles.treeToggleBtn} onClick={(e) => toggleTree('solutions', e)}>
+                <ChevronLeft size={20} />
+              </button>
+            </div>
+            <div className={`${styles.treeBranch} ${openTrees['solutions'] ? styles.treeBranchOpen : ""}`}>
+              <a href="/solutions/enterprise-core-transformation" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Enterprise Core Transformation</a>
+              <a href="/solutions/intelligent-automation-agentic-ai" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Intelligent Automation & Agentic AI</a>
+              <a href="/solutions/rapid-application-engineering" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Rapid Application Engineering</a>
+              <a href="/solutions/unified-service-experience-management" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Unified Service Experience Management</a>
+              <a href="/solutions/cloud-adoption-and-cloud-first-engineering" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Cloud Adoption And Cloud-First Engineering</a>
+              <a href="/solutions/engineering-quality-and-reliability" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Engineering Quality And Reliability</a>
+            </div>
+          </div>
+
           <a href="/partners" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Partners</a>
           
           {/* Resources Tree Node */}
-          <div className={styles.treeNode} onMouseEnter={() => setOpenTrees(prev => ({ ...prev, 'resources': true }))} onMouseLeave={() => setOpenTrees(prev => ({ ...prev, 'resources': false }))}>
+          <div 
+            className={styles.treeNode} 
+            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'resources': true })) }} 
+            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'resources': false })) }}
+          >
             <div className={styles.treeNodeHeader}>
-              <a href="#" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Resources</a>
+              <a 
+                href="#" 
+                className={styles.drawerLink} 
+                onClick={(e) => {
+                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggleTree('resources', e as any);
+                  } else {
+                    setIsDrawerOpen(false);
+                  }
+                }}
+              >
+                Resources
+              </a>
               <button className={styles.treeToggleBtn} onClick={(e) => toggleTree('resources', e)}>
                 <ChevronLeft size={20} />
               </button>
@@ -180,6 +260,7 @@ export default function Navbar() {
 
           <a href="#" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Careers</a>
           <a href="/about" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>About us</a>
+          <a href="/contact" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Contact Us</a>
           <a href="https://quantum-landing-page.pages.dev/" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} style={{ color: '#F47C36' }} onClick={() => setIsDrawerOpen(false)}>Quantum</a>
         </nav>
       </div>

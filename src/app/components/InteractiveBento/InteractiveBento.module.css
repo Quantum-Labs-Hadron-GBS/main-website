@@ -99,6 +99,7 @@
   }
   .card {
     min-height: 400px;
+    min-width: 100%;
   }
   .card:hover {
     flex: 1 1 100%;
