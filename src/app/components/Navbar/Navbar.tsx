@@ -90,6 +90,8 @@ export default function Navbar() {
         themeThreshold = window.innerHeight * 0.9;
       } else if (pathname === "/solutions/enterprise-core-transformation" || pathname === "/solutions/intelligent-automation-agentic-ai" || pathname === "/solutions/rapid-application-engineering" || pathname === "/solutions/unified-service-experience-management" || pathname === "/solutions/cloud-adoption-and-cloud-first-engineering" || pathname === "/solutions/engineering-quality-and-reliability") {
         themeThreshold = window.innerHeight * 0.65;
+      } else if (pathname === "/services") {
+        themeThreshold = window.innerHeight * 0.65;
       } else if (isAlwaysLight) {
         themeThreshold = 0;
       } else {
