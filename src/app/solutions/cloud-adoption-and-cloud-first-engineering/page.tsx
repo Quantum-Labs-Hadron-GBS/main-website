@@ -233,15 +233,15 @@ export default function CloudAdoptionPage() {
                 <ul className={styles.bulletList} style={{ marginTop: '1rem' }}>
                   <li className={styles.bulletItem}>
                     <ChevronsRight className={styles.bulletIcon} size={20} />
-                    <span>Deep expertise in cloud platforms and cloud-native engineering</span>
+                    <span><strong>87-day cloud migration</strong> — legacy infrastructure migrated to cloud with zero SLA breaches.</span>
                   </li>
                   <li className={styles.bulletItem}>
                     <ChevronsRight className={styles.bulletIcon} size={20} />
-                    <span>Outcome-driven approach focused on measurable business value</span>
+                    <span><strong>2× faster time-to-market</strong> — feature cycles reduced from 18 weeks to 8 weeks, enabling two new revenue-generating products.</span>
                   </li>
                   <li className={styles.bulletItem}>
                     <ChevronsRight className={styles.bulletIcon} size={20} />
-                    <span>Proven experience in large-scale, complex cloud transformations</span>
+                    <span><strong>98% CMDB accuracy</strong> — automated discovery and service mapping created a more reliable infrastructure data foundation.</span>
                   </li>
                 </ul>
               </div>
