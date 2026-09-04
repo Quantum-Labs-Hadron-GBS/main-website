@@ -1,0 +1,171 @@
+Page: Solution - Engineering Quality
+
+=== OUTGOING LINKS ===
+/contact
+
+=== IMAGES & MEDIA ===
+https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788329551/Use_the_attached_image_as_the_4_ggixnn.mp4
+https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329643/eng_3_codj5w.avif
+https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329637/eng_5_toqpmx.avif
+https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329648/eng_2_b820oi.avif
+https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329640/eng_4_kcrl5h.avif
+https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329658/eng_1_lestnz.avif
+https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330310/eng_m1_h8hlcu.webp
+https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330307/eng_m2_me3czz.avif
+
+=== TEXT CONTENT ===
+
+
+--- Source: src/app/solutions/engineering-quality-and-reliability/page.tsx ---
+
+1rem
+
+1.5rem
+
+1.5rem
+
+2.5rem
+
+{
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return (
+
+{/* HERO SECTION */}
+
+Engineering Quality and Reliability
+
+Hadron GBS embeds quality engineering across every stage, enabling resilient systems and predictable delivery.
+
+{/* MAIN CONTENT CONTAINER (White Background) */}
+
+Quality Engineering Across
+
+Enterprise Systems and Workflows
+
+{/* CARDS SECTION */}
+
+{/* Card 1 */}
+
+Shift-Left and Shift-Right Quality Engineering
+
+Hadron GBS embeds quality across the full lifecycle, from early design validation to real-time production monitoring, ensuring defects are prevented, not just detected.
+
+Early identification and resolution of defects
+
+Reduced rework and cost of quality
+
+Continuous feedback loops for improvement
+
+{/* Card 2 */}
+
+Intelligent Test Automation at Scale
+
+We implement AI-driven test automation frameworks that accelerate testing while improving coverage and accuracy.
+
+Faster release cycles with automated regression
+
+Increased test coverage across applications and integrations
+
+Reduced manual testing effort and errors
+
+{/* Card 3 */}
+
+Continuous Testing in DevSecOps Pipelines
+
+Hadron GBS integrates testing into CI/CD pipelines, enabling continuous validation without slowing down delivery.
+
+Real-time quality checks during development and deployment
+
+Faster feedback to development teams
+
+Higher confidence in every release
+
+{/* Card 4 */}
+
+Performance, Reliability, and Resilience Engineering
+
+We ensure systems are not only functional but also scalable, reliable, and capable of handling real-world demands.
+
+Improved system performance under peak loads
+
+Reduced downtime and service disruptions
+
+Enhanced end-user experience
+
+{/* Card 5 */}
+
+Observability and Proactive Quality Insights
+
+Hadron GBS applies advanced monitoring, analytics, and observability to detect and resolve issues before they impact users.
+
+Real-time visibility into application health
+
+Proactive issue detection and resolution
+
+Data-driven insights for continuous optimization
+
+{/* EXECUTION GRID SECTION (Structured Framework) */}
+
+Our Approach
+
+Our approach moves organizations from quality maturity assessment to a continuously optimizing, automation-driven quality engineering practice.
+
+Assess
+
+Evaluate current quality maturity, gaps, and risks.
+
+Embed
+
+Integrate quality engineering practices across the delivery lifecycle.
+
+Automate
+
+Implement scalable automation frameworks and pipelines.
+
+Optimize
+
+Continuously improve through insights, analytics, and feedback.
+
+{/* WHY HADRON BLOCK */}
+
+Why Hadron GBS for Engineering Quality and Reliability
+
+Hadron GBS treats quality engineering as an operational discipline that spans architecture, development, testing, deployment, and production observability rather than a standalone QA function.
+
+Deep expertise in quality engineering and DevSecOps integration
+
+Outcome-driven approach focused on reliability and speed
+
+Proven ability to scale quality across complex, distributed environments
+
+Strong focus on automation, observability, and continuous improvement
+
+{/* MEASURABLE BUSINESS IMPACT BLOCK */}
+
+Operational Gains Enabled Through Reliability Engineering
+
+40–60% reduction in production defects
+
+Faster, more reliable release cycles
+
+Lower cost of quality through early defect detection
+
+Improved system uptime and performance
+
+Enhanced customer trust and satisfaction
+
+{/* BOTTOM CTA */}
+
+Turn Quality Engineering Into a
+
+Strategic
+
+Business Advantage
+
+Deliver reliable, high-performing systems that scale with your business.
+
+Consult with us ↗

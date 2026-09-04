@@ -1,0 +1,404 @@
+Page: Home
+
+=== OUTGOING LINKS ===
+/services
+/contact
+
+=== IMAGES & MEDIA ===
+https://res.cloudinary.com/ax6dtcht/video/upload/v1786108868/Untitled_design_czx0vh.mp4
+https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png
+https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/favicon-hadron_g5wrvr.png
+
+=== TEXT CONTENT ===
+
+
+--- Source: src/app/page.tsx ---
+
+{/* ── HERO ── */}
+
+{/* ── FEATURE NUMBER TICKER ── */}
+
+{/* ── WHY HADRON GBS ── */}
+
+{/* ── CORE SERVICES ── */}
+
+{/* ── MISSION & VISION (4 P's) ── */}
+
+{/* ── ASSETS OF EXCELLENCE ── */}
+
+{/* ── LANGUAGE REEL + zooming globe ── */}
+
+{/* ── CONTACT CTA ── */}
+
+--- Source: src/app/components/HeroSection/HeroSection.tsx ---
+
+Where Challenges
+
+Meet Intelligence.
+
+},
+  { key: 'intro-1', node:
+
+Powered by
+
+Hadron GBS
+
+},
+  { key: 'intro-2', node:
+
+AI That Works
+
+Beside You
+
+},
+  { key: 'intro-3', node:
+
+Designed for
+
+Simplicity
+
+},
+  { key: 'intro-4', node:
+
+Connecting IT.
+
+AI. Quantum.
+
+},
+  { key: 'intro-5', node:
+
+Build
+
+What's Next
+
+}
+];
+
+export default function HeroSection() {
+  const [activeCaptionIndex, setActiveCaptionIndex] = useState
+
+(0);
+  const [isIntroFinished, setIsIntroFinished] = useState(false);
+  const [isLoadingFinished, setIsLoadingFinished] = useState(false);
+  const videoRef = useRef
+
+{/* Background Video */}
+
+{/* Darkening Overlay for Video (appears after intro) */}
+
+{/* Gradient Overlay */}
+
+{/* Intro Elements (Logo + Captions) */}
+
+{/* Static Logo during intro */}
+
+{!isIntroFinished && isLoadingFinished && (
+
+{/* Cycling Captions */}
+
+{!isIntroFinished && isLoadingFinished && activeCaptionIndex !== null && (
+
+{INTRO_CAPTIONS[activeCaptionIndex].node}
+
+{/* Skip Button */}
+
+{!isIntroFinished && (
+
+Skip Intro ↗
+
+{/* Main Content Box */}
+
+{isIntroFinished && (
+
+{/* Headline */}
+
+Connecting Enterprise
+
+Systems That Matter
+
+{/* Sub copy */}
+
+We consult, build, and manage enterprise platforms so digital and cloud systems run reliably every day.
+
+{/* Action Row: CTAs */}
+
+{/* CTAs */}
+
+Explore Services
+
+{/* Marquee Section exactly 10px above bottom of Hero section */}
+
+{isIntroFinished && (
+
+{/* Loading Screen Overlay */}
+
+{!isLoadingFinished && (
+
+Hadron GBS
+
+--- Source: src/app/components/FeatureScroll/FeatureScrollSection.tsx ---
+
+Salesforce
+
+Tailored CRM implementations
+
+DevOps
+
+Faster application releases
+
+IT Service Management
+
+Enterprise Services Management
+
+IT Operations Management
+
+Solution-agnostic approach
+
+Robotic Process Automation
+
+Realigning processes with automation
+
+1rem
+
+2rem
+
+{/* ── Section Header ── */}
+
+OUR EXPERTISE
+
+{activeIndex + 1} / {FEATURES.length}
+
+{/* ── Horizontal Carousel Track ── */}
+
+{/* Left Image */}
+
+{/* Right Text */}
+
+{feature.title}
+
+{feature.body}
+
+Read More ↗
+
+--- Source: src/app/components/WhyHadronSection/WhyHadronSection.tsx ---
+
+(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-35%", "35%"]);
+  const headerY = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]);
+  const bentoY = useTransform(scrollYProgress, [0, 1], ["25%", "-25%"]);
+
+  return (
+
+{/* Premium CSS-only background */}
+
+The
+
+Hadron
+
+Advantage
+
+What sets us apart is our commitment to engineering world-class solutions. From intelligent automation to seamless cloud integration, we empower your business to scale with absolute confidence.
+
+--- Source: src/app/components/InteractiveBento/InteractiveBento.tsx ---
+
+Architecture-Led Delivery
+
+We treat every engagement as a systems problem. Our architects design for structure, coherence, and long-term platform health.
+
+Outcome-Driven Accountability
+
+We define success through measurable KPIs from day one (MTTR, CSAT, throughput) and stay accountable to them.
+
+GenAI-Powered Transformation
+
+Embedding automation across ServiceNow, Salesforce, and SAP.
+
+Collaborative Governance
+
+No black boxes. Open patterns and structured governance cadences.
+
+Rigorous Discovery
+
+Decisions grounded in real operating conditions and workflows, not untested assumptions.
+
+Lifecycle Accountability
+
+From hypercare to managed services, keeping platforms optimized.
+
+Flexible Engagement Models
+
+We adapt our operating model to match your business priorities, not the other way around.
+
+{card.title}
+
+{card.desc}
+
+{(card.title === "Flexible Engagement Models" || card.title === "Outstanding Support") && (
+
+Learn More ↗
+
+--- Source: src/app/components/CoreValuesSection/CoreValuesSection.tsx ---
+
+P1
+
+Predictive
+
+We anticipate platform risks, technology shifts, and organizational needs before they become problems. Leveraging AI-driven analytics, we forecast IT demands and mitigate bottlenecks proactively.
+
+P2
+
+Proactive
+
+We identify improvement opportunities and surface them to clients without waiting to be asked. Our teams continuously audit your infrastructure to ensure zero downtime and optimal performance.
+
+P3
+
+Progressive
+
+We continually expand our capabilities from ITSM to GenAI to keep clients at the forefront. Innovation is in our DNA, ensuring your enterprise scales with the latest technological breakthroughs.
+
+P4
+
+Perfection
+
+We hold ourselves to the highest standards of quality, craftsmanship, and engineering discipline. Every deployment and architectural decision is meticulously reviewed.
+
+(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const headerY = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]);
+  const cardsY = useTransform(scrollYProgress, [0, 1], ["80%", "-80%"]);
+
+  return (
+
+{/* ── Header ── */}
+
+Mission &amp; Vision
+
+The 4 Ps of Hadron
+
+Our core values form the foundation of how we operate, deliver, and partner with our clients.
+
+{/* ── Cards ── */}
+
+{/* Content */}
+
+{card.p}
+
+{card.title}
+
+{card.desc}
+
+--- Source: src/app/components/CoreServicesSection/CoreServicesSection.tsx ---
+
+Enterprise Core Transformation
+
+Modernise SAP, Oracle, Salesforce, and Workday environments to unify data, accelerate decisions, and eliminate manual workarounds.
+
+Intelligent Automation & Agentic AI
+
+Move beyond task-level RPA to AI-driven orchestration — intelligent agents handle routing, decisions, and execution in real time.
+
+Rapid Application Engineering
+
+Deliver enterprise applications in weeks using low-code and no-code platforms, with governance built in from the start.
+
+Unified Service Experience Management
+
+Bring ITSM, CSM, and enterprise workflows into a single operational model with intelligent routing and unified knowledge.
+
+Cloud Adoption & Engineering
+
+Design, migrate, and operate cloud environments on AWS, Azure, and GCP with cost visibility and security controls embedded in the architecture.
+
+Engineering Quality & Reliability
+
+Embed quality across the full delivery pipeline — from automated testing gates in CI/CD to real-time production observability.
+
+auto
+
+{srv.title}
+
+{srv.desc}
+
+Explore
+
+));
+
+export default function CoreServicesSection() {
+  const sectionRef = useRef
+
+(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const headerY = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]);
+  const foldersY = useTransform(scrollYProgress, [0, 1], ["80%", "-80%"]);
+
+  return (
+
+{/* Header */}
+
+What We Do
+
+Core Services
+
+We engineer high-performance platforms that drive enterprise efficiency. Click the folders to explore our specializations.
+
+{/* Folders */}
+
+--- Source: src/app/components/AssetsOfExcellence/AssetsOfExcellenceSection.tsx ---
+
+Our Assets Of Excellence
+
+Uncompromising Quality
+
+Maximum Value, Optimal Cost
+
+Tailored to Your Success
+
+Assets of Excellence
+
+{asset.tag}
+
+{asset.title}
+
+{asset.body}
+
+--- Source: src/app/components/LanguageScroll/LanguageScrollSection.tsx ---
+
+Global Presence
+
+{/* Text sits on the LEFT — GlobalGlobe renders the globe on the RIGHT via fixed canvas */}
+
+{currentItem.text}
+
+{currentItem.sub}
+
+{currentItem.region && (
+
+{currentItem.region}
+
+{/* Progress dots */}
+
+{/* Manual Navigation Controls for accessibility */}
+
+--- Source: src/app/components/CtaSection/CtaSection.tsx ---
+
+{title || "Looking for the Best IT Business Solutions?"}
+
+{subtitle || "Contact us today, and let us help you achieve your business objectives."}
+
+{buttonText || "Contact Us"}
+
+&rarr;

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronLeft } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { MenuBar } from "@/components/ui/glow-menu";
 import styles from "./Navbar.module.css";
 
@@ -21,7 +21,7 @@ const menuItems = [
   },
   {
     label: "Services",
-    href: "/#services",
+    href: "/services",
     gradient: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(147,51,234,0.06) 50%, rgba(126,34,206,0) 100%)",
     subItems: [
       { 
@@ -51,7 +51,7 @@ const menuItems = [
   },
   {
     label: "Quantum",
-    href: "https://quantum-landing-page.pages.dev/",
+    href: "https://quantum.hadrongbs.com/",
     gradient: "radial-gradient(circle, rgba(244,124,54,0.15) 0%, rgba(244,124,54,0.06) 50%, rgba(244,124,54,0) 100%)",
     textColor: "#F47C36"
   }
@@ -59,7 +59,7 @@ const menuItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isAlwaysLight = pathname === "/contact";
+  const isAlwaysLight = pathname === "/contact" || pathname === "/";
 
   const [activeItem, setActiveItem] = useState<string>("Home");
   const [scrolled, setScrolled] = useState(false);
@@ -84,7 +84,7 @@ export default function Navbar() {
       if (typeof window === "undefined") return;
 
       const currentScrollY = window.scrollY;
-      const hideThreshold = isAlwaysLight ? 200 : window.innerHeight * 0.9;
+      const hideThreshold = pathname === "/contact" ? 200 : window.innerHeight * 0.9;
       let themeThreshold = window.innerHeight * 0.9;
       if (pathname === "/") {
         themeThreshold = window.innerHeight * 0.9;
@@ -159,7 +159,7 @@ export default function Navbar() {
           >
             <div className={styles.treeNodeHeader}>
               <a 
-                href="/#services" 
+                href="/services" 
                 className={styles.drawerLink} 
                 onClick={(e) => {
                   if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
@@ -172,8 +172,12 @@ export default function Navbar() {
               >
                 Services
               </a>
-              <button className={styles.treeToggleBtn} onClick={(e) => toggleTree('services', e)}>
-                <ChevronLeft size={20} />
+              <button 
+                className={styles.treeToggleBtn} 
+                onClick={(e) => toggleTree('services', e)}
+                style={{ transform: openTrees['services'] ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+              >
+                <ChevronRight size={20} />
               </button>
             </div>
             <div className={`${styles.treeBranch} ${openTrees['services'] ? styles.treeBranchOpen : ""}`}>
@@ -211,8 +215,12 @@ export default function Navbar() {
               >
                 Solutions
               </a>
-              <button className={styles.treeToggleBtn} onClick={(e) => toggleTree('solutions', e)}>
-                <ChevronLeft size={20} />
+              <button 
+                className={styles.treeToggleBtn} 
+                onClick={(e) => toggleTree('solutions', e)}
+                style={{ transform: openTrees['solutions'] ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+              >
+                <ChevronRight size={20} />
               </button>
             </div>
             <div className={`${styles.treeBranch} ${openTrees['solutions'] ? styles.treeBranchOpen : ""}`}>
@@ -248,8 +256,12 @@ export default function Navbar() {
               >
                 Resources
               </a>
-              <button className={styles.treeToggleBtn} onClick={(e) => toggleTree('resources', e)}>
-                <ChevronLeft size={20} />
+              <button 
+                className={styles.treeToggleBtn} 
+                onClick={(e) => toggleTree('resources', e)}
+                style={{ transform: openTrees['resources'] ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+              >
+                <ChevronRight size={20} />
               </button>
             </div>
             <div className={`${styles.treeBranch} ${openTrees['resources'] ? styles.treeBranchOpen : ""}`}>
@@ -261,7 +273,7 @@ export default function Navbar() {
           <a href="#" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Careers</a>
           <a href="/about" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>About us</a>
           <a href="/contact" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Contact Us</a>
-          <a href="https://quantum-landing-page.pages.dev/" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} style={{ color: '#F47C36' }} onClick={() => setIsDrawerOpen(false)}>Quantum</a>
+          <a href="https://quantum.hadrongbs.com/" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} style={{ color: '#F47C36' }} onClick={() => setIsDrawerOpen(false)}>Quantum</a>
         </nav>
       </div>
     </>

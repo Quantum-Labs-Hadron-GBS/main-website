@@ -33,22 +33,16 @@ export const metadata: Metadata = {
   },
 };
 
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import SmoothScrollProvider from "./components/SmoothScroll/SmoothScrollProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`} data-theme="light" suppressHydrationWarning>
       <body className="light-theme" suppressHydrationWarning>
-        {/* Anti-FOUC script for the Hero intro sequence */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (window.location.pathname === '/') {
-                document.body.classList.add('intro-running');
-              }
-            `
-          }}
-        />
+        {/* Legacy Hero intro script removed as PartnerRingSection does not use it */}
         
         {/*
           GlobeWrapper handles route-based blurring of the globe canvas.
@@ -56,8 +50,14 @@ export default function RootLayout({
         <GlobeWrapper />
         
         <ThemeProvider>
-          {children}
+          <SmoothScrollProvider>
+            {children}
+          </SmoothScrollProvider>
         </ThemeProvider>
+        
+        {/* Global Scroll to Top Button */}
+        <ScrollToTop />
+
         
         {/* SEO Structured Data */}
         <script
