@@ -31,19 +31,6 @@ interface MenuBarProps {
 export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }: MenuBarProps) {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [hoveredSubItem, setHoveredSubItem] = useState<string | null>(null);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [mobileExpandedMenu, setMobileExpandedMenu] = useState<string | null>(null);
-  const [mobileExpandedNestedMenu, setMobileExpandedNestedMenu] = useState<string | null>(null);
-
-  // Prevent scrolling when mobile menu is open
-  useEffect(() => {
-    if (isMobileOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => { document.body.style.overflow = ''; };
-  }, [isMobileOpen]);
 
   return (
     <div className={`${styles.menuBarContainer} ${isLightMode ? styles.lightMode : ""}`}>
@@ -89,9 +76,9 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                   <span 
                     className={styles.label} 
                     style={{ 
-                      opacity: isActive ? 1 : (item.textColor ? 1 : 0.7),
+                      opacity: 1,
                       color: item.textColor || undefined,
-                      fontWeight: item.textColor ? 'bold' : 'normal'
+                      fontWeight: item.textColor ? 'bold' : undefined
                     }}
                   >
                     {item.label}
@@ -169,131 +156,6 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
           );
         })}
       </div>
-
-      {/* Mobile Hamburger Button */}
-      <button 
-        className={styles.hamburgerBtn}
-        onClick={() => setIsMobileOpen(!isMobileOpen)}
-        aria-label="Toggle menu"
-        aria-expanded={isMobileOpen}
-      >
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          {isMobileOpen ? (
-            <path d="M18 6L6 18M6 6l12 12" />
-          ) : (
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          )}
-        </svg>
-      </button>
-
-      {/* Mobile Fullscreen Overlay */}
-      <AnimatePresence>
-        {isMobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className={styles.mobileOverlay}
-          >
-            {items.map((item) => {
-              if (item.isLogo) return null;
-              
-              const hasSubItems = item.subItems && item.subItems.length > 0;
-              const isExpanded = mobileExpandedMenu === item.label;
-
-              return (
-                <div key={item.label} className={styles.mobileMenuItem}>
-                  <div 
-                    className={styles.mobileMenuItemHeader}
-                    onClick={() => {
-                      if (hasSubItems) {
-                        setMobileExpandedMenu(isExpanded ? null : item.label);
-                      } else {
-                        setIsMobileOpen(false);
-                        onItemClick(item.label);
-                      }
-                    }}
-                  >
-                    <Link href={hasSubItems ? "#" : item.href} style={{ textDecoration: 'none', color: 'inherit' }}>
-                      {item.label}
-                    </Link>
-                    {hasSubItems && (
-                      <span style={{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s' }}>
-                        ▼
-                      </span>
-                    )}
-                  </div>
-
-                  {hasSubItems && isExpanded && (
-                    <motion.div 
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className={styles.mobileSubMenu}
-                    >
-                      {item.subItems!.map((sub) => {
-                        const hasNestedItems = sub.nestedItems && sub.nestedItems.length > 0;
-                        const isNestedExpanded = mobileExpandedNestedMenu === sub.label;
-
-                        return (
-                          <div key={sub.label} style={{ display: 'flex', flexDirection: 'column' }}>
-                            <div 
-                              className={styles.mobileSubMenuItem}
-                              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}
-                              onClick={() => {
-                                if (hasNestedItems) {
-                                  setMobileExpandedNestedMenu(isNestedExpanded ? null : sub.label);
-                                } else {
-                                  setIsMobileOpen(false);
-                                  onItemClick(item.label);
-                                }
-                              }}
-                            >
-                              <Link href={hasNestedItems ? "#" : sub.href} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                {sub.label}
-                              </Link>
-                              {hasNestedItems && (
-                                <span style={{ transform: isNestedExpanded ? 'rotate(90deg)' : 'rotate(0)', transition: 'transform 0.3s' }}>
-                                  ▶
-                                </span>
-                              )}
-                            </div>
-
-                            {hasNestedItems && isNestedExpanded && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                style={{ display: 'flex', flexDirection: 'column', paddingLeft: '1rem', overflow: 'hidden' }}
-                              >
-                                {sub.nestedItems!.map(nested => (
-                                  <Link
-                                    key={nested.label}
-                                    href={nested.href}
-                                    className={styles.mobileSubMenuItem}
-                                    style={{ fontSize: '1rem', opacity: 0.7 }}
-                                    onClick={() => {
-                                      setIsMobileOpen(false);
-                                      onItemClick(item.label);
-                                    }}
-                                  >
-                                    {nested.label}
-                                  </Link>
-                                ))}
-                              </motion.div>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </motion.div>
-                  )}
-                </div>
-              );
-            })}
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

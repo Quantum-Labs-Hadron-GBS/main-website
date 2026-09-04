@@ -1,7 +1,8 @@
 .section {
   position: relative;
   z-index: 10;
-  padding: 4rem 0 2rem;
+  padding: 4rem 0 5rem;
+  background-color: #ffffff;
 }
 
 /* ── Header ── */
@@ -29,12 +30,12 @@
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .subtitle {
   font-size: 1.05rem;
-  color: #94a3b8;
+  color: #475569;
   max-width: 520px;
   line-height: 1.6;
 }
@@ -79,7 +80,7 @@
   position: relative;
   z-index: 2;
   padding: 2.5rem 2rem;
-  background: #ffffff;
+  background: linear-gradient(to top, #fff3e6 0%, #ffffff 25%);
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   border-radius: 16px;
@@ -88,6 +89,20 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+.cardContent::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 0 2px 4px 2px;
+  background: linear-gradient(to top, #ff6600 0%, rgba(255, 102, 0, 0) 50%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 3;
 }
 
 .cardOuter:hover .cardContent {
@@ -119,6 +134,7 @@
     flex-direction: column;
     align-items: center;
   }
+
   .cardOuter {
     width: 100%;
     max-width: 380px;

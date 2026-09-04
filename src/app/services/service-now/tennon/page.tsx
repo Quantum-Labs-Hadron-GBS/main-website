@@ -5,6 +5,7 @@ import ServiceLayout from "../../ServiceLayout";
 export default function TennonPage() {
   return (
     <ServiceLayout
+      expertName="ServiceNow"
       title="Unify Marketing & Enterprise Operations with Hadron GBS & Tennon"
       subtitle="Unlock the full potential of ServiceNow with Tennon. Hadron GBS helps marketing teams streamline planning, campaign execution, and performance tracking on a single platform eliminating silos, reducing complexity, and driving smarter collaboration across the enterprise."
       heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326115/From_Klickpin.com-_Classy_DIY_gift_ideas_that_feel_fresh_elevated_and_surprisingly_easy_to_recreate_at_home_for_people_who_want_stylish_ideas_on_a_brkwa8.mp4"
@@ -33,3 +34,4 @@ export default function TennonPage() {
     />
   );
 }
+

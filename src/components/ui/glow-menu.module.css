@@ -71,12 +71,29 @@
 /* Specific colors applied via global utility classes in Next.js or via inline styles. 
    Since user provided tailwind classes (text-blue-500) and we don't have tailwind, 
    we will simulate them here. */
-.text-blue-500 { color: #3b82f6 !important; }
-.text-orange-500 { color: #f97316 !important; }
-.text-green-500 { color: #22c55e !important; }
-.text-red-500 { color: #ef4444 !important; }
-.text-purple-500 { color: #a855f7 !important; }
-.text-cyan-500 { color: #06b6d4 !important; }
+.text-blue-500 {
+  color: #3b82f6 !important;
+}
+
+.text-orange-500 {
+  color: #f97316 !important;
+}
+
+.text-green-500 {
+  color: #22c55e !important;
+}
+
+.text-red-500 {
+  color: #ef4444 !important;
+}
+
+.text-purple-500 {
+  color: #a855f7 !important;
+}
+
+.text-cyan-500 {
+  color: #06b6d4 !important;
+}
 
 /* ── Dropdown Styles ── */
 .menuItemWrapper {
@@ -103,6 +120,17 @@
   min-width: max-content;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
   z-index: 50;
+}
+
+/* Invisible bridge to prevent dropdown from closing when moving mouse from item to dropdown */
+.dropdownMenu::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
 }
 
 .dropdownItem {
@@ -153,90 +181,33 @@
   width: 20px;
 }
 
-/* ── Mobile Navigation Styles ── */
-.hamburgerBtn {
-  display: none;
-  background: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 110;
-}
-
-.mobileOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(10, 10, 15, 0.95);
-  backdrop-filter: blur(20px);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  padding: 6rem 2rem 2rem 2rem;
-  overflow-y: auto;
-}
-
-.mobileMenuItem {
-  padding: 1.25rem 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: white;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-}
-
-.mobileMenuItemHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.mobileSubMenu {
-  display: flex;
-  flex-direction: column;
-  padding-left: 1rem;
-  padding-top: 1rem;
-  gap: 0.75rem;
-}
-
-.mobileSubMenuItem {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  padding: 0.25rem 0;
-}
-
-.mobileSubMenuItem:active,
-.mobileMenuItemHeader:active {
-  color: var(--accent);
-}
-
-.isLogo {
-  /* Used as an identifier for the logo wrapper */
-}
-
 @media (max-width: 1024px) {
   .menuBarContainer {
     width: 100%;
-    padding: 0 1rem;
   }
+
   .menuBar {
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
+    padding-left: 1.5rem;
+    padding-right: 4rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
   }
-  .menuItemWrapper:not(.isLogo) {
+  
+  .menuItemWrapper.isLogo .menuItem {
+    padding: 0.5rem 0;
+    background: transparent !important;
+  }
+  
+  .menuItemWrapper.isLogo .activeBackground {
     display: none;
   }
-  .hamburgerBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+  .menuItemWrapper:not(.isLogo) {
+    display: none;
   }
 }
 

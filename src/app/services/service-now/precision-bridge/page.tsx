@@ -5,6 +5,7 @@ import ServiceLayout from "../../ServiceLayout";
 export default function PrecisionBridgePage() {
   return (
     <ServiceLayout
+      expertName="ServiceNow"
       title="Accelerate Your ServiceNow Migrations with Hadron GBS & Precision Bridge"
       subtitle="At Hadron GBS, we understand that the biggest risk in any ServiceNow transformation is not the technology, it’s the data. Migrating millions of records from legacy platforms or between ServiceNow instances is complex, time consuming, and error-prone when handled manually. As a specialist implementation partner for Precision Bridge, we ensure your data moves accurately, completely, and at pace without the cost and risk of custom development."
       heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326115/From_Klickpin.com-_Classy_DIY_gift_ideas_that_feel_fresh_elevated_and_surprisingly_easy_to_recreate_at_home_for_people_who_want_stylish_ideas_on_a_brkwa8.mp4"
@@ -33,3 +34,4 @@ export default function PrecisionBridgePage() {
     />
   );
 }
+
