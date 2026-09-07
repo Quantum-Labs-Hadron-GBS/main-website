@@ -66,7 +66,7 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
       });
     }, 500);
 
-    // 4. Arrow Keys Section Snapping (Full-Slide Animation Completion)
+    // 4. Arrow Keys Advanced Snap Architecture (1 arrow = 1 section/card)
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't intercept if user is typing in an input or textarea
       const targetTag = (e.target as HTMLElement).tagName;
@@ -75,36 +75,59 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
       if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
         e.preventDefault();
         
-        // Find all main sections on the page. We use .pin-spacer for GSAP pinned sections, 
-        // and direct sections for regular content, avoiding nested sections.
+        const snapPoints: number[] = [];
+        
+        // A. Main Sections & Footer
         const sections = Array.from(document.querySelectorAll('.pin-spacer, section:not(.pin-spacer section), footer')) as HTMLElement[];
-        if (sections.length === 0) return;
+        sections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          const absoluteTop = rect.top + window.scrollY;
+          snapPoints.push(absoluteTop); // Top snap
+          
+          if (sec.offsetHeight > window.innerHeight || sec.tagName === 'FOOTER') {
+            snapPoints.push(absoluteTop + sec.offsetHeight - window.innerHeight); // Bottom snap
+          }
+        });
+
+        // B. Custom Snap Points (Cards/Elements)
+        const customPoints = Array.from(document.querySelectorAll('[data-snap-point="true"]')) as HTMLElement[];
+        customPoints.forEach(el => {
+          const align = el.getAttribute('data-snap-align') || 'center';
+          const offset = parseInt(el.getAttribute('data-snap-offset') || '0', 10);
+          const rect = el.getBoundingClientRect();
+          const absoluteTop = rect.top + window.scrollY;
+          
+          if (align === 'center') {
+            snapPoints.push(absoluteTop + (rect.height / 2) - (window.innerHeight / 2) + offset);
+          } else if (align === 'top') {
+            snapPoints.push(absoluteTop - offset);
+          } else if (align === 'bottom') {
+            snapPoints.push(absoluteTop + rect.height - window.innerHeight - offset);
+          }
+        });
+
+        // Sort all possible target scroll positions
+        snapPoints.sort((a, b) => a - b);
+        
+        // Remove close duplicates (within 20px) to prevent tiny redundant jumps
+        const uniquePoints = snapPoints.filter((p, i, arr) => i === 0 || p > arr[i - 1] + 20);
+        
+        const currentY = window.scrollY;
         
         if (e.key === 'ArrowDown') {
-          // Find the next section whose bottom is visibly below the viewport bottom
-          const nextSection = sections.find(sec => {
-            const rect = sec.getBoundingClientRect();
-            return rect.bottom > window.innerHeight + 10;
-          });
-          
-          if (nextSection) {
-            // Scroll to the BOTTOM of the section to complete all its animations
-            const offset = Math.max(0, nextSection.offsetHeight - window.innerHeight);
-            lenis.scrollTo(nextSection, { offset, duration: 1.2 });
+          // Find the next Y coordinate strictly below current scroll
+          const nextY = uniquePoints.find(y => y > currentY + 10);
+          if (nextY !== undefined) {
+            lenis.scrollTo(nextY, { duration: 1.2 });
           } else {
             lenis.scrollTo('bottom', { duration: 1.2 });
           }
         } else if (e.key === 'ArrowUp') {
-          // Find the previous section whose top is visibly above the viewport top
-          const prevSections = [...sections].reverse();
-          const prevSection = prevSections.find(sec => {
-            const rect = sec.getBoundingClientRect();
-            return rect.top < -10;
-          });
-          
-          if (prevSection) {
-            // Scroll to the TOP of the section to rewind its animations
-            lenis.scrollTo(prevSection, { offset: 0, duration: 1.2 });
+          // Find the previous Y coordinate strictly above current scroll
+          const prevPoints = [...uniquePoints].reverse();
+          const prevY = prevPoints.find(y => y < currentY - 10);
+          if (prevY !== undefined) {
+            lenis.scrollTo(prevY, { duration: 1.2 });
           } else {
             lenis.scrollTo('top', { duration: 1.2 });
           }
