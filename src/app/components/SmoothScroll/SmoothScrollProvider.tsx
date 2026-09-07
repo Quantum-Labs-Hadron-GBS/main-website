@@ -66,7 +66,7 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
       });
     }, 500);
 
-    // 4. Arrow Keys Section Snapping
+    // 4. Arrow Keys Section Snapping (Full-Slide Animation Completion)
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't intercept if user is typing in an input or textarea
       const targetTag = (e.target as HTMLElement).tagName;
@@ -75,33 +75,37 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
       if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
         e.preventDefault();
         
-        // Find all main sections on the page
-        const sections = Array.from(document.querySelectorAll('section, footer'));
+        // Find all main sections on the page. We use .pin-spacer for GSAP pinned sections, 
+        // and direct sections for regular content, avoiding nested sections.
+        const sections = Array.from(document.querySelectorAll('.pin-spacer, section:not(.pin-spacer section), footer')) as HTMLElement[];
         if (sections.length === 0) return;
         
         if (e.key === 'ArrowDown') {
-          // Find first section whose top is visibly below the current viewport top
+          // Find the next section whose bottom is visibly below the viewport bottom
           const nextSection = sections.find(sec => {
             const rect = sec.getBoundingClientRect();
-            return rect.top > 10;
+            return rect.bottom > window.innerHeight + 10;
           });
+          
           if (nextSection) {
-            lenis.scrollTo(nextSection, { offset: 0, duration: 1.2 });
+            // Scroll to the BOTTOM of the section to complete all its animations
+            const offset = Math.max(0, nextSection.offsetHeight - window.innerHeight);
+            lenis.scrollTo(nextSection, { offset, duration: 1.2 });
           } else {
-            // Fallback to bottom if no next section
             lenis.scrollTo('bottom', { duration: 1.2 });
           }
         } else if (e.key === 'ArrowUp') {
-          // Find the last section whose top is visibly above the current viewport top
+          // Find the previous section whose top is visibly above the viewport top
           const prevSections = [...sections].reverse();
           const prevSection = prevSections.find(sec => {
             const rect = sec.getBoundingClientRect();
             return rect.top < -10;
           });
+          
           if (prevSection) {
+            // Scroll to the TOP of the section to rewind its animations
             lenis.scrollTo(prevSection, { offset: 0, duration: 1.2 });
           } else {
-            // Fallback to top if no previous section
             lenis.scrollTo('top', { duration: 1.2 });
           }
         }
