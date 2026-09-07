@@ -105,7 +105,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '85%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/services/atlassian">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
-                  <img src={LOGOS.atlassian} alt="Atlassian" className={styles.logoImg} style={{ width: '80%', height: '80%' }} />
+                  <img src={LOGOS.atlassian} alt="Atlassian" className={styles.logoImg} style={{ transform: 'scale(2)' }} />
                 </motion.div>
               </Link>
             </div>
@@ -120,7 +120,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/services/salesforce">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
-                  <img src={LOGOS.salesforce} alt="Salesforce" className={styles.logoImg} />
+                  <img src={LOGOS.salesforce} alt="Salesforce" className={styles.logoImg} style={{ transform: 'scale(1.4)' }} />
                 </motion.div>
               </Link>
             </div>
