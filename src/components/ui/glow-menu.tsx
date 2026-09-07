@@ -51,6 +51,9 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                 href={item.href}
                 className={`${styles.menuItem} ${isActive ? styles.active : ""}`}
                 onClick={() => onItemClick(item.label)}
+                style={{ position: 'relative', zIndex: 1 }}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
               >
                 {/* iOS 18 Liquid Glass Pill */}
                 {((hoveredMenu !== null ? isHovered : isActive) && !item.isLogo) && (
@@ -109,6 +112,8 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                               setHoveredSubItem(null);
                               onItemClick(item.label);
                             }}
+                            target={sub.href.startsWith("http") ? "_blank" : undefined}
+                            rel={sub.href.startsWith("http") ? "noopener noreferrer" : undefined}
                           >
                             <span>{sub.label}</span>
                             {sub.nestedItems && (
@@ -136,6 +141,8 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                                     setHoveredSubItem(null);
                                     onItemClick(item.label);
                                   }}
+                                  target={nested.href.startsWith("http") ? "_blank" : undefined}
+                                  rel={nested.href.startsWith("http") ? "noopener noreferrer" : undefined}
                                 >
                                   {nested.label}
                                 </Link>
