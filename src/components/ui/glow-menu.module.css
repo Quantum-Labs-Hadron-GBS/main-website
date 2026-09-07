@@ -6,7 +6,6 @@
 }
 
 .menuBar {
-  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -16,25 +15,6 @@
   padding: 0.5rem;
   border-radius: 6.1875rem;
   box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.5);
-}
-
-.gooeyLayer {
-  position: absolute;
-  inset: 0.5rem; /* matches padding of menuBar */
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; /* matches gap of menuBar */
-  filter: url(#goo-nav);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.gooeyPill {
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 6.1875rem;
-  z-index: 0;
 }
 
 .menuItem {
@@ -58,7 +38,17 @@
   color: var(--accent) !important;
 }
 
-/* Removed activeBackground in favor of gooeyPill */
+.activeBackground {
+  position: absolute;
+  inset: 0;
+  border-radius: 6.1875rem;
+  z-index: 0;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255,255,255,0.2);
+}
 
 .iconContainer {
   position: relative;
@@ -245,8 +235,10 @@
 }
 
 /* Ensure the pill looks great in light mode */
-.lightMode .gooeyPill {
-  background: rgba(15, 23, 42, 0.08);
+.lightMode .activeBackground {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05), inset 0 1px 2px rgba(255, 255, 255, 1);
 }
 
 .lightMode .isLogo img {
