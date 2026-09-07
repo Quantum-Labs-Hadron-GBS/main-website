@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useAnimationFrame, useMotionValue, useSpring } from "framer-motion";
+import Link from "next/link";
 import styles from "./PartnerRingSection.module.css";
 
 const LOGOS = {
@@ -86,21 +87,27 @@ export default function PartnerRingSection() {
           <motion.div className={`${styles.ring} ${styles.ring1}`} style={{ rotate: rotate1 }}>
             {/* Top Left */}
             <div className={styles.logoWrapper} style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
-              <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
-                <img src={LOGOS.aws} alt="AWS" className={styles.logoImg} />
-              </motion.div>
+              <Link href="/services/aws-cloud">
+                <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
+                  <img src={LOGOS.aws} alt="AWS" className={styles.logoImg} />
+                </motion.div>
+              </Link>
             </div>
             {/* Bottom Right */}
             <div className={styles.logoWrapper} style={{ top: '85%', left: '85%', transform: 'translate(-50%, -50%)' }}>
-              <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
-                <img src={LOGOS.servicenow} alt="ServiceNow" className={styles.logoImg} style={{ width: '80%', height: '80%' }} />
-              </motion.div>
+              <Link href="/services/service-now">
+                <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
+                  <img src={LOGOS.servicenow} alt="ServiceNow" className={styles.logoImg} style={{ width: '80%', height: '80%' }} />
+                </motion.div>
+              </Link>
             </div>
             {/* Bottom Left */}
             <div className={styles.logoWrapper} style={{ top: '85%', left: '15%', transform: 'translate(-50%, -50%)' }}>
-              <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
-                <img src={LOGOS.atlassian} alt="Atlassian" className={styles.logoImg} style={{ width: '80%', height: '80%' }} />
-              </motion.div>
+              <Link href="/services/atlassian">
+                <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
+                  <img src={LOGOS.atlassian} alt="Atlassian" className={styles.logoImg} style={{ width: '80%', height: '80%' }} />
+                </motion.div>
+              </Link>
             </div>
             {/* Atoms */}
             <div className={styles.dot} style={{ top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }}></div>
@@ -111,21 +118,27 @@ export default function PartnerRingSection() {
           <motion.div className={`${styles.ring} ${styles.ring2}`} style={{ rotate: rotate2 }}>
             {/* Center Left */}
             <div className={styles.logoWrapper} style={{ top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }}>
-              <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
-                <img src={LOGOS.salesforce} alt="Salesforce" className={styles.logoImg} />
-              </motion.div>
+              <Link href="/services/salesforce">
+                <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
+                  <img src={LOGOS.salesforce} alt="Salesforce" className={styles.logoImg} />
+                </motion.div>
+              </Link>
             </div>
             {/* Center Right */}
             <div className={styles.logoWrapper} style={{ top: '50%', left: '100%', transform: 'translate(-50%, -50%)' }}>
-              <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
-                <img src={LOGOS.bmc} alt="BMC" className={styles.logoImg} />
-              </motion.div>
+              <Link href="/services/bmc">
+                <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
+                  <img src={LOGOS.bmc} alt="BMC" className={styles.logoImg} />
+                </motion.div>
+              </Link>
             </div>
             {/* Top Center */}
             <div className={styles.logoWrapper} style={{ top: '0%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-              <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
-                <img src={LOGOS.freshworks} alt="Freshworks" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
-              </motion.div>
+              <Link href="/services/freshworks">
+                <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
+                  <img src={LOGOS.freshworks} alt="Freshworks" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
+                </motion.div>
+              </Link>
             </div>
             {/* Atoms */}
             <div className={styles.dot} style={{ top: '10%', left: '80%', transform: 'translate(-50%, -50%)' }}></div>
@@ -136,21 +149,27 @@ export default function PartnerRingSection() {
           <motion.div className={`${styles.ring} ${styles.ring3}`} style={{ rotate: rotate3 }}>
             {/* Top Right */}
             <div className={styles.logoWrapper} style={{ top: '15%', left: '85%', transform: 'translate(-50%, -50%)' }}>
-              <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
-                <img src={LOGOS.sap} alt="SAP" className={styles.logoImg} />
-              </motion.div>
+              <Link href="/services/sap">
+                <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
+                  <img src={LOGOS.sap} alt="SAP" className={styles.logoImg} />
+                </motion.div>
+              </Link>
             </div>
             {/* Bottom Left */}
             <div className={styles.logoWrapper} style={{ top: '85%', left: '15%', transform: 'translate(-50%, -50%)' }}>
-              <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
-                <img src={LOGOS.microsoft} alt="Microsoft" className={styles.logoImg} />
-              </motion.div>
+              <Link href="/services/microsoft-cloud">
+                <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
+                  <img src={LOGOS.microsoft} alt="Microsoft" className={styles.logoImg} />
+                </motion.div>
+              </Link>
             </div>
             {/* Top Left */}
             <div className={styles.logoWrapper} style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
-              <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
-                <img src={LOGOS.ivanti} alt="Ivanti" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
-              </motion.div>
+              <Link href="/services/ivanti">
+                <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
+                  <img src={LOGOS.ivanti} alt="Ivanti" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
+                </motion.div>
+              </Link>
             </div>
             {/* Atoms */}
             <div className={styles.dot} style={{ top: '95.8%', left: '70%', transform: 'translate(-50%, -50%)' }}></div>

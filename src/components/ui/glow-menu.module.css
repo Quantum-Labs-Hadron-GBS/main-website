@@ -231,7 +231,7 @@
 }
 
 .lightMode .isLogo img {
-  filter: brightness(0);
+  /* Removed filter: brightness(0) so the colored logo displays its true colors */
 }
 
 .lightMode .dropdownMenu,
