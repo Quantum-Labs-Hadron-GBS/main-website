@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import InteractiveBento from "../components/InteractiveBento/InteractiveBento";
 import OurStorySection from "../components/OurStorySection/OurStorySection";
+import CoreValuesSection from "../components/CoreValuesSection/CoreValuesSection";
 
 export default function AboutPage() {
   const timelineEvents = [
@@ -173,6 +174,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* 4 P's OF HADRON (Moved from Home Page) */}
+      <CoreValuesSection />
 
       {/* PARTNERS */}
       <section className={`${styles.section} ${styles.partnersSection}`}>

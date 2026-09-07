@@ -1,0 +1,179 @@
+# Page: Solution - Cloud Adoption
+
+## Outgoing Links
+- [/contact](/contact)
+
+## Images & Media
+- https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788327963/Use_the_attached_image_as_the_3_gshigo.mp4
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327976/cloud_3_g4y3kv.avif
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327982/cloud_1_xf0pmt.avif
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327974/cloud_4_d6swps.avif
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327978/cloud_2_jv7wun.avif
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327989/cloud_5_zedufn.avif
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788328794/cloud_m1_xopdvs.png
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788328792/cloud_m2_seg0hy.jpg
+
+## Text Content
+```text
+
+
+--- Source: src/app/solutions/cloud-adoption-and-cloud-first-engineering/page.tsx ---
+
+1rem
+
+1rem
+
+1.5rem
+
+2.5rem
+
+{
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return (
+
+{/* HERO SECTION */}
+
+Cloud Adoption and Cloud-First Engineering
+
+Hadron GBS delivers measurable outcomes by designing, building, and operating cloud-first ecosystems that scale with your business.
+
+{/* MAIN CONTENT CONTAINER (White Background) */}
+
+Enterprise Cloud Services
+
+Across
+
+Architecture and Operations
+
+{/* CARDS SECTION */}
+
+{/* Card 1 */}
+
+Cloud-First Strategy and Architecture
+
+Hadron GBS defines a business-aligned cloud-first strategy, ensuring applications and platforms are designed to fully use cloud capabilities from the ground up.
+
+Architecture aligned to growth and scalability needs
+
+Right-fit deployment models across multi-cloud and hybrid environments
+
+Reduced complexity and improved agility
+
+{/* Card 2 */}
+
+Cloud-Native Engineering at Scale
+
+We design and build applications using microservices, containers, APIs, and serverless frameworks to enable modular, scalable, and resilient systems.
+
+Faster development and deployment cycles
+
+High availability and fault-tolerant architectures
+
+Improved performance and user experience
+
+{/* Card 3 */}
+
+Accelerated Migration With Modernization
+
+Hadron GBS combines migration with re-platforming and re-architecture, ensuring applications are optimized for cloud, not just relocated.
+
+Reduced technical debt and legacy constraints
+
+Better resource utilization and cost efficiency
+
+Enhanced flexibility to adapt to business changes
+
+{/* Card 4 */}
+
+DevSecOps-Driven Delivery
+
+We embed DevSecOps practices into cloud engineering to enable secure, automated, and continuous delivery pipelines.
+
+Faster releases with automated CI/CD pipelines
+
+Built-in security and compliance across the lifecycle
+
+Consistent, reliable deployments at scale
+
+{/* Card 5 */}
+
+Operational Excellence and FinOps
+
+Hadron GBS ensures your cloud environment is fully operationalized with governance, observability, and cost optimization frameworks.
+
+Real-time monitoring and performance insights
+
+Optimized cloud spending with FinOps practices
+
+Governance frameworks for risk, compliance, and security
+
+{/* EXECUTION GRID SECTION (Structured Framework) */}
+
+Delivering Cloud-First Operations Through
+
+Structured Execution
+
+Our approach moves organizations from cloud readiness assessment to a fully operationalized, continuously improving cloud-first environment.
+
+Discover
+
+Assess application landscape, cloud readiness, and business priorities.
+
+Design
+
+Define cloud-first architecture and engineering blueprint.
+
+Build
+
+Execute migration and cloud-native development using agile methods.
+
+Operate
+
+Enable continuous optimization, governance, and innovation.
+
+{/* WHY HADRON BLOCK */}
+
+{/* Image Placeholder */}
+
+Why Hadron GBS for Cloud Adoption and Cloud-First Engineering
+
+Most cloud environments become difficult to manage because operational readiness arrives after migration. We embed observability, resilience planning, access controls, and automation into the foundation itself.
+
+Deep expertise in cloud platforms and cloud-native engineering
+
+Outcome-driven approach focused on measurable business value
+
+Proven experience in large-scale, complex cloud transformations
+
+{/* MEASURABLE BUSINESS IMPACT BLOCK */}
+
+Real Business Results From Cloud-First Operations
+
+87-day cloud migration
+
+— legacy infrastructure migrated to cloud with zero SLA breaches.
+
+2× faster time-to-market
+
+— feature cycles reduced from 18 weeks to 8 weeks, enabling two new revenue-generating products.
+
+98% CMDB accuracy
+
+— automated discovery and service mapping created a more reliable infrastructure data foundation.
+
+{/* Image Placeholder */}
+
+{/* BOTTOM CTA */}
+
+Accelerate Innovation Through
+
+Cloud-First Operations
+
+Engineer a cloud-first foundation that drives speed, resilience, and sustained business growth.
+
+Consult with us ↗
+```

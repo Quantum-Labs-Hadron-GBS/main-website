@@ -11,17 +11,30 @@ export default function CtaSection({ title, subtitle, buttonText }: CtaSectionPr
   return (
     <section className={styles.demoCta} id="contact" aria-label="Contact Us">
       <div className={`${styles.demoCtaInner} container`}>
-        <h2 className={styles.demoTitle}>
-          {title || "Looking for the Best IT Business Solutions?"}
-        </h2>
-        <p className={styles.demoSub}>
-          {subtitle || "Contact us today, and let us help you achieve your business objectives."}
-        </p>
-        <div className={styles.demoActions}>
-          <Link href="/contact" id="demo-email-cta" className={styles.demoPrimary}>
-            <span className={styles.btnText}>{buttonText || "Contact Us"}</span>
-            <span className={styles.btnArrow}>&rarr;</span>
-          </Link>
+        {/* Left Side: Content */}
+        <div className={styles.contentSide}>
+          <h2 className={styles.demoTitle}>
+            {title || "Looking for the Best IT Business Solutions?"}
+          </h2>
+          <p className={styles.demoSub}>
+            {subtitle || "Contact us today, and let us help you achieve your business objectives."}
+          </p>
+          <div className={styles.demoActions}>
+            <Link href="/contact" id="demo-email-cta" className={styles.demoPrimary}>
+              <span className={styles.btnText}>{buttonText || "Contact Us"}</span>
+              <span className={styles.btnArrow}>&rarr;</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Side: Logo with glowing orange background */}
+        <div className={styles.visualSide}>
+          <div className={styles.glowBg}></div>
+          <img 
+            src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png" 
+            alt="Hadron Logo" 
+            className={styles.logoImg} 
+          />
         </div>
       </div>
     </section>

@@ -1,0 +1,112 @@
+Page: About
+
+=== OUTGOING LINKS ===
+/contact
+
+=== IMAGES & MEDIA ===
+https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788242997/Use_the_attached_image_as_the_1_pwo6nq.mp4
+
+=== TEXT CONTENT ===
+
+
+--- Source: src/app/about/page.tsx ---
+
+Beginning of the New Journey
+
+We started the company with the mission to provide the best of technology consulting services that matches the client's requirements.
+
+Survival During Covid Pandemic
+
+With slow but steady growth during the covid, as our employees and their relatives were highly affected, we managed to providing uninterrupted services.
+
+Partnered with Tech Companies
+
+Partnered with Technology companies like Ivanti and NetBrain to support our customers on Enterprise service management and Automation.
+
+Globalization of Business
+
+Expansion of business is needed. We opened our first offshore office in Singapore and planning for Europe expansion by having office in Sweden.
+
+Customer Centric Approach
+
+We work in a customer-centric manner to meet the demands of our clients. This enables our clients to achieve their greatest growth and Returns of Interest.
+
+Agile Methodology
+
+By following agile methodology we assure you to quick delivery with excellent technology solution. We keep complete transparency to our customers throughout the whole development cycle without additional cost.
+
+Dedicated Development Team
+
+With their expertise, our staff will deliver the greatest outcomes for your requirements. The team puts in all of its effort and does not look back until goals are achieved.
+
+Outstanding Support
+
+We provide end to end support for your business needs to ensure that the client gets satisfied with what they want.
+
+2rem
+
+{/* HERO SECTION */}
+
+Choose The Best IT Service Company
+
+Hadron Global Business Solutions is a highly motivated group with creative minds.
+
+{/* OVERVIEW & VALUES SPLIT */}
+
+About Our Company!
+
+Welcome to Hadron GBS: Powering the Universe of Enterprise Service Management, Operation Management & Many more….
+
+At Hadron GBS, we believe in harnessing the immense power of the universe’s fundamental forces and translating it into the very essence of our business. Just as the Hadron is an integral part of one of the strongest forces in the universe, we aim to make our presence felt as a formidable entity in the world of Enterprise Service Management, Operation Management & Many more.
+
+Our journey is guided by a strong belief in the power of fundamental interactions. We understand that the core level interactions are what drive the creation of exceptional customer experiences. At Hadron GBS, these interactions are not just a part of our ethos; they are at the heart of our existence.
+
+With a core technical team boasting more than 15 years of experience in Enterprise Service Management, Operation Management & other niche technologies we bring a wealth of knowledge and expertise to the table.
+
+We believe that true success in this domain lies not just in implementing solutions but in understanding the unique needs and challenges of each organization. At Hadron GBS, we are more than just a service provider. We are a partner on your journey towards enhanced efficiency, better customer experiences, and a stronger IT infrastructure.
+
+Join us on this exciting journey as we continue to explore and harness the fundamental forces of the universe, applying them to the world of IT & Other LOBs services for your benefit.
+
+Our Core Values
+
+Our core values include a dedication to guaranteeing the happiness of both customers and employees, business ethics, and ongoing efforts to advance a healthy business environment.
+
+We integrate industry standards to assist our clients in realizing their full potential, get rid of communication issues, foster trust, and boost the effectiveness and productivity of your business unit.
+
+Our company was founded on five fundamental principles:
+
+mindset, honesty, transparency, quality, and professionalism
+
+. To tackle tough situations, we bring uniqueness and the right approach.
+
+{/* OUR STORY */}
+
+{/* TIMELINE */}
+
+Our Journey
+
+{item.year}
+
+{item.title}
+
+{item.desc}
+
+{/* PARTNERS */}
+
+Our Partners
+
+Hadron Global Business Solutions (Hadron GBS), a leading provider of innovative IT solutions, is pleased to announce a strategic partnership with BMC Software, a global software company that specializes in providing solutions for IT service management, cloud management, and digital enterprise automation. We are also partnered with NetBrain who is the global leader for network automation.
+
+{/* FEATURES GRID */}
+
+Preparing For Your Success
+
+Provide Best IT Solutions appropriate for your specific business, making it easy for you to have quality IT services.
+
+{/* CTA */}
+
+Looking for the Best IT Business Solutions?
+
+Contact us today, and let us help you achieve your business objectives.
+
+Contact Us

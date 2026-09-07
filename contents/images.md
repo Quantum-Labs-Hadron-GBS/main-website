@@ -1,0 +1,59 @@
+# Global Media Assets
+
+- **About**: https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788242997/Use_the_attached_image_as_the_1_pwo6nq.mp4
+- **Home**: https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png
+- **Home**: https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/favicon-hadron_g5wrvr.png
+- **Home**: https://res.cloudinary.com/ax6dtcht/video/upload/v1786108868/Untitled_design_czx0vh.mp4
+- **Services Landing**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787725935/implementation_vde2yp.png
+- **Services Landing**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726082/operational_servies_zfrag1.png
+- **Services Landing**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726177/Managed_Services_yh3ukg.png
+- **Services Landing**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726230/consulting_vvqqhe.jpg
+- **Services Landing**: https://res.cloudinary.com/dyhlpxwwo/video/upload/v1787732744/Use_the_attached_image_as_the_htroef.mp4
+- **Solution - Cloud Adoption**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327974/cloud_4_d6swps.avif
+- **Solution - Cloud Adoption**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327976/cloud_3_g4y3kv.avif
+- **Solution - Cloud Adoption**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327978/cloud_2_jv7wun.avif
+- **Solution - Cloud Adoption**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327982/cloud_1_xf0pmt.avif
+- **Solution - Cloud Adoption**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327989/cloud_5_zedufn.avif
+- **Solution - Cloud Adoption**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788328792/cloud_m2_seg0hy.jpg
+- **Solution - Cloud Adoption**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788328794/cloud_m1_xopdvs.png
+- **Solution - Cloud Adoption**: https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788327963/Use_the_attached_image_as_the_3_gshigo.mp4
+- **Solution - Engineering Quality**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329637/eng_5_toqpmx.avif
+- **Solution - Engineering Quality**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329640/eng_4_kcrl5h.avif
+- **Solution - Engineering Quality**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329643/eng_3_codj5w.avif
+- **Solution - Engineering Quality**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329648/eng_2_b820oi.avif
+- **Solution - Engineering Quality**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329658/eng_1_lestnz.avif
+- **Solution - Engineering Quality**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330307/eng_m2_me3czz.avif
+- **Solution - Engineering Quality**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330310/eng_m1_h8hlcu.webp
+- **Solution - Engineering Quality**: https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788329551/Use_the_attached_image_as_the_4_ggixnn.mp4
+- **Solution - Enterprise Core**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258255/ET_3_ynndo7.png
+- **Solution - Enterprise Core**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258255/ET_4_omra8h.webp
+- **Solution - Enterprise Core**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258256/ET_5_btgxff.png
+- **Solution - Enterprise Core**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258267/ET_1_ejq2ru.jpg
+- **Solution - Enterprise Core**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258267/ET_2_pdboju.jpg
+- **Solution - Enterprise Core**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788259020/ET_M2_qtl4pc.jpg
+- **Solution - Enterprise Core**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788259026/ET_M1_cdjlli.jpg
+- **Solution - Enterprise Core**: https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788254535/Animate_the_attached_image_whi_uxz6vf.mp4
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_1_htjhug.jpg
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_2_wyepkk.jpg
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_3_tshlif.jpg
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_5_syh8hy.jpg
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268273/ai_4_tllrcx.jpg
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788269187/ai_m1_zwylfu.png
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788269188/ai_m2_jffznd.png
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788267903/Animate_the_attached_image_as_xmqsid.mp4
+- **Solution - Rapid Application**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273529/rapid_5_zsiara.avif
+- **Solution - Rapid Application**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_2_q0t1eq.avif
+- **Solution - Rapid Application**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_3_zg4b5o.avif
+- **Solution - Rapid Application**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_4_dio2iw.avif
+- **Solution - Rapid Application**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273531/rapid_1_mirfhs.avif
+- **Solution - Rapid Application**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788274236/rapid_m1_k0gb78.jpg
+- **Solution - Rapid Application**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788274434/rapid_m2_ztjofs.jpg
+- **Solution - Rapid Application**: https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788272661/Animate_the_attached_image_usi_a13sng.mp4
+- **Solution - Unified Service**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326307/unified_5_zjibfe.avif
+- **Solution - Unified Service**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326309/unified_3_zxip79.avif
+- **Solution - Unified Service**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326311/unified_4_cwzq1n.avif
+- **Solution - Unified Service**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326313/unified_2_sfl3sm.avif
+- **Solution - Unified Service**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326315/Unified_1_m4tcih.avif
+- **Solution - Unified Service**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327255/unified_m2_wiorfu.jpg
+- **Solution - Unified Service**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327256/unified_m1_auvyhg.webp
+- **Solution - Unified Service**: https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788325868/Use_the_attached_image_as_the_2_nyko8s.mp4

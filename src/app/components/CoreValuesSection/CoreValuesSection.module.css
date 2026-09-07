@@ -2,6 +2,7 @@
   position: relative;
   z-index: 10;
   padding: 4rem 0 5rem;
+  background-color: #ffffff;
 }
 
 /* ── Header ── */
@@ -29,12 +30,12 @@
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .subtitle {
   font-size: 1.05rem;
-  color: #94a3b8;
+  color: #475569;
   max-width: 520px;
   line-height: 1.6;
 }
