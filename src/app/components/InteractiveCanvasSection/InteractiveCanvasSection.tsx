@@ -290,32 +290,67 @@ export default function InteractiveCanvasSection() {
           {/* Visually hidden text to force the browser to preload the Caveat font immediately */}
           <span style={{ fontFamily: "'Caveat', cursive", position: "absolute", opacity: 0, pointerEvents: "none" }}>Preload</span>
 
-          {/* Header Tabs (iOS 18 Liquid Glass Pill) */}
-          <div className={styles.tabsContainer} onMouseLeave={() => setHoveredTab(null)}>
-            {TABS.map((tab, idx) => {
-              const isActive = activeTab === idx;
-              const isHovered = hoveredTab === idx;
-              const hasPill = hoveredTab !== null ? isHovered : isActive;
+          {/* Gooey Filter Definition */}
+          <svg width="0" height="0" style={{ position: "absolute", pointerEvents: "none" }}>
+            <defs>
+              <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+                <feColorMatrix 
+                  in="blur" 
+                  mode="matrix" 
+                  values="1 0 0 0 0  
+                          0 1 0 0 0  
+                          0 0 1 0 0  
+                          0 0 0 20 -8" 
+                  result="goo" 
+                />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+              </filter>
+            </defs>
+          </svg>
 
-              return (
-                <button
-                  key={tab}
-                  className={`${styles.tabButton} ${isActive ? styles.tabButtonActive : ""}`}
-                  onClick={() => setActiveTab(idx)}
-                  onMouseEnter={() => setHoveredTab(idx)}
-                  style={{ position: 'relative' }}
-                >
-                  {hasPill && (
-                    <motion.div
-                      layoutId="canvasTabPill"
-                      className={styles.activePill}
-                      transition={{ type: "spring", stiffness: 500, damping: 35, mass: 0.8 }}
-                    />
-                  )}
-                  <span style={{ position: 'relative', zIndex: 1 }}>{tab}</span>
-                </button>
-              );
-            })}
+          {/* Premium Meiosis Tabs Wrapper */}
+          <div className={styles.tabsWrapper} onMouseLeave={() => setHoveredTab(null)}>
+            
+            {/* Layer 1: Gooey Backgrounds */}
+            <div className={styles.gooeyLayer}>
+              {TABS.map((tab, idx) => {
+                const isActive = activeTab === idx;
+                const isHovered = hoveredTab === idx;
+                const hasPill = hoveredTab !== null ? isHovered : isActive;
+
+                return (
+                  <div key={`bg-${tab}`} className={styles.tabSlot}>
+                    <span style={{ opacity: 0 }}>{tab}</span>
+                    {hasPill && (
+                      <motion.div
+                        layoutId="canvasTabPill"
+                        className={styles.gooeyPill}
+                        transition={{ type: "spring", stiffness: 400, damping: 25, mass: 1 }}
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Layer 2: Interactive Text */}
+            <div className={styles.textLayer}>
+              {TABS.map((tab, idx) => {
+                const isActive = activeTab === idx;
+                return (
+                  <button
+                    key={tab}
+                    className={`${styles.tabButton} ${isActive ? styles.tabButtonActive : ""}`}
+                    onClick={() => setActiveTab(idx)}
+                    onMouseEnter={() => setHoveredTab(idx)}
+                  >
+                    {tab}
+                  </button>
+                );
+              })}
+            </div>
+            
           </div>
 
           {/* Full Width/Height Canvas Layer */}

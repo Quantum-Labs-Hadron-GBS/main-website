@@ -34,7 +34,47 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
 
   return (
     <div className={`${styles.menuBarContainer} ${isLightMode ? styles.lightMode : ""}`}>
+      {/* SVG Gooey Filter for Meiosis Effect */}
+      <svg width="0" height="0" style={{ position: "absolute", pointerEvents: "none" }}>
+        <defs>
+          <filter id="goo-nav">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+          </filter>
+        </defs>
+      </svg>
+
       <div className={styles.menuBar} onMouseLeave={() => setHoveredMenu(null)}>
+        
+        {/* Background Gooey Layer for Liquid Pill */}
+        <div className={styles.gooeyLayer}>
+          {items.map((item) => {
+            const isActive = activeItem === item.label;
+            const isHovered = hoveredMenu === item.label;
+            const hasPill = (hoveredMenu !== null ? isHovered : isActive) && !item.isLogo;
+
+            return (
+              <div key={`bg-${item.label}`} className={`${styles.menuItemWrapper} ${item.isLogo ? styles.isLogo : ""}`} style={{ pointerEvents: 'none' }}>
+                <div className={styles.menuItem} style={{ visibility: 'hidden', padding: item.isLogo ? '0.5rem 0' : undefined }}>
+                  {item.isLogo && item.logoSrc ? (
+                    <img src={item.logoSrc} alt="hidden-logo" style={{ height: '20px', width: 'auto', display: 'block' }} />
+                  ) : (
+                    <span className={styles.label}>{item.label}</span>
+                  )}
+                </div>
+                {hasPill && (
+                  <motion.div
+                    layoutId="magic-pill-nav"
+                    className={styles.gooeyPill}
+                    transition={{ type: "spring", stiffness: 400, damping: 25, mass: 1 }}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+
         {items.map((item) => {
           const isActive = activeItem === item.label;
           const isHovered = hoveredMenu === item.label;
@@ -51,16 +91,8 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                 href={item.href}
                 className={`${styles.menuItem} ${isActive ? styles.active : ""}`}
                 onClick={() => onItemClick(item.label)}
+                style={{ position: 'relative', zIndex: 1 }}
               >
-                {/* iOS 18 Liquid Glass Pill */}
-                {((hoveredMenu !== null ? isHovered : isActive) && !item.isLogo) && (
-                  <motion.div
-                    layoutId="magic-pill"
-                    className={styles.activeBackground}
-                    transition={{ type: "spring", stiffness: 500, damping: 35, mass: 0.8 }}
-                  />
-                )}
-
                 {/* Content: Either Logo or Label */}
                 {item.isLogo && item.logoSrc ? (
                   <img 

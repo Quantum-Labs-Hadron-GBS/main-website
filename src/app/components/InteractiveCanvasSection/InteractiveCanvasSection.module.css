@@ -40,23 +40,61 @@
   background-size: calc(2.5rem * var(--scale, 1)) calc(2.5rem * var(--scale, 1));
 }
 
-/* Tab Navigation */
-.tabsContainer {
+/* Premium Meiosis Tabs */
+.tabsWrapper {
+  position: relative;
   display: flex;
-  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
   margin-top: 3rem;
+  padding: 0.5rem;
   background: rgba(248, 250, 252, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  padding: 0.5rem;
   border-radius: 6.25rem;
   border: 1px solid rgba(15, 23, 42, 0.05);
-  z-index: 10;
   box-shadow: 0 4px 1rem rgba(0,0,0,0.03), inset 0 2px 4px rgba(255,255,255,0.5);
+  z-index: 10;
+}
+
+.gooeyLayer {
+  position: absolute;
+  inset: 0.5rem; /* matches padding of wrapper */
+  display: flex;
+  gap: 0.5rem;
+  /* This is the magic filter that melts the pills together */
+  filter: url(#goo);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.tabSlot {
+  position: relative;
+  padding: 0.75rem 2.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  /* Slot must match button size exactly, hidden text ensures this */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gooeyPill {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border-radius: 6.25rem;
+}
+
+.textLayer {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1;
 }
 
 .tabButton {
-  position: relative;
   padding: 0.75rem 2.5rem;
   border-radius: 6.25rem;
   border: none;
@@ -76,16 +114,6 @@
 
 .tabButtonActive {
   color: #0f172a;
-}
-
-.activePill {
-  position: absolute;
-  inset: 0;
-  background: #ffffff;
-  border-radius: 6.25rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02), inset 0 2px 0 rgba(255,255,255,1);
-  border: 1px solid rgba(15, 23, 42, 0.04);
-  z-index: 0;
 }
 
 /* Canvas Area */
