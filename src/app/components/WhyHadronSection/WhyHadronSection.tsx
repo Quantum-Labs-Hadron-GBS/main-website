@@ -8,22 +8,22 @@ const advantages = [
   {
     num: "01",
     title: "Architecture-Led Delivery",
-    desc: "We treat every engagement as a systems problem. Our architects design for structure, coherence, and long-term platform health."
+    desc: "We treat every engagement as a complex systems problem rather than a mere implementation task. Our elite enterprise architects design for foundational structure, operational coherence, and long-term platform health. By embedding architectural governance directly into our delivery pipelines, we ensure that the digital cores we build are scalable, secure, and fiercely resilient against technical debt."
   },
   {
     num: "02",
     title: "Outcome-Driven Accountability",
-    desc: "We define success through measurable KPIs from day one (MTTR, CSAT, throughput) and stay accountable to them."
+    desc: "Implementation isn't enough; we measure success strictly by business impact. From day one, we align our delivery model with your core strategic objectives, defining success through measurable, hard KPIs such as MTTR reduction, accelerated deployment frequency, and improved CSAT. We tie our operational success directly to yours, staying ruthlessly accountable to these metrics at every stage of the journey."
   },
   {
     num: "03",
     title: "GenAI-Powered Transformation",
-    desc: "Embedding automation across ServiceNow, Salesforce, and SAP."
+    desc: "We are pioneering the next era of enterprise operations by embedding intelligent automation natively into ServiceNow, Salesforce, and SAP workflows. Our custom GenAI integrations transform static processes into dynamic, self-optimizing ecosystems that drastically reduce manual overhead, accelerate decision-making, and unlock entirely new dimensions of operational efficiency."
   },
   {
     num: "04",
     title: "Lifecycle Accountability",
-    desc: "We adapt our operating model to match your business priorities, providing end-to-end accountability from hypercare to managed services."
+    desc: "We refuse to simply deploy and walk away. We adapt our operating model to seamlessly match your evolving business priorities, providing continuous, end-to-end accountability from day-zero architecture through post-deployment hypercare and ongoing managed services. We stand by our builds, ensuring your enterprise platforms evolve flawlessly as your business scales."
   }
 ];
 

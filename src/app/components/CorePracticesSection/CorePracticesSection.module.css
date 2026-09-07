@@ -5,6 +5,57 @@
   z-index: 6; /* Just above PartnerRingSection (5) */
 }
 
+.circlesContainer {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0); /* Hide overflow without breaking sticky positioning */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stickyCircles {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 0;
+  /* transform: translate(-50%, -50%); is now handled by Framer Motion (x/y) */
+}
+
+.circle1 {
+  width: 100vw;
+  height: 100vw;
+  border: 1px solid rgba(244, 124, 54, 0.2); /* Faint orange */
+}
+
+.circle2 {
+  width: 70vw;
+  height: 70vw;
+  border: 1px solid rgba(244, 124, 54, 0.3); /* Slightly darker */
+}
+
+.circle3 {
+  width: 40vw;
+  height: 40vw;
+  border: 1px solid rgba(244, 124, 54, 0.45); /* Most visible */
+}
+
+.blueDot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #1A73E8; /* Corporate Blue */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px rgba(26, 115, 232, 0.6);
+}
+
 /* Ensure the light theme fallback is applied */
 :global(.light-theme) .wrapper {
   background-color: #f8fafc;
@@ -18,6 +69,8 @@
   display: flex;
   gap: 6rem;
   align-items: flex-start; /* Crucial for sticky behavior */
+  position: relative;
+  z-index: 1; /* Place above the grid background */
 }
 
 /* ── LEFT COLUMN (Sticky) ── */
