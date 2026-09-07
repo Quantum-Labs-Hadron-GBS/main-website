@@ -2,42 +2,44 @@
   padding: 8rem 0;
   position: relative;
   overflow: hidden;
-  background-color: #000000;
-}
-
-.demoCta::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 500px;
-  pointer-events: none;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
 }
 
 .demoCtaInner {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   position: relative;
   z-index: 1;
+  gap: 4rem;
+}
+
+/* Left side alignment */
+.contentSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .demoTitle {
   margin-bottom: 1.5rem;
   max-width: 800px;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
-  color: #ffffff;
-  text-align: center;
+  color: #0f172a; /* Dark navy */
+  text-align: left;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .demoSub {
   max-width: 600px;
   margin-bottom: 3rem;
-  color: #94a3b8;
-  text-align: center;
-  font-size: 1.1rem;
+  color: #475569; /* Slate gray */
+  text-align: left;
+  font-size: 1.125rem;
+  line-height: 1.6;
 }
 
 .demoActions {
@@ -50,7 +52,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 2.5rem;
-  background: var(--accent);
+  background: var(--accent); /* Hadron orange */
   border: 1px solid var(--accent);
   border-radius: 999px;
   color: #ffffff;
@@ -79,12 +81,70 @@
 .demoPrimary:hover {
   background: #ffffff;
   color: var(--accent);
-  border-color: #ffffff;
+  border-color: var(--accent);
   gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(244, 124, 54, 0.2);
 }
 
 .demoPrimary:hover .btnArrow {
   opacity: 1;
   max-width: 24px;
   transform: translateX(0);
+}
+
+/* Right Side: Logo with Glow */
+.visualSide {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+}
+
+.glowBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  /* Smoother, wider, more even whitish orange spread */
+  background: radial-gradient(circle, rgba(244, 124, 54, 0.15) 0%, rgba(244, 124, 54, 0.08) 40%, rgba(255, 255, 255, 0) 80%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(40px);
+}
+
+.logoImg {
+  position: relative;
+  z-index: 2;
+  width: 70%;
+  max-width: 350px;
+  object-fit: contain;
+  /* Apply dark filter to turn the white logo into a dark navy/black color */
+  filter: invert(1) brightness(0.15) sepia(1) hue-rotate(180deg) saturate(3); 
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .demoCtaInner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contentSide {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .demoTitle, .demoSub {
+    text-align: center;
+  }
+  
+  /* Completely hide the logo and glow on mobile */
+  .visualSide {
+    display: none;
+  }
 }

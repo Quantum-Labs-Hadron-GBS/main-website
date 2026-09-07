@@ -29,7 +29,7 @@
 .marqueeContainer {
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* Reduced gap between rows */
+  gap: 0.25rem; /* Reduced gap to offset the increased track padding below */
   width: 100%;
   flex: 1; /* Allow it to take up remaining space smoothly */
   justify-content: center; /* Center the rows within the remaining space */
@@ -74,12 +74,12 @@
 
 .marqueeTrackNormal {
   animation: marqueeScroll 35s linear infinite;
-  padding: 0.5rem 0;
+  padding: 1.5rem 0; /* Increased padding to prevent shadow clipping (grid lines) */
 }
 
 .marqueeTrackReverse {
   animation: marqueeScroll 35s linear infinite reverse;
-  padding: 0.5rem 0;
+  padding: 1.5rem 0; /* Increased padding to prevent shadow clipping */
 }
 
 @keyframes marqueeScroll {
@@ -106,7 +106,7 @@
 
 .testimonialCard:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(244, 124, 54, 0.3); /* Stronger orange shadow on hover */
+  box-shadow: 0 6px 20px rgba(244, 124, 54, 0.15); /* Softer, lighter orange shadow */
   border-color: rgba(244, 124, 54, 0.7); /* Slightly stronger border on hover */
 }
 

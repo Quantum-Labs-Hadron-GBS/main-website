@@ -96,10 +96,10 @@ export default function WhyHadronSection() {
         }
 
         // 1. Simultaneous Staggered Card Growth from absolute bottom
-        tl.to(cards[0], { height: '72vh', ease: "power2.out", duration: 0.25 }, 0.00); 
-        tl.to(cards[1], { height: '72vh', ease: "power2.out", duration: 0.50 }, 0.00); 
-        tl.to(cards[2], { height: '72vh', ease: "power2.out", duration: 0.75 }, 0.00); 
-        tl.to(cards[3], { height: '72vh', ease: "power2.out", duration: 1.00 }, 0.00); 
+        tl.to(cards[0], { height: '72vh', ease: "power2.out", duration: 0.25 }, 0.00);
+        tl.to(cards[1], { height: '72vh', ease: "power2.out", duration: 0.50 }, 0.00);
+        tl.to(cards[2], { height: '72vh', ease: "power2.out", duration: 0.75 }, 0.00);
+        tl.to(cards[3], { height: '72vh', ease: "power2.out", duration: 1.00 }, 0.00);
 
         // 2. Synchronized Roller X Translation & Locked Rotation (Over full 1.0 duration)
         tl.to(rollerRef.current, {
@@ -110,7 +110,7 @@ export default function WhyHadronSection() {
             return (dist / (110 * Math.PI)) * 360;
           },
           ease: "none",
-          duration: 1.00 
+          duration: 1.00
         }, 0.00);
 
         // 3. 7-Step Sharp Regular Polygon Morphing
@@ -122,7 +122,7 @@ export default function WhyHadronSection() {
         tl.to(polygonRef.current, { attr: { points: getPoints(9) }, ease: "none", duration: step }, 4 * step); // Octagon -> Nonagon
         tl.to(polygonRef.current, { attr: { points: getPoints(10) }, ease: "none", duration: step }, 5 * step); // Nonagon -> Decagon
         tl.to(polygonRef.current, { attr: { points: getPoints(32) }, ease: "none", duration: step }, 6 * step); // Decagon -> Circle approx
-        
+
         // Phase 4: Crossfade to perfect SVG circle for perfect rolling finish
         tl.to(polygonRef.current, { opacity: 0, ease: "none", duration: 0.05 }, 1.00 - 0.05);
         tl.to(circleRef.current, { opacity: 1, ease: "none", duration: 0.05 }, 1.00 - 0.05);
@@ -137,11 +137,11 @@ export default function WhyHadronSection() {
   }, []);
 
   return (
-    <section 
-      ref={sectionRef} 
-      style={{ 
-        width: '100%', 
-        backgroundColor: '#ffffff', 
+    <section
+      ref={sectionRef}
+      style={{
+        width: '100%',
+        backgroundColor: '#ffffff',
         minHeight: '100vh',
         zIndex: 10,
         position: 'relative',
@@ -166,10 +166,10 @@ export default function WhyHadronSection() {
           }
         }
       `}</style>
-      <div 
-        style={{ 
-          width: '100%', 
-          height: '100vh', 
+      <div
+        style={{
+          width: '100%',
+          height: '100vh',
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column',
@@ -181,12 +181,12 @@ export default function WhyHadronSection() {
       >
         {/* Top-left header: Single line, right side empty */}
         <div style={{ position: 'absolute', top: '12vh', left: '2rem', zIndex: 20 }}>
-          <h2 
+          <h2
             className="adv-title"
-            style={{ 
-              fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', 
-              fontWeight: 700, 
-              color: '#0f172a', 
+            style={{
+              fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
+              fontWeight: 700,
+              color: '#0f172a',
               letterSpacing: '-0.02em',
               whiteSpace: 'nowrap'
             }}
@@ -196,7 +196,7 @@ export default function WhyHadronSection() {
         </div>
 
         {/* Full-screen track container pushing content to bottom */}
-        <div 
+        <div
           ref={panRef}
           className="adv-pan-container"
           style={{
@@ -204,25 +204,25 @@ export default function WhyHadronSection() {
             flex: 1,
             display: 'flex',
             alignItems: 'flex-end',
-            paddingBottom: '12px'
+            paddingBottom: '30px' /* Increased by 12px */
           }}
         >
           {/* Global Dashed Guideline passing perfectly through the origin dot */}
-          <svg 
-            style={{ 
-              position: 'absolute', 
-              top: '45%', 
-              left: 0, 
-              width: '100%', 
-              height: '2px', 
-              zIndex: 9 
+          <svg
+            style={{
+              position: 'absolute',
+              top: '45%',
+              left: 0,
+              width: '100%',
+              height: '2px',
+              zIndex: 9
             }}
           >
             <line x1="0" y1="1" x2="100%" y2="1" stroke="rgba(244, 124, 54, 0.4)" strokeWidth="1" strokeDasharray="6 6" />
           </svg>
 
           {/* Rolling Geometric Shape */}
-          <div 
+          <div
             ref={rollerRef}
             style={{
               position: 'absolute',
@@ -240,17 +240,17 @@ export default function WhyHadronSection() {
           >
             <svg viewBox="0 0 100 100" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
               {/* Morphing Polygon Layer */}
-              <polygon 
+              <polygon
                 ref={polygonRef}
-                points={getPoints(4)} 
-                fill="#F47C36" 
-                stroke="#F47C36" 
+                points={getPoints(4)}
+                fill="#F47C36"
+                stroke="#F47C36"
                 strokeWidth="2"
                 strokeLinejoin="round"
                 vectorEffect="non-scaling-stroke"
               />
               {/* Perfect Circle Layer (Faded in during final phase) */}
-              <circle 
+              <circle
                 ref={circleRef}
                 cx="50" cy="50" r="48"
                 fill="#F47C36"
@@ -265,11 +265,11 @@ export default function WhyHadronSection() {
           </div>
 
           {/* Cards Grid Architecture */}
-          <div 
+          <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: '16px', 
+              gap: '16px',
               width: '100%',
               height: '100%',
               alignItems: 'flex-end',
@@ -278,8 +278,8 @@ export default function WhyHadronSection() {
           >
             {advantages.map((item, index) => {
               return (
-                  <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="adv-card"
                   style={{
                     backgroundColor: '#ffffff',
@@ -295,7 +295,7 @@ export default function WhyHadronSection() {
                   }}
                 >
                   {/* Clean Top Number Badge anchored near top of max height so it never overlaps title when short */}
-                    <div 
+                  <div
                     style={{
                       position: 'absolute',
                       bottom: 'calc(72vh - 3.5rem)',
@@ -309,7 +309,7 @@ export default function WhyHadronSection() {
                   </div>
 
                   {/* Card Title & Body Area (Pinned strictly in lower half) */}
-                  <div 
+                  <div
                     style={{
                       position: 'absolute',
                       bottom: 0,
@@ -321,7 +321,7 @@ export default function WhyHadronSection() {
                       color: '#0f172a'
                     }}
                   >
-                    <h3 
+                    <h3
                       style={{
                         fontSize: '1.4rem',
                         fontWeight: 700,
@@ -333,7 +333,7 @@ export default function WhyHadronSection() {
                     >
                       {item.title}
                     </h3>
-                    <p 
+                    <p
                       style={{
                         fontSize: '14px',
                         lineHeight: 1.6,
