@@ -78,20 +78,21 @@ export default function InteractiveCanvasSection() {
     ctx.globalCompositeOperation = "source-over";
     
     // Set up handwriting font
-    const scale = window.devicePixelRatio || 1;
-    const baseFontSize = 36; 
-    ctx.font = `${baseFontSize * scale}px 'Caveat', cursive`;
+    const pixelRatio = window.devicePixelRatio || 1;
+    const contentScale = (canvas.offsetWidth || 1300) / 1300; // Scale relative to original 1300px design
+    const drawScale = pixelRatio * contentScale;
+    
     ctx.fillStyle = "#0f172a"; // Dark pen color for notes
     ctx.textBaseline = "top";
 
     const items = TAB_CONTENT[activeTab];
-    const logicalWidth = canvas.width / scale;
-    const colWidth = logicalWidth / 2; // Divide canvas into 2 columns
-    const maxTextWidth = (colWidth - 120) * scale; // Increased padding for a larger gutter
+    const BASE_WIDTH = 1300;
+    const colWidth = BASE_WIDTH / 2; // Fixed logical grid size
+    const maxTextWidth = (colWidth - 120) * drawScale; 
     
-    const startX = 80; // More comfortable left indent
-    const startY = 120; // Start higher up
-    const rowHeight = 280; // Reduced vertical spacing since text is smaller
+    const startX = 80; 
+    const startY = 120; 
+    const rowHeight = 280; 
 
     // Helper to wrap text
     const wrapText = (text: string, x: number, y: number, maxWidth: number, lineHeight: number) => {
@@ -115,38 +116,53 @@ export default function InteractiveCanvasSection() {
     };
 
     items.forEach((item, index) => {
-      // Standard 2x2 or 3x2 grid with underlines for all tabs
-      const col = index % 2; 
-      const row = Math.floor(index / 2); 
-      
-      const x = (startX + (col * colWidth)) * scale;
-      const y = (startY + (row * rowHeight)) * scale;
+      let col, row, x, y;
 
-      // Draw Title
-      ctx.font = `bold ${27 * scale}px 'Caveat', cursive`;
-      ctx.fillText(item.title, x, y);
+      if (activeTab === 1) {
+        // PARTNERS TAB: Render as tight vertical lists (3 items per column)
+        col = Math.floor(index / 3); 
+        row = index % 3;             
+        
+        x = (startX + (col * colWidth)) * drawScale;
+        y = (startY + (row * 60)) * drawScale; 
 
-      // Draw Underline
-      const titleWidth = ctx.measureText(item.title).width;
-      ctx.beginPath();
-      ctx.moveTo(x, y + (28 * scale));
-      ctx.lineTo(x + titleWidth, y + (28 * scale));
-      ctx.lineWidth = 2 * scale;
-      ctx.strokeStyle = "#0f172a";
-      ctx.stroke();
-      
-      // Draw Body
-      ctx.font = `${22 * scale}px 'Caveat', cursive`;
-      wrapText(item.body, x, y + (48 * scale), maxTextWidth, 26 * scale);
+        ctx.font = `bold ${32 * drawScale}px 'Caveat', cursive`; 
+        ctx.fillText(item.title, x, y);
+        
+      } else {
+        // EXPERTISE & EXCELLENCE TABS: Standard 2x2 or 3x2 grid with underlines
+        col = index % 2; 
+        row = Math.floor(index / 2); 
+        
+        x = (startX + (col * colWidth)) * drawScale;
+        y = (startY + (row * rowHeight)) * drawScale;
+
+        // Draw Title
+        ctx.font = `bold ${27 * drawScale}px 'Caveat', cursive`;
+        ctx.fillText(item.title, x, y);
+
+        // Draw Underline
+        const titleWidth = ctx.measureText(item.title).width;
+        ctx.beginPath();
+        ctx.moveTo(x, y + (28 * drawScale));
+        ctx.lineTo(x + titleWidth, y + (28 * drawScale));
+        ctx.lineWidth = 2 * drawScale;
+        ctx.strokeStyle = "#0f172a";
+        ctx.stroke();
+        
+        // Draw Body
+        ctx.font = `${22 * drawScale}px 'Caveat', cursive`;
+        wrapText(item.body, x, y + (48 * drawScale), maxTextWidth, 26 * drawScale);
+      }
     });
 
     // Re-apply drawing tool settings immediately after rendering text
-    ctx.lineWidth = strokeWidth * scale;
+    ctx.lineWidth = strokeWidth * drawScale;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     if (tool === "eraser") {
       ctx.globalCompositeOperation = "destination-out";
-      ctx.lineWidth = strokeWidth * scale * 3;
+      ctx.lineWidth = strokeWidth * drawScale * 3;
     } else {
       ctx.globalCompositeOperation = "source-over";
       ctx.strokeStyle = color;
@@ -161,9 +177,13 @@ export default function InteractiveCanvasSection() {
 
     const resizeCanvas = () => {
       const { width, height } = container.getBoundingClientRect();
-      const scale = window.devicePixelRatio || 1;
-      canvas.width = width * scale;
-      canvas.height = height * scale;
+      const pixelRatio = window.devicePixelRatio || 1;
+      canvas.width = width * pixelRatio;
+      canvas.height = height * pixelRatio;
+      
+      // Inject scale variable to resize the CSS background grid
+      const contentScale = width / 1300;
+      container.style.setProperty('--scale', `${contentScale}`);
       
       // Explicitly tell the browser to fetch and load the Caveat font
       // ctx.font usage doesn't always trigger network requests quickly!
@@ -185,14 +205,17 @@ export default function InteractiveCanvasSection() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const scale = window.devicePixelRatio || 1;
-    ctx.lineWidth = strokeWidth * scale;
+    const pixelRatio = window.devicePixelRatio || 1;
+    const contentScale = (canvas.offsetWidth || 1300) / 1300;
+    const drawScale = pixelRatio * contentScale;
+
+    ctx.lineWidth = strokeWidth * drawScale;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     
     if (tool === "eraser") {
       ctx.globalCompositeOperation = "destination-out";
-      ctx.lineWidth = strokeWidth * scale * 4; // Make eraser bigger
+      ctx.lineWidth = strokeWidth * drawScale * 4; // Make eraser bigger
     } else {
       ctx.globalCompositeOperation = "source-over";
       ctx.strokeStyle = color;
