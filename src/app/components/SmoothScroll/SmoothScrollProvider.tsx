@@ -66,7 +66,52 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
       });
     }, 500);
 
+    // 4. Arrow Keys Section Snapping
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't intercept if user is typing in an input or textarea
+      const targetTag = (e.target as HTMLElement).tagName;
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(targetTag)) return;
+
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        
+        // Find all main sections on the page
+        const sections = Array.from(document.querySelectorAll('section, footer'));
+        if (sections.length === 0) return;
+        
+        if (e.key === 'ArrowDown') {
+          // Find first section whose top is visibly below the current viewport top
+          const nextSection = sections.find(sec => {
+            const rect = sec.getBoundingClientRect();
+            return rect.top > 10;
+          });
+          if (nextSection) {
+            lenis.scrollTo(nextSection, { offset: 0, duration: 1.2 });
+          } else {
+            // Fallback to bottom if no next section
+            lenis.scrollTo('bottom', { duration: 1.2 });
+          }
+        } else if (e.key === 'ArrowUp') {
+          // Find the last section whose top is visibly above the current viewport top
+          const prevSections = [...sections].reverse();
+          const prevSection = prevSections.find(sec => {
+            const rect = sec.getBoundingClientRect();
+            return rect.top < -10;
+          });
+          if (prevSection) {
+            lenis.scrollTo(prevSection, { offset: 0, duration: 1.2 });
+          } else {
+            // Fallback to top if no previous section
+            lenis.scrollTo('top', { duration: 1.2 });
+          }
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
     return () => {
+      window.removeEventListener('keydown', handleKeyDown);
       lenis.destroy();
       gsap.ticker.remove((time) => lenis.raf(time * 1000));
       ScrollTrigger.getAll().forEach(t => t.kill());
