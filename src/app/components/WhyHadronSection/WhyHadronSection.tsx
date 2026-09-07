@@ -8,17 +8,17 @@ const advantages = [
   {
     num: "01",
     title: "Architecture-Led Delivery",
-    desc: "We treat every engagement as a complex systems problem rather than a mere implementation task. Our elite enterprise architects design for foundational structure, operational coherence, and long-term platform health. By embedding architectural governance directly into our delivery pipelines, we ensure that the digital cores we build are scalable, secure, and fiercely resilient against technical debt."
+    desc: "We treat every engagement as a complex systems challenge, rather than a mere implementation task. Our elite enterprise architects design for structural integrity, operational coherence, and long-term platform health. By embedding strict governance into our pipelines, we ensure the digital cores we build are highly scalable, secure, and fiercely resilient against technical debt."
   },
   {
     num: "02",
     title: "Outcome-Driven Accountability",
-    desc: "Implementation isn't enough; we measure success strictly by business impact. From day one, we align our delivery model with your core strategic objectives, defining success through measurable, hard KPIs such as MTTR reduction, accelerated deployment frequency, and improved CSAT. We tie our operational success directly to yours, staying ruthlessly accountable to these metrics at every stage of the journey."
+    desc: "Implementation isn't enough; we measure success strictly by business impact. We align our delivery model with your core strategic objectives from day one, defining success through hard KPIs like MTTR reduction and improved CSAT. We tie our operational success directly to yours, staying ruthlessly accountable to these metrics at every stage of the journey."
   },
   {
     num: "03",
     title: "GenAI-Powered Transformation",
-    desc: "We are pioneering the next era of enterprise operations by embedding intelligent automation natively into ServiceNow, Salesforce, and SAP workflows. Our custom GenAI integrations transform static processes into dynamic, self-optimizing ecosystems that drastically reduce manual overhead, accelerate decision-making, and unlock entirely new dimensions of operational efficiency."
+    desc: "We are pioneering the next era of enterprise operations by natively embedding intelligent automation into ServiceNow, Salesforce, and SAP workflows. Our custom GenAI integrations transform static processes into dynamic, self-optimizing ecosystems that reduce manual overhead, accelerate decisions, and unlock new dimensions of operational efficiency."
   },
   {
     num: "04",
@@ -91,8 +91,8 @@ export default function WhyHadronSection() {
             // window.innerWidth - 64 accounts for the 2rem (32px) padding on both sides
             x: () => -(panRef.current!.offsetWidth - (window.innerWidth - 64)),
             ease: "none",
-            duration: 1.0
-          }, 0.00);
+            duration: 0.75
+          }, 0.25); // Delay start so the 1st card grows fully before it slides left
         }
 
         // 1. Simultaneous Staggered Card Growth from absolute bottom

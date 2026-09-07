@@ -195,3 +195,10 @@
   transform: scale(1.2);
   border-color: #0f172a;
 }
+
+/* Hide entirely on mobile devices */
+@media (max-width: 768px) {
+  .wrapper {
+    display: none !important;
+  }
+}
