@@ -1,0 +1,405 @@
+.main {
+  background-color: transparent;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Hero / Overview Section ── */
+.heroSection {
+  position: relative;
+  text-align: center;
+  padding: 10rem 1rem 6rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60vh;
+  background-color: transparent;
+}
+
+.heroVideoContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+}
+
+/* Solid dark overlay for video */
+.heroVideoContainer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  pointer-events: none;
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+}
+
+.heroOverview {
+  font-size: 1.25rem;
+  color: #e2e8f0;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Services Carousel / Hover Grid ── */
+.carouselSection {
+  position: relative;
+  z-index: 1;
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.serviceGridCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 1.2 / 1;
+  cursor: pointer;
+  background-color: #f1f5f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.serviceGridImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.serviceGridCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+}
+
+.serviceGridCard:hover .serviceGridImage {
+  /* 3D effect when hovered */
+  transform: scale(1.1) perspective(1000px) rotateX(2deg) rotateY(-2deg);
+}
+
+.serviceGridOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.4) 100%);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.serviceGridTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.serviceGridDesc {
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.serviceGridBtn {
+  align-self: flex-start;
+  padding: 0;
+  background-color: transparent;
+  color: #F47C36;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.serviceGridBtn:hover {
+  color: #F47C36;
+}
+
+/* ── Detailed Services Section ── */
+.detailsSection {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 1rem;
+  background-color: #f8fafc;
+}
+
+.detailsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.detailBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.detailBlockReverse .detailContent {
+  order: 2;
+}
+
+.detailBlockReverse .detailImage {
+  order: 1;
+}
+
+@media (max-width: 992px) {
+  .detailBlock {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .detailBlockReverse .detailContent {
+    order: 1;
+  }
+
+  .detailBlockReverse .detailImage {
+    order: 2;
+  }
+}
+
+.detailContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.serviceTag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #F47C36;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.detailTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  /* Dark text for light theme */
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.detailSubtitle {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 1.5rem;
+}
+
+.detailText {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.detailList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detailListItem {
+  position: relative;
+  padding-left: 1.5rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.detailListItem::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #F47C36;
+  font-weight: bold;
+}
+
+.detailListItem strong {
+  color: #0f172a;
+}
+
+.ctaAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  background-color: transparent;
+  color: #F47C36;
+  border: none;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: color 0.3s;
+}
+
+.ctaAction:hover {
+  color: #F47C36;
+}
+
+.detailImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.detailImage:hover {
+  transform: scale(1.05) perspective(1000px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.managedServicesImage {
+  height: 400px;
+  object-fit: cover;
+}
+
+/* ── Why Hadron Section ── */
+.whySection {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 1rem;
+  background-color: #ffffff;
+}
+
+.whyContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.whyTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.whySubtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  line-height: 1.6;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .whyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Datacards with Orange faded border (3D glow effect) */
+.whyCard {
+  position: relative;
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.whyCard::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 0 2px 4px 2px;
+  background: linear-gradient(to top, #F47C36 0%, rgba(244, 124, 54, 0) 50%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.whyCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.whyCardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.whyCardText {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+}

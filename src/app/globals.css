@@ -96,10 +96,10 @@ img, canvas {
   max-width: 100%;
 }
 
-::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #d9621b; } /* Darker orange */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

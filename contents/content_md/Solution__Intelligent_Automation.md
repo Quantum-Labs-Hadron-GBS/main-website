@@ -1,0 +1,185 @@
+# Page: Solution - Intelligent Automation
+
+## Outgoing Links
+- [/contact](/contact)
+
+## Images & Media
+- https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788267903/Animate_the_attached_image_as_xmqsid.mp4
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_1_htjhug.jpg
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_2_wyepkk.jpg
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_5_syh8hy.jpg
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_3_tshlif.jpg
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268273/ai_4_tllrcx.jpg
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788269187/ai_m1_zwylfu.png
+- https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788269188/ai_m2_jffznd.png
+
+## Text Content
+```text
+
+
+--- Source: src/app/solutions/intelligent-automation-agentic-ai/page.tsx ---
+
+1rem
+
+1rem
+
+{
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return (
+
+{/* HERO SECTION */}
+
+{/* Background Video/Image placeholder - Using a dark gradient as fallback if video isn't available */}
+
+Intelligent Automation & Agentic AI
+
+Hadron GBS translates deep automation expertise into measurable business value through outcomes-driven execution across intelligent automation and agentic AI
+
+{/* MAIN CONTENT CONTAINER (White Background) */}
+
+Automation and AI Services Across
+
+Enterprise Workflows
+
+{/* CARDS SECTION */}
+
+{/* Card 1 */}
+
+{/* Placeholder for Card Image */}
+
+From Automation to Autonomy
+
+Hadron GBS moves enterprises beyond rule-based automation to agentic AI, where intelligent agents perceive, decide, and act independently within defined business contexts.
+
+Reduced human intervention in complex workflows
+
+Faster execution with intelligent decision-making
+
+Continuous learning and optimization of processes
+
+{/* Card 2 */}
+
+{/* Placeholder for Card Image */}
+
+Intelligent Orchestration at Scale
+
+We design orchestration layers that connect systems, data, and AI agents into a unified automation fabric across the enterprise.
+
+End-to-end visibility and control across processes
+
+Integration across ERP, CRM, and third-party platforms
+
+Real-time responsiveness to business events
+
+{/* Card 3 */}
+
+{/* Placeholder for Card Image */}
+
+Hyper Automation of Business Operations
+
+Hadron GBS combines RPA, AI and ML, NLP, and analytics to automate entire value chains, not just isolated tasks.
+
+Significant reduction in cycle times and operational costs
+
+Improved accuracy and compliance
+
+Scalable automation across finance, HR, supply chain
+
+{/* Card 4 */}
+
+{/* Placeholder for Card Image */}
+
+Data-Driven Decision Intelligence
+
+We embed advanced analytics and AI models into workflows, enabling systems to make contextual, real-time decisions.
+
+Predictive and prescriptive insights at the point of action
+
+Enhanced decision quality and speed
+
+Ability to respond proactively to risks and opportunities
+
+{/* Card 5 */}
+
+{/* Placeholder for Card Image */}
+
+Human and AI Collaboration
+
+Hadron GBS ensures automation augments human capability, enabling teams to focus on strategic, high-value work.
+
+Increased workforce productivity and engagement
+
+Better exception handling through human-in-the-loop
+
+Accelerated innovation and problem-solving
+
+{/* EXECUTION GRID SECTION (Structured Framework) */}
+
+A Structured Framework for
+
+Autonomous Enterprise Operations
+
+Our approach integrates process, data, and technology to deliver value faster, reduce risk, and build scalable enterprise platforms.
+
+Discover
+
+Identify high-impact automation opportunities and assess process maturity.
+
+Design
+
+Architect intelligent workflows and agentic AI models aligned to business goals.
+
+Deploy
+
+Implement scalable automation with defined governance and integration.
+
+Evolve
+
+Continuously optimize through learning systems and performance insights.
+
+{/* WHY HADRON BLOCK */}
+
+{/* Image Placeholder */}
+
+Why Hadron GBS for Intelligent Automation
+
+From RPA to agentic AI and enterprise orchestration, our teams bring certified expertise across the full automation stack.
+
+Expertise in combining RPA, AI, and enterprise orchestration
+
+Outcome driven approach focused on measurable business impact
+
+Proven ability to scale automation across complex, global enterprises
+
+Strong governance, security, and ethical AI frameworks
+
+{/* MEASURABLE BUSINESS IMPACT BLOCK */}
+
+Measurable Enterprise Impact Through Agentic AI
+
+30-60% reduction in manual effort across operations
+
+Faster, more accurate decision-making at scale
+
+Lower operational costs with higher process efficiency
+
+Increased agility to respond to market changes
+
+Foundation for a truly autonomous enterprise
+
+{/* Image Placeholder */}
+
+{/* BOTTOM CTA */}
+
+Transform Your Operations From
+
+Automated to Autonomous
+
+Leverage agentic AI to drive intelligent, scalable, and resilient business outcomes.
+
+Consult with us ↗
+```

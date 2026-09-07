@@ -1,0 +1,166 @@
+.wrapper {
+  position: relative;
+  height: 120vh; /* Minimized to allow 'one normal speed scroll' to pass the section */
+  background-color: #f8fafc; /* Light theme matching Alpy */
+  z-index: 5;
+  margin-top: -5px;
+}
+
+/* Fallback to dark if you prefer, but Alpy is white. The user screenshot is white! */
+:global(.light-theme) .wrapper {
+  background-color: #f8fafc;
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+/* ── Center Text ── */
+.centerTextContainer {
+  position: absolute;
+  z-index: 20;
+  text-align: center;
+  pointer-events: none;
+  max-width: 340px; /* Force it to fit perfectly inside the smallest 400px ring */
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem); /* Considerably smaller */
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  color: #F47C36; /* Hadron orange */
+  font-size: 0.85em; /* Make Hadron a little smaller */
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #475569;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Orbital Rings ── */
+.ringsWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform-origin: center center;
+}
+
+/* Draw the actual ring border with a fading mask so it's only bold on left/right */
+.ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(244, 124, 54, 0.4); /* Orange border as requested */
+  
+  /* The mask fades the top and bottom out, leaving only the sides solid */
+  -webkit-mask-image: linear-gradient(
+    to bottom, 
+    rgba(0,0,0,0) 0%, 
+    rgba(0,0,0,1) 25%, 
+    rgba(0,0,0,1) 75%, 
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom, 
+    rgba(0,0,0,0) 0%, 
+    rgba(0,0,0,1) 25%, 
+    rgba(0,0,0,1) 75%, 
+    rgba(0,0,0,0) 100%
+  );
+  pointer-events: none;
+}
+
+/* Fix transform conflicts by nesting transforms properly */
+.ring1 { width: 400px; height: 400px; margin-top: -200px; margin-left: -200px; }
+.ring2 { width: 650px; height: 650px; margin-top: -325px; margin-left: -325px; }
+.ring3 { width: 900px; height: 900px; margin-top: -450px; margin-left: -450px; }
+
+/* ── Logo Bubbles ── */
+.logoWrapper {
+  position: absolute;
+  pointer-events: auto;
+}
+
+.logoCard {
+  background: #ffffff;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.logoCard:hover {
+  transform: scale(1.1) !important; /* overrides counter-rotation temporarily if needed, but framer motion handles inline style */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.logoImg {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+/* Brighten up slightly on hover */
+.logoCard:hover .logoImg {
+  opacity: 1;
+}
+
+.dot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #60A5FA, #2563eb); /* Pure blue atom as requested */
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.5); /* Blue glow */
+}
+
+@media (max-width: 1024px) {
+  .ring1 { width: 300px; height: 300px; margin-top: -150px; margin-left: -150px; }
+  .ring2 { width: 500px; height: 500px; margin-top: -250px; margin-left: -250px; }
+  .ring3 { width: 700px; height: 700px; margin-top: -350px; margin-left: -350px; }
+  
+  .title { font-size: 2.5rem; }
+  
+  .logoCard {
+    width: 60px;
+    height: 60px;
+  }
+}

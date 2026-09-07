@@ -7,6 +7,8 @@ import styles from "./About.module.css";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import InteractiveBento from "../components/InteractiveBento/InteractiveBento";
+import OurStorySection from "../components/OurStorySection/OurStorySection";
+import CoreValuesSection from "../components/CoreValuesSection/CoreValuesSection";
 
 export default function AboutPage() {
   const timelineEvents = [
@@ -62,7 +64,7 @@ export default function AboutPage() {
       {/* HERO SECTION */}
       <section className={styles.heroBanner}>
         <video 
-          src="https://res.cloudinary.com/ax6dtcht/video/upload/v1785324882/Great_great__Do_one_thing_1_gm5vhr.mp4"
+          src="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788242997/Use_the_attached_image_as_the_1_pwo6nq.mp4"
           autoPlay
           loop
           muted
@@ -144,6 +146,9 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* OUR STORY */}
+      <OurStorySection />
+
       {/* TIMELINE */}
       <section className={styles.timelineSection}>
         <div className={styles.container}>
@@ -169,6 +174,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* 4 P's OF HADRON (Moved from Home Page) */}
+      <CoreValuesSection />
 
       {/* PARTNERS */}
       <section className={`${styles.section} ${styles.partnersSection}`}>
@@ -203,7 +211,7 @@ export default function AboutPage() {
           <p className={styles.ctaDesc}>
             Contact us today, and let us help you achieve your business objectives.
           </p>
-          <Link href="/#contact" className={styles.ctaButton}>
+          <Link href="/contact" className={styles.ctaButton}>
             Contact Us
           </Link>
         </div>

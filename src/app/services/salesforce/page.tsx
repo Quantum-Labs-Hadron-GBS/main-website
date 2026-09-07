@@ -5,6 +5,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function SalesforcePage() {
   return (
     <ServiceLayout
+      expertName="Salesforce"
       title="Accelerate Enterprise Growth with Hadron GBS & Salesforce"
       subtitle="At Hadron GBS, we believe every interaction—whether with a customer or an employee—is an opportunity for growth. As a strategic Salesforce partner, we help organizations transition from siloed data to a unified, 360-degree view of their entire business. By leveraging the world’s #1 AI CRM and its expanding service capabilities, we empower your teams to work smarter, close deals faster, and deliver seamless internal support."
       heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326087/414330dbc452b6e40004da2889ac168c_nuytqv.mp4"
@@ -32,3 +33,4 @@ export default function SalesforcePage() {
     />
   );
 }
+

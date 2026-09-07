@@ -57,9 +57,6 @@ export default function AssetsOfExcellenceSection() {
                 <span className={styles.tag}>{asset.tag}</span>
                 <h3 className={styles.cardTitle}>{asset.title}</h3>
                 <p className={styles.cardBody}>{asset.body}</p>
-                <Link href={asset.link} className={styles.readMore}>
-                  Read More &rarr;
-                </Link>
               </div>
             </div>
           ))}

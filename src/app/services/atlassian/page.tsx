@@ -5,6 +5,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function AtlassianPage() {
   return (
     <ServiceLayout
+      expertName="Atlassian"
       title="Unleash Team Potential with Hadron GBS & Atlassian"
       subtitle="At Hadron GBS, we believe that high-performing teams are the engine of every successful enterprise. As a dedicated Atlassian partner, we help organizations break down silos, accelerate software delivery, and foster a culture of open collaboration. By optimizing the Atlassian stack, we transform how your teams plan, track, and support work—moving you from fragmented communication to unified project mastery."
       heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785324524/I_want_light_themed_D_abstrac_ogyy4a.mp4"
@@ -32,3 +33,4 @@ export default function AtlassianPage() {
     />
   );
 }
+

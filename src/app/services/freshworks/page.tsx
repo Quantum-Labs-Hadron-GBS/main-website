@@ -5,6 +5,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function FreshworksPage() {
   return (
     <ServiceLayout
+      expertName="Freshworks"
       title="Reimagine Customer & Employee Experience with Hadron GBS & Freshworks"
       subtitle="At Hadron GBS, we accelerate enterprise transformation by aligning proven implementation expertise with best-in-class SaaS platforms. Freshworks delivers a modern, AI-powered platform for customer support, IT service management, CRM, engagement, and marketing automation. As a dedicated Freshworks partner, Hadron GBS helps organizations implement, integrate, and optimize Freshworks to enhance customer experience, employee experience, and operational efficiency."
       heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326079/From_Klickpin.com-_Smart_entryway_makeover_ideas_for_a_polished_look_people_will_notice_using_practical_inspiration_that_still_feels_highly_aesthe_1_uetggx.mp4"
@@ -33,3 +34,4 @@ export default function FreshworksPage() {
     />
   );
 }
+

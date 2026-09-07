@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import GlobeWrapper from "./components/GlobalGlobe/GlobeWrapper";
 import { ThemeProvider } from "./components/ThemeProvider/ThemeProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 import { Space_Grotesk, Inter } from "next/font/google";
 
@@ -32,22 +33,16 @@ export const metadata: Metadata = {
   },
 };
 
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import SmoothScrollProvider from "./components/SmoothScroll/SmoothScrollProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`} data-theme="light" suppressHydrationWarning>
       <body className="light-theme" suppressHydrationWarning>
-        {/* Anti-FOUC script for the Hero intro sequence */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (window.location.pathname === '/') {
-                document.body.classList.add('intro-running');
-              }
-            `
-          }}
-        />
+        {/* Legacy Hero intro script removed as PartnerRingSection does not use it */}
         
         {/*
           GlobeWrapper handles route-based blurring of the globe canvas.
@@ -55,8 +50,14 @@ export default function RootLayout({
         <GlobeWrapper />
         
         <ThemeProvider>
-          {children}
+          <SmoothScrollProvider>
+            {children}
+          </SmoothScrollProvider>
         </ThemeProvider>
+        
+        {/* Global Scroll to Top Button */}
+        <ScrollToTop />
+
         
         {/* SEO Structured Data */}
         <script
@@ -71,6 +72,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema()) }}
         />
+        <Analytics />
       </body>
     </html>
   );

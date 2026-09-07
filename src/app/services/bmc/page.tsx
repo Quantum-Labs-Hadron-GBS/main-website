@@ -5,6 +5,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function BmcPage() {
   return (
     <ServiceLayout
+      expertName="BMC"
       title="Empower Your Digital Enterprise with Hadron GBS & BMC Software"
       subtitle="At Hadron GBS, we specialize in turning operational complexity into a competitive advantage. As a strategic BMC Software partner, we help organizations transition from traditional IT management to Autonomous Digital Enterprise models. By leveraging BMC’s robust portfolio, we enable your business to scale with agility, automate at every level, and deliver data-driven insights."
       heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326078/From_Klickpin.com-_Smart_entryway_makeover_ideas_for_a_polished_look_people_will_notice_using_practical_inspiration_that_still_feels_highly_aesthe_4_dc5qsc.mp4"
@@ -30,3 +31,4 @@ export default function BmcPage() {
     />
   );
 }
+

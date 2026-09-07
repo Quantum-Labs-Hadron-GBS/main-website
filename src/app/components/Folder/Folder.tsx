@@ -37,6 +37,7 @@ const Folder = ({ color = '#F47C36', size = 1, items = [], className = '', label
   }
 
   const [open, setOpen] = useState(false);
+  const [activePaperIndex, setActivePaperIndex] = useState<number | null>(null);
   const [paperOffsets, setPaperOffsets] = useState(Array.from({ length: maxItems }, () => ({ x: 0, y: 0 })));
 
   const folderBackColor = darkenColor(color, 0.08);
@@ -47,8 +48,12 @@ const Folder = ({ color = '#F47C36', size = 1, items = [], className = '', label
 
   const handleClick = () => {
     setOpen(prev => !prev);
-    if (open) {
+    if (!open) {
+      // Opening
       setPaperOffsets(Array.from({ length: maxItems }, () => ({ x: 0, y: 0 })));
+    } else {
+      // Closing
+      setActivePaperIndex(null);
     }
   };
 
@@ -108,9 +113,18 @@ const Folder = ({ color = '#F47C36', size = 1, items = [], className = '', label
             {papers.map((item, i) => (
               <div
                 key={i}
-                className={`paper paper-${i + 1}`}
+                className={`paper paper-${i + 1} ${activePaperIndex === i ? 'active' : ''}`}
                 onMouseMove={e => handlePaperMouseMove(e, i)}
                 onMouseLeave={e => handlePaperMouseLeave(e, i)}
+                onClick={(e) => {
+                  if (open) {
+                    if (activePaperIndex !== i) {
+                      e.preventDefault(); // Prevent navigating if they tap the paper
+                      setActivePaperIndex(i);
+                    }
+                    e.stopPropagation(); // Prevent folder from closing
+                  }
+                }}
                 style={
                   open
                     ? {

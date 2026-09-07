@@ -5,11 +5,13 @@ import type { NextRequest } from "next/server";
 export async function middleware(req: NextRequest) {
   const url = req.nextUrl;
   const hostname = req.headers.get("host") || "";
+  let shouldRewrite = false;
 
   // 1. Rewrite `portal.hadrongbs.com` to `/portal`
   if (hostname === "portal.hadrongbs.com" || hostname.startsWith("portal.")) {
     if (!url.pathname.startsWith("/portal") && !url.pathname.startsWith("/api/auth")) {
       url.pathname = `/portal${url.pathname === "/" ? "" : url.pathname}`;
+      shouldRewrite = true;
     }
   }
 
@@ -35,7 +37,11 @@ export async function middleware(req: NextRequest) {
     }
   }
 
-  return NextResponse.rewrite(url);
+  if (shouldRewrite) {
+    return NextResponse.rewrite(url);
+  }
+  
+  return NextResponse.next();
 }
 
 export const config = {

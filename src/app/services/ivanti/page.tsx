@@ -5,6 +5,7 @@ import ServiceLayout from "../ServiceLayout";
 export default function IvantiPage() {
   return (
     <ServiceLayout
+      expertName="Ivanti"
       title="Secure and Manage the Everywhere Workstyle with Hadron GBS & Ivanti"
       subtitle="At Hadron GBS, we understand that the modern workforce is no longer confined to a single office or network. As a strategic Ivanti partner, we help organizations discover, manage, and secure every device and endpoint across the enterprise. By unifying IT Service Management (ITSM) with robust cybersecurity and endpoint intelligence, we ensure your employees remain productive and protected, regardless of their location."
       heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326082/From_Klickpin.com-_Smart_entryway_makeover_ideas_for_a_polished_look_people_will_notice_using_practical_inspiration_that_still_feels_highly_aesthe_3_f90ffh.mp4"
@@ -31,3 +32,4 @@ export default function IvantiPage() {
     />
   );
 }
+
