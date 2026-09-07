@@ -57,7 +57,7 @@ export default function WhyHadronSection() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray(".adv-card");
+      const cards = gsap.utils.toArray(".adv-card") as HTMLElement[];
 
       // Initial state: Cards start completely from the absolute bottom (0px)
       gsap.set(cards, { height: '0px' });
