@@ -47,7 +47,7 @@ const SOLUTIONS = [
 
 export default function CorePracticesSection() {
   const containerRef = useRef<HTMLElement>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -72,24 +72,24 @@ export default function CorePracticesSection() {
       {/* Background Concentric Circles Container */}
       <div className={styles.circlesContainer}>
         <motion.div className={styles.stickyCircles}>
-          <motion.div 
-            className={`${styles.circle} ${styles.circle1}`} 
+          <motion.div
+            className={`${styles.circle} ${styles.circle1}`}
             style={{ x: "-50%", y: "-50%", rotate: rotate1 }}
           >
             <div className={styles.blueDot} style={{ top: '14.6%', left: '85.4%' }} />
             <div className={styles.blueDot} style={{ top: '85.4%', left: '85.4%' }} />
           </motion.div>
-          
-          <motion.div 
-            className={`${styles.circle} ${styles.circle2}`} 
+
+          <motion.div
+            className={`${styles.circle} ${styles.circle2}`}
             style={{ x: "-50%", y: "-50%", rotate: rotate2 }}
           >
             <div className={styles.blueDot} style={{ top: '50%', left: '100%' }} />
             <div className={styles.blueDot} style={{ top: '14.6%', left: '85.4%' }} />
           </motion.div>
 
-          <motion.div 
-            className={`${styles.circle} ${styles.circle3}`} 
+          <motion.div
+            className={`${styles.circle} ${styles.circle3}`}
             style={{ x: "-50%", y: "-50%", rotate: rotate3 }}
           >
             <div className={styles.blueDot} style={{ top: '85.4%', left: '85.4%' }} />
@@ -97,14 +97,14 @@ export default function CorePracticesSection() {
           </motion.div>
         </motion.div>
       </div>
-      
+
       <div className={styles.container}>
-        
+
         {/* Left Static/Sticky Column */}
         <div className={styles.leftColumn}>
           <motion.div className={styles.stickyContent} style={{ y: stickyY }}>
             <h2 className={styles.title}>
-              Core Practices & Solutions performed by <span style={{ color: "var(--accent)" }}>Hadron GBS</span>
+              Core Offerings & Solutions by <span style={{ color: "var(--accent)" }}>Hadron GBS</span>
             </h2>
             <p className={styles.description}>
               We unify platform consulting, modern engineering, and intelligent workflow automation to build resilient digital cores.
@@ -126,13 +126,13 @@ export default function CorePracticesSection() {
             >
               <Link href={solution.href} className={styles.card}>
                 <div className={styles.cardMedia}>
-                  <video 
-                    src={solution.video} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    className={styles.cardVideo} 
+                  <video
+                    src={solution.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className={styles.cardVideo}
                   />
                 </div>
                 <div className={styles.cardContent}>

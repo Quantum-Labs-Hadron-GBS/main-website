@@ -91,22 +91,7 @@ export default function LanguageScrollSection() {
                 <span className={styles.mainText}>{currentItem.text}</span>
                 <span className={styles.subText}>{currentItem.sub}</span>
 
-                <AnimatePresence mode="wait">
-                  {currentItem.region && (
-                    <motion.div
-                      key={`r-${activeIndex}`}
-                      variants={regionVariants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      transition={{ duration: 0.35, delay: 0.15 }}
-                      className={styles.regionTag}
-                    >
-                      <span className={styles.regionDot} />
-                      <span>{currentItem.region}</span>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+
               </motion.div>
             </AnimatePresence>
           </div>
