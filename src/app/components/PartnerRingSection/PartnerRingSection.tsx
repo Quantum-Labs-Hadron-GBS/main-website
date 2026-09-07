@@ -128,8 +128,8 @@ export default function PartnerRingSection() {
               </motion.div>
             </div>
             {/* Atoms */}
-            <div className={styles.dot} style={{ top: '20%', left: '80%', transform: 'translate(-50%, -50%)' }}></div>
-            <div className={styles.dot} style={{ top: '80%', left: '20%', transform: 'translate(-50%, -50%)' }}></div>
+            <div className={styles.dot} style={{ top: '10%', left: '80%', transform: 'translate(-50%, -50%)' }}></div>
+            <div className={styles.dot} style={{ top: '90%', left: '20%', transform: 'translate(-50%, -50%)' }}></div>
           </motion.div>
 
           {/* Ring 3 (Outer) */}
@@ -153,8 +153,8 @@ export default function PartnerRingSection() {
               </motion.div>
             </div>
             {/* Atoms */}
-            <div className={styles.dot} style={{ top: '95%', left: '70%', transform: 'translate(-50%, -50%)' }}></div>
-            <div className={styles.dot} style={{ top: '5%', left: '30%', transform: 'translate(-50%, -50%)' }}></div>
+            <div className={styles.dot} style={{ top: '95.8%', left: '70%', transform: 'translate(-50%, -50%)' }}></div>
+            <div className={styles.dot} style={{ top: '4.2%', left: '30%', transform: 'translate(-50%, -50%)' }}></div>
           </motion.div>
 
         </div>

@@ -99,15 +99,15 @@
   justify-content: space-between;
   text-align: left;
   flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Neutral shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(244, 124, 54, 0.4); /* Permanent orange border */
 }
 
 .testimonialCard:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  border-color: rgba(244, 124, 54, 0.4);
+  box-shadow: 0 8px 30px rgba(244, 124, 54, 0.3); /* Stronger orange shadow on hover */
+  border-color: rgba(244, 124, 54, 0.7); /* Slightly stronger border on hover */
 }
 
 .quote {

@@ -243,7 +243,7 @@ export default function WhyHadronSection() {
               <polygon 
                 ref={polygonRef}
                 points={getPoints(4)} 
-                fill="none" 
+                fill="#F47C36" 
                 stroke="#F47C36" 
                 strokeWidth="2"
                 strokeLinejoin="round"
@@ -253,14 +253,14 @@ export default function WhyHadronSection() {
               <circle 
                 ref={circleRef}
                 cx="50" cy="50" r="48"
-                fill="none"
+                fill="#F47C36"
                 stroke="#F47C36"
                 strokeWidth="2"
                 vectorEffect="non-scaling-stroke"
                 opacity="0"
               />
               {/* Persistent Center Pivot Dot */}
-              <circle cx="50" cy="50" r="3" fill="#F47C36" />
+              <circle cx="50" cy="50" r="3" fill="#ffffff" />
             </svg>
           </div>
 
