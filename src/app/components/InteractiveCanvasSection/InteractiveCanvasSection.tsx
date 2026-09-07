@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import { motion } from "framer-motion";
 import styles from "./InteractiveCanvasSection.module.css";
 
 // SVG Icons
@@ -58,6 +59,7 @@ export default function InteractiveCanvasSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   const [activeTab, setActiveTab] = useState(0);
+  const [hoveredTab, setHoveredTab] = useState<number | null>(null);
   
   // Drawing State
   const [isDrawing, setIsDrawing] = useState(false);
@@ -288,17 +290,32 @@ export default function InteractiveCanvasSection() {
           {/* Visually hidden text to force the browser to preload the Caveat font immediately */}
           <span style={{ fontFamily: "'Caveat', cursive", position: "absolute", opacity: 0, pointerEvents: "none" }}>Preload</span>
 
-          {/* Header Tabs (Clickable, no auto-switch so user doesn't lose drawings) */}
-          <div className={styles.tabsContainer}>
-            {TABS.map((tab, idx) => (
-              <button
-                key={tab}
-                className={`${styles.tabButton} ${activeTab === idx ? styles.tabButtonActive : ""}`}
-                onClick={() => setActiveTab(idx)}
-              >
-                {tab}
-              </button>
-            ))}
+          {/* Header Tabs (iOS 18 Liquid Glass Pill) */}
+          <div className={styles.tabsContainer} onMouseLeave={() => setHoveredTab(null)}>
+            {TABS.map((tab, idx) => {
+              const isActive = activeTab === idx;
+              const isHovered = hoveredTab === idx;
+              const hasPill = hoveredTab !== null ? isHovered : isActive;
+
+              return (
+                <button
+                  key={tab}
+                  className={`${styles.tabButton} ${isActive ? styles.tabButtonActive : ""}`}
+                  onClick={() => setActiveTab(idx)}
+                  onMouseEnter={() => setHoveredTab(idx)}
+                  style={{ position: 'relative' }}
+                >
+                  {hasPill && (
+                    <motion.div
+                      layoutId="canvasTabPill"
+                      className={styles.activePill}
+                      transition={{ type: "spring", stiffness: 500, damping: 35, mass: 0.8 }}
+                    />
+                  )}
+                  <span style={{ position: 'relative', zIndex: 1 }}>{tab}</span>
+                </button>
+              );
+            })}
           </div>
 
           {/* Full Width/Height Canvas Layer */}

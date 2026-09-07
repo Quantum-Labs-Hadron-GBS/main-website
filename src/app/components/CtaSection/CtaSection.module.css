@@ -1,50 +1,64 @@
 .demoCta {
   padding: 8rem 0;
   position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  background: #ffffff;
 }
 
 .demoCtaInner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
   position: relative;
-  z-index: 1;
-  gap: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 2rem;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  border-radius: 2rem;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.03), inset 0 2px 10px rgba(255, 255, 255, 0.8);
+  overflow: hidden;
 }
 
-/* Left side alignment */
-.contentSide {
+.glowBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(244, 124, 54, 0.05) 0%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
+  max-width: 48rem;
 }
 
 .demoTitle {
   margin-bottom: 1.5rem;
-  max-width: 50rem;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 700;
-  color: #0f172a; /* Dark navy */
-  text-align: left;
+  color: #0f172a;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .demoSub {
-  max-width: 37.5rem;
   margin-bottom: 3rem;
-  color: #475569; /* Slate gray */
-  text-align: left;
-  font-size: 1.125rem;
+  color: #475569;
+  font-size: 1.25rem;
   line-height: 1.6;
+  max-width: 36rem;
 }
 
 .demoActions {
   display: flex;
-  gap: 1rem;
+  justify-content: center;
 }
 
 .demoPrimary {
@@ -52,17 +66,17 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 2.5rem;
-  background: var(--accent); /* Hadron orange */
+  background: var(--accent);
   border: 1px solid var(--accent);
-  border-radius: 62.4375rem;
+  border-radius: 4rem;
   color: #ffffff;
   text-decoration: none;
-  font-family: var(--font-inter), sans-serif;
   font-size: 1rem;
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   gap: 0;
   overflow: hidden;
+  box-shadow: 0 8px 20px rgba(244, 124, 54, 0.25);
 }
 
 .btnText {
@@ -83,7 +97,7 @@
   color: var(--accent);
   border-color: var(--accent);
   gap: 0.5rem;
-  box-shadow: 0 4px 0.9375rem rgba(244, 124, 54, 0.2);
+  box-shadow: 0 12px 24px rgba(244, 124, 54, 0.15);
 }
 
 .demoPrimary:hover .btnArrow {
@@ -92,59 +106,18 @@
   transform: translateX(0);
 }
 
-/* Right Side: Logo with Glow */
-.visualSide {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 25rem;
-}
-
-.glowBg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 37.5rem;
-  height: 37.5rem;
-  /* Smoother, wider, more even whitish orange spread */
-  background: radial-gradient(circle, rgba(244, 124, 54, 0.15) 0%, rgba(244, 124, 54, 0.08) 40%, rgba(255, 255, 255, 0) 80%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-  filter: blur(2.5rem);
-}
-
-.logoImg {
-  position: relative;
-  z-index: 2;
-  width: 70%;
-  max-width: 21.875rem;
-  object-fit: contain;
-  /* Apply dark filter to turn the white logo into a dark navy/black color */
-  filter: invert(1) brightness(0.15) sepia(1) hue-rotate(180deg) saturate(3); 
-}
-
 /* Mobile responsive */
 @media (max-width: 48rem) {
   .demoCtaInner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    padding: 4rem 1.5rem;
+    border-radius: 1.5rem;
   }
   
-  .contentSide {
-    align-items: center;
-    text-align: center;
+  .demoTitle {
+    font-size: 2rem;
   }
   
-  .demoTitle, .demoSub {
-    text-align: center;
-  }
-  
-  /* Completely hide the logo and glow on mobile */
-  .visualSide {
-    display: none;
+  .demoSub {
+    font-size: 1.125rem;
   }
 }

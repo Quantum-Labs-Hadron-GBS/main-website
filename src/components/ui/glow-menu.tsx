@@ -34,7 +34,7 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
 
   return (
     <div className={`${styles.menuBarContainer} ${isLightMode ? styles.lightMode : ""}`}>
-      <div className={styles.menuBar}>
+      <div className={styles.menuBar} onMouseLeave={() => setHoveredMenu(null)}>
         {items.map((item) => {
           const isActive = activeItem === item.label;
           const isHovered = hoveredMenu === item.label;
@@ -52,16 +52,12 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                 className={`${styles.menuItem} ${isActive ? styles.active : ""}`}
                 onClick={() => onItemClick(item.label)}
               >
-                {/* Active Background Glow */}
-                {isActive && (
+                {/* iOS 18 Liquid Glass Pill */}
+                {((hoveredMenu !== null ? isHovered : isActive) && !item.isLogo) && (
                   <motion.div
-                    layoutId="glow-menu-active"
+                    layoutId="magic-pill"
                     className={styles.activeBackground}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                    style={{ background: item.gradient }}
+                    transition={{ type: "spring", stiffness: 500, damping: 35, mass: 0.8 }}
                   />
                 )}
 
