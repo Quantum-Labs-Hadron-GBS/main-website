@@ -30,8 +30,8 @@
 }
 
 .scrollHintDot {
-  width: 5px;
-  height: 5px;
+  width: 0.3125rem;
+  height: 0.3125rem;
 }
 
 @keyframes scrollBounce {
@@ -39,7 +39,7 @@
   50%       { }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .stickyPane {
     padding: 4rem 0;
     justify-content: flex-start;

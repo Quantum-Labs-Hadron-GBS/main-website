@@ -6,7 +6,7 @@
 
 .navbar {
   position: fixed;
-  top: 8px;
+  top: 0.5rem;
   left: 0;
   right: 0;
   z-index: 999;
@@ -20,7 +20,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   padding: 0.5rem 2rem;
 }
@@ -47,7 +47,7 @@
 }
 
 .logoImage {
-  height: 30px;
+  height: 1.875rem;
   width: auto;
   object-fit: contain;
 }
@@ -105,9 +105,9 @@
 
 .dropdownMenu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 0.5rem);
   left: 0;
-  min-width: 240px;
+  min-width: 15rem;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
@@ -116,7 +116,7 @@
 }
 
 .megaMenu {
-  min-width: 520px;
+  min-width: 32.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.15rem 0.5rem;
@@ -143,7 +143,7 @@
   top: 0;
   left: 100%;
   margin-left: 4px;
-  min-width: 220px;
+  min-width: 13.75rem;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
@@ -167,7 +167,7 @@
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   .navContainer {
     padding: 0;
   }
@@ -203,8 +203,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 20px;
+  width: 1.875rem;
+  height: 1.25rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -238,7 +238,7 @@
 
 .hamburgerOpen .hamburgerLine:nth-child(2) {
   opacity: 0;
-  transform: translateX(20px);
+  transform: translateX(1.25rem);
 }
 
 .hamburgerOpen .hamburgerLine:nth-child(3) {
@@ -269,17 +269,17 @@
   left: 1rem;
   right: auto;
   bottom: 1rem;
-  border-radius: 24px;
-  width: 320px;
+  border-radius: 1.5rem;
+  width: 20rem;
   max-width: calc(100vw - 2rem);
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(1.5rem);
+  -webkit-backdrop-filter: blur(1.5rem);
   border: 1px solid rgba(255, 255, 255, 0.6);
   z-index: 1100;
   transform: translateX(calc(-100% - 2rem));
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.2, 1);
-  box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: -0.625rem 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   padding: 4rem 2rem;
@@ -289,7 +289,7 @@
 :global(html.dark) .drawerMenu {
   background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: -0.625rem 0.625rem 1.875rem rgba(0, 0, 0, 0.5);
 }
 
 .drawerMenuOpen {
@@ -334,7 +334,7 @@
 
 .drawerLink:hover {
   color: #F47C36;
-  padding-left: 10px;
+  padding-left: 0.625rem;
 }
 
 /* Tree Node Structure */
@@ -380,17 +380,17 @@
   top: 0;
   left: calc(100% + 1.5rem);
   right: auto;
-  width: 240px;
+  width: 15rem;
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-radius: 16px;
+  backdrop-filter: blur(1.5rem);
+  -webkit-backdrop-filter: blur(1.5rem);
+  border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: -0.625rem 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-15px);
+  transform: translateX(-0.9375rem);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   z-index: 10;
 }
@@ -398,7 +398,7 @@
 :global(html.dark) .treeBranch {
   background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: -0.625rem 0.625rem 1.875rem rgba(0, 0, 0, 0.5);
 }
 
 .treeBranchOpen {
@@ -408,7 +408,7 @@
 }
 
 /* Fallback for small screens (accordion instead of flyout) */
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   .treeBranch {
     position: relative;
     left: 0;
@@ -438,7 +438,7 @@
   }
   
   .treeBranchOpen {
-    max-height: 1000px;
+    max-height: 62.5rem;
     opacity: 1;
     visibility: visible;
     margin-top: 1rem;
@@ -460,5 +460,5 @@
 
 .drawerSubLink:hover {
   color: #F47C36;
-  padding-left: 8px;
+  padding-left: 0.5rem;
 }

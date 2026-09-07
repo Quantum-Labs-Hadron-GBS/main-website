@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 640px;
+  max-width: 40rem;
   margin-bottom: 4rem;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .subtitle {
-  max-width: 520px;
+  max-width: 32.5rem;
 }
 
 /* ── Capability cards ── */
@@ -65,7 +65,7 @@
 
 .gridHeader {
   display: grid;
-  grid-template-columns: 1fr repeat(3, 60px);
+  grid-template-columns: 1fr repeat(3, 3.75rem);
   padding: 0.875rem 1.5rem;
 }
 
@@ -109,13 +109,13 @@
 
 .langCaps {
   display: flex;
-  gap: 14px;
+  gap: 0.875rem;
   align-items: center;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 0.5rem;
+  height: 0.5rem;
   flex-shrink: 0;
 }
 
@@ -151,7 +151,7 @@
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 56.25rem) {
   .capabilitiesRow { grid-template-columns: 1fr; }
   .langGrid { grid-template-columns: repeat(2, 1fr); }
   .statStrip { grid-template-columns: repeat(2, 1fr); }
@@ -160,7 +160,7 @@
   .langCard:nth-child(2n) { }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
   .section { padding: 4rem 0; }
   .langGrid { grid-template-columns: 1fr; }
   .statStrip { grid-template-columns: 1fr 1fr; }

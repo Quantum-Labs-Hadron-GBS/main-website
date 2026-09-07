@@ -37,7 +37,7 @@
 .partnerLogo {
   display: block;
   object-fit: contain;
-  max-width: 160px;       /* cap very-wide logos on mobile */
+  max-width: 10rem;       /* cap very-wide logos on mobile */
   transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -57,7 +57,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 120px;
+  width: 7.5rem;
   z-index: 2;
   pointer-events: none;
 }
@@ -71,13 +71,13 @@
 }
 
 /* ─── Mobile ─────────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .partnerItem {
     padding: 0 2rem;
   }
 
   .partnerLogo {
-    max-width: 100px;
+    max-width: 6.25rem;
   }
 }
 

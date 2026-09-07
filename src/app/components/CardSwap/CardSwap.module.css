@@ -1,9 +1,9 @@
 .swapRoot {
   display: grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 11.25rem 1fr;
   gap: 3rem;
   align-items: center;
-  max-width: 860px;
+  max-width: 53.75rem;
 }
 
 /* ─── Label column ─── */
@@ -35,8 +35,8 @@
 /* ─── Card stack ─── */
 .cardStack {
   position: relative;
-  height: 360px;
-  perspective: 1200px;
+  height: 22.5rem;
+  perspective: 75rem;
 }
 
 .card {
@@ -100,7 +100,7 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .swapRoot {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -113,12 +113,12 @@
   }
 
   .labelItem {
-    min-width: 100px;
+    min-width: 6.25rem;
     flex-shrink: 0;
   }
 
   .cardStack {
-    height: 320px;
+    height: 20rem;
   }
 
   .cardTitle {

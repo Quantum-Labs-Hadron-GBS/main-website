@@ -4,7 +4,7 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  perspective: 1000px;
+  perspective: 62.5rem;
 }
 
 .cardWrapper {
@@ -14,7 +14,7 @@
   right: 0;
   margin: 0 auto;
   width: 100%;
-  max-width: 600px;
+  max-width: 37.5rem;
 }
 
 .card {
@@ -36,12 +36,12 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 120px;
-  height: 120px;
+  width: 7.5rem;
+  height: 7.5rem;
   pointer-events: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .card {
     padding: 2rem;
   }

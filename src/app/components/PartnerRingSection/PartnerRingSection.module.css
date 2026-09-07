@@ -5,7 +5,7 @@
   background-color: #ffffff;
   /* Changed to white to seamlessly blend into CoreServicesSection */
   z-index: 5;
-  margin-top: -5px;
+  margin-top: -0.3125rem;
 }
 
 /* Fallback to dark if you prefer, but Alpy is white. The user screenshot is white! */
@@ -32,7 +32,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 6.25rem;
   background: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
   pointer-events: none;
   z-index: 50;
@@ -44,8 +44,8 @@
   z-index: 20;
   text-align: center;
   pointer-events: none;
-  max-width: 340px;
-  /* Force it to fit perfectly inside the smallest 400px ring */
+  max-width: 21.25rem;
+  /* Force it to fit perfectly inside the smallest 25rem ring */
   padding: 0 1rem;
 }
 
@@ -70,7 +70,7 @@
   font-size: 1.125rem;
   color: #475569;
   line-height: 1.6;
-  max-width: 600px;
+  max-width: 37.5rem;
   margin: 0 auto;
 }
 
@@ -118,24 +118,24 @@
 
 /* Fix transform conflicts by nesting transforms properly */
 .ring1 {
-  width: 400px;
-  height: 400px;
-  margin-top: -200px;
-  margin-left: -200px;
+  width: 25rem;
+  height: 25rem;
+  margin-top: -12.5rem;
+  margin-left: -12.5rem;
 }
 
 .ring2 {
-  width: 650px;
-  height: 650px;
-  margin-top: -325px;
-  margin-left: -325px;
+  width: 40.625rem;
+  height: 40.625rem;
+  margin-top: -20.3125rem;
+  margin-left: -20.3125rem;
 }
 
 .ring3 {
-  width: 900px;
-  height: 900px;
-  margin-top: -450px;
-  margin-left: -450px;
+  width: 56.25rem;
+  height: 56.25rem;
+  margin-top: -28.125rem;
+  margin-left: -28.125rem;
 }
 
 /* ── Logo Bubbles ── */
@@ -147,12 +147,12 @@
 .logoCard {
   background: #ffffff;
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 5rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -161,7 +161,7 @@
 .logoCard:hover {
   transform: scale(1.1) !important;
   /* overrides counter-rotation temporarily if needed, but framer motion handles inline style */
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.15);
 }
 
 .logoImg {
@@ -179,35 +179,35 @@
 
 .dot {
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   border-radius: 50%;
   background: linear-gradient(135deg, #60A5FA, #2563eb);
   /* Pure blue atom as requested */
-  box-shadow: 0 0 12px rgba(37, 99, 235, 0.5);
+  box-shadow: 0 0 0.75rem rgba(37, 99, 235, 0.5);
   /* Blue glow */
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   .ring1 {
-    width: 300px;
-    height: 300px;
-    margin-top: -150px;
-    margin-left: -150px;
+    width: 18.75rem;
+    height: 18.75rem;
+    margin-top: -9.375rem;
+    margin-left: -9.375rem;
   }
 
   .ring2 {
-    width: 500px;
-    height: 500px;
-    margin-top: -250px;
-    margin-left: -250px;
+    width: 31.25rem;
+    height: 31.25rem;
+    margin-top: -15.625rem;
+    margin-left: -15.625rem;
   }
 
   .ring3 {
-    width: 700px;
-    height: 700px;
-    margin-top: -350px;
-    margin-left: -350px;
+    width: 43.75rem;
+    height: 43.75rem;
+    margin-top: -21.875rem;
+    margin-left: -21.875rem;
   }
 
   .title {
@@ -215,7 +215,7 @@
   }
 
   .logoCard {
-    width: 60px;
-    height: 60px;
+    width: 3.75rem;
+    height: 3.75rem;
   }
 }

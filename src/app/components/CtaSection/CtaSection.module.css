@@ -24,7 +24,7 @@
 
 .demoTitle {
   margin-bottom: 1.5rem;
-  max-width: 800px;
+  max-width: 50rem;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   color: #0f172a; /* Dark navy */
@@ -34,7 +34,7 @@
 }
 
 .demoSub {
-  max-width: 600px;
+  max-width: 37.5rem;
   margin-bottom: 3rem;
   color: #475569; /* Slate gray */
   text-align: left;
@@ -54,7 +54,7 @@
   padding: 1rem 2.5rem;
   background: var(--accent); /* Hadron orange */
   border: 1px solid var(--accent);
-  border-radius: 999px;
+  border-radius: 62.4375rem;
   color: #ffffff;
   text-decoration: none;
   font-family: var(--font-inter), sans-serif;
@@ -72,7 +72,7 @@
 .btnArrow {
   opacity: 0;
   max-width: 0;
-  transform: translateX(-10px);
+  transform: translateX(-0.625rem);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   white-space: nowrap;
@@ -83,12 +83,12 @@
   color: var(--accent);
   border-color: var(--accent);
   gap: 0.5rem;
-  box-shadow: 0 4px 15px rgba(244, 124, 54, 0.2);
+  box-shadow: 0 4px 0.9375rem rgba(244, 124, 54, 0.2);
 }
 
 .demoPrimary:hover .btnArrow {
   opacity: 1;
-  max-width: 24px;
+  max-width: 1.5rem;
   transform: translateX(0);
 }
 
@@ -99,7 +99,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 400px;
+  height: 25rem;
 }
 
 .glowBg {
@@ -107,28 +107,28 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
+  width: 37.5rem;
+  height: 37.5rem;
   /* Smoother, wider, more even whitish orange spread */
   background: radial-gradient(circle, rgba(244, 124, 54, 0.15) 0%, rgba(244, 124, 54, 0.08) 40%, rgba(255, 255, 255, 0) 80%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
-  filter: blur(40px);
+  filter: blur(2.5rem);
 }
 
 .logoImg {
   position: relative;
   z-index: 2;
   width: 70%;
-  max-width: 350px;
+  max-width: 21.875rem;
   object-fit: contain;
   /* Apply dark filter to turn the white logo into a dark navy/black color */
   filter: invert(1) brightness(0.15) sepia(1) hue-rotate(180deg) saturate(3); 
 }
 
 /* Mobile responsive */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .demoCtaInner {
     grid-template-columns: 1fr;
     gap: 3rem;

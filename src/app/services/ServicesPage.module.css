@@ -56,7 +56,7 @@
 .heroOverview {
   font-size: 1.25rem;
   color: #e2e8f0;
-  max-width: 800px;
+  max-width: 50rem;
   margin: 0 auto;
   line-height: 1.6;
   position: relative;
@@ -75,17 +75,17 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  max-width: 1100px;
+  max-width: 68.75rem;
   margin: 0 auto;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 62rem) {
   .servicesGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .servicesGrid {
     grid-template-columns: 1fr;
   }
@@ -94,11 +94,11 @@
 .serviceGridCard {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   aspect-ratio: 1.2 / 1;
   cursor: pointer;
   background-color: #f1f5f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 0.375rem rgba(0, 0, 0, 0.05);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -110,13 +110,13 @@
 }
 
 .serviceGridCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.5rem);
+  box-shadow: 0 1.25rem 1.875rem rgba(0, 0, 0, 0.15);
 }
 
 .serviceGridCard:hover .serviceGridImage {
   /* 3D effect when hovered */
-  transform: scale(1.1) perspective(1000px) rotateX(2deg) rotateY(-2deg);
+  transform: scale(1.1) perspective(62.5rem) rotateX(2deg) rotateY(-2deg);
 }
 
 .serviceGridOverlay {
@@ -171,7 +171,7 @@
 }
 
 .detailsContainer {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -193,7 +193,7 @@
   order: 1;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 62rem) {
   .detailBlock {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -296,18 +296,18 @@
 .detailImage {
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .detailImage:hover {
-  transform: scale(1.05) perspective(1000px) rotateX(2deg) rotateY(-2deg);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05) perspective(62.5rem) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.15);
 }
 
 .managedServicesImage {
-  height: 400px;
+  height: 25rem;
   object-fit: cover;
 }
 
@@ -320,7 +320,7 @@
 }
 
 .whyContainer {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   text-align: center;
 }
@@ -335,7 +335,7 @@
 .whySubtitle {
   font-size: 1.1rem;
   color: #64748b;
-  max-width: 800px;
+  max-width: 50rem;
   margin: 0 auto 4rem;
   line-height: 1.6;
 }
@@ -346,13 +346,13 @@
   gap: 2rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 62rem) {
   .whyGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .whyGrid {
     grid-template-columns: 1fr;
   }
@@ -363,9 +363,9 @@
   position: relative;
   background-color: #ffffff;
   padding: 2.5rem;
-  border-radius: 16px;
+  border-radius: 1rem;
   text-align: left;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 0.9375rem rgba(0, 0, 0, 0.05);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
@@ -386,8 +386,8 @@
 }
 
 .whyCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-0.5rem);
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.08);
 }
 
 .whyCardTitle {

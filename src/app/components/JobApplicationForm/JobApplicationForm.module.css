@@ -1,6 +1,6 @@
 .formContainer {
   padding: 3rem;
-  max-width: 850px;
+  max-width: 53.125rem;
   margin: 0 auto;
 }
 
@@ -22,7 +22,7 @@
 .stepper::before {
   content: '';
   position: absolute;
-  top: 15px;
+  top: 0.9375rem;
   left: 0;
   right: 0;
   height: 2px;
@@ -39,8 +39,8 @@
 }
 
 .stepNumber {
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +77,7 @@
   gap: 1.5rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) {
   .row, .row3 {
     grid-template-columns: 1fr;
   }
@@ -101,7 +101,7 @@
 }
 
 .textarea {
-  min-height: 100px;
+  min-height: 6.25rem;
   resize: vertical;
 }
 
@@ -113,8 +113,8 @@
 }
 
 .checkboxGroup input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   accent-color: var(--accent);
 }
 

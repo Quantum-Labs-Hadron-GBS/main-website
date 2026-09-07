@@ -19,7 +19,7 @@
   overflow: hidden;
   padding-top: 8rem; /* Increased to ensure content stays below navbar */
   padding-bottom: 8rem;
-  border-radius: 24px; /* Curve the inner video container */
+  border-radius: 1.5rem; /* Curve the inner video container */
 }
 
 /* Fine noise grain overlay */
@@ -40,7 +40,7 @@
   position: relative;
   z-index: 2;
   text-align: right;
-  max-width: 800px;
+  max-width: 50rem;
   margin-left: auto;
   padding-right: 4rem; /* Good padding from right screen edge */
 }
@@ -53,20 +53,20 @@
   padding: 0.4rem 1rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 99px;
+  border-radius: 6.1875rem;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--fg);
   letter-spacing: 0.02em;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(0.5rem);
 }
 
 .eyebrowDot {
-  width: 6px;
-  height: 6px;
+  width: 0.375rem;
+  height: 0.375rem;
   background: var(--blue);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--blue);
+  box-shadow: 0 0 0.625rem var(--blue);
 }
 
 /* ── Headline ── */
@@ -94,7 +94,7 @@
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
-  max-width: 600px;
+  max-width: 37.5rem;
 }
 
 /* ── Action row: CTAs + stats ── */
@@ -119,18 +119,18 @@
   padding: 0.8rem 1.8rem;
   background: var(--blue);
   color: #ffffff;
-  border-radius: 99px;
+  border-radius: 6.1875rem;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 20px rgba(26, 115, 232, 0.4);
+  box-shadow: 0 4px 1.25rem rgba(26, 115, 232, 0.4);
 }
 
 .ctaPrimary:hover {
   background: var(--blue-bright);
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(26, 115, 232, 0.6);
+  box-shadow: 0 0.375rem 1.5625rem rgba(26, 115, 232, 0.6);
 }
 
 /* Glassmorphism Pill */
@@ -142,14 +142,14 @@
   background: rgba(244, 124, 54, 0.15); /* Orange glass */
   color: var(--accent); /* Orange text */
   border: 1px solid var(--accent); /* Orange border */
-  border-radius: 99px;
+  border-radius: 6.1875rem;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 30px rgba(244, 124, 54, 0.15);
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem);
+  box-shadow: 0 4px 1.875rem rgba(244, 124, 54, 0.15);
 }
 
 .ctaGlass:hover {
@@ -157,7 +157,7 @@
   color: #ffffff; /* White text on hover */
   border-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(244, 124, 54, 0.5);
+  box-shadow: 0 0.375rem 1.5625rem rgba(244, 124, 54, 0.5);
 }
 
 /* Secondary: ghost/outline pill */
@@ -169,7 +169,7 @@
   background: transparent;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 99px;
+  border-radius: 6.1875rem;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
@@ -185,14 +185,14 @@
 .marqueeSection {
   width: 100%;
   position: absolute;
-  bottom: 10px;
+  bottom: 0.625rem;
   left: 0;
   z-index: 2;
   background: transparent;
 }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .hero { padding-top: 5rem; }
   .content { align-items: center; text-align: center; padding-right: 0; margin-left: 0; }
   .ctaRow { flex-direction: column; width: 100%; align-items: stretch; padding: 0 2rem; }
@@ -207,7 +207,7 @@
   color: #ffffff;
   text-align: center;
   letter-spacing: -0.02em;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 4px 1.875rem rgba(0, 0, 0, 0.5);
   max-width: 90%;
   margin: 0 auto;
   white-space: nowrap; /* Forces a single line on desktop */
@@ -217,7 +217,7 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .mobileBreak {
     display: block;
   }
@@ -236,11 +236,11 @@
   background: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 99px;
+  border-radius: 6.1875rem;
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(0.5rem);
   transition: all 0.2s ease;
 }
 
@@ -249,7 +249,7 @@
   color: #ffffff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .skipBtn {
     bottom: 1.5rem;
     right: 1.5rem;

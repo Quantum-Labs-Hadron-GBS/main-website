@@ -22,7 +22,7 @@
   --card-bg:       rgba(255, 255, 255, 0.04);
   --card-fg:       #ffffff;
   --card-fg-muted: #cbd5e1;
-  --card-shadow:   0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --card-shadow:   0 0.5rem 2rem rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
   --glow:          rgba(26, 115, 232, 0.3);
 
   /* ── Accent: Light Orange Glow ── */
@@ -70,7 +70,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 80rem;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -80,7 +80,7 @@ body {
   border: 1px solid var(--border);
   box-shadow: var(--card-shadow);
   color: var(--card-fg);
-  border-radius: 24px;
+  border-radius: 1.5rem;
 }
 
 *, *::before, *::after {
@@ -91,6 +91,25 @@ body {
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px; /* Standard base size for mobile and typical laptops */
+}
+
+/* The magic for large screens: switch to Viewport-Width scaling */
+@media (min-width: 1440px) {
+  html {
+    /* At 1440px width, 1.111vw perfectly equals 16px. 
+       Above 1440px, 1rem will smoothly grow, proportionally scaling 
+       EVERY font, padding, margin, and card width! */
+    font-size: 1.111vw;
+  }
+}
+
+/* Cap the scaling on Ultra-Wide (4K) monitors so things don't become comically massive */
+@media (min-width: 2560px) {
+  html {
+    /* 2560px * 0.01111 = ~28.4px */
+    font-size: 28.4px; 
+  }
 }
 
 img, canvas {
@@ -98,7 +117,7 @@ img, canvas {
   max-width: 100%;
 }
 
-::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar { width: 0.625rem; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #d9621b; } /* Darker orange */
@@ -127,7 +146,7 @@ img, canvas {
   --card-bg: #ffffff;
   --card-fg: #0f172a;
   --card-fg-muted: #475569;
-  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0,0,0,0.03);
+  --card-shadow: 0 4px 1.25rem rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0,0,0,0.03);
 
   --nav-bg: rgba(255, 255, 255, 0.85);
   --nav-border: rgba(0, 0, 0, 0.06);
@@ -141,7 +160,7 @@ img, canvas {
 body.intro-running header {
   opacity: 0 !important;
   pointer-events: none !important;
-  transform: translateY(-20px);
+  transform: translateY(-1.25rem);
 }
 
 header {

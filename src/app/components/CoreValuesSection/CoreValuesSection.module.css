@@ -36,7 +36,7 @@
 .subtitle {
   font-size: 1.05rem;
   color: #475569;
-  max-width: 520px;
+  max-width: 32.5rem;
   line-height: 1.6;
 }
 
@@ -48,23 +48,23 @@
   flex-wrap: wrap;
   gap: 2rem;
   padding: 0 2rem;
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
 }
 
 /* ── Individual card ── */
 .cardOuter {
   position: relative;
-  width: 260px;
-  min-height: 320px;
+  width: 16.25rem;
+  min-height: 20rem;
   transition: transform 0.4s ease;
-  flex: 1 1 250px;
+  flex: 1 1 15.625rem;
   display: flex;
   flex-direction: column;
 }
 
 .cardOuter:hover {
-  transform: translateY(-8px);
+  transform: translateY(-0.5rem);
 }
 
 /* Hide legacy elements */
@@ -82,8 +82,8 @@
   padding: 2.5rem 2rem;
   background: linear-gradient(to top, #fff3e6 0%, #ffffff 25%);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-  border-radius: 16px;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.04);
+  border-radius: 1rem;
   color: var(--fg);
   transition: all 0.4s ease;
   flex: 1;
@@ -106,7 +106,7 @@
 }
 
 .cardOuter:hover .cardContent {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.08);
 }
 
 /* ── Badge ── */
@@ -129,7 +129,7 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .cardsRow {
     flex-direction: column;
     align-items: center;
@@ -137,6 +137,6 @@
 
   .cardOuter {
     width: 100%;
-    max-width: 380px;
+    max-width: 23.75rem;
   }
 }

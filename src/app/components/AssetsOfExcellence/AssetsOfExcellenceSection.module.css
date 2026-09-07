@@ -30,24 +30,24 @@
 
 .card {
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 1rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 1.25rem rgba(0, 0, 0, 0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.75rem 1.875rem rgba(0, 0, 0, 0.08);
 }
 
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 240px;
+  height: 15rem;
 }
 
 .cardContent {
@@ -103,7 +103,7 @@
   opacity: 0.7;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 56.25rem) {
   .grid {
     grid-template-columns: 1fr;
   }
