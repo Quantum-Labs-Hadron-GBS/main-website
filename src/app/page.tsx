@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 // Below-fold sections — loaded after initial paint
 const PartnerRingSection      = dynamic(() => import("./components/PartnerRingSection/PartnerRingSection"));
 const CorePracticesSection    = dynamic(() => import("./components/CorePracticesSection/CorePracticesSection"));
+const InteractiveCanvasSection = dynamic(() => import("./components/InteractiveCanvasSection/InteractiveCanvasSection"));
 const WhyHadronSection        = dynamic(() => import("./components/WhyHadronSection/WhyHadronSection"));
 const CoreServicesSection     = dynamic(() => import("./components/CoreServicesSection/CoreServicesSection"));
 const CtaSection              = dynamic(() => import("./components/CtaSection/CtaSection"));
@@ -19,11 +20,14 @@ export default function HomePage() {
       {/* ── ALPY-STYLE PARTNER RING (NEW HERO) ── */}
       <PartnerRingSection />
 
-      {/* ── ALPY-STYLE STICKY SOLUTIONS (NEW) ── */}
-      <CorePracticesSection />
+      {/* ── INTERACTIVE CANVAS SECTION (NEW) ── */}
+      <InteractiveCanvasSection />
 
-      {/* ── WHY HADRON GBS ── */}
+      {/* ── WHY HADRON GBS (Advantage) ── */}
       <WhyHadronSection />
+
+      {/* ── ALPY-STYLE STICKY SOLUTIONS ── */}
+      <CorePracticesSection />
 
       <div style={{ backgroundColor: '#0f172a' }}>
         {/* ── CORE SERVICES ── */}

@@ -62,8 +62,42 @@ export default function CorePracticesSection() {
   // Parallax effect on the sticky content
   const stickyY = useTransform(smoothProgress, [0, 1], ["0%", "15%"]);
 
+  // Rotation effect for the circles
+  const rotate1 = useTransform(smoothProgress, [0, 1], [0, 120]);
+  const rotate2 = useTransform(smoothProgress, [0, 1], [0, -90]);
+  const rotate3 = useTransform(smoothProgress, [0, 1], [0, 150]);
+
   return (
     <section className={styles.wrapper} ref={containerRef}>
+      {/* Background Concentric Circles Container */}
+      <div className={styles.circlesContainer}>
+        <motion.div className={styles.stickyCircles}>
+          <motion.div 
+            className={`${styles.circle} ${styles.circle1}`} 
+            style={{ x: "-50%", y: "-50%", rotate: rotate1 }}
+          >
+            <div className={styles.blueDot} style={{ top: '14.6%', left: '85.4%' }} />
+            <div className={styles.blueDot} style={{ top: '85.4%', left: '85.4%' }} />
+          </motion.div>
+          
+          <motion.div 
+            className={`${styles.circle} ${styles.circle2}`} 
+            style={{ x: "-50%", y: "-50%", rotate: rotate2 }}
+          >
+            <div className={styles.blueDot} style={{ top: '50%', left: '100%' }} />
+            <div className={styles.blueDot} style={{ top: '14.6%', left: '85.4%' }} />
+          </motion.div>
+
+          <motion.div 
+            className={`${styles.circle} ${styles.circle3}`} 
+            style={{ x: "-50%", y: "-50%", rotate: rotate3 }}
+          >
+            <div className={styles.blueDot} style={{ top: '85.4%', left: '85.4%' }} />
+            <div className={styles.blueDot} style={{ top: '50%', left: '100%' }} />
+          </motion.div>
+        </motion.div>
+      </div>
+      
       <div className={styles.container}>
         
         {/* Left Static/Sticky Column */}
