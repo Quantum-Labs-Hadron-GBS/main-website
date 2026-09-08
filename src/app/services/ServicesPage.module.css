@@ -295,7 +295,8 @@
 
 .detailImage {
   width: 100%;
-  height: auto;
+  height: 27rem;
+  object-fit: cover;
   border-radius: 0.75rem;
   box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -306,9 +307,14 @@
   box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.15);
 }
 
+@media (max-width: 62rem) {
+  .detailImage {
+    height: 18rem;
+  }
+}
+
 .managedServicesImage {
-  height: 25rem;
-  object-fit: cover;
+  /* Inherits height from .detailImage now */
 }
 
 /* ── Why Hadron Section ── */

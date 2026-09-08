@@ -163,6 +163,7 @@ export default function ServicesPage() {
               <li className={styles.detailListItem}><strong>Coordinated multi-vendor delivery:</strong> We manage the coordination layer and ensure no team is waiting on another.</li>
               <li className={styles.detailListItem}><strong>Risk & dependency management:</strong> Risks are logged, owned, and reviewed early.</li>
               <li className={styles.detailListItem}><strong>Adoption & stabilisation:</strong> A dedicated hypercare phase follows every release.</li>
+              <li className={styles.detailListItem}><strong>Post-go-live performance tracking:</strong> Platform adoption rates, resolution times, and process throughput tell you whether the programme delivered what it was meant to.</li>
             </ul>
             <Link href="/contact" className={styles.ctaAction}>→ Request a Programme Review</Link>
           </div>
@@ -181,6 +182,7 @@ export default function ServicesPage() {
             <ul className={styles.detailList}>
               <li className={styles.detailListItem}><strong>End-to-end L1–L3 support:</strong> Issues routed by complexity across enterprise platforms.</li>
               <li className={styles.detailListItem}><strong>ESM and ITSM operations:</strong> Incident, service request, and change management.</li>
+              <li className={styles.detailListItem}><strong>Operational governance & compliance:</strong> Process compliance, governance frameworks, and documentation across platforms and teams.</li>
               <li className={styles.detailListItem}><strong>Performance reporting:</strong> KPI tracking and dashboards aligned to SLA cadences.</li>
               <li className={styles.detailListItem}><strong>Service optimisation:</strong> Regular assessments surface recurring issues to reduce incident volume.</li>
             </ul>
@@ -199,10 +201,11 @@ export default function ServicesPage() {
               Managed services are not staff augmentation or ad-hoc support. It's a shift in ownership, from your team to ours, with clear accountability, defined SLAs, and predictable costs. The teams who build your platform stay to run it.
             </p>
             <ul className={styles.detailList}>
-              <li className={styles.detailListItem}><strong>End-to-End Ownership:</strong> One accountable team owns requests, incidents, and governance.</li>
-              <li className={styles.detailListItem}><strong>SLA-Driven Delivery:</strong> Response windows, resolution targets, and throughput tracked continuously.</li>
-              <li className={styles.detailListItem}><strong>Vendor Consolidation:</strong> Multiple platforms covered within one governed delivery structure.</li>
-              <li className={styles.detailListItem}><strong>Predictable Costs:</strong> A defined commercial model replaces reactive cost exposure.</li>
+              <li className={styles.detailListItem}><strong>Application & platform managed services:</strong> ServiceNow, Salesforce, SAP, BMC, Ivanti, and Atlassian, incidents, changes, and enhancements delivered in one integrated model.</li>
+              <li className={styles.detailListItem}><strong>Business process & PMO managed services:</strong> Execution control, backlog and dependency management, risk oversight, and stakeholder reporting as an ongoing service.</li>
+              <li className={styles.detailListItem}><strong>Reporting, analytics & performance management:</strong> Cadence-driven dashboards, KPIs, and analytics enabling faster, data-backed resourcing decisions.</li>
+              <li className={styles.detailListItem}><strong>Release, change & environment management:</strong> All changes planned, controlled, and traceable, released with monitoring and rollback readiness within a governed framework.</li>
+              <li className={styles.detailListItem}><strong>SLA & integration monitoring:</strong> Continuous monitoring and SLA governance for early issue detection, consistent performance, and operational continuity.</li>
             </ul>
             <Link href="/contact" className={styles.ctaAction}>→ Start the Conversation</Link>
           </div>
