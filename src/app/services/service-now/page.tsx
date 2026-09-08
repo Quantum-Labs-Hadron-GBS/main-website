@@ -49,7 +49,7 @@ export default function ServiceNowHubPage() {
             <div className={styles.whyHeader}>
               <h2 className={styles.whyTitle}>ServiceNow Specialized Offerings</h2>
             </div>
-            <div className={styles.whyGrid} style={{ gap: '3rem', maxWidth: '1000px', margin: '0 auto' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem', maxWidth: '900px', margin: '0 auto' }}>
               
               <Link href="/services/service-now/tennon" style={{ textDecoration: 'none' }}>
                 <motion.div 
