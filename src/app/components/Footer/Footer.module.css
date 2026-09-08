@@ -224,4 +224,8 @@
   .top { grid-template-columns: 1fr; gap: 2.5rem; }
   .bottom { flex-direction: column; text-align: center; }
   .mapContainer iframe { pointer-events: none; }
+  .bgWord {
+    font-size: clamp(4rem, 20vw, 10rem);
+    bottom: -1.5rem;
+  }
 }
