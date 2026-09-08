@@ -164,6 +164,9 @@ export default function WhyHadronSection() {
             max-width: 80vw;
             line-height: 1.1 !important;
           }
+          .adv-card-text {
+            transform: translateY(-8px);
+          }
         }
       `}</style>
       <div
@@ -291,34 +294,38 @@ export default function WhyHadronSection() {
                     borderRadius: '16px',
                     willChange: 'height',
                     transformOrigin: 'bottom',
-                    boxShadow: '0 -10px 30px rgba(0,0,0,0.02)'
+                    boxShadow: '0 -10px 30px rgba(0,0,0,0.02)',
+                    display: 'flex',
+                    flexDirection: 'column'
                   }}
                 >
-                  {/* Clean Top Number Badge anchored near top of max height so it never overlaps title when short */}
+                  {/* Clean Top Number Badge anchored near top */}
                   <div
                     style={{
-                      position: 'absolute',
-                      bottom: 'calc(72vh - 3.5rem)',
-                      left: '1.5rem',
+                      padding: '1.5rem 1.5rem 0 1.5rem',
                       fontSize: '14px',
                       fontWeight: 700,
-                      color: '#F47C36'
+                      color: '#F47C36',
+                      flexShrink: 0
                     }}
                   >
                     {item.num}
                   </div>
 
-                  {/* Card Title & Body Area (Pinned strictly in lower half) */}
+                  {/* Spacer to push content to the bottom */}
+                  <div style={{ flex: 1, minHeight: '1.5rem' }} />
+
+                  {/* Card Title & Body Area (Fixed height ensures perfect alignment) */}
                   <div
+                    className="adv-card-text"
                     style={{
-                      position: 'absolute',
-                      bottom: 0,
-                      left: 0,
                       width: '100%',
-                      padding: '24px',
+                      padding: '0 1.5rem 1.5rem 1.5rem',
                       display: 'flex',
                       flexDirection: 'column',
-                      color: '#0f172a'
+                      color: '#0f172a',
+                      height: '350px',
+                      flexShrink: 0
                     }}
                   >
                     <h3
@@ -328,7 +335,8 @@ export default function WhyHadronSection() {
                         lineHeight: 1.2,
                         marginBottom: '1rem',
                         letterSpacing: '-0.02em',
-                        color: '#0f172a'
+                        color: '#0f172a',
+                        minHeight: '3.36rem' // Ensure title consistently takes 2 lines of space
                       }}
                     >
                       {item.title}
