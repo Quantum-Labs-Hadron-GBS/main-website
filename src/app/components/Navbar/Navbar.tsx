@@ -12,7 +12,7 @@ const menuItems = [
     href: "/",
     gradient: "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
     isLogo: true,
-    logoSrc: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/Hadron-Logo_lt4uaa.png",
+    logoSrc: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png",
   },
   {
     label: "About Us",
@@ -60,6 +60,19 @@ const menuItems = [
 export default function Navbar() {
   const pathname = usePathname();
   const isAlwaysLight = pathname === "/contact" || pathname === "/";
+  const isMainPage = pathname === "/";
+
+  const dynamicMenuItems = menuItems.map(item => {
+    if (item.isLogo) {
+      return {
+        ...item,
+        logoSrc: isMainPage 
+          ? "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/Hadron-Logo_lt4uaa.png"
+          : "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png"
+      };
+    }
+    return item;
+  });
 
   const [activeItem, setActiveItem] = useState<string>("Home");
   const [scrolled, setScrolled] = useState(false);
@@ -126,7 +139,7 @@ export default function Navbar() {
 
         {/* Glow Menu Bar */}
         <MenuBar
-          items={menuItems}
+          items={dynamicMenuItems}
           activeItem={activeItem}
           onItemClick={setActiveItem}
           isLightMode={isLightMode}
@@ -269,8 +282,7 @@ export default function Navbar() {
               <a href="/resources/videos" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Videos</a>
             </div>
           </div>
-
-          <a href="#" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Careers</a>
+          <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=soqR6AEZV06ruofihBdMg9qxj7aZxXZOtpgaUpRd6jlUMjY4T0xEVTlKR01XUDVJM0RJTTdJT0JWMC4u&route=shorturl" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Careers</a>
           <a href="/about" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>About us</a>
           <a href="/contact" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Contact Us</a>
           <a href="https://quantum.hadrongbs.com/" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} style={{ color: '#F47C36' }} onClick={() => setIsDrawerOpen(false)}>Quantum</a>

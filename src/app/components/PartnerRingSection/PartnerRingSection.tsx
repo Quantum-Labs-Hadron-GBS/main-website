@@ -13,8 +13,8 @@ const LOGOS = {
   bmc: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/Logo_BMC_Software_yuz81r.png",
   aws: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
   freshworks: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/freshworks-logo_brandlogos.net_c6t5u_vu8yih.png",
-  atlassian: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736501/Atlassian_deruww.png",
-  ivanti: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787734310/Ivanti_esdywa.png",
+  atlassian: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788789011/Atlassian_logo_kiayvy.png",
+  ivanti: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788844978/Ivanti_logo_olqb3i.webp",
 };
 
 export default function PartnerRingSection() {
@@ -105,7 +105,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '85%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/services/atlassian">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
-                  <img src={LOGOS.atlassian} alt="Atlassian" className={styles.logoImg} style={{ transform: 'scale(1.5)' }} />
+                  <img src={LOGOS.atlassian} alt="Atlassian" className={styles.logoImg} style={{ width: '55%', height: '55%' }} />
                 </motion.div>
               </Link>
             </div>

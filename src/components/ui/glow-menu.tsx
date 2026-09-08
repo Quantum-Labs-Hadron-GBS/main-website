@@ -69,7 +69,13 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                   <img 
                     src={item.logoSrc} 
                     alt={item.label} 
-                    style={{ height: '20px', width: 'auto', display: 'block', opacity: isActive ? 1 : 0.8 }} 
+                    style={{ 
+                      height: '20px', 
+                      width: 'auto', 
+                      display: 'block', 
+                      opacity: isActive ? 1 : 0.8,
+                      filter: isLightMode && item.logoSrc.includes('white') ? 'brightness(0)' : 'none'
+                    }} 
                   />
                 ) : (
                   <span 
