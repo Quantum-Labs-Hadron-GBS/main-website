@@ -194,7 +194,7 @@ export default function Navbar() {
       e.preventDefault();
       e.stopPropagation();
     }
-    setOpenTrees(prev => ({ ...prev, [key]: !prev[key] }));
+    setOpenTrees(prev => ({ [key]: !prev[key] }));
   };
   
   // Use a ref for lastScrollY to avoid re-attaching the event listener on every scroll tick
@@ -304,17 +304,58 @@ export default function Navbar() {
         <button className={styles.drawerCloseBtn} onClick={() => setIsDrawerOpen(false)} aria-label="Close menu">✕</button>
         <nav className={styles.drawerNav}>
           <div className={styles.drawerHeader}>
-            <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'rgba(255,255,255,0.5)', paddingLeft: '1rem', marginBottom: '0.5rem', display: 'block' }}>Explore Hadron</span>
+            <span className={styles.drawerExploreText}>Explore Hadron</span>
           </div>
           
-          <a href="/ai" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>AI & Automation</a>
-          <a href="/solutions" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Solutions</a>
-          <a href="/industries" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Industries</a>
-          <a href="/platforms" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Platforms</a>
-          <a href="/services" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Services</a>
-          <a href="/why-hadron/about" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Why Hadron</a>
-          <a href="/resources/insights" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Resources</a>
-          <a href="/careers" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Careers</a>
+          {dynamicMenuItems.filter(item => !item.isLogo).map((item) => {
+            const hasChildren = (item.subItems && item.subItems.length > 0) || (item.groups && item.groups.length > 0);
+            const isOpen = openTrees[item.label];
+
+            return (
+              <div key={item.label} className={styles.treeNode}>
+                <div className={styles.treeNodeHeader}>
+                  <a href={item.href} className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>
+                    {item.label}
+                  </a>
+                  {hasChildren && (
+                    <button 
+                      className={styles.treeToggleBtn}
+                      onClick={(e) => toggleTree(item.label, e)}
+                      aria-label={`Toggle ${item.label} menu`}
+                    >
+                      {isOpen ? '−' : '+'}
+                    </button>
+                  )}
+                </div>
+
+                {hasChildren && (
+                  <div className={`${styles.treeBranch} ${isOpen ? styles.treeBranchOpen : ""}`}>
+                    {/* Render standard subItems */}
+                    {item.subItems && item.subItems.map((sub, idx) => (
+                      <a key={idx} href={sub.href} className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>
+                        {sub.label}
+                      </a>
+                    ))}
+
+                    {/* Render mega menu groups */}
+                    {item.groups && item.groups.map((group, gIdx) => (
+                      <div key={gIdx} style={{ marginBottom: '1rem' }}>
+                        <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'rgba(150,150,150,0.8)', marginBottom: '0.5rem', fontWeight: 600 }}>{group.title}</div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                          {group.items.map((sub, idx) => (
+                            <a key={idx} href={sub.href} className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>
+                              {sub.label}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
           <div className={styles.drawerBottom}>
             <a href="/contact" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Contact Us</a>
             <a href="https://quantum.hadrongbs.com/" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} style={{ color: '#F47C36' }} onClick={() => setIsDrawerOpen(false)}>Quantum</a>
