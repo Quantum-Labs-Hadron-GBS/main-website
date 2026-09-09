@@ -316,6 +316,14 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 2rem;
+  flex-grow: 1;
+}
+
+.drawerBottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .drawerLink {
