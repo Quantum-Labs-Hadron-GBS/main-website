@@ -23,31 +23,18 @@ const menuItems = [
     label: "Services",
     href: "/services",
     gradient: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(147,51,234,0.06) 50%, rgba(126,34,206,0) 100%)",
+    subItems: [
+      { label: "Consulting & Advisory Services", href: "/services/consulting-and-advisory" },
+      { label: "Implementation and Execution", href: "/services/implementation-and-execution" },
+      { label: "Operational Support Services", href: "/services/operational-support" },
+      { label: "Managed Services", href: "/services/managed-services" },
+      { label: "Hadron ServiceNow Excellence Hub", href: "/services/training-program" }
+    ]
   },
   {
     label: "Partners",
     href: "/partners",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
-    subItems: [
-      { 
-        label: "ServiceNow", 
-        href: "/services/service-now",
-        nestedItems: [
-          { label: "Overview", href: "/services/service-now" },
-          { label: "Tennon", href: "/services/service-now/tennon" },
-          { label: "Precision Bridge", href: "/services/service-now/precision-bridge" }
-        ]
-      },
-      { label: "BMC Software", href: "/services/bmc" },
-      { label: "Ivanti", href: "/services/ivanti" },
-      { label: "Atlassian", href: "/services/atlassian" },
-      { label: "Salesforce", href: "/services/salesforce" },
-      { label: "Microsoft Cloud", href: "/services/microsoft-cloud" },
-      { label: "SAP", href: "/services/sap" },
-      { label: "Low Code – No Code", href: "/services/low-code" },
-      { label: "AWS Cloud", href: "/services/aws-cloud" },
-      { label: "Freshworks", href: "/services/freshworks" },
-    ]
   },
   {
     label: "Quantum",
@@ -164,7 +151,43 @@ export default function Navbar() {
       <div className={`${styles.drawerMenu} ${isDrawerOpen ? styles.drawerMenuOpen : ""}`}>
         <button className={styles.drawerCloseBtn} onClick={() => setIsDrawerOpen(false)} aria-label="Close menu">✕</button>
         <nav className={styles.drawerNav}>
-          <a href="/services" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Services</a>
+          {/* Services Tree Node */}
+          <div 
+            className={styles.treeNode} 
+            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'services': true })) }} 
+            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'services': false })) }}
+          >
+            <div className={styles.treeNodeHeader}>
+              <a 
+                href="/services" 
+                className={styles.drawerLink} 
+                onClick={(e) => {
+                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggleTree('services', e as any);
+                  } else {
+                    setIsDrawerOpen(false);
+                  }
+                }}
+              >
+                Services
+              </a>
+              <button 
+                className={styles.treeToggleBtn} 
+                onClick={(e) => toggleTree('services', e)}
+                style={{ transform: openTrees['services'] ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+            <div className={`${styles.treeBranch} ${openTrees['services'] ? styles.treeBranchOpen : ""}`}>
+              <a href="/services/consulting-and-advisory" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Consulting & Advisory Services</a>
+              <a href="/services/implementation-and-execution" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Implementation & Execution</a>
+              <a href="/services/operational-support" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Operational Support Services</a>
+              <a href="/services/managed-services" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Managed Services</a>
+              <a href="/services/training-program" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Excellence Hub Training Program</a>
+            </div>
+          </div>
 
           {/* Solutions Tree Node */}
           <div 
@@ -205,48 +228,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Partners Tree Node */}
-          <div 
-            className={styles.treeNode} 
-            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'partners': true })) }} 
-            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'partners': false })) }}
-          >
-            <div className={styles.treeNodeHeader}>
-              <a 
-                href="/partners" 
-                className={styles.drawerLink} 
-                onClick={(e) => {
-                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
-                    e.preventDefault();
-                    toggleTree('partners', e as any);
-                  } else {
-                    setIsDrawerOpen(false);
-                  }
-                }}
-              >
-                Partners
-              </a>
-              <button 
-                className={styles.treeToggleBtn} 
-                onClick={(e) => toggleTree('partners', e)}
-                style={{ transform: openTrees['partners'] ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-            <div className={`${styles.treeBranch} ${openTrees['partners'] ? styles.treeBranchOpen : ""}`}>
-              <a href="/partners" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Our Partners</a>
-              <a href="/services/service-now" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>ServiceNow</a>
-              <a href="/services/salesforce" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Salesforce</a>
-              <a href="/services/bmc" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>BMC Software</a>
-              <a href="/services/ivanti" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Ivanti</a>
-              <a href="/services/sap" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>SAP</a>
-              <a href="/services/atlassian" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Atlassian</a>
-              <a href="/services/microsoft-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Microsoft Cloud</a>
-              <a href="/services/aws-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>AWS Cloud</a>
-              <a href="/services/freshworks" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Freshworks</a>
-            </div>
-          </div>
+          <a href="/partners" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Partners</a>
           
           {/* Resources Tree Node */}
           <div 
