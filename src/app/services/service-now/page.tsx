@@ -1,114 +1,99 @@
 "use client";
 
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
-import styles from "../ServiceLayout.module.css";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import CtaSection from "../../components/CtaSection/CtaSection";
+import ServiceLayout from "../ServiceLayout";
 
-export default function ServiceNowHubPage() {
+const solutions = [
+  {
+    title: "IT Service Management (ITSM)",
+    desc: "Modernize IT operations with automated service delivery and AI-driven insights to reduce resolution times."
+  },
+  {
+    title: "IT Operations Management (ITOM)",
+    desc: "Gain full visibility into your infrastructure to proactively manage health, optimize spend, and prevent outages."
+  },
+  {
+    title: "Customer Service Management (CSM)",
+    desc: "Connect your front, middle, and back offices to solve customer issues end-to-end and boost satisfaction."
+  },
+  {
+    title: "HR Service Delivery (HRSD)",
+    desc: "Simplify the employee experience with a unified portal for requests, onboarding, and case management."
+  },
+  {
+    title: "Security Operations (SecOps)",
+    desc: "Accelerate response times by connecting security tools with automated workflows and threat prioritization."
+  },
+  {
+    title: "Governance, Risk & Compliance (GRC)",
+    desc: "Manage risk in real-time by integrating compliance requirements into daily workflows."
+  },
+  {
+    title: "App Engine & Automation",
+    desc: "Rapidly build and deploy custom low-code applications tailored to your unique business logic."
+  },
+  {
+    title: "Autonomous AI Agents",
+    desc: "Deploy intelligent, goal-driven agents that autonomously execute multi-step tasks across IT, HR, and customer service workflows—reducing human intervention and accelerating resolution at scale."
+  },
+  {
+    title: "Now Assist (GenAI)",
+    desc: "Embed generative AI natively across the ServiceNow platform to summarise cases, draft responses, generate code, and surface contextual recommendations—empowering agents and employees with instant, accurate guidance."
+  },
+  {
+    title: "AI Control Tower & Agent Studio",
+    desc: "Govern, monitor, and orchestrate your entire AI agent ecosystem from a single control plane. Build, test, and deploy custom agents using Agent Studio—ensuring enterprise-grade reliability, transparency, and compliance across every automated workflow."
+  }
+];
+
+const framework = [
+  {
+    step: "01",
+    title: "Consulting & Advisory",
+    desc: "Before the first line of configuration, we focus on alignment. We assess your current digital maturity, identify process bottlenecks, and build a phased roadmap designed for immediate impact.",
+    outcome: "A strategic blueprint that prioritizes high-value use cases and ensures executive alignment."
+  },
+  {
+    step: "02",
+    title: "Implementation & Execution",
+    desc: "Moving from plan to reality requires precision. Our team handles end-to-end deployment, ensuring seamless integration with your existing tech stack and a rollout that minimizes business disruption.",
+    outcome: "A stable, high-performance platform deployed on time, built to scale with your enterprise."
+  },
+  {
+    step: "03",
+    title: "Operational Support & Managed Services",
+    desc: "Maximize the longevity of your investment with proactive platform management. From version upgrades and performance tuning to daily user support, we ensure your ServiceNow instance evolves with your business.",
+    outcome: "Continuous optimization and zero-downtime upgrades, allowing your internal teams to focus on core innovation."
+  }
+];
+
+const whyHadron = [
+  {
+    title: "Speed to Value",
+    desc: "Our refined deployment methodologies reduce time-to-market, helping you see ROI faster."
+  },
+  {
+    title: "Measurable Impact",
+    desc: "We focus on KPIs, reducing manual work, lowering operational costs, and increasing service transparency."
+  },
+  {
+    title: "Reliability",
+    desc: "We act as an extension of your team, providing the technical depth and consistency required to manage mission-critical workflows."
+  }
+];
+
+export default function ServiceNowPage() {
   return (
-    <>
-      <Navbar />
-      <main className={styles.main}>
-        {/* HERO BANNER */}
-        <section className={styles.heroBanner}>
-          <video 
-            src="https://res.cloudinary.com/ax6dtcht/video/upload/v1785326115/From_Klickpin.com-_Classy_DIY_gift_ideas_that_feel_fresh_elevated_and_surprisingly_easy_to_recreate_at_home_for_people_who_want_stylish_ideas_on_a_brkwa8.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className={styles.heroVideoRotated}
-          />
-          <div className={styles.heroOverlay}></div>
-          <div className={`${styles.container} ${styles.heroContent}`}>
-            <motion.h1 
-              className={styles.heroTitle}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              Unleash the Power of ServiceNow
-            </motion.h1>
-            <motion.p 
-              className={styles.heroSubtitle}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Discover our specialized offerings built on the world's leading enterprise workflow platform. Choose a solution below to explore how we drive marketing excellence and risk-free data migrations.
-            </motion.p>
-          </div>
-        </section>
-
-        <section className={styles.whySection} style={{ minHeight: '50vh' }}>
-          <div className={styles.container}>
-            <div className={styles.whyHeader}>
-              <h2 className={styles.whyTitle}>ServiceNow Specialized Offerings</h2>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem', maxWidth: '900px', margin: '0 auto' }}>
-              
-              <Link href="/services/service-now/tennon" style={{ textDecoration: 'none' }}>
-                <motion.div 
-                  className={styles.whyCard}
-                  style={{ height: '100%', padding: '4rem 2rem' }}
-                  whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(13, 110, 253, 0.15)' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <div style={{ height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem auto' }}>
-                    <img 
-                      src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788245410/Tenon_Logos-Dark_zelsgc.jpg" 
-                      alt="Tennon Logo" 
-                      style={{ height: '60px', width: 'auto', objectFit: 'contain' }} 
-                    />
-                  </div>
-                  <h3 className={styles.whyCardTitle} style={{ fontSize: '1.8rem' }}>Tennon</h3>
-                  <p className={styles.whyCardDesc} style={{ fontSize: '1.1rem', marginTop: '1rem' }}>
-                    Unify Marketing & Enterprise Operations with Hadron GBS & Tennon. Streamline planning and campaign execution directly within ServiceNow.
-                  </p>
-                  <span style={{ color: '#0d6efd', fontWeight: 'bold', marginTop: '2rem', display: 'inline-block' }}>Explore Tennon &rarr;</span>
-                </motion.div>
-              </Link>
-
-              <Link href="/services/service-now/precision-bridge" style={{ textDecoration: 'none' }}>
-                <motion.div 
-                  className={styles.whyCard}
-                  style={{ height: '100%', padding: '4rem 2rem' }}
-                  whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(13, 110, 253, 0.15)' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                  <div style={{ height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem auto' }}>
-                    <img 
-                      src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788245410/pb_iptauc.png" 
-                      alt="Precision Bridge Logo" 
-                      style={{ height: '80px', width: 'auto', objectFit: 'contain', transform: 'scale(1.8)' }} 
-                    />
-                  </div>
-                  <h3 className={styles.whyCardTitle} style={{ fontSize: '1.8rem' }}>Precision Bridge</h3>
-                  <p className={styles.whyCardDesc} style={{ fontSize: '1.1rem', marginTop: '1rem' }}>
-                    Accelerate your ServiceNow migrations. Move millions of records accurately without custom development or risk.
-                  </p>
-                  <span style={{ color: '#0d6efd', fontWeight: 'bold', marginTop: '2rem', display: 'inline-block' }}>Explore Precision Bridge &rarr;</span>
-                </motion.div>
-              </Link>
-
-            </div>
-          </div>
-        </section>
-
-      </main>
-      <CtaSection 
-        title="Contact our ServiceNow expert" 
-        subtitle="Contact us today, and let us help you achieve your business objectives." 
-      />
-      <Footer />
-    </>
+    <ServiceLayout 
+      title="Transform Your Enterprise with Hadron GBS & ServiceNow"
+      subtitle="At Hadron GBS, we bridge the gap between complex enterprise challenges and streamlined digital workflows. As a dedicated ServiceNow partner, we empower organizations to consolidate fragmented processes into a single, unified platform that drives efficiency, transparency, and growth."
+      heroVideoUrl="https://res.cloudinary.com/ax6dtcht/video/upload/v1785324517/now_in_this_same_theme_like_amrowr.mp4"
+      heroVideoRotated={false}
+      solutionsImgUrl="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324505/ChatGPT_Image_Jul_29_2026_04_38_36_PM_lk2skj.png"
+      solutions={solutions}
+      framework={framework}
+      whyHadron={whyHadron}
+      expertName="ServiceNow"
+    />
   );
 }
