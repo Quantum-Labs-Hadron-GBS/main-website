@@ -37,16 +37,16 @@ const menuItems = [
     href: "/partners",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
     subItems: [
-      { label: "ServiceNow", href: "/partners/service-now" },
-      { label: "Salesforce", href: "/partners/salesforce" },
-      { label: "SAP", href: "/partners/sap" },
-      { label: "BMC Software", href: "/partners/bmc" },
-      { label: "Ivanti", href: "/partners/ivanti" },
-      { label: "Atlassian", href: "/partners/atlassian" },
-      { label: "Microsoft Cloud", href: "/partners/microsoft-cloud" },
-      { label: "AWS Cloud", href: "/partners/aws-cloud" },
-      { label: "Freshworks", href: "/partners/freshworks" },
-      { label: "Low Code – No Code", href: "/partners/low-code" }
+      { label: "ServiceNow", href: "/services/service-now" },
+      { label: "Salesforce", href: "/services/salesforce" },
+      { label: "SAP", href: "/services/sap" },
+      { label: "BMC Software", href: "/services/bmc" },
+      { label: "Ivanti", href: "/services/ivanti" },
+      { label: "Atlassian", href: "/services/atlassian" },
+      { label: "Microsoft Cloud", href: "/services/microsoft-cloud" },
+      { label: "AWS Cloud", href: "/services/aws-cloud" },
+      { label: "Freshworks", href: "/services/freshworks" },
+      { label: "Low Code – No Code", href: "/services/low-code" }
     ]
   },
   {
@@ -272,16 +272,16 @@ export default function Navbar() {
             </div>
             <div className={`${styles.treeBranch} ${openTrees['partners'] ? styles.treeBranchOpen : ""}`}>
               <a href="/partners" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Our Partners</a>
-              <a href="/partners/service-now" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>ServiceNow</a>
-              <a href="/partners/salesforce" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Salesforce</a>
-              <a href="/partners/sap" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>SAP</a>
-              <a href="/partners/bmc" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>BMC Software</a>
-              <a href="/partners/ivanti" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Ivanti</a>
-              <a href="/partners/atlassian" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Atlassian</a>
-              <a href="/partners/microsoft-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Microsoft Cloud</a>
-              <a href="/partners/aws-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>AWS Cloud</a>
-              <a href="/partners/freshworks" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Freshworks</a>
-              <a href="/partners/low-code" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Low Code – No Code</a>
+              <a href="/services/service-now" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>ServiceNow</a>
+              <a href="/services/salesforce" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Salesforce</a>
+              <a href="/services/sap" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>SAP</a>
+              <a href="/services/bmc" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>BMC Software</a>
+              <a href="/services/ivanti" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Ivanti</a>
+              <a href="/services/atlassian" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Atlassian</a>
+              <a href="/services/microsoft-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Microsoft Cloud</a>
+              <a href="/services/aws-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>AWS Cloud</a>
+              <a href="/services/freshworks" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Freshworks</a>
+              <a href="/services/low-code" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Low Code – No Code</a>
             </div>
           </div>
           
