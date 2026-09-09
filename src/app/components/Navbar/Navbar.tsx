@@ -36,6 +36,18 @@ const menuItems = [
     label: "Partners",
     href: "/partners",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
+    subItems: [
+      { label: "ServiceNow", href: "/partners/service-now" },
+      { label: "Salesforce", href: "/partners/salesforce" },
+      { label: "SAP", href: "/partners/sap" },
+      { label: "BMC Software", href: "/partners/bmc" },
+      { label: "Ivanti", href: "/partners/ivanti" },
+      { label: "Atlassian", href: "/partners/atlassian" },
+      { label: "Microsoft Cloud", href: "/partners/microsoft-cloud" },
+      { label: "AWS Cloud", href: "/partners/aws-cloud" },
+      { label: "Freshworks", href: "/partners/freshworks" },
+      { label: "Low Code – No Code", href: "/partners/low-code" }
+    ]
   },
   {
     label: "Quantum",
@@ -229,7 +241,49 @@ export default function Navbar() {
             </div>
           </div>
 
-          <a href="/partners" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Partners</a>
+          {/* Partners Tree Node */}
+          <div 
+            className={styles.treeNode} 
+            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'partners': true })) }} 
+            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'partners': false })) }}
+          >
+            <div className={styles.treeNodeHeader}>
+              <a 
+                href="/partners" 
+                className={styles.drawerLink} 
+                onClick={(e) => {
+                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggleTree('partners', e as any);
+                  } else {
+                    setIsDrawerOpen(false);
+                  }
+                }}
+              >
+                Partners
+              </a>
+              <button 
+                className={styles.treeToggleBtn} 
+                onClick={(e) => toggleTree('partners', e)}
+                style={{ transform: openTrees['partners'] ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+            <div className={`${styles.treeBranch} ${openTrees['partners'] ? styles.treeBranchOpen : ""}`}>
+              <a href="/partners" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Our Partners</a>
+              <a href="/partners/service-now" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>ServiceNow</a>
+              <a href="/partners/salesforce" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Salesforce</a>
+              <a href="/partners/sap" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>SAP</a>
+              <a href="/partners/bmc" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>BMC Software</a>
+              <a href="/partners/ivanti" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Ivanti</a>
+              <a href="/partners/atlassian" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Atlassian</a>
+              <a href="/partners/microsoft-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Microsoft Cloud</a>
+              <a href="/partners/aws-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>AWS Cloud</a>
+              <a href="/partners/freshworks" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Freshworks</a>
+              <a href="/partners/low-code" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Low Code – No Code</a>
+            </div>
+          </div>
           
           {/* Resources Tree Node */}
           <div 
