@@ -14,17 +14,15 @@ https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/favicon-hadron_g5wr
 
 --- Source: src/app/page.tsx ---
 
-{/* ── HERO ── */}
+{/* ── ALPY-STYLE PARTNER RING (NEW HERO) ── */}
 
-{/* ── FEATURE NUMBER TICKER ── */}
+{/* ── INTERACTIVE CANVAS SECTION (NEW) ── */}
 
-{/* ── WHY HADRON GBS ── */}
+{/* ── WHY HADRON GBS (Advantage) ── */}
+
+{/* ── ALPY-STYLE STICKY SOLUTIONS ── */}
 
 {/* ── CORE SERVICES ── */}
-
-{/* ── MISSION & VISION (4 P's) ── */}
-
-{/* ── ASSETS OF EXCELLENCE ── */}
 
 {/* ── LANGUAGE REEL + zooming globe ── */}
 
@@ -182,19 +180,70 @@ Read More ↗
 
 --- Source: src/app/components/WhyHadronSection/WhyHadronSection.tsx ---
 
+Architecture-Led Delivery
+
+We treat every engagement as a complex systems challenge, rather than a mere implementation task. Our elite enterprise architects design for structural integrity, operational coherence, and long-term platform health. By embedding strict governance into our pipelines, we ensure the digital cores we build are highly scalable, secure, and fiercely resilient against technical debt.
+
+Outcome-Driven Accountability
+
+Implementation isn't enough; we measure success strictly by business impact. We align our delivery model with your core strategic objectives from day one, defining success through hard KPIs like MTTR reduction and improved CSAT. We tie our operational success directly to yours, staying ruthlessly accountable to these metrics at every stage of the journey.
+
+GenAI-Powered Transformation
+
+We are pioneering the next era of enterprise operations by natively embedding intelligent automation into ServiceNow, Salesforce, and SAP workflows. Our custom GenAI integrations transform static processes into dynamic, self-optimizing ecosystems that reduce manual overhead, accelerate decisions, and unlock new dimensions of operational efficiency.
+
+Lifecycle Accountability
+
+We refuse to simply deploy and walk away. We adapt our operating model to seamlessly match your evolving business priorities, providing continuous, end-to-end accountability from day-zero architecture through post-deployment hypercare and ongoing managed services. We stand by our builds, ensuring your enterprise platforms evolve flawlessly as your business scales.
+
+(min-width: 768px)
+
+12vh
+
+45%
+
+calc(45% - 55px)
+
+16px
+
+{
+  const points = [];
+  const offset = -Math.PI / 2 - Math.PI / sides;
+  for (let i = 0; i
+
 (null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
+  const panRef = useRef
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-35%", "35%"]);
-  const headerY = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]);
-  const bentoY = useTransform(scrollYProgress, [0, 1], ["25%", "-25%"]);
+(null);
+  const rollerRef = useRef
 
-  return (
+(null);
+  const polygonRef = useRef
 
-{/* Premium CSS-only background */}
+(null);
+  const circleRef = useRef
+
+{`
+        .adv-pan-container {
+          width: 100%;
+        }
+        @media (max-width: 767px) {
+          .adv-pan-container {
+            width: 320vw; /* Expands container to allow horizontal pan on mobile */
+          }
+          .adv-title {
+            font-size: 2.2rem !important;
+            white-space: normal !important;
+            max-width: 80vw;
+            line-height: 1.1 !important;
+          }
+          .adv-card-text {
+            transform: translateY(-8px);
+          }
+        }
+      `}
+
+{/* Top-left header: Single line, right side empty */}
 
 The
 
@@ -202,7 +251,31 @@ Hadron
 
 Advantage
 
-What sets us apart is our commitment to engineering world-class solutions. From intelligent automation to seamless cloud integration, we empower your business to scale with absolute confidence.
+{/* Full-screen track container pushing content to bottom */}
+
+{/* Global Dashed Guideline passing perfectly through the origin dot */}
+
+{/* Rolling Geometric Shape */}
+
+{/* Morphing Polygon Layer */}
+
+{/* Perfect Circle Layer (Faded in during final phase) */}
+
+{/* Persistent Center Pivot Dot */}
+
+{/* Cards Grid Architecture */}
+
+{/* Clean Top Number Badge anchored near top */}
+
+{item.num}
+
+{/* Spacer to push content to the bottom */}
+
+{/* Card Title & Body Area (Fixed height ensures perfect alignment) */}
+
+{item.title}
+
+{item.desc}
 
 --- Source: src/app/components/InteractiveBento/InteractiveBento.tsx ---
 
@@ -218,21 +291,9 @@ GenAI-Powered Transformation
 
 Embedding automation across ServiceNow, Salesforce, and SAP.
 
-Collaborative Governance
+Flexible Engagement Models and Lifecycle Accountability
 
-No black boxes. Open patterns and structured governance cadences.
-
-Rigorous Discovery
-
-Decisions grounded in real operating conditions and workflows, not untested assumptions.
-
-Lifecycle Accountability
-
-From hypercare to managed services, keeping platforms optimized.
-
-Flexible Engagement Models
-
-We adapt our operating model to match your business priorities, not the other way around.
+We adapt our operating model to match your business priorities, providing end-to-end accountability from hypercare to managed services to keep your platforms continually optimized.
 
 {card.title}
 
@@ -274,8 +335,8 @@ We hold ourselves to the highest standards of quality, craftsmanship, and engine
     offset: ["start end", "end start"]
   });
 
-  const headerY = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]);
-  const cardsY = useTransform(scrollYProgress, [0, 1], ["80%", "-80%"]);
+  const headerY = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
+  const cardsY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
 
   return (
 
@@ -299,63 +360,27 @@ Our core values form the foundation of how we operate, deliver, and partner with
 
 --- Source: src/app/components/CoreServicesSection/CoreServicesSection.tsx ---
 
-Enterprise Core Transformation
+{card.quote}
 
-Modernise SAP, Oracle, Salesforce, and Workday environments to unify data, accelerate decisions, and eliminate manual workarounds.
+{card.author}
 
-Intelligent Automation & Agentic AI
+{card.company}
 
-Move beyond task-level RPA to AI-driven orchestration — intelligent agents handle routing, decisions, and execution in real time.
-
-Rapid Application Engineering
-
-Deliver enterprise applications in weeks using low-code and no-code platforms, with governance built in from the start.
-
-Unified Service Experience Management
-
-Bring ITSM, CSM, and enterprise workflows into a single operational model with intelligent routing and unified knowledge.
-
-Cloud Adoption & Engineering
-
-Design, migrate, and operate cloud environments on AWS, Azure, and GCP with cost visibility and security controls embedded in the architecture.
-
-Engineering Quality & Reliability
-
-Embed quality across the full delivery pipeline — from automated testing gates in CI/CD to real-time production observability.
-
-auto
-
-{srv.title}
-
-{srv.desc}
-
-Explore
-
-));
+);
+}
 
 export default function CoreServicesSection() {
-  const sectionRef = useRef
-
-(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-
-  const headerY = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]);
-  const foldersY = useTransform(scrollYProgress, [0, 1], ["80%", "-80%"]);
-
   return (
 
 {/* Header */}
 
-What We Do
+What
 
-Core Services
+Our Clients
 
-We engineer high-performance platforms that drive enterprise efficiency. Click the folders to explore our specializations.
+Say About Us...
 
-{/* Folders */}
+{/* Dual Row Marquee */}
 
 --- Source: src/app/components/AssetsOfExcellence/AssetsOfExcellenceSection.tsx ---
 
@@ -385,20 +410,16 @@ Global Presence
 
 {currentItem.sub}
 
-{currentItem.region && (
-
-{currentItem.region}
-
 {/* Progress dots */}
 
 {/* Manual Navigation Controls for accessibility */}
 
 --- Source: src/app/components/CtaSection/CtaSection.tsx ---
 
-{title || "Looking for the Best IT Business Solutions?"}
+{title || "Ready to transform your business?"}
 
-{subtitle || "Contact us today, and let us help you achieve your business objectives."}
+{subtitle || "Let's collaborate to build the future of your enterprise with our world-class IT solutions."}
 
-{buttonText || "Contact Us"}
+{buttonText || "Contact Us Today"}
 
 &rarr;
