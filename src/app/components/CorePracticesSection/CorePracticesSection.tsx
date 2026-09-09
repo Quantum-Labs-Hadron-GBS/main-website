@@ -16,7 +16,7 @@ const SOLUTIONS = [
   {
     title: "Intelligent Automation & Agentic AI",
     desc: "Hadron GBS translates deep automation expertise into measurable business value through outcomes-driven execution across intelligent automation and agentic AI.",
-    href: "/solutions/intelligent-automation-agentic-ai",
+    href: "/services/intelligent-automation-agentic-ai",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788267903/Animate_the_attached_image_as_xmqsid.mp4"
   },
   {

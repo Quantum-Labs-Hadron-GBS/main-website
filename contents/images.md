@@ -33,6 +33,14 @@
 - **Solution - Enterprise Core**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788259020/ET_M2_qtl4pc.jpg
 - **Solution - Enterprise Core**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788259026/ET_M1_cdjlli.jpg
 - **Solution - Enterprise Core**: https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788254535/Animate_the_attached_image_whi_uxz6vf.mp4
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_1_htjhug.jpg
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_2_wyepkk.jpg
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_3_tshlif.jpg
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_5_syh8hy.jpg
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268273/ai_4_tllrcx.jpg
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788269187/ai_m1_zwylfu.png
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788269188/ai_m2_jffznd.png
+- **Solution - Intelligent Automation**: https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788267903/Animate_the_attached_image_as_xmqsid.mp4
 - **Solution - Rapid Application**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273529/rapid_5_zsiara.avif
 - **Solution - Rapid Application**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_2_q0t1eq.avif
 - **Solution - Rapid Application**: https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_3_zg4b5o.avif
