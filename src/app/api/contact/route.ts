@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
             
             <!-- Header -->
             <div style="background-color: #0f172a; padding: 30px 40px; text-align: center;">
-              <h1 style="color: #ffffff; margin: 0; font-size: 24px; letter-spacing: 2px; font-weight: 700;">HADRON<span style="color: #F47C36;">GBS</span></h1>
+              <img src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png" alt="Hadron GBS" style="height: 36px; margin: 0 auto; display: block;" />
             </div>
             
             <!-- Content -->
