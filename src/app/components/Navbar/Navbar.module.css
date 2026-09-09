@@ -168,7 +168,7 @@
 
 @media (max-width: 64rem) {
   .navContainer {
-    padding: 0;
+    padding: 0 1rem;
   }
 
   .links,
@@ -178,7 +178,7 @@
 
   .hamburgerBtn {
     left: auto !important;
-    right: 1.5rem !important;
+    right: 2rem !important;
   }
 
   .drawerMenu {

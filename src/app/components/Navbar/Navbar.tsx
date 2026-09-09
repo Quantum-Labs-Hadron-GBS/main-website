@@ -97,7 +97,7 @@ export default function Navbar() {
       if (typeof window === "undefined") return;
 
       const currentScrollY = window.scrollY;
-      const hideThreshold = pathname === "/contact" ? 200 : window.innerHeight * 0.9;
+      const hideThreshold = 100;
       let themeThreshold = window.innerHeight * 0.9;
       if (pathname === "/") {
         themeThreshold = window.innerHeight * 0.9;

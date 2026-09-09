@@ -193,12 +193,8 @@
   .menuBar {
     width: 100%;
     justify-content: flex-start;
-    padding-left: 1.5rem;
+    padding-left: 1rem;
     padding-right: 4rem;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-    border-top: none;
   }
   
   .menuItemWrapper.isLogo .menuItem {
