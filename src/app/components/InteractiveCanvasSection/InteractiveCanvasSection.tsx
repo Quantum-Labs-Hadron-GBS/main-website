@@ -25,25 +25,25 @@ const COLORS = [
   "#ec4899", // Pink
 ];
 
-const TABS = ["EXPERTISE", "PARTNERS", "EXCELLENCE"];
+const TABS = ["INDUSTRIES", "PLATFORMS", "EXCELLENCE"];
 
 // Handwritten content for each tab
 const TAB_CONTENT = [
-  // Expertise
+  // Industries
   [
-    { title: "Salesforce", body: "Our CRM implementation services are specifically tailored to meet your business needs. We offer a range of services that include design, integration, and management of Salesforce solutions." },
-    { title: "DevOps", body: "Agile Methodology and DevOps are the two sides of the same coin. Together, these two concepts can help you achieve faster application releases with improved build quality." },
-    { title: "IT Service Management", body: "Our Enterprise Services Management (ESM) consulting services help you transform your organization into one that can meet future challenges and requirements." },
-    { title: "IT Operations Management", body: "With ITOM Consulting, we enable IT operations and management teams to simplify data collection and processing by providing a solution-agnostic approach." },
-    { title: "Robotic Process Automation", body: "We help customers realigning the process with the correct automation approach by providing the right methodologies, tools, products, and services." }
+    { title: "Manufacturing", body: "We help manufacturing organizations leverage AI, automation, and IoT to optimize supply chains and increase production efficiency." },
+    { title: "Financial Services", body: "Empowering financial institutions with secure, scalable cloud solutions and agentic AI to enhance customer experience and compliance." },
+    { title: "Retail", body: "Transforming retail through unified commerce solutions, predictive analytics, and personalized customer journeys." },
+    { title: "Government", body: "Modernizing public services with secure cloud infrastructure, digital workflows, and citizen-centric applications." },
+    { title: "Education", body: "Enhancing educational experiences through digital transformation, secure learning platforms, and operational efficiency." }
   ],
-  // Partners
+  // Platforms
   [
-    { title: "ServiceNow", body: "Hadron GBS has been awarded a Consulting & Implementation partnership with ServiceNow. As a ServiceNow Partner, we are committed to empowering organizations with state-of-the-art technologies, spearheading digital transformation initiatives, and fostering business growth." },
-    { title: "BMC Software", body: "Hadron Global Business Solutions (Hadron GBS), a leading provider of innovative IT solutions, is pleased to announce a strategic partnership with BMC Software, a global software company that specializes in providing solutions for IT service management, cloud management, and digital enterprise automation." },
-    { title: "Salesforce", body: "Hadron partners with Salesforce, merging expertise to redefine global business solutions. Our collaboration unlocks innovation, streamlines processes, and drives growth, empowering organizations to thrive in a dynamic market. Experience the future of enterprise solutions with us." },
-    { title: "Ivanti", body: "We have been lucky to collaborate with Ivanti to serve our customers for their need for IT Security, IT Service Management, IT Asset Management, Unified Endpoint Management, Identity Management, and supply chain management." },
-    { title: "Microsoft", body: "As a certified Microsoft Solutions Partner, Hadron GBS empowers enterprises to modernize their infrastructure and reinvent productivity. We specialize in Azure cloud migrations, enterprise-grade security, and Microsoft 365 integrations, driving seamless collaboration and AI-powered innovation across your organization." }
+    { title: "ServiceNow", body: "As a ServiceNow Partner, we are committed to empowering organizations with state-of-the-art technologies, spearheading digital transformation initiatives." },
+    { title: "Salesforce", body: "Hadron partners with Salesforce, merging expertise to redefine global business solutions. Our collaboration unlocks innovation and drives growth." },
+    { title: "SAP", body: "We deliver SAP solutions that streamline enterprise operations, from ERP migrations to intelligent enterprise architecture and core modernization." },
+    { title: "Microsoft Cloud", body: "As a certified Microsoft Solutions Partner, Hadron GBS empowers enterprises to modernize their infrastructure and reinvent productivity." },
+    { title: "AWS Cloud", body: "We accelerate your journey to AWS with secure, scalable cloud architecture and AI-powered data solutions." }
   ],
   // Excellence
   [

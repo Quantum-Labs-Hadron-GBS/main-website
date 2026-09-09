@@ -11,11 +11,26 @@ export interface SubMenuItem {
   nestedItems?: { label: string; href: string }[];
 }
 
+export type MenuGroup = {
+  title: string;
+  items: SubMenuItem[];
+};
+
+export type FeaturedPanel = {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  cta: string;
+  href: string;
+};
+
 export interface MenuItem {
   label: string;
   href: string;
   gradient: string;
   subItems?: SubMenuItem[];
+  groups?: MenuGroup[];
+  featured?: FeaturedPanel;
   isLogo?: boolean;
   logoSrc?: string;
   textColor?: string;
@@ -92,17 +107,18 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
               </Link>
 
               {/* Dropdown Menu */}
-              {hasSubItems && (
+              {(hasSubItems || item.groups) && (
                 <AnimatePresence>
                   {isHovered && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95, x: "-50%" }}
-                      animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95, x: "-50%" }}
+                      initial={{ opacity: 0, y: 10, scale: 0.95, x: item.label === "AI & Automation" ? "-15%" : item.label === "Platforms" ? "-75%" : item.label === "More" ? "-85%" : "-50%" }}
+                      animate={{ opacity: 1, y: 0, scale: 1, x: item.label === "AI & Automation" ? "-15%" : item.label === "Platforms" ? "-75%" : item.label === "More" ? "-85%" : "-50%" }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95, x: item.label === "AI & Automation" ? "-15%" : item.label === "Platforms" ? "-75%" : item.label === "More" ? "-85%" : "-50%" }}
                       transition={{ duration: 0.2 }}
-                      className={styles.dropdownMenu}
+                      className={item.groups ? styles.dropdownMenuMega : styles.dropdownMenu}
                     >
-                      {item.subItems!.map((sub) => (
+                      {/* Standard Flat List (Fallback) */}
+                      {!item.groups && item.subItems && item.subItems.map((sub) => (
                         <div 
                           key={sub.label}
                           className={styles.dropdownItemWrapper}
@@ -157,6 +173,56 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                           )}
                         </div>
                       ))}
+
+                      {/* Mega Menu Layout */}
+                      {item.groups && (
+                        <div className={styles.megaMenuInner}>
+                          <div className={styles.megaGroups}>
+                            {item.groups.map((group, idx) => (
+                              <div key={idx} className={styles.megaGroup}>
+                                <h4 className={styles.megaGroupTitle}>{group.title}</h4>
+                                <div className={styles.megaGroupItems}>
+                                  {group.items.map((sub) => (
+                                    <Link 
+                                      key={sub.label}
+                                      href={sub.href} 
+                                      className={styles.dropdownItem}
+                                      onClick={() => {
+                                        setHoveredMenu(null);
+                                        onItemClick(item.label);
+                                      }}
+                                    >
+                                      {sub.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          {item.featured && (
+                            <div className={styles.megaFeatured}>
+                              <div className={styles.megaFeaturedInner}>
+                                {item.featured.eyebrow && (
+                                  <span className={styles.featuredEyebrow}>{item.featured.eyebrow}</span>
+                                )}
+                                <h4 className={styles.featuredTitle}>{item.featured.title}</h4>
+                                <p className={styles.featuredDesc}>{item.featured.description}</p>
+                                <Link
+                                  href={item.featured.href}
+                                  className={styles.featuredCta}
+                                  onClick={() => {
+                                    setHoveredMenu(null);
+                                    onItemClick(item.label);
+                                  }}
+                                >
+                                  {item.featured.cta} <span>→</span>
+                                </Link>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
                     </motion.div>
                   )}
                 </AnimatePresence>

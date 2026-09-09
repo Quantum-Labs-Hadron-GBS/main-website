@@ -185,6 +185,117 @@
   width: 1.25rem;
 }
 
+/* ── Mega Menu specific styles ── */
+.dropdownMenuMega {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 10, 25, 0.95);
+  backdrop-filter: blur(1rem);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.7);
+  z-index: 50;
+  min-width: 750px;
+  width: max-content;
+  max-width: 90vw;
+}
+
+.dropdownMenuMega::before {
+  content: '';
+  position: absolute;
+  top: -1.25rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.megaMenuInner {
+  display: flex;
+  padding: 1.5rem;
+  gap: 2rem;
+}
+
+.megaGroups {
+  display: flex;
+  gap: 2.5rem;
+  flex: 2;
+}
+
+.megaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.megaGroupTitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+}
+
+.megaGroupItems {
+  display: flex;
+  flex-direction: column;
+}
+
+.megaFeatured {
+  flex: 1;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.megaFeaturedInner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.featuredEyebrow {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent, #f97316);
+  font-weight: bold;
+}
+
+.featuredTitle {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.featuredDesc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.featuredCta {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--accent, #f97316);
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.featuredCta:hover {
+  opacity: 0.8;
+}
+
 @media (max-width: 64rem) {
   .menuBarContainer {
     width: 100%;
@@ -246,10 +357,27 @@
 }
 
 .lightMode .dropdownMenu,
-.lightMode .nestedDropdownMenu {
+.lightMode .nestedDropdownMenu,
+.lightMode .dropdownMenuMega {
   background: rgba(255, 255, 255, 0.95);
   border-color: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.1);
+}
+
+.lightMode .megaFeatured {
+  border-left-color: rgba(0, 0, 0, 0.1);
+}
+
+.lightMode .megaGroupTitle {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.lightMode .featuredTitle {
+  color: #0f172a;
+}
+
+.lightMode .featuredDesc {
+  color: rgba(15, 23, 42, 0.7);
 }
 
 .lightMode .dropdownItem {
