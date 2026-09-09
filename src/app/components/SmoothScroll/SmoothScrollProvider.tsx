@@ -32,37 +32,42 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
     // 3. Global Parallax Injection (Non-Destructive)
     // Automatically apply a subtle parallax effect to specific background elements across the site
     setTimeout(() => {
-      const bgWords = document.querySelectorAll('[class*="bgWord"]'); // Target huge background words (e.g., Footer)
-      bgWords.forEach((el) => {
-        gsap.to(el, {
-          y: -100,
-          ease: "none",
-          scrollTrigger: {
-            trigger: el.parentElement,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          }
-        });
-      });
+      const mm = gsap.matchMedia();
 
-      // Target background videos globally to give them a slight parallax pull
-      const videos = document.querySelectorAll('video');
-      videos.forEach((video) => {
-        // Only apply if it looks like a background video (absolute positioning)
-        const computedStyle = window.getComputedStyle(video);
-        if (computedStyle.position === 'absolute' || computedStyle.position === 'fixed') {
-          gsap.to(video, {
-            y: "15%",
+      // Only run heavy parallax effects on desktop/tablet to prevent mobile GPU lag
+      mm.add("(min-width: 768px)", () => {
+        const bgWords = document.querySelectorAll('[class*="bgWord"]'); // Target huge background words (e.g., Footer)
+        bgWords.forEach((el) => {
+          gsap.to(el, {
+            y: -100,
             ease: "none",
             scrollTrigger: {
-              trigger: video.parentElement,
+              trigger: el.parentElement,
               start: "top bottom",
               end: "bottom top",
               scrub: true,
             }
           });
-        }
+        });
+
+        // Target background videos globally to give them a slight parallax pull
+        const videos = document.querySelectorAll('video');
+        videos.forEach((video) => {
+          // Only apply if it looks like a background video (absolute positioning)
+          const computedStyle = window.getComputedStyle(video);
+          if (computedStyle.position === 'absolute' || computedStyle.position === 'fixed') {
+            gsap.to(video, {
+              y: "15%",
+              ease: "none",
+              scrollTrigger: {
+                trigger: video.parentElement,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+              }
+            });
+          }
+        });
       });
     }, 500);
 

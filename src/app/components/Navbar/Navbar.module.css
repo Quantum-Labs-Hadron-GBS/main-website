@@ -28,7 +28,6 @@
 /* Scrolled: solid dark glass */
 .navbar.scrolled {
   border-bottom-color: rgba(255, 255, 255, 0.06);
-  padding: 0.85rem 0;
 }
 
 .inner {
