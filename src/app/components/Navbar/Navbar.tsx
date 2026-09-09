@@ -29,7 +29,8 @@ const menuItems = [
       { label: "Operational Support Services", href: "/services/operational-support" },
       { label: "Managed Services", href: "/services/managed-services" },
       { label: "Hadron ServiceNow Excellence Hub", href: "/services/training-program" },
-      { label: "Intelligent Automation & Agentic AI", href: "/services/intelligent-automation-agentic-ai" }
+      { label: "Intelligent Automation & Agentic AI", href: "/services/intelligent-automation-agentic-ai" },
+      { label: "Low Code – No Code", href: "/services/low-code" }
     ]
   },
   {
@@ -45,8 +46,7 @@ const menuItems = [
       { label: "Atlassian", href: "/services/atlassian" },
       { label: "Microsoft Cloud", href: "/services/microsoft-cloud" },
       { label: "AWS Cloud", href: "/services/aws-cloud" },
-      { label: "Freshworks", href: "/services/freshworks" },
-      { label: "Low Code – No Code", href: "/services/low-code" }
+      { label: "Freshworks", href: "/services/freshworks" }
     ]
   },
   {
@@ -200,6 +200,7 @@ export default function Navbar() {
               <a href="/services/managed-services" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Managed Services</a>
               <a href="/services/training-program" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Excellence Hub Training Program</a>
               <a href="/services/intelligent-automation-agentic-ai" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Intelligent Automation & Agentic AI</a>
+              <a href="/services/low-code" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Low Code – No Code</a>
             </div>
           </div>
 
@@ -281,7 +282,6 @@ export default function Navbar() {
               <a href="/services/microsoft-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Microsoft Cloud</a>
               <a href="/services/aws-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>AWS Cloud</a>
               <a href="/services/freshworks" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Freshworks</a>
-              <a href="/services/low-code" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Low Code – No Code</a>
             </div>
           </div>
           
