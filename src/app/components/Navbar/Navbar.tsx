@@ -28,7 +28,8 @@ const menuItems = [
       { label: "Implementation and Execution", href: "/services/implementation-and-execution" },
       { label: "Operational Support Services", href: "/services/operational-support" },
       { label: "Managed Services", href: "/services/managed-services" },
-      { label: "Hadron ServiceNow Excellence Hub", href: "/services/training-program" }
+      { label: "Hadron ServiceNow Excellence Hub", href: "/services/training-program" },
+      { label: "Intelligent Automation & Agentic AI", href: "/services/intelligent-automation-agentic-ai" }
     ]
   },
   {
@@ -88,7 +89,7 @@ export default function Navbar() {
       let themeThreshold = window.innerHeight * 0.9;
       if (pathname === "/") {
         themeThreshold = window.innerHeight * 0.9;
-      } else if (pathname === "/solutions/enterprise-core-transformation" || pathname === "/solutions/intelligent-automation-agentic-ai" || pathname === "/solutions/rapid-application-engineering" || pathname === "/solutions/unified-service-experience-management" || pathname === "/solutions/cloud-adoption-and-cloud-first-engineering" || pathname === "/solutions/engineering-quality-and-reliability") {
+      } else if (pathname === "/solutions/enterprise-core-transformation" || pathname === "/services/intelligent-automation-agentic-ai" || pathname === "/solutions/rapid-application-engineering" || pathname === "/solutions/unified-service-experience-management" || pathname === "/solutions/cloud-adoption-and-cloud-first-engineering" || pathname === "/solutions/engineering-quality-and-reliability") {
         themeThreshold = window.innerHeight * 0.65;
       } else if (pathname === "/services") {
         themeThreshold = window.innerHeight * 0.65;
@@ -186,6 +187,7 @@ export default function Navbar() {
               <a href="/services/operational-support" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Operational Support Services</a>
               <a href="/services/managed-services" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Managed Services</a>
               <a href="/services/training-program" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Excellence Hub Training Program</a>
+              <a href="/services/intelligent-automation-agentic-ai" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Intelligent Automation & Agentic AI</a>
             </div>
           </div>
 
@@ -220,7 +222,6 @@ export default function Navbar() {
             </div>
             <div className={`${styles.treeBranch} ${openTrees['solutions'] ? styles.treeBranchOpen : ""}`}>
               <a href="/solutions/enterprise-core-transformation" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Enterprise Core Transformation</a>
-              <a href="/solutions/intelligent-automation-agentic-ai" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Intelligent Automation & Agentic AI</a>
               <a href="/solutions/rapid-application-engineering" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Rapid Application Engineering</a>
               <a href="/solutions/unified-service-experience-management" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Unified Service Experience Management</a>
               <a href="/solutions/cloud-adoption-and-cloud-first-engineering" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Cloud Adoption And Cloud-First Engineering</a>
