@@ -13,10 +13,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // 1. Send Direct Email to info@hadrongbs.com
+    // 1. Send Direct Email to info & quantum.lab
     const { error: resendError } = await resend.emails.send({
       from: "Hadron Website <noreply@hadrongbs.com>",
-      to: "info@hadrongbs.com",
+      to: ["info@hadrongbs.com", "quantum.lab@hadrongbs.com"],
       subject: `New Enterprise Inquiry: ${name} - ${interestedService || 'General'}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px;">
