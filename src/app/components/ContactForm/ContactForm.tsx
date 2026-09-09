@@ -61,7 +61,7 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit}>
         <div className={styles.row}>
           <div className={styles.formGroup}>
-            <label htmlFor="name" className={styles.label}>Your Name *</label>
+            <label htmlFor="name" className={styles.label}>Your Name <span style={{ color: '#F47C36' }}>*</span></label>
             <input 
               type="text" 
               id="name" 
@@ -75,7 +75,7 @@ export default function ContactForm() {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="email" className={styles.label}>Email Address *</label>
+            <label htmlFor="email" className={styles.label}>Email Address <span style={{ color: '#F47C36' }}>*</span></label>
             <input 
               type="email" 
               id="email" 
@@ -118,7 +118,7 @@ export default function ContactForm() {
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="interestedService" className={styles.label}>Interested Service *</label>
+          <label htmlFor="interestedService" className={styles.label}>Interested Service <span style={{ color: '#F47C36' }}>*</span></label>
           <select 
             id="interestedService" 
             name="interestedService"
@@ -141,7 +141,7 @@ export default function ContactForm() {
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="message" className={styles.label}>Your Message *</label>
+          <label htmlFor="message" className={styles.label}>Your Message <span style={{ color: '#F47C36' }}>*</span></label>
           <textarea 
             id="message" 
             name="message"
