@@ -19,57 +19,72 @@ export async function POST(req: NextRequest) {
       to: ["info@hadrongbs.com", "quantum.lab@hadrongbs.com"],
       subject: `New Enterprise Inquiry: ${name} - ${interestedService || 'General'}`,
       html: `
-        <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f8fafc; padding: 40px 20px; margin: 0;">
-          <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+        <div style="background-color: #f1f5f9; padding: 40px 20px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+          <div style="max-width: 600px; margin: 0 auto; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
             
-            <!-- Header -->
-            <div style="background-color: #0f172a; padding: 30px 40px; text-align: center;">
-              <img src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png" alt="Hadron GBS" style="height: 36px; margin: 0 auto; display: block;" />
-            </div>
-            
-            <!-- Content -->
-            <div style="padding: 40px;">
-              <div style="color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; font-weight: 700;">New Enterprise Inquiry</div>
-              
-              <div style="margin-bottom: 24px;">
-                <span style="color: #94a3b8; font-size: 14px; display: block; margin-bottom: 4px;">Client Name</span>
-                <p style="color: #0f172a; font-size: 18px; font-weight: 600; margin: 0;">${name}</p>
-              </div>
-              
-              <div style="margin-bottom: 24px;">
-                <span style="color: #94a3b8; font-size: 14px; display: block; margin-bottom: 4px;">Email Address</span>
-                <p style="margin: 0;"><a href="mailto:${email}" style="color: #1A73E8; font-size: 16px; font-weight: 500; text-decoration: none;">${email}</a></p>
-              </div>
-              
-              <div style="margin-bottom: 24px;">
-                <span style="color: #94a3b8; font-size: 14px; display: block; margin-bottom: 4px;">Phone Number</span>
-                <p style="color: #0f172a; font-size: 16px; font-weight: 500; margin: 0;">${phone || "<span style='color: #cbd5e1; font-style: italic;'>Not provided</span>"}</p>
-              </div>
+            <!-- Airmail Border Wrapper (Blue solid with Orange dashed inner) -->
+            <div style="background-color: #1a73e8; padding: 6px;">
+              <div style="border: 2px dashed #f47c36; padding: 2px;">
+                
+                <!-- The Letter -->
+                <div style="background-color: #ffffff; padding: 40px;">
+                  
+                  <div style="text-align: center; margin-bottom: 40px;">
+                    <img src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/Hadron-Logo_lt4uaa.png" alt="Hadron GBS" style="height: 30px; margin: 0 auto; display: block; margin-bottom: 10px;" />
+                    <h1 style="color: #1a73e8; margin: 0; font-size: 20px; letter-spacing: 1px; font-weight: 700; text-transform: uppercase;">New Contact Submission</h1>
+                  </div>
 
-              <div style="margin-bottom: 24px;">
-                <span style="color: #94a3b8; font-size: 14px; display: block; margin-bottom: 4px;">Location</span>
-                <p style="color: #0f172a; font-size: 16px; font-weight: 500; margin: 0;">${location || "<span style='color: #cbd5e1; font-style: italic;'>Not provided</span>"}</p>
-              </div>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <!-- Left Column: Details -->
+                      <td width="45%" valign="top" style="padding-right: 20px;">
+                        
+                        <div style="margin-bottom: 20px;">
+                          <span style="color: #1a73e8; font-size: 12px; font-weight: bold; text-transform: uppercase;">Name</span>
+                          <div style="color: #334155; font-size: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-top: 4px;">${name}</div>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                          <span style="color: #1a73e8; font-size: 12px; font-weight: bold; text-transform: uppercase;">E-mail</span>
+                          <div style="color: #334155; font-size: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-top: 4px;">
+                            <a href="mailto:${email}" style="color: #64748b; text-decoration: none;">${email}</a>
+                          </div>
+                        </div>
 
-              <div style="margin-bottom: 32px;">
-                <span style="color: #94a3b8; font-size: 14px; display: block; margin-bottom: 8px;">Interested Service</span>
-                <span style="background-color: #fff7ed; color: #c2410c; padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: 600; border: 1px solid #ffedd5;">
-                  ${interestedService || "General Inquiry"}
-                </span>
-              </div>
+                        <div style="margin-bottom: 20px;">
+                          <span style="color: #1a73e8; font-size: 12px; font-weight: bold; text-transform: uppercase;">Phone</span>
+                          <div style="color: #334155; font-size: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-top: 4px;">${phone || "N/A"}</div>
+                        </div>
 
-              <div style="background-color: #f1f5f9; padding: 24px; border-radius: 8px; border: 1px solid #e2e8f0;">
-                <span style="color: #64748b; font-size: 13px; font-weight: 600; display: block; margin-bottom: 12px;">MESSAGE</span>
-                <p style="color: #334155; line-height: 1.7; font-size: 15px; margin: 0; white-space: pre-wrap;">${message}</p>
+                        <div style="margin-bottom: 20px;">
+                          <span style="color: #1a73e8; font-size: 12px; font-weight: bold; text-transform: uppercase;">Service</span>
+                          <div style="color: #334155; font-size: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-top: 4px;">${interestedService || "General"}</div>
+                        </div>
+
+                      </td>
+                      
+                      <!-- Right Column: Message -->
+                      <td width="55%" valign="top">
+                        <div style="margin-bottom: 20px;">
+                          <span style="color: #1a73e8; font-size: 12px; font-weight: bold; text-transform: uppercase;">Message</span>
+                          <p style="color: #64748b; font-size: 14px; line-height: 1.6; margin-top: 8px; margin-bottom: 0;">${message}</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                </div>
               </div>
-              
             </div>
-            
-            <!-- Footer -->
-            <div style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 20px; text-align: center;">
-              <p style="color: #94a3b8; font-size: 12px; margin: 0;">This inquiry was securely submitted via the Hadron GBS Website.</p>
+
+            <!-- Envelope Bottom Flap -->
+            <div style="background-color: #ffffff; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0;">
+               <div style="display: inline-block; background-color: #f47c36; color: #ffffff; padding: 10px 30px; font-weight: bold; font-size: 14px; letter-spacing: 1px; border-radius: 4px; border: 4px solid #ffffff; margin-top: -35px; position: relative;">
+                 RECEIVED
+               </div>
+               <p style="color: #94a3b8; font-size: 12px; margin: 10px 0 0 0;">This inquiry was securely submitted via the Hadron GBS Website.</p>
             </div>
-            
+
           </div>
         </div>
       `,
