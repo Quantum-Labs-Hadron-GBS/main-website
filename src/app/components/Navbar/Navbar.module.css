@@ -283,6 +283,13 @@
   display: flex;
   flex-direction: column;
   padding: 4rem 2rem;
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.drawerMenu::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 /* Dark mode fallback for drawer */
