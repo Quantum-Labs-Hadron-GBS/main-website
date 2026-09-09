@@ -147,7 +147,7 @@ export default function Navbar() {
 
         {/* Unique Orange Hamburger Menu Button */}
         <button 
-          className={`${styles.hamburgerBtn} ${isDrawerOpen ? styles.hamburgerOpen : ""}`} 
+          className={`${styles.hamburgerBtn} ${isDrawerOpen ? styles.hamburgerOpen : ""} ${isLightMode ? styles.hamburgerLight : ""}`} 
           onClick={() => setIsDrawerOpen(!isDrawerOpen)}
           aria-label="Toggle secondary menu"
         >

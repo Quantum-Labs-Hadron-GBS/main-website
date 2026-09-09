@@ -206,18 +206,25 @@
   gap: 0.35rem;
   width: 3.25rem;
   height: 3.25rem;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   cursor: pointer;
   z-index: 1100;
   padding: 0;
-  transition: background 0.3s, border-color 0.3s;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-:global(html.dark) .hamburgerBtn {
+.hamburgerLight {
+  background: rgba(245, 245, 245, 0.85);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.1);
+}
+
+:global(html.dark) .hamburgerBtn:not(.hamburgerLight) {
   background: rgba(15, 23, 42, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
