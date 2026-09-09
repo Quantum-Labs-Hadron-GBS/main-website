@@ -125,7 +125,7 @@ export default function AIHubPage() {
         {/* THE JOURNEY TO AUTONOMY */}
         <section style={{ padding: '6rem 0', backgroundColor: '#1e293b', color: '#ffffff' }}>
           <div className={styles.container}>
-            <div style={{ display: 'flex', flexDirection: 'column', md: { flexDirection: 'row' }, gap: '4rem', alignItems: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '4rem', alignItems: 'center' }}>
               <div style={{ flex: 1 }}>
                 <h2 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '1.5rem', color: '#ffffff' }}>
                   The Evolution of Enterprise Efficiency
