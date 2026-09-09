@@ -19,6 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   width: 100%;
   max-width: 75rem;
   margin: 0 auto;
@@ -172,7 +173,8 @@
   }
 
   .links,
-  .cta {
+  .cta,
+  .quantumPill {
     display: none;
   }
 
@@ -194,12 +196,9 @@
 
 /* Unique Orange Hamburger Menu */
 .hamburgerBtn {
-  position: absolute;
-  left: 2rem;
-  right: auto;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
   display: flex;
+  flex-shrink: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -225,6 +224,48 @@
 }
 
 :global(html.dark) .hamburgerBtn:not(.hamburgerLight) {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Unique Right Side Quantum Pill */
+.quantumPill {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 3.25rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.5);
+  border-radius: 2rem;
+  cursor: pointer;
+  z-index: 1100;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+  color: #F47C36 !important;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.quantumPill:hover {
+  background: rgba(244, 124, 54, 0.9);
+  border-color: rgba(244, 124, 54, 1);
+  color: #ffffff !important;
+}
+
+.quantumPillLight {
+  background: rgba(245, 245, 245, 0.85);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.1);
+}
+
+:global(html.dark) .quantumPill:not(.quantumPillLight) {
   background: rgba(15, 23, 42, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }

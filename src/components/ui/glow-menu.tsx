@@ -41,9 +41,10 @@ interface MenuBarProps {
   activeItem: string;
   onItemClick: (label: string) => void;
   isLightMode?: boolean;
+  currentPath?: string;
 }
 
-export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }: MenuBarProps) {
+export function MenuBar({ items, activeItem, onItemClick, isLightMode = false, currentPath = "" }: MenuBarProps) {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [hoveredSubItem, setHoveredSubItem] = useState<string | null>(null);
 
@@ -97,8 +98,8 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                     className={styles.label} 
                     style={{ 
                       opacity: 1,
-                      color: item.textColor || undefined,
-                      fontWeight: item.textColor ? 'bold' : undefined
+                      color: item.textColor || (isActive && !item.isLogo ? '#F47C36' : undefined),
+                      fontWeight: (item.textColor || isActive) ? 'bold' : undefined
                     }}
                   >
                     {item.label}
@@ -128,7 +129,13 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                           <Link 
                             href={sub.href} 
                             className={styles.dropdownItem}
-                            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                            style={{ 
+                              display: 'flex', 
+                              justifyContent: 'space-between', 
+                              alignItems: 'center',
+                              color: sub.href === currentPath ? '#F47C36' : undefined,
+                              fontWeight: sub.href === currentPath ? '600' : undefined
+                            }}
                             onClick={() => {
                               setHoveredMenu(null);
                               setHoveredSubItem(null);
@@ -187,6 +194,10 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false }:
                                       key={sub.label}
                                       href={sub.href} 
                                       className={styles.dropdownItem}
+                                      style={{
+                                        color: sub.href === currentPath ? '#F47C36' : undefined,
+                                        fontWeight: sub.href === currentPath ? '600' : undefined
+                                      }}
                                       onClick={() => {
                                         setHoveredMenu(null);
                                         onItemClick(item.label);

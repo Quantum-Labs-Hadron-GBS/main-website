@@ -240,18 +240,30 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isAlwaysLight, pathname]);
 
+  useEffect(() => {
+    if (pathname === "/") {
+      setActiveItem("Home");
+    } else if (pathname.startsWith("/ai")) {
+      setActiveItem("AI & Automation");
+    } else if (pathname.startsWith("/solutions")) {
+      setActiveItem("Solutions");
+    } else if (pathname.startsWith("/industries")) {
+      setActiveItem("Industries");
+    } else if (pathname.startsWith("/platforms")) {
+      setActiveItem("Platforms");
+    } else if (pathname.startsWith("/services")) {
+      setActiveItem("Services");
+    } else if (pathname.startsWith("/why-hadron")) {
+      setActiveItem("Why Hadron");
+    } else if (pathname.startsWith("/resources") || pathname.startsWith("/careers")) {
+      setActiveItem("More");
+    }
+  }, [pathname]);
+
   return (
     <>
       <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`} role="banner" style={{ transform: isVisible ? 'translateY(0)' : 'translateY(-100%)' }}>
       <div className={styles.navContainer}>
-
-        {/* Glow Menu Bar */}
-        <MenuBar
-          items={dynamicMenuItems}
-          activeItem={activeItem}
-          onItemClick={setActiveItem}
-          isLightMode={isLightMode}
-        />
 
         {/* Unique Orange Hamburger Menu Button */}
         <button 
@@ -263,6 +275,25 @@ export default function Navbar() {
           <span className={styles.hamburgerLine}></span>
           <span className={styles.hamburgerLine}></span>
         </button>
+
+        {/* Glow Menu Bar */}
+        <MenuBar
+          items={dynamicMenuItems}
+          activeItem={activeItem}
+          onItemClick={setActiveItem}
+          isLightMode={isLightMode}
+          currentPath={pathname}
+        />
+
+        {/* Right side Quantum Pill */}
+        <a 
+          href="https://quantum.hadrongbs.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${styles.quantumPill} ${isLightMode ? styles.quantumPillLight : ""}`}
+        >
+          Quantum
+        </a>
 
       </div>
     </header>
