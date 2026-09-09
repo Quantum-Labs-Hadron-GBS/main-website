@@ -47,16 +47,24 @@ export default function PartnerRingSection() {
   const scrollRotate2 = useTransform(smoothScroll, [0, 1], [0, -35]);
   const scrollRotate3 = useTransform(smoothScroll, [0, 1], [0, 25]);
 
-  useAnimationFrame((time) => {
-    // Constant background rotation (time is in ms, so multiply by small float)
-    const timeRotate1 = time * 0.01;   // Clockwise
-    const timeRotate2 = time * -0.008; // Counter-clockwise
-    const timeRotate3 = time * 0.006;  // Clockwise
+  // Refs for accumulating time so it doesn't jump wildly after tab inactivity
+  const rotationOffset1 = useRef(0);
+  const rotationOffset2 = useRef(0);
+  const rotationOffset3 = useRef(0);
 
-    // Combine time rotation + scroll rotation
-    const r1 = timeRotate1 + scrollRotate1.get();
-    const r2 = timeRotate2 + scrollRotate2.get();
-    const r3 = timeRotate3 + scrollRotate3.get();
+  useAnimationFrame((_, delta) => {
+    // Cap delta at 50ms so background tabs don't cause massive leaps
+    const safeDelta = Math.min(delta, 50);
+
+    // Accumulate rotation
+    rotationOffset1.current += safeDelta * 0.01;   // Clockwise
+    rotationOffset2.current += safeDelta * -0.008; // Counter-clockwise
+    rotationOffset3.current += safeDelta * 0.006;  // Clockwise
+
+    // Combine accumulated time rotation + scroll rotation
+    const r1 = rotationOffset1.current + scrollRotate1.get();
+    const r2 = rotationOffset2.current + scrollRotate2.get();
+    const r3 = rotationOffset3.current + scrollRotate3.get();
 
     rotate1.set(r1);
     rotate1Rev.set(-r1);

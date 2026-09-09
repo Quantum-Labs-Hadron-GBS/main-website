@@ -154,13 +154,12 @@
   justify-content: center;
   box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: scale 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .logoCard:hover {
-  transform: scale(1.1) !important;
-  /* overrides counter-rotation temporarily if needed, but framer motion handles inline style */
+  scale: 1.1;
   box-shadow: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.15);
 }
 
