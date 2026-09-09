@@ -1,6 +1,6 @@
 "use client";
 
-import ServiceLayout from "../ServiceLayout";
+import ServiceLayout from "../../../services/ServiceLayout";
 
 export default function TrainingProgramPage() {
   return (

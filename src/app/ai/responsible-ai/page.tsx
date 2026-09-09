@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import ServiceLayout from "../../components/ServiceLayout"; // Update relative path as needed
+import ServiceLayout from "../../services/ServiceLayout";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import CtaSection from "../../components/CtaSection/CtaSection";
