@@ -167,7 +167,7 @@ const menuItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isAlwaysLight = pathname === "/contact" || pathname === "/";
+  const isAlwaysLight = pathname === "/contact" || pathname === "/" || pathname === "/careers";
   const isMainPage = pathname === "/";
 
   const dynamicMenuItems = menuItems.map(item => {

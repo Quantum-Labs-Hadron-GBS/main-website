@@ -2,12 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import * as xlsx from "xlsx";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: NextRequest) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const formData = await req.formData();
-    
+
     // 1. Extract CV File
     const cvFile = formData.get("cvFile") as File | null;
     let cvBuffer: Buffer | null = null;
@@ -72,7 +71,7 @@ export async function POST(req: NextRequest) {
     const worksheet = xlsx.utils.json_to_sheet(excelRow);
     const workbook = xlsx.utils.book_new();
     xlsx.utils.book_append_sheet(workbook, worksheet, "Application");
-    
+
     // Convert workbook to Buffer
     const excelBuffer = xlsx.write(workbook, { type: "buffer", bookType: "xlsx" });
 
@@ -93,7 +92,7 @@ export async function POST(req: NextRequest) {
 
     const { error: resendError } = await resend.emails.send({
       from: "Hadron Careers <noreply@hadrongbs.com>",
-      to: ["hr@hadrongbs.com"],
+      to: ["quantum.lab@hadrongbs.com"],
       subject: `New Job Application: ${applicantData.fullName || "Applicant"} - ${applicantData.position || ""}`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -116,8 +115,8 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error("Application submission error:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json({ error: error.message || "Internal Server Error", details: error.toString() }, { status: 500 });
   }
 }
