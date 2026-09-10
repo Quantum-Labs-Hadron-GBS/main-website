@@ -311,8 +311,10 @@ export default function Navbar() {
             const hasChildren = (item.subItems && item.subItems.length > 0) || (item.groups && item.groups.length > 0);
             const isOpen = openTrees[item.label];
 
+            const isUpward = item.label === "More" || item.label === "Services" || item.label === "Why Hadron";
+            const isCentered = item.label === "Platforms" || item.label === "Industries" || item.label === "Solutions";
             return (
-              <div key={item.label} className={styles.treeNode}>
+              <div key={item.label} className={`${styles.treeNode} ${isUpward ? styles.treeNodeUpward : ""} ${isCentered ? styles.treeNodeCentered : ""}`}>
                 <div className={styles.treeNodeHeader}>
                   <a href={item.href} className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>
                     {item.label}
