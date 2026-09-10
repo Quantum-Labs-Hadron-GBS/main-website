@@ -147,6 +147,15 @@
     grid-template-columns: 1fr;
     gap: 3rem;
   }
+  
+  .splitTextContainer {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 1.5rem;
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
 }
 
 .splitImgWrapper {

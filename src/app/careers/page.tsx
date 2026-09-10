@@ -29,6 +29,7 @@ export default function CareersPage() {
         <section className={`${styles.section} ${styles.container}`}>
           <div className={styles.splitLayout}>
             <motion.div 
+              className={styles.splitTextContainer}
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -72,6 +73,7 @@ export default function CareersPage() {
               <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Global Team" className={styles.splitImg} />
             </motion.div>
             <motion.div 
+              className={styles.splitTextContainer}
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
