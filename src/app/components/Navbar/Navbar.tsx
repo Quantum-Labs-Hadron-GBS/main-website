@@ -157,7 +157,7 @@ const menuItems = [
       {
         title: "Careers",
         items: [
-          { label: "Careers", href: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=soqR6AEZV06ruofihBdMg9qxj7aZxXZOtpgaUpRd6jlUMjY4T0xEVTlKR01XUDVJM0RJTTdJT0JWMC4u&route=shorturl" },
+          { label: "Careers", href: "/careers" },
           { label: "ServiceNow Excellence Hub", href: "/resources/learning-center/excellence-hub" }
         ]
       }

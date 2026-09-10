@@ -43,14 +43,7 @@ export default function CareersPage() {
             >
               This Is What It Looks Like to Do Your Best Work.
             </motion.h1>
-            <motion.p 
-              className={styles.heroSubtitle}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Life at Hadron GBS is defined by the quality of the problems we solve, the people we solve them with, and the environment we’ve built to do it. It’s demanding, energizing, and deliberately designed for professionals who want more than a job title.
-            </motion.p>
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
