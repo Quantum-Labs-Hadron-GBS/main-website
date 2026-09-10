@@ -17,7 +17,7 @@
 ```text
 
 
---- Source: src/app/solutions/intelligent-automation-agentic-ai/page.tsx ---
+--- Source: src/app/services/intelligent-automation-agentic-ai/page.tsx ---
 
 1rem
 

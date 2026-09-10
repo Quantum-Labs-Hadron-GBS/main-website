@@ -98,7 +98,7 @@ export default function PartnerRingSection() {
           <motion.div className={`${styles.ring} ${styles.ring1}`} style={{ rotate: rotate1 }}>
             {/* Top Left */}
             <div className={styles.logoWrapper} style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
-              <Link href="/platforms/aws-cloud">
+              <Link href="/platforms/aws">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
                   <img src={LOGOS.aws} alt="AWS" className={styles.logoImg} />
                 </motion.div>
@@ -168,7 +168,7 @@ export default function PartnerRingSection() {
             </div>
             {/* Bottom Left */}
             <div className={styles.logoWrapper} style={{ top: '85%', left: '15%', transform: 'translate(-50%, -50%)' }}>
-              <Link href="/platforms/microsoft-cloud">
+              <Link href="/platforms/microsoft">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
                   <img src={LOGOS.microsoft} alt="Microsoft" className={styles.logoImg} />
                 </motion.div>

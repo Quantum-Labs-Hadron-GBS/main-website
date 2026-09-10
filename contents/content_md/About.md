@@ -92,6 +92,8 @@ Our Journey
 
 {item.desc}
 
+{/* 4 P's OF HADRON (Moved from Home Page) */}
+
 {/* PARTNERS */}
 
 Our Partners

@@ -28,7 +28,7 @@ const pages = {
     "Contact": ["src/app/contact/page.tsx", "src/app/components/ContactForm/ContactForm.tsx"],
     "Services Landing": ["src/app/services/page.tsx", "src/app/services/ServiceLayout.tsx"],
     "Solution - Enterprise Core": ["src/app/solutions/enterprise-core-transformation/page.tsx"],
-    "Solution - Intelligent Automation": ["src/app/solutions/intelligent-automation-agentic-ai/page.tsx"],
+    "Solution - Intelligent Automation": ["src/app/services/intelligent-automation-agentic-ai/page.tsx"],
     "Solution - Rapid Application": ["src/app/solutions/rapid-application-engineering/page.tsx"],
     "Solution - Unified Service": ["src/app/solutions/unified-service-experience-management/page.tsx"],
     "Solution - Cloud Adoption": ["src/app/solutions/cloud-adoption-and-cloud-first-engineering/page.tsx"],

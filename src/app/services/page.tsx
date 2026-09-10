@@ -10,55 +10,55 @@ const CAROUSEL_DATA = [
   {
     title: "ServiceNow",
     desc: "Optimise IT Service Management and enterprise operations with tailored ServiceNow implementations.",
-    href: "/services/service-now",
+    href: "/platforms/service-now",
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726300/servicenow-hero_jumtng.png"
   },
   {
     title: "BMC Software",
     desc: "Modernise service delivery and streamline operations using comprehensive BMC platforms.",
-    href: "/services/bmc",
+    href: "/platforms/bmc",
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726322/bmc_ywvbrt.jpg"
   },
   {
     title: "Salesforce",
     desc: "Drive customer success and unified operations with scalable Salesforce enterprise solutions.",
-    href: "/services/salesforce",
+    href: "/platforms/salesforce",
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736501/Salesforce_tgmbuv.png"
   },
   {
     title: "SAP",
     desc: "Integrate core business processes and accelerate digital transformation with SAP.",
-    href: "/services/sap",
+    href: "/platforms/sap",
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726362/sap_wwwmpq.png"
   },
   {
     title: "Ivanti",
     desc: "Unify IT operations, security, and asset management to proactively secure and manage all your endpoints.",
-    href: "/services/ivanti",
+    href: "/platforms/ivanti",
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787734310/Ivanti_esdywa.png"
   },
   {
     title: "Atlassian",
     desc: "Streamline agile development and enterprise collaboration with integrated Atlassian toolchains.",
-    href: "/services/atlassian",
+    href: "/platforms/atlassian",
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736501/Atlassian_deruww.png"
   },
   {
     title: "Microsoft Cloud",
     desc: "Empower your workforce and scale enterprise applications seamlessly with Microsoft Cloud solutions.",
-    href: "/services/microsoft-cloud",
+    href: "/platforms/microsoft",
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736500/Microsoft_c53rme.webp"
   },
   {
     title: "AWS Cloud",
     desc: "Architect, migrate, and manage resilient cloud infrastructures powered by Amazon Web Services.",
-    href: "/services/aws-cloud",
+    href: "/platforms/aws",
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736501/aws_bbwpm7.png"
   },
   {
     title: "Freshworks",
     desc: "Deliver intuitive customer and employee experiences with intelligent, scalable Freshworks platforms.",
-    href: "/services/freshworks",
+    href: "/platforms/freshworks",
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736500/Freshworks_ns5lbb.png"
   }
 ];

@@ -18,9 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/platforms/ivanti',
     '/platforms/atlassian',
     '/platforms/salesforce',
-    '/platforms/microsoft-cloud',
+    '/platforms/microsoft',
     '/platforms/sap',
-    '/platforms/aws-cloud',
+    '/platforms/aws',
     '/platforms/freshworks'
   ];
 

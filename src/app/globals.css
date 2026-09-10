@@ -167,3 +167,10 @@ body.intro-running header {
 header {
   transition: opacity 1.2s ease, transform 1.2s ease !important;
 }
+
+/* Crop Shutterstock video watermarks on mobile devices */
+@media (max-width: 48rem) {
+  video[class*="heroVideo"] {
+    transform: scale(1.35) translateY(2%) !important;
+  }
+}

@@ -16,7 +16,7 @@ https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788269188/ai_m2_jffznd.png
 === TEXT CONTENT ===
 
 
---- Source: src/app/solutions/intelligent-automation-agentic-ai/page.tsx ---
+--- Source: src/app/services/intelligent-automation-agentic-ai/page.tsx ---
 
 1rem
 
