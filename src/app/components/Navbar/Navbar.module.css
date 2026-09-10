@@ -352,6 +352,22 @@
   .drawerMenu::-webkit-scrollbar {
     display: none;
   }
+
+  .navContainer {
+    justify-content: flex-start;
+    padding: 0.5rem 1rem;
+  }
+
+  .hamburgerBtn {
+    position: absolute;
+    right: 1rem;
+    order: 3;
+    z-index: 1200;
+  }
+
+  .quantumPill {
+    display: none !important;
+  }
 }
 
 /* Dark mode fallback for drawer */
