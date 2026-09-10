@@ -8,6 +8,7 @@ import styles from "./Careers.module.css";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { CheckCircle2, Award, Lightbulb, TrendingUp, MonitorPlay, Briefcase } from "lucide-react";
 import Link from "next/link";
+import JobApplicationForm from "../components/JobApplicationForm/JobApplicationForm";
 
 export default function CareersPage() {
   const { scrollYProgress } = useScroll();
@@ -20,41 +21,9 @@ export default function CareersPage() {
     <>
       <Navbar />
       <main className={styles.main}>
-        {/* HERO SECTION */}
-        <section className={styles.heroSection}>
-          <motion.div style={{ y: yBg }} className={styles.heroVideo}>
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              className={styles.heroVideo}
-            >
-              <source src="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789019876/give_me_video_animating_this_i_coebsv.mp4" type="video/mp4" />
-            </video>
-          </motion.div>
-          <div className={styles.heroOverlay}></div>
-          <div className={styles.heroContent}>
-            <motion.h1 
-              className={styles.heroTitle}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              This Is What It Looks Like to Do Your Best Work.
-            </motion.h1>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <a href={APPLY_LINK} target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
-                Apply Now
-              </a>
-            </motion.div>
-          </div>
-        </section>
+        <div style={{ paddingTop: "120px", paddingBottom: "60px", backgroundColor: "#f8fafc" }}>
+          <JobApplicationForm />
+        </div>
 
         {/* CULTURE SECTION */}
         <section className={`${styles.section} ${styles.container}`}>
