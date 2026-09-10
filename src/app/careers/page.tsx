@@ -332,8 +332,7 @@ export default function CareersPage() {
         </section>
       </main>
 
-      {/* Global CTA Section */}
-      <CtaSection title="Ready to Transform Your Business?" subtitle="Let's build the future together." />
+
       <Footer />
     </>
   );
