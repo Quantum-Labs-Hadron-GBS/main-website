@@ -76,7 +76,7 @@ const menuItems = [
   },
   {
     label: "Industries",
-    href: "/industries",
+    href: "#",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
     subItems: [
       { label: "Manufacturing", href: "/industries/manufacturing" },
@@ -88,7 +88,7 @@ const menuItems = [
   },
   {
     label: "Platforms",
-    href: "/platforms",
+    href: "#",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
     groups: [
       {
