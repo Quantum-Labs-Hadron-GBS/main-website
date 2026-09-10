@@ -15,45 +15,153 @@ const menuItems = [
     logoSrc: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png",
   },
   {
-    label: "About Us",
-    href: "/about",
+    label: "AI & Automation",
+    href: "/ai",
+    gradient: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(147,51,234,0.06) 50%, rgba(126,34,206,0) 100%)",
+    groups: [
+      {
+        title: "AI Capabilities",
+        items: [
+          { label: "Generative AI", href: "/ai/generative-ai" },
+          { label: "Agentic AI", href: "/ai/agentic-ai" },
+          { label: "Intelligent Automation", href: "/ai/intelligent-automation" }
+        ]
+      },
+      {
+        title: "Enterprise AI",
+        items: [
+          { label: "AI-Powered Operations", href: "/ai/ai-enterprise-operations" },
+          { label: "AI for Platforms", href: "/ai/ai-enterprise-platforms" },
+          { label: "AI Strategy & Readiness", href: "/ai/ai-strategy" }
+        ]
+      }
+    ],
+    featured: {
+      eyebrow: "FROM AUTOMATION TO AUTONOMY",
+      title: "Intelligent Operations",
+      description: "Explore Hadron's approach to intelligent and agentic enterprise transformation.",
+      cta: "Explore AI",
+      href: "/ai"
+    }
+  },
+  {
+    label: "Solutions",
+    href: "/solutions",
     gradient: "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
+    groups: [
+      {
+        title: "Enterprise Transformation",
+        items: [
+          { label: "AI-Powered Enterprise Transformation", href: "/solutions/ai-powered-enterprise-transformation" },
+          { label: "Cloud & Infrastructure Modernization", href: "/solutions/cloud-adoption-and-cloud-first-engineering" },
+          { label: "Enterprise Core Transformation", href: "/solutions/enterprise-core-transformation" }
+        ]
+      },
+      {
+        title: "Engineering & Experience",
+        items: [
+          { label: "Engineering Quality & Reliability", href: "/solutions/engineering-quality-and-reliability" },
+          { label: "Rapid Application Engineering", href: "/solutions/rapid-application-engineering" },
+          { label: "Unified Service Experience", href: "/solutions/unified-service-experience-management" }
+        ]
+      }
+    ],
+    featured: {
+      eyebrow: "TRANSFORM THE ENTERPRISE",
+      title: "Solutions Architecture",
+      description: "From core platforms and infrastructure to intelligent experiences.",
+      cta: "Explore Solutions",
+      href: "/solutions"
+    }
+  },
+  {
+    label: "Industries",
+    href: "/industries",
+    gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
+    subItems: [
+      { label: "Manufacturing", href: "/industries/manufacturing" },
+      { label: "Financial Services", href: "/industries/financial-services" },
+      { label: "Retail", href: "/industries/retail" },
+      { label: "Government & Public Sector", href: "/industries/government-and-public-sector" },
+      { label: "Education", href: "/industries/education" }
+    ]
+  },
+  {
+    label: "Platforms",
+    href: "/platforms",
+    gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
+    groups: [
+      {
+        title: "Enterprise Platforms",
+        items: [
+          { label: "ServiceNow", href: "/platforms/service-now" },
+          { label: "Salesforce", href: "/platforms/salesforce" },
+          { label: "SAP", href: "/platforms/sap" },
+          { label: "BMC", href: "/platforms/bmc" }
+        ]
+      },
+      {
+        title: "Cloud & Digital Platforms",
+        items: [
+          { label: "Microsoft", href: "/platforms/microsoft" },
+          { label: "AWS", href: "/platforms/aws" },
+          { label: "Atlassian", href: "/platforms/atlassian" },
+          { label: "Ivanti", href: "/platforms/ivanti" },
+          { label: "Freshworks", href: "/platforms/freshworks" }
+        ]
+      }
+    ],
+    featured: {
+      eyebrow: "FEATURED PLATFORM",
+      title: "ServiceNow",
+      description: "AI • Workflow • ITSM • ITOM • CSM",
+      cta: "Explore ServiceNow",
+      href: "/platforms/service-now"
+    }
   },
   {
     label: "Services",
     href: "/services",
     gradient: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(147,51,234,0.06) 50%, rgba(126,34,206,0) 100%)",
     subItems: [
-      { label: "Consulting & Advisory Services", href: "/services/consulting-and-advisory" },
-      { label: "Implementation and Execution", href: "/services/implementation-and-execution" },
-      { label: "Operational Support Services", href: "/services/operational-support" },
-      { label: "Managed Services", href: "/services/managed-services" },
-      { label: "Hadron ServiceNow Excellence Hub", href: "/services/training-program" },
-      { label: "Intelligent Automation & Agentic AI", href: "/services/intelligent-automation-agentic-ai" },
-      { label: "Low Code – No Code", href: "/services/low-code" }
+      { label: "Consulting & Advisory", href: "/services/consulting-and-advisory" },
+      { label: "Implementation & Execution", href: "/services/implementation-and-execution" },
+      { label: "Operational Support", href: "/services/operational-support" },
+      { label: "Managed Services", href: "/services/managed-services" }
     ]
   },
   {
-    label: "Partners",
-    href: "/partners",
-    gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
+    label: "Why Hadron",
+    href: "/why-hadron/about",
+    gradient: "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
     subItems: [
-      { label: "ServiceNow", href: "/services/service-now" },
-      { label: "Salesforce", href: "/services/salesforce" },
-      { label: "SAP", href: "/services/sap" },
-      { label: "BMC Software", href: "/services/bmc" },
-      { label: "Ivanti", href: "/services/ivanti" },
-      { label: "Atlassian", href: "/services/atlassian" },
-      { label: "Microsoft Cloud", href: "/services/microsoft-cloud" },
-      { label: "AWS Cloud", href: "/services/aws-cloud" },
-      { label: "Freshworks", href: "/services/freshworks" }
+      { label: "About Hadron GBS", href: "/why-hadron/about" },
+      { label: "Ecosystem & Partners", href: "/why-hadron/ecosystem-and-partners" },
+      { label: "Success Stories", href: "/why-hadron/success-stories" }
     ]
   },
   {
-    label: "Quantum",
-    href: "https://quantum.hadrongbs.com/",
+    label: "More",
+    href: "#",
     gradient: "radial-gradient(circle, rgba(244,124,54,0.15) 0%, rgba(244,124,54,0.06) 50%, rgba(244,124,54,0) 100%)",
-    textColor: "#F47C36"
+    groups: [
+      {
+        title: "Resources",
+        items: [
+          { label: "Insights", href: "/resources/insights" },
+          { label: "Videos", href: "/resources/videos" },
+          { label: "Webinars", href: "/resources/webinars" },
+          { label: "Learning Center", href: "/resources/learning-center" }
+        ]
+      },
+      {
+        title: "Careers",
+        items: [
+          { label: "Careers", href: "/careers" },
+          { label: "ServiceNow Excellence Hub", href: "/resources/learning-center/excellence-hub" }
+        ]
+      }
+    ]
   }
 ];
 
@@ -86,7 +194,7 @@ export default function Navbar() {
       e.preventDefault();
       e.stopPropagation();
     }
-    setOpenTrees(prev => ({ ...prev, [key]: !prev[key] }));
+    setOpenTrees(prev => ({ [key]: !prev[key] }));
   };
   
   // Use a ref for lastScrollY to avoid re-attaching the event listener on every scroll tick
@@ -132,18 +240,30 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isAlwaysLight, pathname]);
 
+  useEffect(() => {
+    if (pathname === "/") {
+      setActiveItem("Home");
+    } else if (pathname.startsWith("/ai")) {
+      setActiveItem("AI & Automation");
+    } else if (pathname.startsWith("/solutions")) {
+      setActiveItem("Solutions");
+    } else if (pathname.startsWith("/industries")) {
+      setActiveItem("Industries");
+    } else if (pathname.startsWith("/platforms")) {
+      setActiveItem("Platforms");
+    } else if (pathname.startsWith("/services")) {
+      setActiveItem("Services");
+    } else if (pathname.startsWith("/why-hadron")) {
+      setActiveItem("Why Hadron");
+    } else if (pathname.startsWith("/resources") || pathname.startsWith("/careers")) {
+      setActiveItem("More");
+    }
+  }, [pathname]);
+
   return (
     <>
       <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`} role="banner" style={{ transform: isVisible ? 'translateY(0)' : 'translateY(-100%)' }}>
       <div className={styles.navContainer}>
-
-        {/* Glow Menu Bar */}
-        <MenuBar
-          items={dynamicMenuItems}
-          activeItem={activeItem}
-          onItemClick={setActiveItem}
-          isLightMode={isLightMode}
-        />
 
         {/* Unique Orange Hamburger Menu Button */}
         <button 
@@ -156,6 +276,25 @@ export default function Navbar() {
           <span className={styles.hamburgerLine}></span>
         </button>
 
+        {/* Glow Menu Bar */}
+        <MenuBar
+          items={dynamicMenuItems}
+          activeItem={activeItem}
+          onItemClick={setActiveItem}
+          isLightMode={isLightMode}
+          currentPath={pathname}
+        />
+
+        {/* Right side Quantum Pill */}
+        <a 
+          href="https://quantum.hadrongbs.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${styles.quantumPill} ${isLightMode ? styles.quantumPillLight : ""}`}
+        >
+          Quantum
+        </a>
+
       </div>
     </header>
 
@@ -164,163 +303,59 @@ export default function Navbar() {
       <div className={`${styles.drawerMenu} ${isDrawerOpen ? styles.drawerMenuOpen : ""}`}>
         <button className={styles.drawerCloseBtn} onClick={() => setIsDrawerOpen(false)} aria-label="Close menu">✕</button>
         <nav className={styles.drawerNav}>
-          {/* Services Tree Node */}
-          <div 
-            className={styles.treeNode} 
-            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'services': true })) }} 
-            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'services': false })) }}
-          >
-            <div className={styles.treeNodeHeader}>
-              <a 
-                href="/services" 
-                className={styles.drawerLink} 
-                onClick={(e) => {
-                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
-                    e.preventDefault();
-                    toggleTree('services', e as any);
-                  } else {
-                    setIsDrawerOpen(false);
-                  }
-                }}
-              >
-                Services
-              </a>
-              <button 
-                className={styles.treeToggleBtn} 
-                onClick={(e) => toggleTree('services', e)}
-                style={{ transform: openTrees['services'] ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-            <div className={`${styles.treeBranch} ${openTrees['services'] ? styles.treeBranchOpen : ""}`}>
-              <a href="/services/consulting-and-advisory" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Consulting & Advisory Services</a>
-              <a href="/services/implementation-and-execution" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Implementation & Execution</a>
-              <a href="/services/operational-support" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Operational Support Services</a>
-              <a href="/services/managed-services" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Managed Services</a>
-              <a href="/services/training-program" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Excellence Hub Training Program</a>
-              <a href="/services/intelligent-automation-agentic-ai" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Intelligent Automation & Agentic AI</a>
-              <a href="/services/low-code" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Low Code – No Code</a>
-            </div>
-          </div>
-
-          {/* Solutions Tree Node */}
-          <div 
-            className={styles.treeNode} 
-            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'solutions': true })) }} 
-            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'solutions': false })) }}
-          >
-            <div className={styles.treeNodeHeader}>
-              <a 
-                href="#" 
-                className={styles.drawerLink} 
-                onClick={(e) => {
-                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
-                    e.preventDefault();
-                    toggleTree('solutions', e as any);
-                  } else {
-                    setIsDrawerOpen(false);
-                  }
-                }}
-              >
-                Solutions
-              </a>
-              <button 
-                className={styles.treeToggleBtn} 
-                onClick={(e) => toggleTree('solutions', e)}
-                style={{ transform: openTrees['solutions'] ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-            <div className={`${styles.treeBranch} ${openTrees['solutions'] ? styles.treeBranchOpen : ""}`}>
-              <a href="/solutions/enterprise-core-transformation" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Enterprise Core Transformation</a>
-              <a href="/solutions/rapid-application-engineering" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Rapid Application Engineering</a>
-              <a href="/solutions/unified-service-experience-management" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Unified Service Experience Management</a>
-              <a href="/solutions/cloud-adoption-and-cloud-first-engineering" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Cloud Adoption And Cloud-First Engineering</a>
-              <a href="/solutions/engineering-quality-and-reliability" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Engineering Quality And Reliability</a>
-            </div>
-          </div>
-
-          {/* Partners Tree Node */}
-          <div 
-            className={styles.treeNode} 
-            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'partners': true })) }} 
-            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'partners': false })) }}
-          >
-            <div className={styles.treeNodeHeader}>
-              <a 
-                href="/partners" 
-                className={styles.drawerLink} 
-                onClick={(e) => {
-                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
-                    e.preventDefault();
-                    toggleTree('partners', e as any);
-                  } else {
-                    setIsDrawerOpen(false);
-                  }
-                }}
-              >
-                Partners
-              </a>
-              <button 
-                className={styles.treeToggleBtn} 
-                onClick={(e) => toggleTree('partners', e)}
-                style={{ transform: openTrees['partners'] ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-            <div className={`${styles.treeBranch} ${openTrees['partners'] ? styles.treeBranchOpen : ""}`}>
-              <a href="/partners" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Our Partners</a>
-              <a href="/services/service-now" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>ServiceNow</a>
-              <a href="/services/salesforce" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Salesforce</a>
-              <a href="/services/sap" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>SAP</a>
-              <a href="/services/bmc" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>BMC Software</a>
-              <a href="/services/ivanti" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Ivanti</a>
-              <a href="/services/atlassian" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Atlassian</a>
-              <a href="/services/microsoft-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Microsoft Cloud</a>
-              <a href="/services/aws-cloud" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>AWS Cloud</a>
-              <a href="/services/freshworks" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Freshworks</a>
-            </div>
+          <div className={styles.drawerHeader}>
+            <span className={styles.drawerExploreText}>Explore Hadron</span>
           </div>
           
-          {/* Resources Tree Node */}
-          <div 
-            className={styles.treeNode} 
-            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'resources': true })) }} 
-            onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpenTrees(prev => ({ ...prev, 'resources': false })) }}
-          >
-            <div className={styles.treeNodeHeader}>
-              <a 
-                href="#" 
-                className={styles.drawerLink} 
-                onClick={(e) => {
-                  if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
-                    e.preventDefault();
-                    toggleTree('resources', e as any);
-                  } else {
-                    setIsDrawerOpen(false);
-                  }
-                }}
-              >
-                Resources
-              </a>
-              <button 
-                className={styles.treeToggleBtn} 
-                onClick={(e) => toggleTree('resources', e)}
-                style={{ transform: openTrees['resources'] ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-            <div className={`${styles.treeBranch} ${openTrees['resources'] ? styles.treeBranchOpen : ""}`}>
-              <a href="/resources/success-stories" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Success Stories</a>
-              <a href="/resources/videos" className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>Videos</a>
-            </div>
-          </div>
-          <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=soqR6AEZV06ruofihBdMg9qxj7aZxXZOtpgaUpRd6jlUMjY4T0xEVTlKR01XUDVJM0RJTTdJT0JWMC4u&route=shorturl" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Careers</a>
-          <a href="/about" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>About Us</a>
+          {dynamicMenuItems.filter(item => !item.isLogo).map((item) => {
+            const hasChildren = (item.subItems && item.subItems.length > 0) || (item.groups && item.groups.length > 0);
+            const isOpen = openTrees[item.label];
+
+            return (
+              <div key={item.label} className={styles.treeNode}>
+                <div className={styles.treeNodeHeader}>
+                  <a href={item.href} className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>
+                    {item.label}
+                  </a>
+                  {hasChildren && (
+                    <button 
+                      className={styles.treeToggleBtn}
+                      onClick={(e) => toggleTree(item.label, e)}
+                      aria-label={`Toggle ${item.label} menu`}
+                    >
+                      {isOpen ? '−' : '+'}
+                    </button>
+                  )}
+                </div>
+
+                {hasChildren && (
+                  <div className={`${styles.treeBranch} ${isOpen ? styles.treeBranchOpen : ""}`}>
+                    {/* Render standard subItems */}
+                    {item.subItems && item.subItems.map((sub, idx) => (
+                      <a key={idx} href={sub.href} className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>
+                        {sub.label}
+                      </a>
+                    ))}
+
+                    {/* Render mega menu groups */}
+                    {item.groups && item.groups.map((group, gIdx) => (
+                      <div key={gIdx} style={{ marginBottom: '1rem' }}>
+                        <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'rgba(150,150,150,0.8)', marginBottom: '0.5rem', fontWeight: 600 }}>{group.title}</div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                          {group.items.map((sub, idx) => (
+                            <a key={idx} href={sub.href} className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>
+                              {sub.label}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
           <div className={styles.drawerBottom}>
             <a href="/contact" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Contact Us</a>
             <a href="https://quantum.hadrongbs.com/" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} style={{ color: '#F47C36' }} onClick={() => setIsDrawerOpen(false)}>Quantum</a>

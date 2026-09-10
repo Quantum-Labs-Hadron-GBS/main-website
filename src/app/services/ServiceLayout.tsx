@@ -35,6 +35,8 @@ export interface ServiceLayoutProps {
   framework: FrameworkItem[];
   whyHadron: WhyHadronItem[];
   expertName?: string;
+  contactText?: string;
+  contactHref?: string;
 }
 
 export default function ServiceLayout({
@@ -48,6 +50,8 @@ export default function ServiceLayout({
   framework,
   whyHadron,
   expertName,
+  contactText,
+  contactHref = "/contact",
 }: ServiceLayoutProps) {
   const [activeTab, setActiveTab] = useState<'offerings' | 'framework'>('offerings');
 
@@ -113,6 +117,16 @@ export default function ServiceLayout({
             >
               {shortSubtitle}
             </motion.p>
+            <motion.div
+              className={styles.heroActions}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <a href={contactHref} className={styles.heroButton}>
+                {contactText || `Contact for ${expertName || title || "Consulting"}`}
+              </a>
+            </motion.div>
           </div>
         </section>
 

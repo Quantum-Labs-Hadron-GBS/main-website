@@ -4,18 +4,24 @@ import { SITE_URL } from './lib/schema'
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     '',
-    '/services/service-now',
-    '/services/service-now/tennon',
-    '/services/service-now/precision-bridge',
-    '/services/bmc',
-    '/services/ivanti',
-    '/services/atlassian',
-    '/services/salesforce',
-    '/services/microsoft-cloud',
-    '/services/sap',
-    '/services/low-code',
-    '/services/aws-cloud',
-    '/services/freshworks'
+    '/ai',
+    '/solutions',
+    '/industries',
+    '/platforms',
+    '/services',
+    '/why-hadron/about',
+    '/resources/insights',
+    '/platforms/service-now',
+    '/platforms/service-now/tennon',
+    '/platforms/service-now/precision-bridge',
+    '/platforms/bmc',
+    '/platforms/ivanti',
+    '/platforms/atlassian',
+    '/platforms/salesforce',
+    '/platforms/microsoft-cloud',
+    '/platforms/sap',
+    '/platforms/aws-cloud',
+    '/platforms/freshworks'
   ];
 
   return routes.map((route) => ({

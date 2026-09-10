@@ -8,15 +8,15 @@ import styles from "./CorePracticesSection.module.css";
 
 const SOLUTIONS = [
   {
-    title: "Enterprise Core Transformation",
-    desc: "Hadron GBS translates deep platform expertise into measurable business value through outcomes-driven execution across ERP and CRM environments.",
-    href: "/solutions/enterprise-core-transformation",
+    title: "AI-Powered Enterprise Transformation",
+    desc: "From Generative AI to Agentic AI, we help enterprises turn AI into operational advantage and redefine their core capabilities.",
+    href: "/solutions/ai-powered-enterprise-transformation",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788254535/Animate_the_attached_image_whi_uxz6vf.mp4"
   },
   {
-    title: "Intelligent Automation & Agentic AI",
-    desc: "Hadron GBS translates deep automation expertise into measurable business value through outcomes-driven execution across intelligent automation and agentic AI.",
-    href: "/services/intelligent-automation-agentic-ai",
+    title: "Enterprise Core Transformation",
+    desc: "Hadron GBS translates deep platform expertise into measurable business value through outcomes-driven execution across ERP and CRM environments.",
+    href: "/solutions/enterprise-core-transformation",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788267903/Animate_the_attached_image_as_xmqsid.mp4"
   },
   {
@@ -27,12 +27,12 @@ const SOLUTIONS = [
   },
   {
     title: "Unified Service Experience Management",
-    desc: "Hadron GBS brings together execution expertise to unify IT, customer, and enterprise services into an experience-centric operating model through outcomes-driven delivery.",
+    desc: "Hadron GBS brings together execution expertise to unify IT, customer, and enterprise services into an experience-centric operating model.",
     href: "/solutions/unified-service-experience-management",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788325868/Use_the_attached_image_as_the_2_nyko8s.mp4"
   },
   {
-    title: "Cloud Adoption and Cloud-First Engineering",
+    title: "Cloud & Infrastructure Modernization",
     desc: "Hadron GBS delivers measurable outcomes by designing, building, and operating cloud-first ecosystems that scale with your business.",
     href: "/solutions/cloud-adoption-and-cloud-first-engineering",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788327963/Use_the_attached_image_as_the_3_gshigo.mp4"
@@ -104,10 +104,10 @@ export default function CorePracticesSection() {
         <div className={styles.leftColumn}>
           <motion.div className={styles.stickyContent} style={{ y: stickyY }}>
             <h2 className={styles.title}>
-              Core Offerings & Solutions by <span style={{ color: "var(--accent)" }}>Hadron GBS</span>
+              Solve Your Core Problems With <span style={{ color: "var(--accent)" }}>Hadron GBS</span>
             </h2>
             <p className={styles.description}>
-              We unify platform consulting, modern engineering, and intelligent workflow automation to build resilient digital cores.
+              We provide problem-centric solutions designed for the AI Era, unifying platform consulting, modern engineering, and intelligent automation.
             </p>
           </motion.div>
         </div>
