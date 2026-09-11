@@ -69,15 +69,35 @@ export default function JobApplicationForm() {
       return;
     }
 
-    const currentStepFields = document.querySelectorAll(`[data-step="3"] input[required], [data-step="3"] select[required]`);
-    let isValid = true;
-    currentStepFields.forEach((field: any) => {
+    const formElement = e.currentTarget;
+    
+    // Validate ALL required fields across all steps
+    const allRequiredFields = formElement.querySelectorAll('input[required], select[required]');
+    let firstInvalidField: any = null;
+
+    for (let i = 0; i < allRequiredFields.length; i++) {
+      const field = allRequiredFields[i] as any;
       if (!field.checkValidity()) {
-        field.reportValidity();
-        isValid = false;
+        firstInvalidField = field;
+        break;
       }
-    });
-    if (!isValid) return;
+    }
+
+    if (firstInvalidField) {
+      // Find which step this field belongs to and navigate there
+      const stepDiv = firstInvalidField.closest('[data-step]');
+      if (stepDiv) {
+        const stepNum = parseInt(stepDiv.getAttribute('data-step') || '1', 10);
+        setStep(stepNum);
+        sessionStorage.setItem('jobApplicationStep', stepNum.toString());
+        
+        // Wait for React to render the step before reporting validity
+        setTimeout(() => {
+          firstInvalidField.reportValidity();
+        }, 50);
+      }
+      return;
+    }
 
     setIsSubmitting(true);
     setError("");
