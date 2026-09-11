@@ -1,7 +1,44 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import styles from "./JobApplicationForm.module.css";
+
+const FormContext = createContext<any>(null);
+
+const FormGroup = ({ 
+  label, 
+  name, 
+  type = "text", 
+  required = false, 
+  options,
+  placeholder 
+}: { 
+  label: string, 
+  name: string, 
+  type?: "text" | "date" | "email" | "select" | "file", 
+  required?: boolean,
+  options?: string[],
+  placeholder?: string
+}) => {
+  const { formValues, handleInputChange } = useContext(FormContext);
+  return (
+    <div className={styles.formGroup}>
+      <label className={styles.label} htmlFor={name}>
+        {label} {required && <span className={styles.requiredStar}>*</span>}
+      </label>
+      {type === "select" ? (
+        <select className={styles.select} name={name} id={name} required={required} value={formValues[name] || ""} onChange={handleInputChange}>
+          <option value="" disabled>Select an option</option>
+          {options?.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+        </select>
+      ) : type === "file" ? (
+        <input className={styles.fileInput} type="file" name={name} id={name} required={required} accept=".pdf,.doc,.docx" />
+      ) : (
+        <input className={styles.input} type={type} name={name} id={name} required={required} placeholder={placeholder} value={formValues[name] || ""} onChange={handleInputChange} />
+      )}
+    </div>
+  );
+};
 
 export default function JobApplicationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -135,39 +172,8 @@ export default function JobApplicationForm() {
     }
   };
 
-  const FormGroup = ({ 
-    label, 
-    name, 
-    type = "text", 
-    required = false, 
-    options,
-    placeholder 
-  }: { 
-    label: string, 
-    name: string, 
-    type?: "text" | "date" | "email" | "select" | "file", 
-    required?: boolean,
-    options?: string[],
-    placeholder?: string
-  }) => (
-    <div className={styles.formGroup}>
-      <label className={styles.label} htmlFor={name}>
-        {label} {required && <span className={styles.requiredStar}>*</span>}
-      </label>
-      {type === "select" ? (
-        <select className={styles.select} name={name} id={name} required={required} value={formValues[name] || ""} onChange={handleInputChange}>
-          <option value="" disabled>Select an option</option>
-          {options?.map(opt => <option key={opt} value={opt}>{opt}</option>)}
-        </select>
-      ) : type === "file" ? (
-        <input className={styles.fileInput} type="file" name={name} id={name} required={required} accept=".pdf,.doc,.docx" />
-      ) : (
-        <input className={styles.input} type={type} name={name} id={name} required={required} placeholder={placeholder} value={formValues[name] || ""} onChange={handleInputChange} />
-      )}
-    </div>
-  );
-
   return (
+    <FormContext.Provider value={{ formValues, handleInputChange }}>
     <div className={styles.formContainer}>
       <h2 className={styles.title}>Hadron GBS Job Application Form</h2>
       <p className={styles.subtitle}>
@@ -340,5 +346,6 @@ export default function JobApplicationForm() {
 
       </form>
     </div>
+    </FormContext.Provider>
   );
 }
