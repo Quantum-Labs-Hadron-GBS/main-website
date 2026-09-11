@@ -148,21 +148,21 @@ export default function CareersPage() {
                   <p className={styles.workItemDesc}>We trust our people to do great work wherever they are.</p>
                 </div>
               </motion.div>
-              <motion.div className={styles.workItem} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, delay: 0.1 }}>
+              <motion.div className={styles.workItem} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
                 <div className={styles.workNum}>02</div>
                 <div>
                   <h3 className={styles.workItemTitle}>Agile Delivery Model</h3>
                   <p className={styles.workItemDesc}>Sprint-based POD structure means clear ownership and regular rhythm.</p>
                 </div>
               </motion.div>
-              <motion.div className={styles.workItem} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, delay: 0.2 }}>
+              <motion.div className={styles.workItem} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
                 <div className={styles.workNum}>03</div>
                 <div>
                   <h3 className={styles.workItemTitle}>Collaboration Tools</h3>
                   <p className={styles.workItemDesc}>Modern tooling to keep globally distributed teams aligned and connected.</p>
                 </div>
               </motion.div>
-              <motion.div className={styles.workItem} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, delay: 0.3 }}>
+              <motion.div className={styles.workItem} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
                 <div className={styles.workNum}>04</div>
                 <div>
                   <h3 className={styles.workItemTitle}>Reasonable Intensity</h3>
@@ -213,12 +213,12 @@ export default function CareersPage() {
                 <div className={styles.testimonialAuthor}>Consultant, ESM Practice</div>
                 <div className={styles.testimonialRole}>India</div>
               </motion.div>
-              <motion.div className={styles.testimonialCard} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, delay: 0.1 }}>
+              <motion.div className={styles.testimonialCard} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
                 <p className={styles.testimonialQuote}>I’ve worked at larger firms. The work quality here is higher. And I can actually see the impact.</p>
                 <div className={styles.testimonialAuthor}>Senior Engineer, DevOps Practice</div>
                 <div className={styles.testimonialRole}>UAE</div>
               </motion.div>
-              <motion.div className={styles.testimonialCard} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, delay: 0.2 }}>
+              <motion.div className={styles.testimonialCard} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
                 <p className={styles.testimonialQuote}>It’s a place where you’re trusted from day one. That changes everything.</p>
                 <div className={styles.testimonialAuthor}>Delivery Manager</div>
                 <div className={styles.testimonialRole}>Singapore</div>
@@ -245,35 +245,35 @@ export default function CareersPage() {
                   <p className={styles.timelineDesc}>Submit your application via our careers portal. Every application is reviewed by a Talent Partner, not filtered by a keyword scanner. We acknowledge every submission within 2 business days.</p>
                 </div>
               </motion.div>
-              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, delay: 0.1 }}>
+              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
                 <div className={styles.timelineDot}>2</div>
                 <div className={styles.timelineContent}>
                   <h3 className={styles.timelineTitle}>Initial Screening</h3>
                   <p className={styles.timelineDesc}>A 30-minute call with a Talent Partner to understand your background, motivations, and the role in detail. This is a two-way conversation — we encourage questions. Typically within 1 week of application.</p>
                 </div>
               </motion.div>
-              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, delay: 0.2 }}>
+              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
                 <div className={styles.timelineDot}>3</div>
                 <div className={styles.timelineContent}>
                   <h3 className={styles.timelineTitle}>Technical / Domain Interview</h3>
                   <p className={styles.timelineDesc}>A structured interview with a senior practitioner from the relevant practice may include a technical assessment, case discussion, or platform-specific scenario walkthrough. Within 1–2 weeks of screening.</p>
                 </div>
               </motion.div>
-              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, delay: 0.3 }}>
+              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
                 <div className={styles.timelineDot}>4</div>
                 <div className={styles.timelineContent}>
                   <h3 className={styles.timelineTitle}>Leadership / Cultural Fit Interview</h3>
                   <p className={styles.timelineDesc}>A conversation with a Practice Lead or leadership team member. We explore how you think, how you collaborate, and what drives you. Within 1 week of the technical interview.</p>
                 </div>
               </motion.div>
-              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, delay: 0.4 }}>
+              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
                 <div className={styles.timelineDot}>5</div>
                 <div className={styles.timelineContent}>
                   <h3 className={styles.timelineTitle}>Offer</h3>
                   <p className={styles.timelineDesc}>We move quickly when we find the right person. Your Talent Partner walks you through the offer personally. Expect a competitive, transparent offer with clear compensation, benefits, and start date. Within 3–5 business days of the final interview.</p>
                 </div>
               </motion.div>
-              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, delay: 0.5 }}>
+              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }}>
                 <div className={styles.timelineDot}>6</div>
                 <div className={styles.timelineContent}>
                   <h3 className={styles.timelineTitle}>Onboarding</h3>
