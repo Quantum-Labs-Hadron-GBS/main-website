@@ -69,6 +69,48 @@ export async function POST(req: NextRequest) {
 
     // 3. Generate Excel File in memory
     const worksheet = xlsx.utils.json_to_sheet(excelRow);
+    
+    // Set readable column widths
+    worksheet["!cols"] = [
+      { wch: 25 }, // Full Name
+      { wch: 30 }, // Email
+      { wch: 20 }, // Mobile Number
+      { wch: 15 }, // Date of Birth
+      { wch: 18 }, // PAN Card
+      { wch: 18 }, // Marital Status
+      { wch: 20 }, // Passport Number
+      { wch: 30 }, // Permanent Location
+      { wch: 25 }, // Preferred Location
+      { wch: 25 }, // Source
+      { wch: 25 }, // Referred By
+      { wch: 20 }, // Technology
+      { wch: 35 }, // Position
+      { wch: 18 }, // Job Code
+      { wch: 30 }, // Latest Education
+      { wch: 15 }, // Passing Year
+      { wch: 25 }, // Experience Range
+      { wch: 20 }, // Total Experience
+      { wch: 25 }, // Relevant Experience
+      { wch: 30 }, // Worked Technologies
+      { wch: 20 }, // Certifications
+      { wch: 30 }, // Top Skills
+      { wch: 30 }, // Current Employer
+      { wch: 18 }, // Date of Joining
+      { wch: 30 }, // Current Designation
+      { wch: 30 }, // Current Employer Location
+      { wch: 25 }, // Notice Period
+      { wch: 20 }, // Last Working Date
+      { wch: 20 }, // CTC Range
+      { wch: 20 }, // Current CTC
+      { wch: 20 }, // Additional CTC
+      { wch: 20 }, // Expected CTC
+      { wch: 40 }, // Perks & Benefits
+      { wch: 30 }, // Ready for In-Person Interview
+      { wch: 30 }, // Interview Availability
+      { wch: 25 }, // Travel Readiness
+      { wch: 20 }, // Shift Readiness
+    ];
+
     const workbook = xlsx.utils.book_new();
     xlsx.utils.book_append_sheet(workbook, worksheet, "Application");
 
