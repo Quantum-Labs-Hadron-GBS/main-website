@@ -8,35 +8,29 @@ export default function JobApplicationForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [step, setStep] = useState(1);
+  const [formValues, setFormValues] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const savedData = sessionStorage.getItem('jobApplicationForm');
+    if (savedData) {
+      try {
+        setFormValues(JSON.parse(savedData));
+      } catch (e) {}
+    }
     const savedStep = sessionStorage.getItem('jobApplicationStep');
     if (savedStep) {
       setStep(parseInt(savedStep, 10));
     }
-    if (savedData) {
-      const data = JSON.parse(savedData);
-      const form = document.getElementById('job-application-form') as HTMLFormElement;
-      if (form) {
-        Object.keys(data).forEach(key => {
-          const input = form.elements.namedItem(key) as HTMLInputElement | HTMLSelectElement;
-          if (input && input.type !== 'file') {
-            input.value = data[key];
-          }
-        });
-      }
-    }
   }, []);
 
-  const handleFormChange = (e: React.FormEvent<HTMLFormElement>) => {
-    const formData = new FormData(e.currentTarget);
-    const data: Record<string, any> = {};
-    formData.forEach((value, key) => {
-      if (value instanceof File) return;
-      data[key] = value;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    if (type === 'file') return;
+    setFormValues(prev => {
+      const next = { ...prev, [name]: value };
+      sessionStorage.setItem('jobApplicationForm', JSON.stringify(next));
+      return next;
     });
-    sessionStorage.setItem('jobApplicationForm', JSON.stringify(data));
   };
 
   const handleNext = () => {
@@ -105,7 +99,17 @@ export default function JobApplicationForm() {
 
     try {
       const formElement = e.currentTarget;
-      const formData = new FormData(formElement);
+      
+      const formData = new FormData();
+      Object.entries(formValues).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+      
+      // Also need to get cvFile since it's uncontrolled
+      const cvFileInput = formElement.querySelector('input[type="file"]') as HTMLInputElement;
+      if (cvFileInput && cvFileInput.files && cvFileInput.files[0]) {
+        formData.append('cvFile', cvFileInput.files[0]);
+      }
 
       const response = await fetch("/api/apply", {
         method: "POST",
@@ -119,6 +123,7 @@ export default function JobApplicationForm() {
       }
 
       setSuccess(true);
+      setFormValues({});
       formElement.reset();
       sessionStorage.removeItem('jobApplicationForm');
       sessionStorage.removeItem('jobApplicationStep');
@@ -150,14 +155,14 @@ export default function JobApplicationForm() {
         {label} {required && <span className={styles.requiredStar}>*</span>}
       </label>
       {type === "select" ? (
-        <select className={styles.select} name={name} id={name} required={required} defaultValue="">
+        <select className={styles.select} name={name} id={name} required={required} value={formValues[name] || ""} onChange={handleInputChange}>
           <option value="" disabled>Select an option</option>
           {options?.map(opt => <option key={opt} value={opt}>{opt}</option>)}
         </select>
       ) : type === "file" ? (
         <input className={styles.fileInput} type="file" name={name} id={name} required={required} accept=".pdf,.doc,.docx" />
       ) : (
-        <input className={styles.input} type={type} name={name} id={name} required={required} placeholder={placeholder} />
+        <input className={styles.input} type={type} name={name} id={name} required={required} placeholder={placeholder} value={formValues[name] || ""} onChange={handleInputChange} />
       )}
     </div>
   );
@@ -181,7 +186,7 @@ export default function JobApplicationForm() {
         </div>
       )}
 
-      <form id="job-application-form" onSubmit={handleSubmit} onChange={handleFormChange} className={styles.form} encType="multipart/form-data" noValidate>
+      <form id="job-application-form" onSubmit={handleSubmit} className={styles.form} encType="multipart/form-data" noValidate>
         
         {/* STEP 1 */}
         <div style={{ display: step === 1 ? 'block' : 'none' }} data-step="1">
