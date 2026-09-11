@@ -7,6 +7,22 @@ export default function JobApplicationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const [step, setStep] = useState(1);
+
+  const handleNext = () => {
+    const currentStepFields = document.querySelectorAll(`[data-step="${step}"] input[required], [data-step="${step}"] select[required]`);
+    let isValid = true;
+    currentStepFields.forEach((field: any) => {
+      if (!field.checkValidity()) {
+        field.reportValidity();
+        isValid = false;
+      }
+    });
+    if (isValid) {
+      setStep(prev => prev + 1);
+    }
+  };
+  const handlePrev = () => setStep(prev => prev - 1);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -91,6 +107,8 @@ export default function JobApplicationForm() {
 
       <form onSubmit={handleSubmit} className={styles.form} encType="multipart/form-data">
         
+        {/* STEP 1 */}
+        <div style={{ display: step === 1 ? 'block' : 'none' }} data-step="1">
         <h3 className={styles.sectionTitle}>Basic Information</h3>
         <div className={styles.row}>
           <FormGroup label="Applicant's Full Name (First-Mid-Last)" name="fullName" required placeholder="John Doe" />
@@ -109,7 +127,13 @@ export default function JobApplicationForm() {
           <FormGroup label="Please specify your permanent location (city and state/country)" name="permanentLocation" />
           <FormGroup label="Preferred Work Location" name="preferredLocation" required />
         </div>
+        <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+          <button type="button" onClick={handleNext} className={styles.submitBtn} style={{ flex: 1 }}>Next</button>
+        </div>
+        </div>
 
+        {/* STEP 2 */}
+        <div style={{ display: step === 2 ? 'block' : 'none' }} data-step="2">
         <h3 className={styles.sectionTitle}>Role & Opportunity Details</h3>
         <div className={styles.row}>
           <FormGroup 
@@ -169,7 +193,14 @@ export default function JobApplicationForm() {
           <FormGroup label="Choose the Achieved Technical Certifications" name="certifications" type="select" options={["CSA", "CAD", "CIS", "Other"]} />
           <FormGroup label="Top 5 Skills/ Programming Languages" name="topSkills" />
         </div>
+        <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+          <button type="button" onClick={handlePrev} className={styles.submitBtn} style={{ flex: 1, backgroundColor: '#64748b' }}>Previous</button>
+          <button type="button" onClick={handleNext} className={styles.submitBtn} style={{ flex: 1 }}>Next</button>
+        </div>
+        </div>
 
+        {/* STEP 3 */}
+        <div style={{ display: step === 3 ? 'block' : 'none' }} data-step="3">
         <h3 className={styles.sectionTitle}>Current Employment & Compensation</h3>
         <div className={styles.row}>
           <FormGroup label="Current Employer / Company Name" name="currentEmployer" />
@@ -218,9 +249,13 @@ export default function JobApplicationForm() {
         <h3 className={styles.sectionTitle}>Resume / CV</h3>
         <FormGroup label="Upload your CV (PDF, DOC, DOCX)" name="cvFile" type="file" required />
 
-        <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
-          {isSubmitting ? "Submitting..." : "Submit Application"}
-        </button>
+        <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+          <button type="button" onClick={handlePrev} className={styles.submitBtn} style={{ flex: 1, backgroundColor: '#64748b' }}>Previous</button>
+          <button type="submit" className={styles.submitBtn} disabled={isSubmitting} style={{ flex: 1 }}>
+            {isSubmitting ? "Submitting..." : "Submit Application"}
+          </button>
+        </div>
+        </div>
 
       </form>
     </div>

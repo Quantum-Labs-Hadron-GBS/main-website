@@ -21,9 +21,113 @@ export default function CareersPage() {
     <>
       <Navbar />
       <main className={styles.main}>
-        <div style={{ paddingTop: "120px", paddingBottom: "60px", backgroundColor: "#f8fafc" }}>
+        
+        {/* HERO SECTION */}
+        <section className={styles.heroSection}>
+          {/* Using a high quality Unsplash image for the background */}
+          <img 
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
+            alt="Team collaboration" 
+            className={styles.heroVideo} 
+            style={{ objectPosition: 'center 20%' }}
+          />
+          <div className={styles.heroOverlay}></div>
+          <div className={styles.heroContent}>
+            <motion.h1 
+              className={styles.heroTitle}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Build the Future of Enterprise IT
+            </motion.h1>
+            <motion.p 
+              className={styles.heroSubtitle}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              We’re looking for bold thinkers and expert builders to help the world's most complex organizations modernize, secure, and scale their operations.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <a 
+                href="#application-form" 
+                className={styles.primaryBtn}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Apply Now
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
+        <div id="application-form" style={{ paddingTop: "80px", paddingBottom: "60px", backgroundColor: "#f8fafc" }}>
           <JobApplicationForm />
         </div>
+
+        {/* HIRING PROCESS */}
+        <section className={`${styles.section} ${styles.timelineSection}`}>
+          <div className={styles.container}>
+            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+              <h2 className={styles.sectionTitle}>From Application to Day One — Here's Exactly What to Expect.</h2>
+              <p className={styles.sectionDesc} style={{ margin: '0 auto' }}>
+                We respect your time and your career. Our hiring process is structured, transparent, and designed to help both sides make a confident decision. No black holes. No surprises.
+              </p>
+            </div>
+
+            <div className={styles.timeline}>
+              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <div className={styles.timelineDot}>1</div>
+                <div className={styles.timelineContent}>
+                  <h3 className={styles.timelineTitle}>Application</h3>
+                  <p className={styles.timelineDesc}>Submit your application via our careers portal. Every application is reviewed by a Talent Partner, not filtered by a keyword scanner. We acknowledge every submission within 2 business days.</p>
+                </div>
+              </motion.div>
+              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
+                <div className={styles.timelineDot}>2</div>
+                <div className={styles.timelineContent}>
+                  <h3 className={styles.timelineTitle}>Initial Screening</h3>
+                  <p className={styles.timelineDesc}>A 30-minute call with a Talent Partner to understand your background, motivations, and the role in detail. This is a two-way conversation — we encourage questions. Typically within 1 week of application.</p>
+                </div>
+              </motion.div>
+              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
+                <div className={styles.timelineDot}>3</div>
+                <div className={styles.timelineContent}>
+                  <h3 className={styles.timelineTitle}>Technical / Domain Interview</h3>
+                  <p className={styles.timelineDesc}>A structured interview with a senior practitioner from the relevant practice may include a technical assessment, case discussion, or platform-specific scenario walkthrough. Within 1–2 weeks of screening.</p>
+                </div>
+              </motion.div>
+              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+                <div className={styles.timelineDot}>4</div>
+                <div className={styles.timelineContent}>
+                  <h3 className={styles.timelineTitle}>Leadership / Cultural Fit Interview</h3>
+                  <p className={styles.timelineDesc}>A conversation with a Practice Lead or leadership team member. We explore how you think, how you collaborate, and what drives you. Within 1 week of the technical interview.</p>
+                </div>
+              </motion.div>
+              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
+                <div className={styles.timelineDot}>5</div>
+                <div className={styles.timelineContent}>
+                  <h3 className={styles.timelineTitle}>Offer</h3>
+                  <p className={styles.timelineDesc}>We move quickly when we find the right person. Your Talent Partner walks you through the offer personally. Expect a competitive, transparent offer with clear compensation, benefits, and start date. Within 3–5 business days of the final interview.</p>
+                </div>
+              </motion.div>
+              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }}>
+                <div className={styles.timelineDot}>6</div>
+                <div className={styles.timelineContent}>
+                  <h3 className={styles.timelineTitle}>Onboarding</h3>
+                  <p className={styles.timelineDesc}>Before Day One: welcome kit, system access, and a 30-day plan. On Day One: meet your team, manager, and onboarding buddy. We define what success looks like from the start, for you and for us.</p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
         {/* CULTURE SECTION */}
         <section className={`${styles.section} ${styles.container}`}>
@@ -227,62 +331,6 @@ export default function CareersPage() {
           </div>
         </section>
 
-        {/* HIRING PROCESS */}
-        <section className={`${styles.section} ${styles.timelineSection}`}>
-          <div className={styles.container}>
-            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-              <h2 className={styles.sectionTitle}>From Application to Day One — Here's Exactly What to Expect.</h2>
-              <p className={styles.sectionDesc} style={{ margin: '0 auto' }}>
-                We respect your time and your career. Our hiring process is structured, transparent, and designed to help both sides make a confident decision. No black holes. No surprises.
-              </p>
-            </div>
-
-            <div className={styles.timeline}>
-              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                <div className={styles.timelineDot}>1</div>
-                <div className={styles.timelineContent}>
-                  <h3 className={styles.timelineTitle}>Application</h3>
-                  <p className={styles.timelineDesc}>Submit your application via our careers portal. Every application is reviewed by a Talent Partner, not filtered by a keyword scanner. We acknowledge every submission within 2 business days.</p>
-                </div>
-              </motion.div>
-              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-                <div className={styles.timelineDot}>2</div>
-                <div className={styles.timelineContent}>
-                  <h3 className={styles.timelineTitle}>Initial Screening</h3>
-                  <p className={styles.timelineDesc}>A 30-minute call with a Talent Partner to understand your background, motivations, and the role in detail. This is a two-way conversation — we encourage questions. Typically within 1 week of application.</p>
-                </div>
-              </motion.div>
-              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-                <div className={styles.timelineDot}>3</div>
-                <div className={styles.timelineContent}>
-                  <h3 className={styles.timelineTitle}>Technical / Domain Interview</h3>
-                  <p className={styles.timelineDesc}>A structured interview with a senior practitioner from the relevant practice may include a technical assessment, case discussion, or platform-specific scenario walkthrough. Within 1–2 weeks of screening.</p>
-                </div>
-              </motion.div>
-              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-                <div className={styles.timelineDot}>4</div>
-                <div className={styles.timelineContent}>
-                  <h3 className={styles.timelineTitle}>Leadership / Cultural Fit Interview</h3>
-                  <p className={styles.timelineDesc}>A conversation with a Practice Lead or leadership team member. We explore how you think, how you collaborate, and what drives you. Within 1 week of the technical interview.</p>
-                </div>
-              </motion.div>
-              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
-                <div className={styles.timelineDot}>5</div>
-                <div className={styles.timelineContent}>
-                  <h3 className={styles.timelineTitle}>Offer</h3>
-                  <p className={styles.timelineDesc}>We move quickly when we find the right person. Your Talent Partner walks you through the offer personally. Expect a competitive, transparent offer with clear compensation, benefits, and start date. Within 3–5 business days of the final interview.</p>
-                </div>
-              </motion.div>
-              <motion.div className={styles.timelineItem} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }}>
-                <div className={styles.timelineDot}>6</div>
-                <div className={styles.timelineContent}>
-                  <h3 className={styles.timelineTitle}>Onboarding</h3>
-                  <p className={styles.timelineDesc}>Before Day One: welcome kit, system access, and a 30-day plan. On Day One: meet your team, manager, and onboarding buddy. We define what success looks like from the start, for you and for us.</p>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
 
         {/* BOTTOM CTA */}
         <section className={styles.finalCta}>

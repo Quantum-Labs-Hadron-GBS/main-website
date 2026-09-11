@@ -11,9 +11,9 @@
   height: 55vh;
   min-height: 450px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
-  padding-bottom: 2rem;
+  padding-top: 80px;
   overflow: hidden;
 }
 
