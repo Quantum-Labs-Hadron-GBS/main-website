@@ -196,6 +196,15 @@ export default function Navbar() {
     }
     setOpenTrees(prev => ({ [key]: !prev[key] }));
   };
+
+  useEffect(() => {
+    if (!isDrawerOpen) {
+      const timer = setTimeout(() => {
+        setOpenTrees({});
+      }, 400); // Wait for drawer closing animation
+      return () => clearTimeout(timer);
+    }
+  }, [isDrawerOpen]);
   
   // Use a ref for lastScrollY to avoid re-attaching the event listener on every scroll tick
   const lastScrollY = useRef(0);

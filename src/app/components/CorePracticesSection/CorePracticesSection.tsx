@@ -9,37 +9,37 @@ import styles from "./CorePracticesSection.module.css";
 const SOLUTIONS = [
   {
     title: "Enterprise Core Transformation",
-    desc: "Hadron GBS translates deep platform expertise into measurable business value through outcomes-driven execution across ERP and CRM environments.",
+    desc: "Modernise SAP, Oracle, Salesforce, and Workday environments to unify data, accelerate decisions, and eliminate manual processes.",
     href: "/solutions/enterprise-core-transformation",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788254535/Animate_the_attached_image_whi_uxz6vf.mp4"
   },
   {
     title: "Intelligent Automation & Agentic AI",
-    desc: "Hadron GBS translates deep automation expertise into measurable business value through outcomes-driven execution across intelligent automation and agentic AI.",
+    desc: "Move beyond task-level automation to AI-driven orchestration. Intelligent agents handle routing, decisions, and execution in real time.",
     href: "/solutions/intelligent-automation-agentic-ai",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788267903/Animate_the_attached_image_as_xmqsid.mp4"
   },
   {
     title: "Rapid Application Engineering",
-    desc: "Hadron GBS accelerates application engineering, delivering high-impact solutions with speed, scalability, and engineering discipline.",
+    desc: "Deliver enterprise applications in weeks using low-code and no-code platforms, with governance built in from the start.",
     href: "/solutions/rapid-application-engineering",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788272661/Animate_the_attached_image_usi_a13sng.mp4"
   },
   {
     title: "Unified Service Experience Management",
-    desc: "Hadron GBS brings together execution expertise to unify IT, customer, and enterprise services into an experience-centric operating model through outcomes-driven delivery.",
+    desc: "Bring ITSM, CSM, and enterprise workflows into a single operational model with intelligent routing and unified knowledge.",
     href: "/solutions/unified-service-experience-management",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788325868/Use_the_attached_image_as_the_2_nyko8s.mp4"
   },
   {
-    title: "Cloud Adoption and Cloud-First Engineering",
-    desc: "Hadron GBS delivers measurable outcomes by designing, building, and operating cloud-first ecosystems that scale with your business.",
+    title: "Cloud Adoption & Engineering",
+    desc: "Design, migrate, and operate cloud environments on AWS, Azure, and GCP with cost visibility and security controls embedded.",
     href: "/solutions/cloud-adoption-and-cloud-first-engineering",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788327963/Use_the_attached_image_as_the_3_gshigo.mp4"
   },
   {
-    title: "Engineering Quality and Reliability",
-    desc: "Hadron GBS embeds quality engineering across every stage, enabling resilient systems and predictable delivery.",
+    title: "Engineering Quality & Reliability",
+    desc: "Embed quality across the full delivery pipeline — from automated testing gates in CI/CD to real-time production observability.",
     href: "/solutions/engineering-quality-and-reliability",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788329551/Use_the_attached_image_as_the_4_ggixnn.mp4"
   }
