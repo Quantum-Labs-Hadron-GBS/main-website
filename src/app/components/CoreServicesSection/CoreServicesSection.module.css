@@ -73,18 +73,11 @@
 }
 
 .marqueeTrackNormal {
-  animation: marqueeScroll 35s linear infinite;
-  padding: 1.5rem 0; /* Increased padding to prevent shadow clipping (grid lines) */
+  padding: 1.5rem 0;
 }
 
 .marqueeTrackReverse {
-  animation: marqueeScroll 35s linear infinite reverse;
-  padding: 1.5rem 0; /* Increased padding to prevent shadow clipping */
-}
-
-@keyframes marqueeScroll {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  padding: 1.5rem 0;
 }
 
 /* ── TESTIMONIAL CARDS ── */

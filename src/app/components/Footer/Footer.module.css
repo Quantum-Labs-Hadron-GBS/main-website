@@ -98,6 +98,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  padding-right: 5rem;
 }
 
 .copyright {
@@ -128,7 +129,7 @@
 /* Oversized background wordmark */
 .bgWord {
   position: absolute;
-  bottom: -4rem;
+  bottom: -7.75rem; /* Shifted up by 20px from -9rem */
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-space), sans-serif;
@@ -222,7 +223,12 @@
 /* Responsive */
 @media (max-width: 56.25rem) {
   .top { grid-template-columns: 1fr; gap: 2.5rem; }
-  .bottom { flex-direction: column; text-align: center; }
+  .bottom { 
+    flex-direction: column; 
+    text-align: center; 
+    padding-right: 0;
+    padding-bottom: 4rem;
+  }
   .mapContainer iframe { pointer-events: none; }
   .bgWord {
     font-size: clamp(4rem, 20vw, 10rem);
