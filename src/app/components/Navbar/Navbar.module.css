@@ -340,7 +340,7 @@
   box-shadow: -0.625rem 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  padding: 4rem 2rem;
+  padding: 1.5rem 2rem 4rem 2rem;
 }
 
 @media (max-width: 64rem) {
@@ -415,7 +415,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 2.625rem;
   flex-grow: 1;
 }
 
@@ -615,5 +615,12 @@
   
   .treeNodeCentered .treeBranch.treeBranchOpen {
     transform: translate(0, -50%) !important;
+  }
+  
+  /* Instantly hide flyout when drawer is closing to prevent it sliding across the screen */
+  .drawerMenu:not(.drawerMenuOpen) .treeBranch {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: none !important;
   }
 }
