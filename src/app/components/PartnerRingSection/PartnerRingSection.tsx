@@ -83,12 +83,15 @@ export default function PartnerRingSection() {
         {/* Central Text */}
         <div className={styles.centerTextContainer}>
           <h2 className={styles.title} style={{ fontSize: 'clamp(2rem, 4vw, 3.6rem)', lineHeight: 1.1 }}>
-            Enterprise Transformation,<br/>
-            Engineered for the <span className={styles.highlight}>AI Era.</span>
+            Enterprise Platforms,<br/>
+            Made <span className={styles.highlight}>Intelligent.</span>
           </h2>
           <p style={{ fontSize: '1.25rem', color: '#6b7280', marginTop: '1rem', maxWidth: '600px', marginInline: 'auto' }}>
-            From Generative AI to Agentic AI — we help enterprises turn AI into operational advantage.
+            Hadron GBS helps enterprises turn AI into operational advantage. So your platforms don't just run; they predict, adapt, and improve.
           </p>
+          <Link href="/contact" className={styles.ctaButton}>
+            Book Free Assessment <span className={styles.arrow}>&rarr;</span>
+          </Link>
         </div>
 
         {/* JSON-LD Schema for SEO */}

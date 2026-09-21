@@ -133,6 +133,7 @@ const menuItems = [
   {
     label: "Why Hadron",
     href: "/why-hadron/about",
+    hideInDesktop: true,
     gradient: "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
     subItems: [
       { label: "About Hadron GBS", href: "/why-hadron/about" },
@@ -143,6 +144,7 @@ const menuItems = [
   {
     label: "More",
     href: "#",
+    hideInDesktop: true,
     gradient: "radial-gradient(circle, rgba(244,124,54,0.15) 0%, rgba(244,124,54,0.06) 50%, rgba(244,124,54,0) 100%)",
     groups: [
       {
@@ -201,7 +203,7 @@ export default function Navbar() {
     if (!isDrawerOpen) {
       const timer = setTimeout(() => {
         setOpenTrees({});
-      }, 400); // Wait for drawer closing animation
+      }, 250); // Wait for drawer closing animation
       return () => clearTimeout(timer);
     }
   }, [isDrawerOpen]);
@@ -289,7 +291,7 @@ export default function Navbar() {
 
         {/* Glow Menu Bar */}
         <MenuBar
-          items={dynamicMenuItems}
+          items={dynamicMenuItems.filter(item => !item.hideInDesktop)}
           activeItem={activeItem}
           onItemClick={setActiveItem}
           isLightMode={isLightMode}
@@ -303,7 +305,7 @@ export default function Navbar() {
           rel="noopener noreferrer"
           className={`${styles.quantumPill} ${isLightMode ? styles.quantumPillLight : ""}`}
         >
-          Quantum
+          Explore Quantum
         </a>
 
       </div>
@@ -336,7 +338,10 @@ export default function Navbar() {
                       onClick={(e) => toggleTree(item.label, e)}
                       aria-label={`Toggle ${item.label} menu`}
                     >
-                      {isOpen ? '−' : '+'}
+                      <ChevronRight 
+                        size={18} 
+                        className={`${styles.treeChevron} ${isOpen ? styles.treeChevronOpen : ''}`} 
+                      />
                     </button>
                   )}
                 </div>

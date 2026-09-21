@@ -73,6 +73,30 @@
   margin: 0 auto;
 }
 
+.ctaButton {
+  display: inline-block;
+  color: #0f172a; /* black/dark slate */
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-top: 1.5rem;
+  pointer-events: auto; /* Required since parent has pointer-events: none */
+}
+
+.ctaButton:hover {
+  color: #F47C36; /* orange */
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .arrow {
+  transform: translateX(4px);
+}
+
 /* ── Orbital Rings ── */
 .ringsWrapper {
   position: absolute;
