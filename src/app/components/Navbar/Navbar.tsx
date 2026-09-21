@@ -150,10 +150,8 @@ const menuItems = [
       {
         title: "Resources",
         items: [
-          { label: "Insights", href: "/resources/insights" },
           { label: "Videos", href: "/resources/videos" },
-          { label: "Webinars", href: "/resources/webinars" },
-          { label: "Learning Center", href: "/resources/learning-center" }
+          { label: "Webinars", href: "/resources/webinars" }
         ]
       },
       {

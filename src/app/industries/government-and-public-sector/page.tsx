@@ -83,6 +83,7 @@ export default function GovernmentIndustry() {
     <ServiceLayout 
       title="Modernizing the Systems Behind Public Services"
       subtitle="Public-sector organizations operate complex technology environments where reliability, accountability, security, service delivery, and operational efficiency are critical. Hadron GBS helps modernize enterprise platforms and establish stronger technology foundations."
+      heroVideoUrl="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789977315/Use_the_attached_image_as_the_10_xhqhko.mp4"
       solutionsImgUrl="https://images.unsplash.com/photo-1577495508048-b635879837f1?q=80&w=2074&auto=format&fit=crop"
       solutions={solutions}
       framework={framework}

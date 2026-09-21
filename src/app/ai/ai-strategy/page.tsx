@@ -75,6 +75,7 @@ export default function AIStrategy() {
     <ServiceLayout 
       title="Before You Deploy AI, Build the Foundation"
       subtitle="AI adoption is moving quickly. But enterprises need more than a list of AI use cases. Hadron GBS helps organizations establish a practical roadmap from AI readiness to secure, scalable enterprise adoption."
+      heroVideoUrl="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789977315/Use_the_attached_image_as_the_10_xhqhko.mp4"
       solutionsImgUrl="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop"
       solutions={solutions}
       framework={framework}

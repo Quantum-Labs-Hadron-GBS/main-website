@@ -69,6 +69,7 @@ export default function AIEnterpriseOperations() {
     <ServiceLayout 
       title="Make Enterprise Operations More Intelligent"
       subtitle="Enterprise operations generate enormous amounts of events and data. The challenge is understanding what matters and acting on it quickly. Hadron GBS combines AI, automation, and analytics to move organizations toward predictive operations."
+      heroVideoUrl="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789976444/Use_the_attached_image_as_the_8_etkibr.mp4"
       solutionsImgUrl="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
       solutions={solutions}
       framework={framework}

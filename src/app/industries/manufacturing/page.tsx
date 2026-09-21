@@ -83,6 +83,7 @@ export default function ManufacturingIndustry() {
     <ServiceLayout 
       title="Where Enterprise Operations Meet Industrial Complexity"
       subtitle="Manufacturing organizations operate across interconnected environments — production, supply chain, assets, service operations, employees, applications, and infrastructure. Hadron GBS connects technology, processes, and operations to create more visible, reliable, and intelligent enterprise environments."
+      heroVideoUrl="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789976918/Use_the_attached_image_as_the_9_e2rgt4.mp4"
       solutionsImgUrl="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
       solutions={solutions}
       framework={framework}

@@ -79,6 +79,7 @@ export default function AIEnterpriseTransformation() {
     <ServiceLayout 
       title="AI-Powered Enterprise Transformation"
       subtitle="From Digital Transformation to Intelligent Transformation. Move beyond isolated pilots and embed intelligence, generative AI, and automation directly into the platforms and workflows that run your business."
+      heroVideoUrl="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789978648/Use_the_attached_image_as_the_11_mpadsw.mp4"
       solutionsImgUrl="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop"
       solutions={solutions}
       framework={framework}
