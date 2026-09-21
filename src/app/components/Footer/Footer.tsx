@@ -8,7 +8,7 @@ const QUICK_LINKS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/why-hadron/about" },
   { label: "Services", href: "/services" },
-  { label: "Platforms", href: "/platforms" },
+  { label: "Partners", href: "/why-hadron/ecosystem-and-partners" },
   { label: "Contact Us", href: "/contact" }
 ];
 
