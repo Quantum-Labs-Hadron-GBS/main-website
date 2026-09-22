@@ -83,13 +83,40 @@ export default function PartnerRingSection() {
         {/* Central Text */}
         <div className={styles.centerTextContainer}>
           <h2 className={styles.title} style={{ fontSize: 'clamp(2rem, 4vw, 3.6rem)', lineHeight: 1.1 }}>
-            Enterprise Transformation,<br/>
-            Engineered for the <span className={styles.highlight}>AI Era.</span>
+            Enterprise Platforms,<br/>
+            Made <span className={styles.highlight}>Intelligent.</span>
           </h2>
           <p style={{ fontSize: '1.25rem', color: '#6b7280', marginTop: '1rem', maxWidth: '600px', marginInline: 'auto' }}>
-            From Generative AI to Agentic AI — we help enterprises turn AI into operational advantage.
+            Hadron GBS helps enterprises turn AI into operational advantage. So your platforms don't just run; they predict, adapt, and improve.
           </p>
+          <Link href="/contact" className={styles.ctaButton}>
+            Book Free Assessment <span className={styles.arrow}>&rarr;</span>
+          </Link>
         </div>
+
+        {/* JSON-LD Schema for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Hadron GBS",
+              "url": "https://hadrongbs.com",
+              "knowsAbout": [
+                "ServiceNow",
+                "Salesforce",
+                "SAP",
+                "Microsoft",
+                "BMC",
+                "AWS",
+                "Freshworks",
+                "Atlassian",
+                "Ivanti"
+              ]
+            })
+          }}
+        />
 
         {/* ORBITAL RINGS */}
         <div className={styles.ringsWrapper}>
@@ -100,7 +127,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/aws">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
-                  <img src={LOGOS.aws} alt="AWS" className={styles.logoImg} />
+                  <img src={LOGOS.aws} alt="AWS Implementation Partner - Hadron GBS" className={styles.logoImg} />
                 </motion.div>
               </Link>
             </div>
@@ -108,7 +135,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '85%', left: '85%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/service-now">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
-                  <img src={LOGOS.servicenow} alt="ServiceNow" className={styles.logoImg} style={{ width: '80%', height: '80%' }} />
+                  <img src={LOGOS.servicenow} alt="ServiceNow Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '80%', height: '80%' }} />
                 </motion.div>
               </Link>
             </div>
@@ -116,7 +143,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '85%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/atlassian">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
-                  <img src={LOGOS.atlassian} alt="Atlassian" className={styles.logoImg} style={{ width: '55%', height: '55%' }} />
+                  <img src={LOGOS.atlassian} alt="Atlassian Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '55%', height: '55%' }} />
                 </motion.div>
               </Link>
             </div>
@@ -131,7 +158,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/salesforce">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
-                  <img src={LOGOS.salesforce} alt="Salesforce" className={styles.logoImg} style={{ transform: 'scale(1.4)' }} />
+                  <img src={LOGOS.salesforce} alt="Salesforce Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ transform: 'scale(1.4)' }} />
                 </motion.div>
               </Link>
             </div>
@@ -139,7 +166,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '50%', left: '100%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/bmc">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
-                  <img src={LOGOS.bmc} alt="BMC" className={styles.logoImg} />
+                  <img src={LOGOS.bmc} alt="BMC Implementation Partner - Hadron GBS" className={styles.logoImg} />
                 </motion.div>
               </Link>
             </div>
@@ -147,7 +174,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '0%', left: '50%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/freshworks">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
-                  <img src={LOGOS.freshworks} alt="Freshworks" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
+                  <img src={LOGOS.freshworks} alt="Freshworks Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
                 </motion.div>
               </Link>
             </div>
@@ -162,7 +189,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '15%', left: '85%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/sap">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
-                  <img src={LOGOS.sap} alt="SAP" className={styles.logoImg} />
+                  <img src={LOGOS.sap} alt="SAP Implementation Partner - Hadron GBS" className={styles.logoImg} />
                 </motion.div>
               </Link>
             </div>
@@ -170,7 +197,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '85%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/microsoft">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
-                  <img src={LOGOS.microsoft} alt="Microsoft" className={styles.logoImg} />
+                  <img src={LOGOS.microsoft} alt="Microsoft Implementation Partner - Hadron GBS" className={styles.logoImg} />
                 </motion.div>
               </Link>
             </div>
@@ -178,7 +205,7 @@ export default function PartnerRingSection() {
             <div className={styles.logoWrapper} style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/ivanti">
                 <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
-                  <img src={LOGOS.ivanti} alt="Ivanti" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
+                  <img src={LOGOS.ivanti} alt="Ivanti Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
                 </motion.div>
               </Link>
             </div>

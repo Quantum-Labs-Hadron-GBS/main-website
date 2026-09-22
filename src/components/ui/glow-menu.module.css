@@ -299,20 +299,27 @@
 @media (max-width: 64rem) {
   .menuBarContainer {
     width: 100%;
+    flex: 1;
   }
 
   .menuBar {
     width: 100%;
     justify-content: flex-start;
-    padding-left: 1rem;
-    padding-right: 4rem;
+    padding-left: 1.5rem;
+    padding-right: 4rem; /* Leave room for hamburger */
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
   }
   
   .menuItemWrapper.isLogo .menuItem {
-    padding: 0.5rem 0;
+    padding: 0.25rem 0;
     background: transparent !important;
   }
   
+  .menuItemWrapper.isLogo img {
+    height: 28px !important; /* Make logo bigger on mobile */
+  }
+
   .menuItemWrapper.isLogo .activeBackground {
     display: none;
   }

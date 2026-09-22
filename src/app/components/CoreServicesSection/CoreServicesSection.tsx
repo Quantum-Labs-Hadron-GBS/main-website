@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useRef, useState, useEffect } from "react";
+import { useAnimationFrame, useSpring } from "framer-motion";
 import styles from "./CoreServicesSection.module.css";
 
 // 6 total genuine-looking Hadron GBS testimonials
@@ -52,9 +53,48 @@ const Card = ({ card }: { card: typeof ROW_1[0] }) => (
 
 function MarqueeRow({ data, reverse = false }: { data: typeof ROW_1, reverse?: boolean }) {
   const doubled = useMemo(() => [...data, ...data, ...data], [data]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Spring controls the velocity multiplier (1 = full speed, 0 = stopped)
+  const speed = useSpring(1, { stiffness: 60, damping: 20 });
+  const xPos = useRef(reverse ? -33.3333 : 0);
+
+  useEffect(() => {
+    speed.set(isHovered ? 0 : 1);
+  }, [isHovered, speed]);
+
+  useAnimationFrame((time, delta) => {
+    if (!containerRef.current) return;
+    
+    // Determine movement amount (delta * 0.0015 roughly equates to 35s animation)
+    const moveAmount = (delta * 0.0015) * speed.get();
+    
+    if (reverse) {
+      xPos.current += moveAmount;
+      if (xPos.current >= 0) {
+        xPos.current = -33.3333; // snap back for seamless loop
+      }
+    } else {
+      xPos.current -= moveAmount;
+      if (xPos.current <= -33.3333) {
+        xPos.current = 0; // snap back for seamless loop
+      }
+    }
+
+    containerRef.current.style.transform = `translateX(${xPos.current}%)`;
+  });
+
   return (
-    <div className={styles.marqueeRowWrapper}>
-      <div className={`${styles.marqueeTrack} ${reverse ? styles.marqueeTrackReverse : styles.marqueeTrackNormal}`}>
+    <div 
+      className={styles.marqueeRowWrapper}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div 
+        ref={containerRef}
+        className={`${styles.marqueeTrack} ${reverse ? styles.marqueeTrackReverse : styles.marqueeTrackNormal}`}
+      >
         {doubled.map((c, i) => (
           <Card key={i} card={c} />
         ))}

@@ -47,6 +47,19 @@
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .heroSection {
+    height: auto;
+    min-height: 60vh;
+    padding-top: 140px;
+    padding-bottom: 60px;
+    align-items: flex-start;
+  }
+  .heroContent {
+    padding: 0 1.5rem;
+  }
+}
+
 .heroTitle {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 700;

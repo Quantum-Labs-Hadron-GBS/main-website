@@ -60,6 +60,7 @@ export default function InteractiveCanvasSection() {
   
   const [activeTab, setActiveTab] = useState(0);
   const [hoveredTab, setHoveredTab] = useState<number | null>(null);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   
   // Drawing State
   const [isDrawing, setIsDrawing] = useState(false);
@@ -291,7 +292,29 @@ export default function InteractiveCanvasSection() {
           <span style={{ fontFamily: "'Caveat', cursive", position: "absolute", opacity: 0, pointerEvents: "none" }}>Preload</span>
 
           {/* Header Tabs (iOS 18 Liquid Glass Pill) */}
-          <div className={styles.tabsContainer} onMouseLeave={() => setHoveredTab(null)}>
+          <div 
+            className={styles.tabsContainer} 
+            onMouseLeave={() => setHoveredTab(null)}
+            role="tablist"
+            aria-label="Capabilities"
+            onKeyDown={(e) => {
+              let newIdx = activeTab;
+              if (e.key === "ArrowRight") {
+                newIdx = (activeTab + 1) % TABS.length;
+              } else if (e.key === "ArrowLeft") {
+                newIdx = (activeTab - 1 + TABS.length) % TABS.length;
+              } else if (e.key === "Home") {
+                newIdx = 0;
+              } else if (e.key === "End") {
+                newIdx = TABS.length - 1;
+              } else {
+                return;
+              }
+              e.preventDefault();
+              setActiveTab(newIdx);
+              tabRefs.current[newIdx]?.focus();
+            }}
+          >
             {TABS.map((tab, idx) => {
               const isActive = activeTab === idx;
               const isHovered = hoveredTab === idx;
@@ -300,6 +323,12 @@ export default function InteractiveCanvasSection() {
               return (
                 <button
                   key={tab}
+                  ref={(el) => { tabRefs.current[idx] = el; }}
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-controls={`panel-${idx}`}
+                  id={`tab-${idx}`}
+                  tabIndex={isActive ? 0 : -1}
                   className={`${styles.tabButton} ${isActive ? styles.tabButtonActive : ""}`}
                   onClick={() => setActiveTab(idx)}
                   onMouseEnter={() => setHoveredTab(idx)}
@@ -319,11 +348,18 @@ export default function InteractiveCanvasSection() {
           </div>
 
           {/* Full Width/Height Canvas Layer */}
-          <div className={styles.canvasWrapper}>
+          <div 
+            className={styles.canvasWrapper}
+            role="tabpanel"
+            id={`panel-${activeTab}`}
+            aria-labelledby={`tab-${activeTab}`}
+            tabIndex={0}
+          >
             <canvas
               ref={canvasRef}
               className={styles.canvas}
               style={{ cursor: getCursor(), touchAction: "none" }}
+              aria-label={`Interactive canvas for ${TABS[activeTab]}`}
               onPointerDown={startDrawing}
               onPointerMove={draw}
               onPointerUp={stopDrawing}

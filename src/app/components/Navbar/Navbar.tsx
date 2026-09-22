@@ -133,6 +133,7 @@ const menuItems = [
   {
     label: "Why Hadron",
     href: "/why-hadron/about",
+    hideInDesktop: true,
     gradient: "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
     subItems: [
       { label: "About Hadron GBS", href: "/why-hadron/about" },
@@ -143,15 +144,14 @@ const menuItems = [
   {
     label: "More",
     href: "#",
+    hideInDesktop: true,
     gradient: "radial-gradient(circle, rgba(244,124,54,0.15) 0%, rgba(244,124,54,0.06) 50%, rgba(244,124,54,0) 100%)",
     groups: [
       {
         title: "Resources",
         items: [
-          { label: "Insights", href: "/resources/insights" },
           { label: "Videos", href: "/resources/videos" },
-          { label: "Webinars", href: "/resources/webinars" },
-          { label: "Learning Center", href: "/resources/learning-center" }
+          { label: "Webinars", href: "/resources/webinars" }
         ]
       },
       {
@@ -167,7 +167,7 @@ const menuItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isAlwaysLight = pathname === "/contact" || pathname === "/" || pathname === "/careers";
+  const isAlwaysLight = pathname === "/contact" || pathname === "/";
   const isMainPage = pathname === "/";
 
   const dynamicMenuItems = menuItems.map(item => {
@@ -196,6 +196,15 @@ export default function Navbar() {
     }
     setOpenTrees(prev => ({ [key]: !prev[key] }));
   };
+
+  useEffect(() => {
+    if (!isDrawerOpen) {
+      const timer = setTimeout(() => {
+        setOpenTrees({});
+      }, 250); // Wait for drawer closing animation
+      return () => clearTimeout(timer);
+    }
+  }, [isDrawerOpen]);
   
   // Use a ref for lastScrollY to avoid re-attaching the event listener on every scroll tick
   const lastScrollY = useRef(0);
@@ -205,19 +214,21 @@ export default function Navbar() {
       if (typeof window === "undefined") return;
 
       const currentScrollY = window.scrollY;
-      const hideThreshold = 100;
-      let themeThreshold = window.innerHeight * 0.9;
+      let themeThreshold = window.innerHeight;
       if (pathname === "/") {
-        themeThreshold = window.innerHeight * 0.9;
-      } else if (pathname === "/solutions/enterprise-core-transformation" || pathname === "/services/intelligent-automation-agentic-ai" || pathname === "/solutions/rapid-application-engineering" || pathname === "/solutions/unified-service-experience-management" || pathname === "/solutions/cloud-adoption-and-cloud-first-engineering" || pathname === "/solutions/engineering-quality-and-reliability") {
-        themeThreshold = window.innerHeight * 0.65;
-      } else if (pathname === "/services") {
-        themeThreshold = window.innerHeight * 0.65;
+        themeThreshold = window.innerHeight - 80; // Hero is 100vh, subtract navbar height
       } else if (isAlwaysLight) {
         themeThreshold = 0;
       } else {
-        themeThreshold = Math.max(window.innerHeight * 0.55, 450);
+        const heroElement = document.querySelector('section[class*="hero"], div[class*="hero"], [class*="heroBanner"]') as HTMLElement;
+        if (heroElement) {
+          themeThreshold = heroElement.offsetHeight - 80; // Subtract approximate navbar height
+        } else {
+          themeThreshold = Math.max(window.innerHeight * 0.6, 500) - 80;
+        }
       }
+      
+      const hideThreshold = themeThreshold > 0 ? themeThreshold : 200;
       
       setScrolled(currentScrollY > 50);
       setIsLightMode(isAlwaysLight || currentScrollY > themeThreshold);
@@ -278,7 +289,7 @@ export default function Navbar() {
 
         {/* Glow Menu Bar */}
         <MenuBar
-          items={dynamicMenuItems}
+          items={dynamicMenuItems.filter(item => !item.hideInDesktop)}
           activeItem={activeItem}
           onItemClick={setActiveItem}
           isLightMode={isLightMode}
@@ -292,7 +303,7 @@ export default function Navbar() {
           rel="noopener noreferrer"
           className={`${styles.quantumPill} ${isLightMode ? styles.quantumPillLight : ""}`}
         >
-          Quantum
+          Explore Quantum
         </a>
 
       </div>
@@ -325,7 +336,10 @@ export default function Navbar() {
                       onClick={(e) => toggleTree(item.label, e)}
                       aria-label={`Toggle ${item.label} menu`}
                     >
-                      {isOpen ? '−' : '+'}
+                      <ChevronRight 
+                        size={18} 
+                        className={`${styles.treeChevron} ${isOpen ? styles.treeChevronOpen : ''}`} 
+                      />
                     </button>
                   )}
                 </div>

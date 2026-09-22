@@ -194,6 +194,20 @@ export default function JobApplicationForm() {
 
       <form id="job-application-form" onSubmit={handleSubmit} className={styles.form} encType="multipart/form-data" noValidate>
         
+        {/* HONEYPOT FIELD FOR SPAM BOTS */}
+        <div style={{ position: 'absolute', opacity: 0, top: '-9999px', left: '-9999px' }} aria-hidden="true">
+          <label htmlFor="companyWebsite">Company Website</label>
+          <input 
+            type="text" 
+            id="companyWebsite" 
+            name="companyWebsite" 
+            value={formValues.companyWebsite || ''} 
+            onChange={handleInputChange} 
+            tabIndex={-1} 
+            autoComplete="off" 
+          />
+        </div>
+
         {/* STEP 1 */}
         <div style={{ display: step === 1 ? 'block' : 'none' }} data-step="1">
         <h3 className={styles.sectionTitle}>Basic Information</h3>
@@ -214,7 +228,7 @@ export default function JobApplicationForm() {
           <FormGroup label="Please specify your permanent location (city and state/country)" name="permanentLocation" />
           <FormGroup label="Preferred Work Location" name="preferredLocation" required />
         </div>
-        <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+        <div className={styles.buttonGroup}>
           <button type="button" onClick={handleNext} className={styles.submitBtn} style={{ flex: 1 }}>Next</button>
         </div>
         </div>
@@ -280,7 +294,7 @@ export default function JobApplicationForm() {
           <FormGroup label="Choose the Achieved Technical Certifications" name="certifications" type="select" options={["CSA", "CAD", "CIS", "Other"]} />
           <FormGroup label="Top 5 Skills/ Programming Languages" name="topSkills" />
         </div>
-        <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+        <div className={styles.buttonGroup}>
           <button type="button" onClick={handlePrev} className={styles.submitBtn} style={{ flex: 1, backgroundColor: '#64748b' }}>Previous</button>
           <button type="button" onClick={handleNext} className={styles.submitBtn} style={{ flex: 1 }}>Next</button>
         </div>
@@ -336,7 +350,7 @@ export default function JobApplicationForm() {
         <h3 className={styles.sectionTitle}>Resume / CV</h3>
         <FormGroup label="Upload your CV (PDF, DOC, DOCX)" name="cvFile" type="file" required />
 
-        <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+        <div className={styles.buttonGroup}>
           <button type="button" onClick={handlePrev} className={styles.submitBtn} style={{ flex: 1, backgroundColor: '#64748b' }}>Previous</button>
           <button type="submit" className={styles.submitBtn} disabled={isSubmitting} style={{ flex: 1 }}>
             {isSubmitting ? "Submitting..." : "Submit Application"}

@@ -24,12 +24,14 @@ export default function CareersPage() {
         
         {/* HERO SECTION */}
         <section className={styles.heroSection}>
-          {/* Using a high quality Unsplash image for the background */}
-          <img 
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
-            alt="Team collaboration" 
-            className={styles.heroVideo} 
-            style={{ objectPosition: 'center 20%' }}
+          <video
+            src="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789978648/Use_the_attached_image_as_the_11_mpadsw.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={styles.heroVideo}
+            style={{ objectPosition: 'center top', transform: 'scale(1.12) translateY(2%)' }}
           />
           <div className={styles.heroOverlay}></div>
           <div className={styles.heroContent}>
@@ -340,8 +342,15 @@ export default function CareersPage() {
               Enterprise transformation starts with the right conversation. Tell us where your platforms are falling short.
             </p>
             <div className={styles.btnGroup}>
-              <a href={APPLY_LINK} target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
-                See Open Role
+              <a 
+                href="#application-form" 
+                className={styles.primaryBtn}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                See Open Roles
               </a>
               <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer" className={styles.secondaryBtn}>
                 Connect on LinkedIn

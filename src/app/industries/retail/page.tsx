@@ -83,6 +83,7 @@ export default function RetailIndustry() {
     <ServiceLayout 
       title="Technology That Keeps Retail Moving"
       subtitle="Retail depends on technology that can perform when demand is highest. Customer experience, commerce platforms, applications, infrastructure, service operations, and data must work together to build resilient operations."
+      heroVideoUrl="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789976444/Use_the_attached_image_as_the_8_etkibr.mp4"
       solutionsImgUrl="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop"
       solutions={solutions}
       framework={framework}

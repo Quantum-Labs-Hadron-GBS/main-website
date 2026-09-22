@@ -31,6 +31,11 @@ export default function AboutPage() {
       year: "2023",
       title: "Globalization of Business",
       desc: "Expansion of business is needed. We opened our first offshore office in Singapore and planning for Europe expansion by having office in Sweden."
+    },
+    {
+      year: "2026",
+      title: "Lead Servicenow partner",
+      desc: "Hadron GBS is an official ServiceNow consulting and implementation partner that optimizes enterprise platforms like ITSM, ITOM, HRSD, and GRC"
     }
   ];
 

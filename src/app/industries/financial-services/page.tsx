@@ -83,6 +83,7 @@ export default function FinancialServicesIndustry() {
     <ServiceLayout 
       title="Transforming the Technology Behind Financial Operations"
       subtitle="Financial services organizations operate complex environments where reliability, speed, data, security, and service quality directly influence business performance. Hadron GBS helps financial services organizations modernize the technology foundation behind core operations."
+      heroVideoUrl="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789975634/Use_the_attached_image_as_the_5_znnyid.mp4"
       solutionsImgUrl="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
       solutions={solutions}
       framework={framework}

@@ -336,11 +336,11 @@
   border: 1px solid rgba(255, 255, 255, 0.6);
   z-index: 1100;
   transform: translateX(calc(-100% - 2rem));
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.2, 1);
+  transition: transform 0.25s ease-in-out;
   box-shadow: -0.625rem 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  padding: 4rem 2rem;
+  padding: 1.5rem 2rem 4rem 2rem;
 }
 
 @media (max-width: 64rem) {
@@ -415,7 +415,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 2.625rem;
   flex-grow: 1;
 }
 
@@ -466,12 +466,19 @@
   align-items: center;
   justify-content: center;
   padding: 0.25rem;
-  transition: color 0.2s, transform 0.2s;
+  transition: color 0.2s;
 }
 
 .treeToggleBtn:hover {
   color: #F47C36;
-  transform: scale(1.1);
+}
+
+.treeChevron {
+  transition: transform 0.3s ease;
+}
+
+.treeChevronOpen {
+  transform: rotate(90deg);
 }
 
 :global(html.dark) .treeToggleBtn {
@@ -599,7 +606,6 @@
     transform: translate(10px, -50%) !important;
   }
   
-  .treeNode:hover .treeBranch,
   .treeBranch.treeBranchOpen {
     opacity: 1;
     visibility: visible;
@@ -607,8 +613,14 @@
     pointer-events: auto;
   }
   
-  .treeNodeCentered:hover .treeBranch,
   .treeNodeCentered .treeBranch.treeBranchOpen {
     transform: translate(0, -50%) !important;
+  }
+  
+  /* Instantly hide flyout when drawer is closing to prevent it sliding across the screen */
+  .drawerMenu:not(.drawerMenuOpen) .treeBranch {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: none !important;
   }
 }

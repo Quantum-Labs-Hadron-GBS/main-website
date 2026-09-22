@@ -69,6 +69,7 @@ export default function AgenticAI() {
     <ServiceLayout 
       title="From Automation to Autonomy"
       subtitle="Traditional automation follows predefined rules. Agentic AI introduces a different operating model — systems that can understand context, reason through tasks, make decisions, take action, and adapt based on outcomes."
+      heroVideoUrl="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789976006/Use_the_attached_image_as_the_7_iwri47.mp4"
       solutionsImgUrl="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
       solutions={solutions}
       framework={framework}

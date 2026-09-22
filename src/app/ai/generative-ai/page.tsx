@@ -69,6 +69,7 @@ export default function GenerativeAI() {
     <ServiceLayout 
       title="Turn Enterprise Knowledge Into Action"
       subtitle="Generative AI is changing how people interact with information, applications, and enterprise systems. Hadron GBS helps organizations apply Generative AI to enterprise knowledge, service operations, and business workflows."
+      heroVideoUrl="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789975086/Use_the_attached_image_as_the_6_y2sga7.mp4"
       solutionsImgUrl="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop"
       solutions={solutions}
       framework={framework}

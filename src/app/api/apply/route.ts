@@ -7,6 +7,12 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const formData = await req.formData();
 
+    // HONEYPOT CHECK: If 'companyWebsite' is filled out, it's a spam bot.
+    const companyWebsite = formData.get("companyWebsite");
+    if (companyWebsite) {
+      return NextResponse.json({ success: true, message: "Application submitted successfully." });
+    }
+
     // 1. Extract CV File
     const cvFile = formData.get("cvFile") as File | null;
     let cvBuffer: Buffer | null = null;

@@ -112,9 +112,9 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false, c
                 <AnimatePresence>
                   {isHovered && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95, x: item.label === "AI & Automation" ? "-15%" : item.label === "Platforms" ? "-75%" : item.label === "More" ? "-85%" : "-50%" }}
-                      animate={{ opacity: 1, y: 0, scale: 1, x: item.label === "AI & Automation" ? "-15%" : item.label === "Platforms" ? "-75%" : item.label === "More" ? "-85%" : "-50%" }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95, x: item.label === "AI & Automation" ? "-15%" : item.label === "Platforms" ? "-75%" : item.label === "More" ? "-85%" : "-50%" }}
+                      initial={{ opacity: 0, y: 10, scale: 0.95, x: item.label === "AI & Automation" ? "-35%" : item.label === "Solutions" ? "calc(-50% + 80px)" : item.label === "Platforms" ? "-75%" : item.label === "More" ? "-85%" : "-50%" }}
+                      animate={{ opacity: 1, y: 0, scale: 1, x: item.label === "AI & Automation" ? "-35%" : item.label === "Solutions" ? "calc(-50% + 80px)" : item.label === "Platforms" ? "-75%" : item.label === "More" ? "-85%" : "-50%" }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95, x: item.label === "AI & Automation" ? "-35%" : item.label === "Solutions" ? "calc(-50% + 80px)" : item.label === "Platforms" ? "-75%" : item.label === "More" ? "-85%" : "-50%" }}
                       transition={{ duration: 0.2 }}
                       className={item.groups ? styles.dropdownMenuMega : styles.dropdownMenu}
                     >
