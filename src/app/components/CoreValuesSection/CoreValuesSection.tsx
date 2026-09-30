@@ -9,7 +9,7 @@ const VALUES = [
     p: "P1",
     title: "Predictive",
     desc: "We anticipate platform risks, technology shifts, and organizational needs before they become problems. Leveraging AI-driven analytics, we forecast IT demands and mitigate bottlenecks proactively.",
-    gradientFrom: "#F47C36",
+    gradientFrom: "#F17943",
     gradientTo: "#ea580c",
   },
   {
@@ -24,7 +24,7 @@ const VALUES = [
     title: "Progressive",
     desc: "We continually expand our capabilities from ITSM to GenAI to keep clients at the forefront. Innovation is in our DNA, ensuring your enterprise scales with the latest technological breakthroughs.",
     gradientFrom: "#FF9A5A",
-    gradientTo: "#F47C36",
+    gradientTo: "#F17943",
   },
   {
     p: "P4",

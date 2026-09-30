@@ -88,7 +88,7 @@ export default function ServiceLayout({
         {/* HERO BANNER */}
         <section className={styles.heroBanner}>
           {heroVideoUrl ? (
-            <video 
+            <video preload="auto" 
               src={heroVideoUrl}
               autoPlay
               loop

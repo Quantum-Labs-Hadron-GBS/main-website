@@ -57,8 +57,8 @@
 .ecosystemTag {
   display: inline-block;
   padding: 0.25rem 1rem;
-  background: rgba(244, 124, 54, 0.2);
-  color: #F47C36;
+  background: rgba(241, 121, 67, 0.2);
+  color: #F17943;
   font-weight: 600;
   font-size: 0.875rem;
   border-radius: 3.125rem;
@@ -122,7 +122,7 @@
 /* 3D Border Lines */
 .borderTop, .borderRight, .borderBottom, .borderLeft {
   position: absolute;
-  background: #f47c36;
+  background: #F17943;
   transition: all 0.4s ease-in-out;
   z-index: 10;
 }
@@ -207,7 +207,7 @@
 .partnerTitle {
   font-size: 2rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #16325F;
   margin-bottom: 1rem;
   letter-spacing: -0px;
 }
@@ -250,7 +250,7 @@
 
 /* CTA SECTION */
 .ctaSection {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #16325F 0%, #1e293b 100%);
   padding: 6rem 0;
   text-align: center;
 }
@@ -272,7 +272,7 @@
 .ctaBtn {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background-color: #F47C36;
+  background-color: #F17943;
   color: #ffffff;
   font-weight: 700;
   font-size: 1.125rem;

@@ -3,8 +3,9 @@ import Navbar from "./components/Navbar/Navbar";
 import LanguageScrollSection from "./components/LanguageScroll/LanguageScrollSection";
 import styles from "./page.module.css";
 
+import PartnerRingSection from "./components/PartnerRingSection/PartnerRingSection";
+
 // Below-fold sections — loaded after initial paint
-const PartnerRingSection      = dynamic(() => import("./components/PartnerRingSection/PartnerRingSection"));
 const CorePracticesSection    = dynamic(() => import("./components/CorePracticesSection/CorePracticesSection"));
 const InteractiveCanvasSection = dynamic(() => import("./components/InteractiveCanvasSection/InteractiveCanvasSection"));
 const WhyHadronSection        = dynamic(() => import("./components/WhyHadronSection/WhyHadronSection"));
@@ -29,7 +30,7 @@ export default function HomePage() {
       {/* ── ALPY-STYLE STICKY SOLUTIONS ── */}
       <CorePracticesSection />
 
-      <div style={{ backgroundColor: '#0f172a' }}>
+      <div style={{ backgroundColor: '#16325F' }}>
         {/* ── CORE SERVICES ── */}
         <CoreServicesSection />
       </div>

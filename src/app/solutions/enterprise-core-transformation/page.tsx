@@ -20,7 +20,7 @@ export default function EnterpriseCoreTransformationPage() {
       <main className={styles.main}>
         {/* HERO TITLE SECTION */}
         <section className={styles.heroSection}>
-          <video
+          <video preload="auto"
             autoPlay
             loop
             muted

@@ -103,7 +103,7 @@ export default function AIHubPage() {
         <section style={{ padding: '6rem 0', backgroundColor: '#ffffff' }}>
           <div className={styles.container}>
             <div style={{ textAlign: 'center', marginBottom: '4rem', maxWidth: '800px', margin: '0 auto 4rem auto' }}>
-              <h2 style={{ fontSize: '2.5rem', color: '#111827', fontWeight: 700, marginBottom: '1rem' }}>
+              <h2 style={{ fontSize: '2.5rem', color: '#16325F', fontWeight: 700, marginBottom: '1rem' }}>
                 Why AI Matters to Your Bottom Line
               </h2>
               <p style={{ fontSize: '1.25rem', color: '#4b5563', lineHeight: 1.6 }}>
@@ -113,7 +113,7 @@ export default function AIHubPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
               {businessValues.map((value, i) => (
-                <div key={i} style={{ padding: '2.5rem', backgroundColor: '#f8fafc', borderRadius: '1rem', borderTop: '4px solid #F47C36', boxShadow: '0 10px 25px rgba(0,0,0,0.03)' }}>
+                <div key={i} style={{ padding: '2.5rem', backgroundColor: '#f8fafc', borderRadius: '1rem', borderTop: '4px solid #F17943', boxShadow: '0 10px 25px rgba(0,0,0,0.03)' }}>
                   <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1e3a8a', marginBottom: '1rem' }}>{value.title}</h3>
                   <p style={{ color: '#475569', lineHeight: 1.7, fontSize: '1.1rem' }}>{value.desc}</p>
                 </div>
@@ -149,7 +149,7 @@ export default function AIHubPage() {
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                    <div style={{ background: '#F47C36', padding: '0.5rem 1rem', borderRadius: '0.5rem', fontWeight: 700, color: '#ffffff' }}>3</div>
+                    <div style={{ background: '#F17943', padding: '0.5rem 1rem', borderRadius: '0.5rem', fontWeight: 700, color: '#ffffff' }}>3</div>
                     <div>
                       <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#ffffff', marginBottom: '0.25rem' }}>Autonomy (Agentic AI)</h4>
                       <p style={{ color: '#cbd5e1', margin: 0 }}>Digital workers that can reason through problems, make decisions, and execute end-to-end workflows independently.</p>
@@ -158,7 +158,7 @@ export default function AIHubPage() {
                 </div>
               </div>
               <div style={{ flex: 1, padding: '2rem', backgroundColor: 'rgba(0,0,0,0.2)', borderRadius: '1rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <h3 style={{ fontSize: '1.5rem', color: '#F47C36', marginBottom: '1rem' }}>We Don't Just Build Models. We Solve Business Problems.</h3>
+                <h3 style={{ fontSize: '1.5rem', color: '#F17943', marginBottom: '1rem' }}>We Don't Just Build Models. We Solve Business Problems.</h3>
                 <p style={{ color: '#cbd5e1', lineHeight: 1.7, fontSize: '1.1rem' }}>
                   Most AI initiatives fail because they are treated as IT projects. We treat AI as an organizational transformation. We assess your operations, identify where intelligence will actually move the needle, and deploy solutions that your workforce can trust and adopt immediately.
                 </p>

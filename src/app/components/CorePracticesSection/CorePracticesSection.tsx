@@ -126,7 +126,7 @@ export default function CorePracticesSection() {
             >
               <Link href={solution.href} className={styles.card}>
                 <div className={styles.cardMedia}>
-                  <video
+                  <video preload="auto"
                     src={solution.video}
                     autoPlay
                     loop

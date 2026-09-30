@@ -98,7 +98,7 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false, c
                     className={styles.label} 
                     style={{ 
                       opacity: 1,
-                      color: item.textColor || (isActive && !item.isLogo ? '#F47C36' : undefined),
+                      color: item.textColor || (isActive && !item.isLogo ? '#F17943' : undefined),
                       fontWeight: (item.textColor || isActive) ? 'bold' : undefined
                     }}
                   >
@@ -133,7 +133,7 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false, c
                               display: 'flex', 
                               justifyContent: 'space-between', 
                               alignItems: 'center',
-                              color: sub.href === currentPath ? '#F47C36' : undefined,
+                              color: sub.href === currentPath ? '#F17943' : undefined,
                               fontWeight: sub.href === currentPath ? '600' : undefined
                             }}
                             onClick={() => {
@@ -146,7 +146,7 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false, c
                           >
                             <span>{sub.label}</span>
                             {sub.nestedItems && (
-                              <span style={{ color: hoveredSubItem === sub.label ? '#F47C36' : 'inherit' }}>
+                              <span style={{ color: hoveredSubItem === sub.label ? '#F17943' : 'inherit' }}>
                                 &gt;
                               </span>
                             )}
@@ -195,7 +195,7 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false, c
                                       href={sub.href} 
                                       className={styles.dropdownItem}
                                       style={{
-                                        color: sub.href === currentPath ? '#F47C36' : undefined,
+                                        color: sub.href === currentPath ? '#F17943' : undefined,
                                         fontWeight: sub.href === currentPath ? '600' : undefined
                                       }}
                                       onClick={() => {

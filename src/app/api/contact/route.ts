@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
           <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
             
             <!-- Header -->
-            <div style="background-color: #0f172a; padding: 30px 40px; text-align: center;">
+            <div style="background-color: #16325F; padding: 30px 40px; text-align: center;">
               <img src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png" alt="Hadron GBS" style="height: 36px; margin: 0 auto; display: block;" />
             </div>
             
@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
               
               <div style="margin-bottom: 24px;">
                 <span style="color: #94a3b8; font-size: 14px; display: block; margin-bottom: 4px;">Client Name</span>
-                <p style="color: #0f172a; font-size: 18px; font-weight: 600; margin: 0;">${name}</p>
+                <p style="color: #16325F; font-size: 18px; font-weight: 600; margin: 0;">${name}</p>
               </div>
               
               <div style="margin-bottom: 24px;">
@@ -43,12 +43,12 @@ export async function POST(req: NextRequest) {
               
               <div style="margin-bottom: 24px;">
                 <span style="color: #94a3b8; font-size: 14px; display: block; margin-bottom: 4px;">Phone Number</span>
-                <p style="color: #0f172a; font-size: 16px; font-weight: 500; margin: 0;">${phone || "<span style='color: #cbd5e1; font-style: italic;'>Not provided</span>"}</p>
+                <p style="color: #16325F; font-size: 16px; font-weight: 500; margin: 0;">${phone || "<span style='color: #cbd5e1; font-style: italic;'>Not provided</span>"}</p>
               </div>
 
               <div style="margin-bottom: 24px;">
                 <span style="color: #94a3b8; font-size: 14px; display: block; margin-bottom: 4px;">Location</span>
-                <p style="color: #0f172a; font-size: 16px; font-weight: 500; margin: 0;">${location || "<span style='color: #cbd5e1; font-style: italic;'>Not provided</span>"}</p>
+                <p style="color: #16325F; font-size: 16px; font-weight: 500; margin: 0;">${location || "<span style='color: #cbd5e1; font-style: italic;'>Not provided</span>"}</p>
               </div>
 
               <div style="margin-bottom: 32px;">

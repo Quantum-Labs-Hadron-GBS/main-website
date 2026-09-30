@@ -189,12 +189,12 @@ export default function WhyHadronSection() {
             style={{
               fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
               fontWeight: 700,
-              color: '#0f172a',
+              color: '#16325F',
               letterSpacing: '-0.02em',
               whiteSpace: 'nowrap'
             }}
           >
-            The <span style={{ color: '#F47C36' }}>Hadron</span> Advantage
+            The <span style={{ color: '#F17943' }}>Hadron</span> Advantage
           </h2>
         </div>
 
@@ -221,7 +221,7 @@ export default function WhyHadronSection() {
               zIndex: 9
             }}
           >
-            <line x1="0" y1="1" x2="100%" y2="1" stroke="rgba(244, 124, 54, 0.4)" strokeWidth="1" strokeDasharray="6 6" />
+            <line x1="0" y1="1" x2="100%" y2="1" stroke="rgba(241, 121, 67, 0.4)" strokeWidth="1" strokeDasharray="6 6" />
           </svg>
 
           {/* Rolling Geometric Shape */}
@@ -246,8 +246,8 @@ export default function WhyHadronSection() {
               <polygon
                 ref={polygonRef}
                 points={getPoints(4)}
-                fill="#F47C36"
-                stroke="#F47C36"
+                fill="#F17943"
+                stroke="#F17943"
                 strokeWidth="2"
                 strokeLinejoin="round"
                 vectorEffect="non-scaling-stroke"
@@ -256,8 +256,8 @@ export default function WhyHadronSection() {
               <circle
                 ref={circleRef}
                 cx="50" cy="50" r="48"
-                fill="#F47C36"
-                stroke="#F47C36"
+                fill="#F17943"
+                stroke="#F17943"
                 strokeWidth="2"
                 vectorEffect="non-scaling-stroke"
                 opacity="0"
@@ -286,7 +286,7 @@ export default function WhyHadronSection() {
                   className="adv-card"
                   style={{
                     backgroundColor: '#ffffff',
-                    border: '1px solid rgba(244, 124, 54, 0.5)',
+                    border: '1px solid rgba(241, 121, 67, 0.5)',
                     width: '100%',
                     height: '0px', // Starts completely from the bottom
                     position: 'relative',
@@ -305,7 +305,7 @@ export default function WhyHadronSection() {
                       padding: '1.5rem 1.5rem 0 1.5rem',
                       fontSize: '14px',
                       fontWeight: 700,
-                      color: '#F47C36',
+                      color: '#F17943',
                       flexShrink: 0
                     }}
                   >
@@ -323,7 +323,7 @@ export default function WhyHadronSection() {
                       padding: '0 1.5rem 1.5rem 1.5rem',
                       display: 'flex',
                       flexDirection: 'column',
-                      color: '#0f172a',
+                      color: '#16325F',
                       height: '350px',
                       flexShrink: 0
                     }}
@@ -335,7 +335,7 @@ export default function WhyHadronSection() {
                         lineHeight: 1.2,
                         marginBottom: '1rem',
                         letterSpacing: '-0.02em',
-                        color: '#0f172a',
+                        color: '#16325F',
                         minHeight: '3.36rem' // Ensure title consistently takes 2 lines of space
                       }}
                     >

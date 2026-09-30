@@ -5,7 +5,7 @@
   width: 3.125rem;
   height: 3.125rem;
   border-radius: 50%;
-  background-color: #F47C36;
+  background-color: #F17943;
   color: #ffffff;
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
   visibility: hidden;
   transform: translateY(1.25rem);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 0.75rem rgba(244, 124, 54, 0.3);
+  box-shadow: 0 4px 0.75rem rgba(241, 121, 67, 0.3);
 }
 
 .scrollToTopBtn.visible {
@@ -29,12 +29,12 @@
 .scrollToTopBtn:hover {
   background-color: #e06d28;
   transform: translateY(-4px);
-  box-shadow: 0 0.375rem 1rem rgba(244, 124, 54, 0.5);
+  box-shadow: 0 0.375rem 1rem rgba(241, 121, 67, 0.5);
 }
 
 .scrollToTopBtn:active {
   transform: translateY(0);
-  box-shadow: 0 2px 0.5rem rgba(244, 124, 54, 0.4);
+  box-shadow: 0 2px 0.5rem rgba(241, 121, 67, 0.4);
 }
 
 @media (max-width: 48rem) {

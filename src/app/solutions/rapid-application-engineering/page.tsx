@@ -26,7 +26,7 @@ export default function RapidApplicationPage() {
         {/* HERO SECTION */}
         <section className={styles.heroSection}>
           {/* Background Video/Image placeholder - Using a dark gradient as fallback if video isn't available */}
-          <video 
+          <video preload="auto" 
             className={styles.heroVideo} 
             autoPlay 
             loop 

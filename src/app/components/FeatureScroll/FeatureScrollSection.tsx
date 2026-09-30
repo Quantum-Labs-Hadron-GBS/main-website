@@ -74,7 +74,7 @@ export default function FeatureScrollSection() {
         
         {/* ── Section Header ── */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-          <h2 style={{ fontSize: '0.95rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#0f172a', fontWeight: 600 }}>
+          <h2 style={{ fontSize: '0.95rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#16325F', fontWeight: 600 }}>
             OUR EXPERTISE
           </h2>
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -130,7 +130,7 @@ export default function FeatureScrollSection() {
 
                   {/* Right Text */}
                   <div className={styles.featureTextContainer}>
-                    <h3 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#0f172a', marginBottom: '1rem', lineHeight: 1.2 }}>
+                    <h3 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#16325F', marginBottom: '1rem', lineHeight: 1.2 }}>
                       {feature.title}
                     </h3>
                     <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: 1.5, marginBottom: '2rem' }}>

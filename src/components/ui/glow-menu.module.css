@@ -80,7 +80,7 @@
 }
 
 .text-orange-500 {
-  color: #f97316 !important;
+  color: #F17943 !important;
 }
 
 .text-green-500 {
@@ -263,7 +263,7 @@
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--accent, #f97316);
+  color: var(--accent, #F17943);
   font-weight: bold;
 }
 
@@ -283,7 +283,7 @@
 .featuredCta {
   margin-top: 0.5rem;
   font-size: 0.85rem;
-  color: var(--accent, #f97316);
+  color: var(--accent, #F17943);
   text-decoration: none;
   font-weight: 500;
   display: flex;
@@ -337,7 +337,7 @@
 }
 
 .lightMode .label {
-  color: #0f172a;
+  color: #16325F;
 }
 
 .lightMode .menuItem:hover:not(.active) {
@@ -376,7 +376,7 @@
 }
 
 .lightMode .featuredTitle {
-  color: #0f172a;
+  color: #16325F;
 }
 
 .lightMode .featuredDesc {
@@ -393,7 +393,7 @@
 }
 
 .lightMode .hamburgerBtn {
-  color: #0f172a;
+  color: #16325F;
 }
 
 .lightMode .hamburgerBtn[aria-expanded="true"] {

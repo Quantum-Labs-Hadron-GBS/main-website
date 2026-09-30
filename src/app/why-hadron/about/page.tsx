@@ -68,7 +68,7 @@ export default function AboutPage() {
       
       {/* HERO SECTION */}
       <section className={styles.heroBanner}>
-        <video 
+        <video preload="auto" 
           src="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788242997/Use_the_attached_image_as_the_1_pwo6nq.mp4"
           autoPlay
           loop
@@ -123,7 +123,7 @@ export default function AboutPage() {
               <p className={styles.sectionText}>
                 We believe that true success in this domain lies not just in implementing solutions but in understanding the unique needs and challenges of each organization. At Hadron GBS, we are more than just a service provider. We are a partner on your journey towards enhanced efficiency, better customer experiences, and a stronger IT infrastructure.
               </p>
-              <p className={styles.sectionText} style={{ fontWeight: 500, color: '#111827' }}>
+              <p className={styles.sectionText} style={{ fontWeight: 500, color: '#16325F' }}>
                 Join us on this exciting journey as we continue to explore and harness the fundamental forces of the universe, applying them to the world of IT & Other LOBs services for your benefit.
               </p>
             </motion.div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
                 <p className={styles.sectionText}>
                   We integrate industry standards to assist our clients in realizing their full potential, get rid of communication issues, foster trust, and boost the effectiveness and productivity of your business unit.
                 </p>
-                <p className={styles.sectionText} style={{ borderLeft: '4px solid #F47C36', paddingLeft: '1rem', marginTop: '2rem' }}>
+                <p className={styles.sectionText} style={{ borderLeft: '4px solid #F17943', paddingLeft: '1rem', marginTop: '2rem' }}>
                   Our company was founded on five fundamental principles: <strong>mindset, honesty, transparency, quality, and professionalism</strong>. To tackle tough situations, we bring uniqueness and the right approach.
                 </p>
               </div>

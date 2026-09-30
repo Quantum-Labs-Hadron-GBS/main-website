@@ -24,7 +24,7 @@ import { getOrganizationSchema, getWebSiteSchema, getLocalBusinessSchema } from 
 export const metadata: Metadata = {
   ...generatePageMetadata({
     title: "Hadron GBS | IT Consulting, ServiceNow, AI & Digital Transformation",
-    description: "Hadron GBS is a global IT consulting and digital transformation company specializing in ServiceNow, AI, Cloud, Enterprise Service Management, Automation, and Custom Software Development for enterprises worldwide.",
+    description: "Hadron GBS is an IT consulting & digital transformation company specializing in ServiceNow, AI, Cloud, Automation & Custom Software for global enterprises.",
     path: "/",
   }),
   metadataBase: new URL("https://www.hadrongbs.com"),

@@ -25,7 +25,7 @@ export default function UnifiedServicePage() {
         
         {/* HERO SECTION */}
         <section className={styles.heroSection}>
-          <video 
+          <video preload="auto" 
             className={styles.heroVideo} 
             autoPlay 
             loop 
