@@ -97,7 +97,7 @@ export default function ServicesPage() {
           
           {/* ── Section Header ── */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: '0.95rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#0f172a', fontWeight: 600 }}>
+            <h2 style={{ fontSize: '0.95rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#16325F', fontWeight: 600 }}>
               SERVICES
             </h2>
           </div>

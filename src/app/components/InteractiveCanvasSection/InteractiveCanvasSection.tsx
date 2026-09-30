@@ -21,6 +21,7 @@ const TAB_CONTENT = [
   // Platforms
   [
     { title: "ServiceNow", body: "As a ServiceNow Partner, we are committed to empowering organizations with state-of-the-art technologies, spearheading digital transformation initiatives." },
+    { title: "BMC Helix", body: "We partner with BMC Software to deliver innovative solutions for IT service management, cloud management, and digital enterprise automation." },
     { title: "Salesforce", body: "Hadron partners with Salesforce, merging expertise to redefine global business solutions. Our collaboration unlocks innovation and drives growth." },
     { title: "SAP", body: "We deliver SAP solutions that streamline enterprise operations, from ERP migrations to intelligent enterprise architecture and core modernization." },
     { title: "Microsoft Cloud", body: "As a certified Microsoft Solutions Partner, Hadron GBS empowers enterprises to modernize their infrastructure and reinvent productivity." },

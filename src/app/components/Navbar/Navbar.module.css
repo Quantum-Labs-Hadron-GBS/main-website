@@ -246,7 +246,7 @@
   cursor: pointer;
   z-index: 1100;
   transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
-  color: #F47C36 !important;
+  color: #F17943 !important;
   font-weight: 600;
   text-decoration: none;
   font-size: 0.95rem;
@@ -254,8 +254,8 @@
 }
 
 .quantumPill:hover {
-  background: rgba(244, 124, 54, 0.9);
-  border-color: rgba(244, 124, 54, 1);
+  background: rgba(241, 121, 67, 0.9);
+  border-color: rgba(241, 121, 67, 1);
   color: #ffffff !important;
 }
 
@@ -274,7 +274,7 @@
   display: block;
   width: 1.5rem;
   height: 2px;
-  background-color: #F47C36;
+  background-color: #F17943;
   border-radius: 2px;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s, width 0.3s;
   transform-origin: center;
@@ -408,7 +408,7 @@
 }
 
 .drawerCloseBtn:hover {
-  color: #F47C36;
+  color: #F17943;
 }
 
 .drawerNav {
@@ -440,7 +440,7 @@
 }
 
 .drawerLink:hover {
-  color: #F47C36;
+  color: #F17943;
   padding-left: 0.625rem;
 }
 
@@ -470,7 +470,7 @@
 }
 
 .treeToggleBtn:hover {
-  color: #F47C36;
+  color: #F17943;
 }
 
 .treeChevron {
@@ -538,7 +538,7 @@
 }
 
 .drawerSubLink:hover {
-  color: #F47C36;
+  color: #F17943;
 }
 
 /* DESKTOP HOVER FLYOUT FOR DRAWER MENU */

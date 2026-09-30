@@ -55,8 +55,8 @@
 .categoryTag {
   display: inline-block;
   padding: 0.25rem 1rem;
-  background: rgba(244, 124, 54, 0.2);
-  color: #F47C36;
+  background: rgba(241, 121, 67, 0.2);
+  color: #F17943;
   font-weight: 600;
   font-size: 0.875rem;
   border-radius: 3.125rem;
@@ -100,7 +100,7 @@
   position: relative;
   border-radius: 1.25rem;
   overflow: hidden;
-  background-color: #0f172a;
+  background-color: #16325F;
   box-shadow: 0 4px 1.25rem rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   aspect-ratio: 16 / 9;
@@ -131,7 +131,7 @@
 
 /* CTA SECTION */
 .ctaSection {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #16325F 0%, #1e293b 100%);
   padding: 6rem 0;
   text-align: center;
 }
@@ -153,7 +153,7 @@
 .ctaBtn {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background-color: #F47C36;
+  background-color: #F17943;
   color: #ffffff;
   font-weight: 700;
   font-size: 1.125rem;

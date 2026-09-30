@@ -145,7 +145,7 @@ const menuItems = [
     label: "More",
     href: "#",
     hideInDesktop: true,
-    gradient: "radial-gradient(circle, rgba(244,124,54,0.15) 0%, rgba(244,124,54,0.06) 50%, rgba(244,124,54,0) 100%)",
+    gradient: "radial-gradient(circle, rgba(241, 121, 67,0.15) 0%, rgba(241, 121, 67,0.06) 50%, rgba(241, 121, 67,0) 100%)",
     groups: [
       {
         title: "Resources",
@@ -374,7 +374,7 @@ export default function Navbar() {
 
           <div className={styles.drawerBottom}>
             <a href="/contact" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Contact Us</a>
-            <a href="https://quantum.hadrongbs.com/" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} style={{ color: '#F47C36' }} onClick={() => setIsDrawerOpen(false)}>Quantum</a>
+            <a href="https://quantum.hadrongbs.com/" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} style={{ color: '#F17943' }} onClick={() => setIsDrawerOpen(false)}>Quantum</a>
           </div>
         </nav>
       </div>

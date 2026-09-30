@@ -52,14 +52,14 @@
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   /* Considerably smaller */
   font-weight: 700;
-  color: #0f172a;
+  color: #16325F;
   line-height: 1.1;
   letter-spacing: -0.04em;
   margin-bottom: 1.5rem;
 }
 
 .highlight {
-  color: #F47C36;
+  color: #F17943;
   /* Hadron orange */
   font-size: 0.85em;
   /* Make Hadron a little smaller */
@@ -75,7 +75,7 @@
 
 .ctaButton {
   display: inline-block;
-  color: #0f172a; /* black/dark slate */
+  color: #16325F; /* black/dark slate */
   font-weight: 600;
   font-size: 1.1rem;
   text-decoration: none;
@@ -85,7 +85,7 @@
 }
 
 .ctaButton:hover {
-  color: #F47C36; /* orange */
+  color: #F17943; /* orange */
 }
 
 .arrow {
@@ -122,7 +122,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 3px solid rgba(244, 124, 54, 0.5);
+  border: 3px solid rgba(241, 121, 67, 0.5);
   /* Broader, slightly more solid orange border */
 
   /* The mask fades the top and bottom out, leaving only the sides solid */

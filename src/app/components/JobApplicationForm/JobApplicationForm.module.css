@@ -3,14 +3,14 @@
   padding: 4rem;
   width: 100%;
   margin: 0 auto;
-  border-left: 6px solid #F47C36;
+  border-left: 6px solid #F17943;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
 }
 
 .title {
   margin-bottom: 0.5rem;
   font-size: 2.5rem;
-  color: #0f172a;
+  color: #16325F;
   text-align: left;
 }
 
@@ -24,7 +24,7 @@
 .sectionTitle {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #16325F;
   margin-top: 3rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
@@ -72,7 +72,7 @@
   border: 1px solid transparent;
   padding: 1.1rem 1.25rem;
   font-size: 1rem;
-  color: #0f172a;
+  color: #16325F;
   outline: none;
   transition: all 0.2s ease;
   width: 100%;
@@ -88,11 +88,11 @@
 .textarea:focus {
   background-color: #ffffff;
   border: 1px solid #cbd5e1;
-  box-shadow: 0 0 0 3px rgba(244, 124, 54, 0.1);
+  box-shadow: 0 0 0 3px rgba(241, 121, 67, 0.1);
 }
 
 .select option {
-  color: #0f172a;
+  color: #16325F;
 }
 
 .fileInput {
@@ -105,7 +105,7 @@
 }
 
 .fileInput:hover {
-  border-color: #F47C36;
+  border-color: #F17943;
   background-color: #fff7ed;
 }
 
@@ -125,7 +125,7 @@
 .submitBtn {
   width: auto;
   min-width: 200px;
-  background-color: #F47C36;
+  background-color: #F17943;
   color: #ffffff;
   font-size: 1rem;
   font-weight: 700;

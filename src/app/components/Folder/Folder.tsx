@@ -29,7 +29,7 @@ interface FolderProps {
   label?: string;
 }
 
-const Folder = ({ color = '#F47C36', size = 1, items = [], className = '', label = '' }: FolderProps) => {
+const Folder = ({ color = '#F17943', size = 1, items = [], className = '', label = '' }: FolderProps) => {
   const maxItems = 3;
   const papers = items.slice(0, maxItems);
   while (papers.length < maxItems) {

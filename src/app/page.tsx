@@ -30,7 +30,7 @@ export default function HomePage() {
       {/* ── ALPY-STYLE STICKY SOLUTIONS ── */}
       <CorePracticesSection />
 
-      <div style={{ backgroundColor: '#0f172a' }}>
+      <div style={{ backgroundColor: '#16325F' }}>
         {/* ── CORE SERVICES ── */}
         <CoreServicesSection />
       </div>

@@ -2,7 +2,7 @@
 
 .main {
   background-color: #f8f9fa; /* bg-light */
-  color: #111827; /* text-dark */
+  color: #16325F; /* text-dark */
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
 }
@@ -93,7 +93,7 @@
 .sectionTitle {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #111827;
+  color: #16325F;
   margin-bottom: 1.5rem;
 }
 
@@ -168,14 +168,14 @@
 .timelineYear {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #F47C36; /* Quantum Orange */
+  color: #F17943; /* Quantum Orange */
   margin-bottom: 0.5rem;
 }
 
 .timelineTitle {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #111827;
+  color: #16325F;
   margin-bottom: 0.75rem;
 }
 
@@ -245,7 +245,7 @@
 .featureTitle {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #111827;
+  color: #16325F;
   margin-bottom: 1rem;
 }
 
@@ -256,7 +256,7 @@
 
 /* CTA SECTION */
 .ctaSection {
-  background-color: #0f172a;
+  background-color: #16325F;
   color: #ffffff;
   text-align: center;
   padding: 6rem 0;
@@ -277,7 +277,7 @@
 
 .ctaButton {
   display: inline-block;
-  background-color: #F47C36;
+  background-color: #F17943;
   color: #ffffff;
   padding: 1rem 2.5rem;
   border-radius: 0.5rem;

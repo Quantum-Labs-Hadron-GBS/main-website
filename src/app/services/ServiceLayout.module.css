@@ -97,19 +97,19 @@
   align-items: center;
   justify-content: center;
   padding: 0.875rem 2rem;
-  background-color: #F47C36; /* Quantum Orange */
+  background-color: #F17943; /* Quantum Orange */
   color: #ffffff;
   font-weight: 600;
   border-radius: 50rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 0.5rem 1rem rgba(244, 124, 54, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(241, 121, 67, 0.2);
 }
 
 .heroButton:hover {
   background-color: #e86a24;
   transform: translateY(-2px);
-  box-shadow: 0 0.75rem 1.5rem rgba(244, 124, 54, 0.3);
+  box-shadow: 0 0.75rem 1.5rem rgba(241, 121, 67, 0.3);
 }
 
 /* COMPREHENSIVE SOLUTIONS (New Asymmetric Layout) */
@@ -173,8 +173,8 @@
 
 .solutionsTab.active {
   background-color: #ffffff;
-  color: #111827;
-  border-left-color: #F47C36; /* Quantum Orange indicator */
+  color: #16325F;
+  border-left-color: #F17943; /* Quantum Orange indicator */
   box-shadow: 0 4px 0.9375rem rgba(0,0,0,0.03);
 }
 
@@ -356,7 +356,7 @@
 .whyTitle {
   font-size: 2rem; /* Reduced from 2.5rem */
   font-weight: 700;
-  color: #111827; /* dark text */
+  color: #16325F; /* dark text */
 }
 
 .whyGrid {
@@ -435,7 +435,7 @@
 .whyCardTitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #111827;
+  color: #16325F;
   margin-bottom: 1rem;
 }
 
@@ -448,7 +448,7 @@
 
 .whyCardLink {
   font-weight: 700;
-  color: #F47C36; /* Quantum Orange */
+  color: #F17943; /* Quantum Orange */
   text-decoration: none;
   display: inline-flex;
   align-items: center;
