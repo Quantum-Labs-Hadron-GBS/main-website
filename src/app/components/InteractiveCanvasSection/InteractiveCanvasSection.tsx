@@ -6,27 +6,10 @@ import styles from "./InteractiveCanvasSection.module.css";
 
 
 
-const TABS = ["INDUSTRIES", "PLATFORMS", "EXCELLENCE"];
+const TABS = ["EXCELLENCE"];
 
 // Handwritten content for each tab
 const TAB_CONTENT = [
-  // Industries
-  [
-    { title: "Manufacturing", body: "We help manufacturing organizations leverage AI, automation, and IoT to optimize supply chains and increase production efficiency." },
-    { title: "Financial Services", body: "Empowering financial institutions with secure, scalable cloud solutions and agentic AI to enhance customer experience and compliance." },
-    { title: "Retail", body: "Transforming retail through unified commerce solutions, predictive analytics, and personalized customer journeys." },
-    { title: "Government", body: "Modernizing public services with secure cloud infrastructure, digital workflows, and citizen-centric applications." },
-    { title: "Education", body: "Enhancing educational experiences through digital transformation, secure learning platforms, and operational efficiency." }
-  ],
-  // Platforms
-  [
-    { title: "ServiceNow", body: "As a ServiceNow Partner, we are committed to empowering organizations with state-of-the-art technologies, spearheading digital transformation initiatives." },
-    { title: "BMC Helix", body: "We partner with BMC Software to deliver innovative solutions for IT service management, cloud management, and digital enterprise automation." },
-    { title: "Salesforce", body: "Hadron partners with Salesforce, merging expertise to redefine global business solutions. Our collaboration unlocks innovation and drives growth." },
-    { title: "SAP", body: "We deliver SAP solutions that streamline enterprise operations, from ERP migrations to intelligent enterprise architecture and core modernization." },
-    { title: "Microsoft Cloud", body: "As a certified Microsoft Solutions Partner, Hadron GBS empowers enterprises to modernize their infrastructure and reinvent productivity." },
-    { title: "AWS Cloud", body: "We accelerate your journey to AWS with secure, scalable cloud architecture and AI-powered data solutions." }
-  ],
   // Excellence
   [
     { title: "EXPERIENCE", body: "Leading Business through expertise. We have a team of experienced and skilled professionals who have worked with a diverse range of clients across different industries." },

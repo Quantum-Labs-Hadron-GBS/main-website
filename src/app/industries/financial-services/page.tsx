@@ -75,7 +75,7 @@ export default function FinancialServicesIndustry() {
     },
     {
       title: "Platform Ecosystem",
-      desc: "Expert delivery across ServiceNow, Salesforce, SAP, AWS, Microsoft, and BMC for integrated financial environments."
+      desc: "Expert delivery across ServiceNow, Salesforce, SAP, AWS, Microsoft, and BMC Helix for integrated financial environments."
     }
   ];
 

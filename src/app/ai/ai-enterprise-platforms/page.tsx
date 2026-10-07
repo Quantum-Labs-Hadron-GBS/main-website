@@ -22,7 +22,7 @@ export default function AIEnterprisePlatforms() {
       desc: "Scale intelligence across the Microsoft ecosystem (Azure AI, Copilot) and build AI-ready cloud foundations on AWS (Amazon Bedrock)."
     },
     {
-      title: "Atlassian, BMC & Freshworks",
+      title: "Atlassian, BMC Helix & Freshworks",
       desc: "Inject AI into engineering (Atlassian Intelligence), AIOps (BMC Helix), and omnichannel customer service (Freddy AI)."
     }
   ];
@@ -72,7 +72,7 @@ export default function AIEnterprisePlatforms() {
   return (
     <ServiceLayout 
       title="Bring Intelligence Into the Platforms That Run Your Business"
-      subtitle="Enterprises operate on ServiceNow, Salesforce, SAP, Microsoft, AWS, BMC, and Atlassian. The opportunity is to make these platforms more intelligent by combining platform expertise with automation, AI, and integration."
+      subtitle="Enterprises operate on ServiceNow, Salesforce, SAP, Microsoft, AWS, BMC Helix, and Atlassian. The opportunity is to make these platforms more intelligent by combining platform expertise with automation, AI, and integration."
       heroVideoUrl="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789976918/Use_the_attached_image_as_the_9_e2rgt4.mp4"
       solutionsImgUrl="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop"
       solutions={solutions}
