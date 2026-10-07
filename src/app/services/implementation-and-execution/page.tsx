@@ -21,7 +21,7 @@ export default function ImplementationExecutionPage() {
       framework={[]}
       whyHadron={[
         { title: "Cloud Platforms", desc: "AWS, Azure, and Google Cloud, full lifecycle from system design to end-to-end deployment." },
-        { title: "Enterprise Platforms", desc: "ServiceNow, Salesforce, SAP, BMC, Ivanti, Microsoft, and Atlassian." },
+        { title: "Enterprise Platforms", desc: "ServiceNow, Salesforce, SAP, BMC Helix, Ivanti, Microsoft, and Atlassian." },
         { title: "Vendor & Stakeholder Management", desc: "Aligned goals, clear accountability, and coordinated delivery across organisational boundaries." },
         { title: "PMO & Programme Governance", desc: "Embedded PMO functions, risk tracking, and dependency management, keeping delivery aligned to business outcomes throughout." },
         { title: "Go-live & Business Transition", desc: "Go-live planning starts in the design stage. We orchestrate readiness, training, and fallback, then stay through hypercare and hand over to stable operations." }

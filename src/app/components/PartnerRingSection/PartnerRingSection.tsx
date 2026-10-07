@@ -10,7 +10,7 @@ const LOGOS = {
   salesforce: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327266/Salesforce-Logo_j4dnwn.png",
   sap: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
   microsoft: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
-  bmc: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/Logo_BMC_Software_yuz81r.png",
+  bmc: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1790836686/bmc-helix-logo_d38xak.png",
   aws: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
   freshworks: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/freshworks-logo_brandlogos.net_c6t5u_vu8yih.png",
   atlassian: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788789011/Atlassian_logo_kiayvy.png",
@@ -59,7 +59,7 @@ export default function PartnerRingSection() {
     // Accumulate rotation
     rotationOffset1.current += safeDelta * 0.01;   // Clockwise
     rotationOffset2.current += safeDelta * -0.008; // Counter-clockwise
-    rotationOffset3.current += safeDelta * 0.006;  // Clockwise
+    rotationOffset3.current += safeDelta * 0.0114; // Clockwise (1.9x original)
 
     // Combine accumulated time rotation + scroll rotation
     const r1 = rotationOffset1.current + scrollRotate1.get();
@@ -108,7 +108,7 @@ export default function PartnerRingSection() {
                 "Salesforce",
                 "SAP",
                 "Microsoft",
-                "BMC",
+                "BMC Helix",
                 "AWS",
                 "Freshworks",
                 "Atlassian",
@@ -126,24 +126,36 @@ export default function PartnerRingSection() {
             {/* Top Left */}
             <div className={styles.logoWrapper} style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/bmc">
-                <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
-                  <img fetchPriority="high" loading="eager" src={LOGOS.bmc} alt="BMC Implementation Partner - Hadron GBS" className={styles.logoImg} />
+                <motion.div style={{ rotate: rotate1Rev }}>
+                  <div style={{ transform: 'scaleY(1.428)' }}>
+                    <div className={styles.logoCard}>
+                  <img fetchPriority="high" loading="eager" src={LOGOS.bmc} alt="BMC Helix Implementation Partner - Hadron GBS" className={styles.logoImg} />
+                </div>
+                  </div>
                 </motion.div>
               </Link>
             </div>
             {/* Bottom Right */}
             <div className={styles.logoWrapper} style={{ top: '85%', left: '85%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/service-now">
-                <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
+                <motion.div style={{ rotate: rotate1Rev }}>
+                  <div style={{ transform: 'scaleY(1.428)' }}>
+                    <div className={styles.logoCard}>
                   <img fetchPriority="high" loading="eager" src={LOGOS.servicenow} alt="ServiceNow Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '80%', height: '80%' }} />
+                </div>
+                  </div>
                 </motion.div>
               </Link>
             </div>
             {/* Bottom Left */}
             <div className={styles.logoWrapper} style={{ top: '85%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/salesforce">
-                <motion.div className={styles.logoCard} style={{ rotate: rotate1Rev }}>
+                <motion.div style={{ rotate: rotate1Rev }}>
+                  <div style={{ transform: 'scaleY(1.428)' }}>
+                    <div className={styles.logoCard}>
                   <img fetchPriority="high" loading="eager" src={LOGOS.salesforce} alt="Salesforce Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ transform: 'scale(1.4)' }} />
+                </div>
+                  </div>
                 </motion.div>
               </Link>
             </div>
@@ -157,24 +169,36 @@ export default function PartnerRingSection() {
             {/* Center Left */}
             <div className={styles.logoWrapper} style={{ top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/atlassian">
-                <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
+                <motion.div style={{ rotate: rotate2Rev }}>
+                  <div style={{ transform: 'scaleY(1.428)' }}>
+                    <div className={styles.logoCard}>
                   <img fetchPriority="high" loading="eager" src={LOGOS.atlassian} alt="Atlassian Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '55%', height: '55%' }} />
+                </div>
+                  </div>
                 </motion.div>
               </Link>
             </div>
             {/* Center Right */}
             <div className={styles.logoWrapper} style={{ top: '50%', left: '100%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/aws">
-                <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
+                <motion.div style={{ rotate: rotate2Rev }}>
+                  <div style={{ transform: 'scaleY(1.428)' }}>
+                    <div className={styles.logoCard}>
                   <img fetchPriority="high" loading="eager" src={LOGOS.aws} alt="AWS Implementation Partner - Hadron GBS" className={styles.logoImg} />
+                </div>
+                  </div>
                 </motion.div>
               </Link>
             </div>
             {/* Top Center */}
             <div className={styles.logoWrapper} style={{ top: '0%', left: '50%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/freshworks">
-                <motion.div className={styles.logoCard} style={{ rotate: rotate2Rev }}>
+                <motion.div style={{ rotate: rotate2Rev }}>
+                  <div style={{ transform: 'scaleY(1.428)' }}>
+                    <div className={styles.logoCard}>
                   <img fetchPriority="high" loading="eager" src={LOGOS.freshworks} alt="Freshworks Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
+                </div>
+                  </div>
                 </motion.div>
               </Link>
             </div>
@@ -188,32 +212,48 @@ export default function PartnerRingSection() {
             {/* Top Right */}
             <div className={styles.logoWrapper} style={{ top: '15%', left: '85%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/sap">
-                <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
+                <motion.div style={{ rotate: rotate3Rev }}>
+                  <div style={{ transform: 'scaleY(1.428)' }}>
+                    <div className={styles.logoCard}>
                   <img fetchPriority="high" loading="eager" src={LOGOS.sap} alt="SAP Implementation Partner - Hadron GBS" className={styles.logoImg} />
+                </div>
+                  </div>
                 </motion.div>
               </Link>
             </div>
             {/* Bottom Left */}
             <div className={styles.logoWrapper} style={{ top: '85%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/microsoft">
-                <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
+                <motion.div style={{ rotate: rotate3Rev }}>
+                  <div style={{ transform: 'scaleY(1.428)' }}>
+                    <div className={styles.logoCard}>
                   <img fetchPriority="high" loading="eager" src={LOGOS.microsoft} alt="Microsoft Implementation Partner - Hadron GBS" className={styles.logoImg} />
+                </div>
+                  </div>
                 </motion.div>
               </Link>
             </div>
             {/* Top Left */}
             <div className={styles.logoWrapper} style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/ivanti">
-                <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
+                <motion.div style={{ rotate: rotate3Rev }}>
+                  <div style={{ transform: 'scaleY(1.428)' }}>
+                    <div className={styles.logoCard}>
                   <img src={LOGOS.ivanti} alt="Ivanti Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
+                </div>
+                  </div>
                 </motion.div>
               </Link>
             </div>
             {/* Center Right (Become a Partner) */}
             <div className={styles.logoWrapper} style={{ top: '50%', left: '100%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/contact" style={{ textDecoration: 'none' }}>
-                <motion.div className={styles.logoCard} style={{ rotate: rotate3Rev }}>
+                <motion.div style={{ rotate: rotate3Rev }}>
+                  <div style={{ transform: 'scaleY(1.428)' }}>
+                    <div className={styles.logoCard}>
                   <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#16325F', textAlign: 'center', lineHeight: 1.2 }}>Become a<br/>Partner</span>
+                </div>
+                  </div>
                 </motion.div>
               </Link>
             </div>

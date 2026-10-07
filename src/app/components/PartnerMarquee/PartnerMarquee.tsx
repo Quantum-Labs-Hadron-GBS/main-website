@@ -11,8 +11,8 @@ const PARTNERS = [
     style: { height: "78px" },
   },
   {
-    title: "BMC Software",
-    src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/Logo_BMC_Software_olyhgt.png",
+    title: "BMC Helix",
+    src: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1790836686/bmc-helix-logo_d38xak.png",
     height: 36,
   },
   {

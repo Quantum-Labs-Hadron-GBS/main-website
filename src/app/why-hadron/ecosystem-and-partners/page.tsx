@@ -18,9 +18,9 @@ export default function PartnersPage() {
       logoStyle: { maxHeight: "120px", transform: "scale(1.5)" }
     },
     {
-      name: "BMC Software",
-      desc: "Hadron Global Business Solutions (Hadron GBS), a leading provider of innovative IT solutions, is pleased to announce a strategic partnership with BMC Software, a global software company that specializes in providing solutions for IT service management, cloud management, and digital enterprise automation.",
-      logo: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/Logo_BMC_Software_yuz81r.png",
+      name: "BMC Helix",
+      desc: "Hadron Global Business Solutions (Hadron GBS), a leading provider of innovative IT solutions, is pleased to announce a strategic partnership with BMC Helix, a global software company that specializes in providing solutions for IT service management, cloud management, and digital enterprise automation.",
+      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1790836686/bmc-helix-logo_d38xak.png",
       link: "/platforms/bmc",
       btnText: "Elevating Possibilities",
     },
@@ -65,6 +65,13 @@ export default function PartnersPage() {
       logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
       link: "/platforms/sap",
       btnText: "Drive Intelligent Excellence",
+    },
+    {
+      name: "Atlassian",
+      desc: "Hadron GBS partners with Atlassian to bring agile workflows, seamless collaboration, and advanced service management to enterprise teams. We help organizations unlock the full potential of Jira, Confluence, and Atlassian Intelligence for modern operations.",
+      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788789011/Atlassian_logo_kiayvy.png",
+      link: "/platforms/atlassian",
+      btnText: "Transform with Atlassian",
     }
   ];
 

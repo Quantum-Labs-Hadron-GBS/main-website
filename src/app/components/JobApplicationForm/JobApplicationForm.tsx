@@ -251,7 +251,7 @@ export default function JobApplicationForm() {
             label="Please specify the technology you're applying for" 
             name="technology" 
             type="select" 
-            options={["BMC", "ServiceNow", "Salesforce", "Non-Technical (HR, Admin, Operations, Sales, Accounts & Finance)", "Java", "Other"]}
+            options={["BMC Helix", "ServiceNow", "Salesforce", "Non-Technical (HR, Admin, Operations, Sales, Accounts & Finance)", "Java", "Other"]}
             required
           />
           <FormGroup 

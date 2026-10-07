@@ -188,7 +188,7 @@ export default function AboutPage() {
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Our Partners</h2>
           <p className={styles.sectionText} style={{ maxWidth: '800px', margin: '0 auto' }}>
-            Hadron Global Business Solutions (Hadron GBS), a leading provider of innovative IT solutions, is pleased to announce a strategic partnership with BMC Software, a global software company that specializes in providing solutions for IT service management, cloud management, and digital enterprise automation. We are also partnered with NetBrain who is the global leader for network automation.
+            Hadron Global Business Solutions (Hadron GBS), a leading provider of innovative IT solutions, is pleased to announce a strategic partnership with BMC Helix, a global software company that specializes in providing solutions for IT service management, cloud management, and digital enterprise automation. We are also partnered with NetBrain who is the global leader for network automation.
           </p>
         </div>
       </section>

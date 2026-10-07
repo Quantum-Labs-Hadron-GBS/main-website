@@ -14,8 +14,8 @@ const CAROUSEL_DATA = [
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726300/servicenow-hero_jumtng.png"
   },
   {
-    title: "BMC Software",
-    desc: "Modernise service delivery and streamline operations using comprehensive BMC platforms.",
+    title: "BMC Helix",
+    desc: "Modernise service delivery and streamline operations using comprehensive BMC Helix platforms.",
     href: "/platforms/bmc",
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726322/bmc_ywvbrt.jpg"
   },
@@ -201,7 +201,7 @@ export default function ServicesPage() {
               Managed services are not staff augmentation or ad-hoc support. It's a shift in ownership, from your team to ours, with clear accountability, defined SLAs, and predictable costs. The teams who build your platform stay to run it.
             </p>
             <ul className={styles.detailList}>
-              <li className={styles.detailListItem}><strong>Application & platform managed services:</strong> ServiceNow, Salesforce, SAP, BMC, Ivanti, and Atlassian, incidents, changes, and enhancements delivered in one integrated model.</li>
+              <li className={styles.detailListItem}><strong>Application & platform managed services:</strong> ServiceNow, Salesforce, SAP, BMC Helix, Ivanti, and Atlassian, incidents, changes, and enhancements delivered in one integrated model.</li>
               <li className={styles.detailListItem}><strong>Business process & PMO managed services:</strong> Execution control, backlog and dependency management, risk oversight, and stakeholder reporting as an ongoing service.</li>
               <li className={styles.detailListItem}><strong>Reporting, analytics & performance management:</strong> Cadence-driven dashboards, KPIs, and analytics enabling faster, data-backed resourcing decisions.</li>
               <li className={styles.detailListItem}><strong>Release, change & environment management:</strong> All changes planned, controlled, and traceable, released with monitoring and rollback readiness within a governed framework.</li>
@@ -245,7 +245,7 @@ export default function ServicesPage() {
             </div>
             <div className={styles.whyCard}>
               <h4 className={styles.whyCardTitle}>Platform Breadth</h4>
-              <p className={styles.whyCardText}>ServiceNow, Salesforce, SAP, BMC, Ivanti, Atlassian, AWS, Azure, GCP — one partner across your full environment.</p>
+              <p className={styles.whyCardText}>ServiceNow, Salesforce, SAP, BMC Helix, Ivanti, Atlassian, AWS, Azure, GCP — one partner across your full environment.</p>
             </div>
           </div>
         </div>

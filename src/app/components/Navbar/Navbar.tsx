@@ -97,7 +97,7 @@ const menuItems = [
           { label: "ServiceNow", href: "/platforms/service-now" },
           { label: "Salesforce", href: "/platforms/salesforce" },
           { label: "SAP", href: "/platforms/sap" },
-          { label: "BMC", href: "/platforms/bmc" }
+          { label: "BMC Helix", href: "/platforms/bmc" }
         ]
       },
       {
@@ -170,24 +170,24 @@ export default function Navbar() {
   const isAlwaysLight = pathname === "/contact" || pathname === "/" || pathname === "/resources/webinars";
   const isMainPage = pathname === "/";
 
-  const dynamicMenuItems = menuItems.map(item => {
-    if (item.isLogo) {
-      return {
-        ...item,
-        logoSrc: isMainPage 
-          ? "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/Hadron-Logo_lt4uaa.png"
-          : "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png"
-      };
-    }
-    return item;
-  });
-
   const [activeItem, setActiveItem] = useState<string>("Home");
   const [scrolled, setScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isLightMode, setIsLightMode] = useState(isAlwaysLight);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [openTrees, setOpenTrees] = useState<Record<string, boolean>>({});
+
+  const dynamicMenuItems = menuItems.map(item => {
+    if (item.isLogo) {
+      return {
+        ...item,
+        logoSrc: isLightMode 
+          ? "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/Hadron-Logo_lt4uaa.png"
+          : "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png"
+      };
+    }
+    return item;
+  });
 
   const toggleTree = (key: string, e?: React.MouseEvent) => {
     if (e) {

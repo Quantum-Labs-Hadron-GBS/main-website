@@ -14,7 +14,7 @@ const MODULES = [
 
 const PARTNERS = [
   {
-    title: "BMC Software",
+    title: "BMC Helix",
     tag: "Strategic Partner",
     body: "A global software company that specializes in providing solutions for IT service management, cloud management, and digital enterprise automation.",
   },

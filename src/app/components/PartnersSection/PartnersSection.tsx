@@ -11,9 +11,9 @@ const PARTNERS = [
   },
   {
     id: "bmc",
-    name: "BMC Software",
-    logo: "https://res.cloudinary.com/djxbxhgat/image/upload/v1784523792/Logo_BMC_Software_oqiorh.png",
-    description: "Hadron Global Business Solutions (Hadron GBS), a leading provider of innovative IT solutions, is pleased to announce a strategic partnership with BMC Software, a global software company that specializes in providing solutions for IT service management, cloud management, and digital enterprise automation.",
+    name: "BMC Helix",
+    logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1790836686/bmc-helix-logo_d38xak.png",
+    description: "Hadron Global Business Solutions (Hadron GBS), a leading provider of innovative IT solutions, is pleased to announce a strategic partnership with BMC Helix, a global software company that specializes in providing solutions for IT service management, cloud management, and digital enterprise automation.",
     link: "/services/bmc",
     linkText: "Elevating Possibilities"
   },
@@ -40,6 +40,14 @@ const PARTNERS = [
     description: "We have been lucky to collaborate with Ivanti to serve our customers for their need for IT Security, IT Service Management, IT Asset Management, Unified Endpoint Management, Identity Management, and supply chain management.",
     link: "/services/ivanti",
     linkText: "Secure & Manage with Ivanti"
+  },
+  {
+    id: "atlassian",
+    name: "Atlassian",
+    logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788789011/Atlassian_logo_kiayvy.png",
+    description: "Hadron GBS partners with Atlassian to bring agile workflows, seamless collaboration, and advanced service management to enterprise teams. We help organizations unlock the full potential of Jira, Confluence, and Atlassian Intelligence for modern operations.",
+    link: "/services/atlassian",
+    linkText: "Transform with Atlassian"
   }
 ];
 
