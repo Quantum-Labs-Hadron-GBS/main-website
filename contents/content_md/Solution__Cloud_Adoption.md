@@ -153,17 +153,25 @@ Proven experience in large-scale, complex cloud transformations
 
 Real Business Results From Cloud-First Operations
 
-87-day cloud migration
+Faster Time-to-Value
 
-— legacy infrastructure migrated to cloud with zero SLA breaches.
+— Accelerate enterprise transformation through proven delivery frameworks, platform expertise, reusable accelerators and automation.
 
-2× faster time-to-market
+Improved Operational Efficiency
 
-— feature cycles reduced from 18 weeks to 8 weeks, enabling two new revenue-generating products.
+— Simplify workflows, reduce manual effort and improve service operations through intelligent automation, AI and integrated enterprise platforms.
 
-98% CMDB accuracy
+Trusted Data & Visibility
 
-— automated discovery and service mapping created a more reliable infrastructure data foundation.
+— Strengthen CMDB, asset and operational data foundations to improve visibility, governance and informed decision-making.
+
+AI-Enabled Transformation
+
+— Turn AI into practical enterprise outcomes through Now Assist, AI Agents, HelixGPT, Agentforce and other platform-native AI capabilities.
+
+End-to-End Accountability
+
+— Stay supported from consulting and architecture through implementation, hypercare, optimization and managed services.
 
 {/* Image Placeholder */}
 
