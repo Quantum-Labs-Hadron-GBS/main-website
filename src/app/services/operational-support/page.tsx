@@ -21,7 +21,7 @@ export default function OperationalSupportPage() {
       ]}
       framework={[]}
       whyHadron={[
-        { title: "End-to-end L1–L3 Support", desc: "Issues routed by complexity across ServiceNow, Salesforce, SAP, BMC Helix, Ivanti, Atlassian, and related platforms." },
+        { title: "End-to-end L1–L3 Support", desc: "Issues routed by complexity across ServiceNow, BMC Helix, Salesforce, Ivanti, Atlassian, Freshworks, ManageEngine, Microsoft, AWS and SAP." },
         { title: "ESM and ITSM Operations", desc: "Incident, service request, and change management within a governed ITSM model, with full root-cause visibility." },
         { title: "Operational Governance and Compliance", desc: "Process compliance, governance frameworks, and documentation across platforms and teams. Regular review cadences drive accountability." },
         { title: "Performance Reporting", desc: "KPI tracking and dashboards aligned to SLA cadences, driving prioritisation, resource allocation, and continuous improvement." },

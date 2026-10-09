@@ -8,22 +8,22 @@ const advantages = [
   {
     num: "01",
     title: "Architecture-Led Delivery",
-    desc: "We treat every engagement as a complex systems challenge, rather than a mere implementation task. Our elite enterprise architects design for structural integrity, operational coherence, and long-term platform health. By embedding strict governance into our pipelines, we ensure the digital cores we build are highly scalable, secure, and fiercely resilient against technical debt."
+    desc: "We approach every engagement with an architecture-first mindset. Our solutions are designed for scalability, security, integration, governance and long-term platform health - helping reduce complexity and technical debt as your business evolves."
   },
   {
     num: "02",
     title: "Outcome-Driven Accountability",
-    desc: "Implementation isn't enough; we measure success strictly by business impact. We align our delivery model with your core strategic objectives from day one, defining success through hard KPIs like MTTR reduction and improved CSAT. We tie our operational success directly to yours, staying ruthlessly accountable to these metrics at every stage of the journey."
+    desc: "We align technology delivery with measurable business outcomes from the start. Clear KPIs such as improved service experience, faster resolution, greater automation and operational efficiency - help ensure our solutions deliver meaningful and measurable value."
   },
   {
     num: "03",
-    title: "GenAI-Powered Transformation",
-    desc: "We are pioneering the next era of enterprise operations by natively embedding intelligent automation into ServiceNow, Salesforce, and SAP workflows. Our custom GenAI integrations transform static processes into dynamic, self-optimizing ecosystems that reduce manual overhead, accelerate decisions, and unlock new dimensions of operational efficiency."
+    title: "AI-Powered Transformation",
+    desc: "We bring AI, GenAI, Agentic AI and intelligent automation into enterprise platforms and workflows. By combining platform capabilities with practical AI use cases, we help reduce manual effort, accelerate decisions, improve user experiences and drive operational efficiency."
   },
   {
     num: "04",
     title: "Lifecycle Accountability",
-    desc: "We refuse to simply deploy and walk away. We adapt our operating model to seamlessly match your evolving business priorities, providing continuous, end-to-end accountability from day-zero architecture through post-deployment hypercare and ongoing managed services. We stand by our builds, ensuring your enterprise platforms evolve flawlessly as your business scales."
+    desc: "Our responsibility extends beyond implementation. From architecture and deployment to hypercare, optimization and managed services - we provide end-to-end support to keep your platforms reliable, relevant and aligned with evolving business priorities."
   }
 ];
 
@@ -198,7 +198,6 @@ export default function WhyHadronSection() {
           borderBottomRightRadius: '2.5rem'
         }}
       >
-        {/* Top-left header: Single line, right side empty */}
         <div style={{ position: 'absolute', top: '12vh', left: '2rem', zIndex: 20 }}>
           <h2
             className="adv-title"
@@ -207,11 +206,23 @@ export default function WhyHadronSection() {
               fontWeight: 700,
               color: '#16325F',
               letterSpacing: '-0.02em',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              marginBottom: '0.5rem'
             }}
           >
             The <span style={{ color: '#F17943' }}>Hadron</span> Advantage
           </h2>
+          <p
+            style={{
+              fontSize: '1rem',
+              fontWeight: 500,
+              color: '#475569',
+              maxWidth: '600px',
+              letterSpacing: '0.02em'
+            }}
+          >
+            Architect it right → Deliver measurable outcomes → Accelerate with AI → Own the lifecycle
+          </p>
         </div>
 
         {/* Full-screen track container pushing content to bottom */}

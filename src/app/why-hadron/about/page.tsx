@@ -29,13 +29,23 @@ export default function AboutPage() {
     },
     {
       year: "2023",
-      title: "Globalization of Business",
-      desc: "Expansion of business is needed. We opened our first offshore office in Singapore and planning for Europe expansion by having office in Sweden."
+      title: "Global Expansion & Strategic Growth",
+      desc: "Established our Singapore presence and ServiceNow partnership, accelerating our global expansion and enterprise transformation capabilities."
+    },
+    {
+      year: "2024",
+      title: "Expanded Technology Partner Ecosystem",
+      desc: "Expanded our technology ecosystem through partnerships with Salesforce, Atlassian, ManageEngine and Precision Bridge, strengthening our capabilities across enterprise service management, CRM, automation and platform migration."
+    },
+    {
+      year: "2025",
+      title: "Strengthened ServiceNow Partnership",
+      desc: "Advanced our ServiceNow partnership and became a reseller, expanding our ability to support customers across consulting, implementation and platform adoption."
     },
     {
       year: "2026",
-      title: "Lead Servicenow partner",
-      desc: "Hadron GBS is an official ServiceNow consulting and implementation partner that optimizes enterprise platforms like ITSM, ITOM, HRSD, and GRC"
+      title: "Accelerating AI & Platform Partnerships",
+      desc: "Expanded our strategic ecosystem through a BMC Helix partnership and strengthened our Salesforce partnership around Agentforce IT & HR Service, accelerating AI-powered service management and enterprise workflows."
     }
   ];
 
@@ -187,8 +197,11 @@ export default function AboutPage() {
       <section className={`${styles.section} ${styles.partnersSection}`}>
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Our Partners</h2>
+          <p className={styles.sectionText} style={{ maxWidth: '50rem', margin: '0 auto', marginBottom: '1rem' }}>
+            We collaborate with leading technology providers across Enterprise Service Management, AI, ITOM, ITAM, GRC, SPM, CRM, automation, migration and digital operations to deliver solutions aligned with our customers’ evolving business needs.
+          </p>
           <p className={styles.sectionText} style={{ maxWidth: '50rem', margin: '0 auto' }}>
-            Hadron Global Business Solutions (Hadron GBS), a leading provider of innovative IT solutions, is pleased to announce a strategic partnership with BMC Helix, a global software company that specializes in providing solutions for IT service management, cloud management, and digital enterprise automation. We are also partnered with NetBrain who is the global leader for network automation.
+            Our ecosystem spans ServiceNow, Salesforce, BMC Helix, Atlassian, Freshworks, ManageEngine, Precision Bridge and other leading technology platforms, enabling us to support the complete transformation journey—from platform consulting and migration to implementation, AI enablement, optimization and managed services.
           </p>
         </div>
       </section>

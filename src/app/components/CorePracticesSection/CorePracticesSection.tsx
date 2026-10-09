@@ -16,7 +16,7 @@ const SOLUTIONS = [
   {
     title: "Intelligent Automation & Agentic AI",
     desc: "Move beyond task-level automation to AI-driven orchestration. Intelligent agents handle routing, decisions, and execution in real time.",
-    href: "/solutions/intelligent-automation-agentic-ai",
+    href: "/ai/intelligent-automation",
     video: "https://res.cloudinary.com/dyhlpxwwo/video/upload/v1788267903/Animate_the_attached_image_as_xmqsid.mp4"
   },
   {
