@@ -49,6 +49,7 @@ const getPoints = (sides: number) => {
 export default function WhyHadronSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const panRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const rollerRef = useRef<HTMLDivElement>(null);
   const polygonRef = useRef<SVGPolygonElement>(null);
   const circleRef = useRef<SVGCircleElement>(null);
@@ -109,11 +110,28 @@ export default function WhyHadronSection() {
           }, 0.25); // Delay start so the 1st card grows fully before it slides left
         }
 
+        // Cards grow to 72vh, but never past the heading + tagline above them (which can wrap on
+        // narrow/short screens). Measured on each refresh so it adapts to any viewport.
+        const cardHeight = () => {
+          const header = headerRef.current;
+          const pan = panRef.current;
+          if (!header || !pan) return window.innerHeight * 0.72;
+          const padBottom = parseFloat(getComputedStyle(pan).paddingBottom) || 0;
+          const available = pan.getBoundingClientRect().bottom - padBottom - header.getBoundingClientRect().bottom - 24;
+          const height = Math.max(0, Math.min(window.innerHeight * 0.72, available));
+
+          // Run the dashed guideline + roller through the middle of the cards' empty upper area
+          const textArea = pan.querySelector<HTMLElement>(".adv-card-text")?.offsetHeight ?? 0;
+          const cardTop = pan.clientHeight - padBottom - height;
+          pan.style.setProperty("--adv-line", `${cardTop + Math.max(0, height - textArea) / 2}px`);
+          return height;
+        };
+
         // 1. Simultaneous Staggered Card Growth from absolute bottom
-        tl.to(cards[0], { height: '85%', ease: "power2.out", duration: 0.25 }, 0.00);
-        tl.to(cards[1], { height: '85%', ease: "power2.out", duration: 0.50 }, 0.00);
-        tl.to(cards[2], { height: '85%', ease: "power2.out", duration: 0.75 }, 0.00);
-        tl.to(cards[3], { height: '85%', ease: "power2.out", duration: 1.00 }, 0.00);
+        tl.to(cards[0], { height: cardHeight, ease: "power2.out", duration: 0.25 }, 0.00);
+        tl.to(cards[1], { height: cardHeight, ease: "power2.out", duration: 0.50 }, 0.00);
+        tl.to(cards[2], { height: cardHeight, ease: "power2.out", duration: 0.75 }, 0.00);
+        tl.to(cards[3], { height: cardHeight, ease: "power2.out", duration: 1.00 }, 0.00);
 
         // 2. Synchronized Roller X Translation & Locked Rotation (Over full 1.0 duration)
         tl.to(rollerRef.current, {
@@ -198,7 +216,7 @@ export default function WhyHadronSection() {
           borderBottomRightRadius: '2.5rem'
         }}
       >
-        <div style={{ position: 'relative', paddingTop: '10vh', paddingBottom: '3rem', zIndex: 20 }}>
+        <div ref={headerRef} style={{ position: 'absolute', top: '12vh', left: '2rem', right: '2rem', zIndex: 20 }}>
           <h2
             className="adv-title"
             style={{
@@ -217,7 +235,6 @@ export default function WhyHadronSection() {
               fontSize: '1rem',
               fontWeight: 500,
               color: '#475569',
-              maxWidth: '600px',
               letterSpacing: '0.02em'
             }}
           >
@@ -241,7 +258,7 @@ export default function WhyHadronSection() {
           <svg
             style={{
               position: 'absolute',
-              top: '45%',
+              top: 'var(--adv-line, 45%)',
               left: 0,
               width: '100%',
               height: '2px',
@@ -256,7 +273,7 @@ export default function WhyHadronSection() {
             ref={rollerRef}
             style={{
               position: 'absolute',
-              top: 'calc(45% - 3.4375rem)', // Center is at 45%; top sits half the shape's size above it
+              top: 'calc(var(--adv-line, 45%) - 3.4375rem)', // Centered on the guideline (half the shape's size above it)
               left: 0,
               width: '6.875rem',
               height: '6.875rem',
@@ -340,7 +357,7 @@ export default function WhyHadronSection() {
                       display: 'flex',
                       flexDirection: 'column',
                       color: '#16325F',
-                      height: '21.875rem',
+                      height: '18.5rem',
                       flexShrink: 0
                     }}
                   >
