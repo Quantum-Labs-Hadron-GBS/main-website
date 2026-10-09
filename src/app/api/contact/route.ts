@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { prisma } from "@/lib/prisma/db";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: NextRequest) {
   try {
+    // Created per request so builds don't require RESEND_API_KEY (e.g. Vercel preview env)
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const body = await req.json();
     const { name, email, phone, location, interestedService, message } = body;
 
