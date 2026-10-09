@@ -102,7 +102,7 @@ export default function AIHubPage() {
         {/* THE BUSINESS VALUE OF AI (New Section for Non-Tech Execs) */}
         <section style={{ padding: '6rem 0', backgroundColor: '#ffffff' }}>
           <div className={styles.container}>
-            <div style={{ textAlign: 'center', marginBottom: '4rem', maxWidth: '800px', margin: '0 auto 4rem auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '4rem', maxWidth: '50rem', margin: '0 auto 4rem auto' }}>
               <h2 style={{ fontSize: '2.5rem', color: '#16325F', fontWeight: 700, marginBottom: '1rem' }}>
                 Why AI Matters to Your Bottom Line
               </h2>
@@ -111,7 +111,7 @@ export default function AIHubPage() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(18.75rem, 1fr))', gap: '2rem' }}>
               {businessValues.map((value, i) => (
                 <div key={i} style={{ padding: '2.5rem', backgroundColor: '#f8fafc', borderRadius: '1rem', borderTop: '4px solid #F17943', boxShadow: '0 10px 25px rgba(0,0,0,0.03)' }}>
                   <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1e3a8a', marginBottom: '1rem' }}>{value.title}</h3>
@@ -172,7 +172,7 @@ export default function AIHubPage() {
           <div className={styles.container}>
             <div className={styles.whyHeader} style={{ textAlign: 'center', marginBottom: '4rem' }}>
               <h2 className={styles.whyTitle}>Our AI Capabilities</h2>
-              <p style={{ color: '#4b5563', fontSize: '1.25rem', maxWidth: '800px', margin: '1rem auto 0 auto', lineHeight: 1.6 }}>
+              <p style={{ color: '#4b5563', fontSize: '1.25rem', maxWidth: '50rem', margin: '1rem auto 0 auto', lineHeight: 1.6 }}>
                 Comprehensive AI solutions designed for the enterprise. From strategic readiness to the deployment of autonomous digital workers.
               </p>
             </div>

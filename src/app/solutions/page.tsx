@@ -84,7 +84,7 @@ export default function SolutionsHubPage() {
         {/* THE BUSINESS VALUE OF OUR SOLUTIONS */}
         <section style={{ padding: '6rem 0', backgroundColor: '#ffffff' }}>
           <div className={styles.container}>
-            <div style={{ textAlign: 'center', marginBottom: '4rem', maxWidth: '800px', margin: '0 auto 4rem auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '4rem', maxWidth: '50rem', margin: '0 auto 4rem auto' }}>
               <h2 style={{ fontSize: '2.5rem', color: '#16325F', fontWeight: 700, marginBottom: '1rem' }}>
                 Technology Aligned to Business Outcomes
               </h2>
@@ -93,7 +93,7 @@ export default function SolutionsHubPage() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(18.75rem, 1fr))', gap: '2rem' }}>
               {businessValues.map((value, i) => (
                 <div key={i} style={{ padding: '2.5rem', backgroundColor: '#f8fafc', borderRadius: '1rem', borderTop: '4px solid #1e3a8a', boxShadow: '0 10px 25px rgba(0,0,0,0.03)' }}>
                   <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1e3a8a', marginBottom: '1rem' }}>{value.title}</h3>
@@ -109,12 +109,12 @@ export default function SolutionsHubPage() {
           <div className={styles.container}>
             <div className={styles.whyHeader} style={{ textAlign: 'center', marginBottom: '4rem' }}>
               <h2 className={styles.whyTitle}>Our Core Enterprise Solutions</h2>
-              <p style={{ color: '#4b5563', fontSize: '1.25rem', maxWidth: '800px', margin: '1rem auto 0 auto', lineHeight: 1.6 }}>
+              <p style={{ color: '#4b5563', fontSize: '1.25rem', maxWidth: '50rem', margin: '1rem auto 0 auto', lineHeight: 1.6 }}>
                 From migrating critical workloads to the cloud, to embedding agentic AI across enterprise workflows, we deliver complete transformation services.
               </p>
             </div>
             
-            <div className={styles.whyGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))' }}>
+            <div className={styles.whyGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(25rem, 1fr))' }}>
               {capabilities.map((cap, i) => (
                 <Link key={i} href={cap.link} style={{ textDecoration: 'none' }}>
                   <motion.div 

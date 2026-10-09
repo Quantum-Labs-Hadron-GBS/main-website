@@ -159,7 +159,7 @@ export default function ServiceLayout({
               </div>
 
               {/* Right Content Area */}
-              <div className={styles.solutionsRight} style={{ minHeight: '600px', backgroundColor: activeTab === 'framework' ? 'transparent' : '#ffffff', boxShadow: activeTab === 'framework' ? 'none' : '' }}>
+              <div className={styles.solutionsRight} style={{ minHeight: '37.5rem', backgroundColor: activeTab === 'framework' ? 'transparent' : '#ffffff', boxShadow: activeTab === 'framework' ? 'none' : '' }}>
                 <AnimatePresence mode="wait">
                   {activeTab === 'offerings' && (
                     <motion.div 

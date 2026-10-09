@@ -17,7 +17,7 @@ export default function ContactPage() {
       */}
       <Navbar />
 
-      <div style={{ flex: 1, paddingTop: "150px", paddingBottom: "100px" }} className="container">
+      <div style={{ flex: 1, paddingTop: "9.375rem", paddingBottom: "6.25rem" }} className="container">
         <ContactForm />
       </div>
 

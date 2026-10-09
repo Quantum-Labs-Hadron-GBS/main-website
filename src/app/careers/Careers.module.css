@@ -9,11 +9,11 @@
 .heroSection {
   position: relative;
   height: 55vh;
-  min-height: 450px;
+  min-height: 28.125rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 80px;
+  padding-top: 5rem;
   overflow: hidden;
 }
 
@@ -42,7 +42,7 @@
   position: relative;
   z-index: 3;
   text-align: left;
-  max-width: 900px;
+  max-width: 56.25rem;
   padding: 0 4rem;
   color: #ffffff;
   width: 100%;
@@ -52,8 +52,8 @@
   .heroSection {
     height: auto;
     min-height: 60vh;
-    padding-top: 140px;
-    padding-bottom: 60px;
+    padding-top: 8.75rem;
+    padding-bottom: 3.75rem;
     align-items: flex-start;
   }
   .heroContent {
@@ -73,7 +73,7 @@
   line-height: 1.6;
   color: #e2e8f0;
   margin-bottom: 2.5rem;
-  max-width: 800px;
+  max-width: 50rem;
   margin-left: 0;
   margin-right: 0;
 }
@@ -85,7 +85,7 @@
   background-color: #F17943;
   color: #ffffff;
   padding: 1rem 2rem;
-  border-radius: 50px;
+  border-radius: 3.125rem;
   font-weight: 600;
   font-size: 1.1rem;
   text-decoration: none;
@@ -107,7 +107,7 @@
   color: #ffffff;
   border: 2px solid rgba(255, 255, 255, 0.3);
   padding: 0.9rem 2rem;
-  border-radius: 50px;
+  border-radius: 3.125rem;
   font-weight: 600;
   font-size: 1.1rem;
   text-decoration: none;
@@ -123,7 +123,7 @@
 
 /* CONTAINER */
 .container {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -145,7 +145,7 @@
   color: #475569;
   line-height: 1.7;
   margin-bottom: 3rem;
-  max-width: 800px;
+  max-width: 50rem;
 }
 
 /* CRAFT & CULTURE (Split Layout) */
@@ -165,7 +165,7 @@
   .splitTextContainer {
     background: rgba(255, 255, 255, 0.85);
     padding: 1.5rem;
-    border-radius: 16px;
+    border-radius: 1rem;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -174,7 +174,7 @@
 
 .splitImgWrapper {
   position: relative;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
@@ -187,10 +187,10 @@
 
 .splitOrangeAccent {
   position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 150px;
-  height: 150px;
+  top: -1.25rem;
+  right: -1.25rem;
+  width: 9.375rem;
+  height: 9.375rem;
   background-color: rgba(241, 121, 67, 0.1);
   border-radius: 50%;
   z-index: -1;
@@ -212,12 +212,12 @@
 .learningCard {
   background: #ffffff;
   padding: 2.5rem;
-  border-radius: 16px;
+  border-radius: 1rem;
   box-shadow: 0 10px 30px rgba(0,0,0,0.04);
   border-bottom: 4px solid #F17943;
   transition: transform 0.3s ease;
-  flex: 1 1 300px;
-  max-width: 350px;
+  flex: 1 1 18.75rem;
+  max-width: 21.875rem;
 }
 
 .learningCard:hover {
@@ -225,11 +225,11 @@
 }
 
 .learningIcon {
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   background-color: rgba(241, 121, 67, 0.1);
   color: #F17943;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -322,14 +322,14 @@
 /* TESTIMONIALS */
 .testimonialGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
   gap: 2.5rem;
 }
 
 .testimonialCard {
   background: #ffffff;
   padding: 2.5rem;
-  border-radius: 16px;
+  border-radius: 1rem;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
   position: relative;
   border-top: 4px solid #38bdf8;
@@ -347,8 +347,8 @@
 .testimonialQuote::before {
   content: '"';
   position: absolute;
-  top: -20px;
-  left: -10px;
+  top: -1.25rem;
+  left: -0.625rem;
   font-size: 4rem;
   color: rgba(56, 189, 248, 0.1);
   font-family: Georgia, serif;
@@ -372,7 +372,7 @@
 
 .timeline {
   position: relative;
-  max-width: 800px;
+  max-width: 50rem;
   margin: 4rem auto 0;
 }
 
@@ -380,7 +380,7 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 24px;
+  left: 1.5rem;
   height: 100%;
   width: 2px;
   background: #e2e8f0;
@@ -388,7 +388,7 @@
 
 @media (max-width: 600px) {
   .timeline::before {
-    left: 20px;
+    left: 1.25rem;
   }
 }
 
@@ -412,8 +412,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   background-color: #ffffff;
   border: 3px solid #F17943;
   border-radius: 50%;
@@ -429,8 +429,8 @@
 
 @media (max-width: 600px) {
   .timelineDot {
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     font-size: 1rem;
   }
 }
@@ -438,7 +438,7 @@
 .timelineContent {
   background: #ffffff;
   padding: 2rem;
-  border-radius: 16px;
+  border-radius: 1rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 }
@@ -476,7 +476,7 @@
 .finalCtaDesc {
   font-size: 1.2rem;
   color: #cbd5e1;
-  max-width: 600px;
+  max-width: 37.5rem;
   margin: 0 auto 3rem;
   line-height: 1.6;
 }

@@ -88,7 +88,7 @@ export default function Footer() {
                     src={OFFICE_LOCATIONS[activeMapIndex].mapUrl} 
                     width="100%" 
                     height="260" 
-                    style={{ border: 0, borderRadius: '8px', filter: 'grayscale(0.8) contrast(1.2)' }} 
+                    style={{ border: 0, borderRadius: '0.5rem', filter: 'grayscale(0.8) contrast(1.2)' }} 
                     allowFullScreen 
                     loading="lazy" 
                     referrerPolicy="no-referrer-when-downgrade"

@@ -93,7 +93,7 @@ export default function ServicesPage() {
 
       {/* Services List Section */}
       <section className={styles.carouselSection}>
-        <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+        <div style={{ width: '100%', maxWidth: '75rem', margin: '0 auto', padding: '0 2rem' }}>
           
           {/* ── Section Header ── */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>

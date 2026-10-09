@@ -169,7 +169,7 @@ export default function EngineeringQualityPage() {
               <h2 className={styles.sectionTitle}>
                 <span className={styles.highlightOrange}>Our Approach</span>
               </h2>
-              <p className={styles.sectionSubtitle} style={{ marginTop: '1rem', maxWidth: '800px', marginInline: 'auto' }}>
+              <p className={styles.sectionSubtitle} style={{ marginTop: '1rem', maxWidth: '50rem', marginInline: 'auto' }}>
                 Our approach moves organizations from quality maturity assessment to a continuously optimizing, automation-driven quality engineering practice.
               </p>
             </div>
@@ -267,7 +267,7 @@ export default function EngineeringQualityPage() {
         <section className={styles.ctaSection}>
           <h2 className={styles.ctaTitle}>Turn Quality Engineering Into a <span className={styles.highlightOrange}>Strategic</span></h2>
           <h2 className={`${styles.ctaTitle}`}><span className={styles.highlightOrange}>Business Advantage</span></h2>
-          <p style={{ color: 'white', marginTop: '1.5rem', maxWidth: '600px', marginInline: 'auto', textAlign: 'center', fontSize: '1.1rem' }}>
+          <p style={{ color: 'white', marginTop: '1.5rem', maxWidth: '37.5rem', marginInline: 'auto', textAlign: 'center', fontSize: '1.1rem' }}>
             Deliver reliable, high-performing systems that scale with your business.
           </p>
           <Link href="/contact" className={styles.ctaButton} style={{ marginTop: '2.5rem' }}>

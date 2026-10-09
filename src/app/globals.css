@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
 
 /* Fonts handled by next/font in layout.tsx */
 
@@ -95,21 +94,15 @@ html {
   font-size: 16px; /* Standard base size for mobile and typical laptops */
 }
 
-/* The magic for large screens: switch to Viewport-Width scaling */
-@media (min-width: 1440px) {
+/* Desktop: scale 1rem with the viewport so every screen shows the same layout, just bigger or smaller.
+   Reference viewport is a 14" MacBook Pro browser window (~1512 x 860), where 1rem = 16.8px.
+   - Width term:  1.111vw → 16px at 1440px wide (16.8px at 1512px)
+   - Height term: 1.953vh → 16.8px at 860px tall
+   Using the smaller of the two keeps sections fitting on short screens (e.g. 1366 x 768 laptops),
+   not just narrow ones. Clamped so text stays readable and 4K screens don't get comically large. */
+@media (min-width: 1024px) {
   html {
-    /* At 1440px width, 1.111vw perfectly equals 16px. 
-       Above 1440px, 1rem will smoothly grow, proportionally scaling 
-       EVERY font, padding, margin, and card width! */
-    font-size: 1.111vw;
-  }
-}
-
-/* Cap the scaling on Ultra-Wide (4K) monitors so things don't become comically massive */
-@media (min-width: 2560px) {
-  html {
-    /* 2560px * 0.01111 = ~28.4px */
-    font-size: 28.4px; 
+    font-size: clamp(12px, min(1.111vw, 1.953vh), 28.4px);
   }
 }
 

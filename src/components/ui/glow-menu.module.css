@@ -197,7 +197,7 @@
   border-radius: 1rem;
   box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.7);
   z-index: 50;
-  min-width: 750px;
+  min-width: 46.875rem;
   width: max-content;
   max-width: 90vw;
 }
@@ -317,7 +317,7 @@
   }
   
   .menuItemWrapper.isLogo img {
-    height: 28px !important; /* Make logo bigger on mobile */
+    height: 1.75rem !important; /* Make logo bigger on mobile */
   }
 
   .menuItemWrapper.isLogo .activeBackground {

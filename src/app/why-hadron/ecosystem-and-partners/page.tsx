@@ -15,7 +15,7 @@ export default function PartnersPage() {
       logo: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/ServiceNow-Logo_cqo5uy.png",
       link: "/platforms/service-now",
       btnText: "Unleash the Power of ServiceNow",
-      logoStyle: { maxHeight: "120px", transform: "scale(1.5)" }
+      logoStyle: { maxHeight: "7.5rem", transform: "scale(1.5)" }
     },
     {
       name: "BMC Helix",

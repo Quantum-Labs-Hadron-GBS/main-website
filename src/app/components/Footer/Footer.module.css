@@ -133,7 +133,7 @@
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-space), sans-serif;
-  font-size: clamp(12rem, 26vw, 24rem);
+  font-size: clamp(12rem, 26vw, 23.4rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: var(--fg);

@@ -117,11 +117,13 @@ export default function WhyHadronSection() {
 
         // 2. Synchronized Roller X Translation & Locked Rotation (Over full 1.0 duration)
         tl.to(rollerRef.current, {
-          x: () => (panRef.current ? panRef.current.offsetWidth - 110 : 0),
+          // Roller size is in rem (scales with screen), so measure it rather than assuming 110px
+          x: () => (panRef.current ? panRef.current.offsetWidth - (rollerRef.current?.offsetWidth ?? 110) : 0),
           rotation: () => {
             // Circumferential proportion rotation: (Distance / Circumference) * 360
-            const dist = panRef.current ? panRef.current.offsetWidth - 110 : 1000;
-            return (dist / (110 * Math.PI)) * 360;
+            const size = rollerRef.current?.offsetWidth ?? 110;
+            const dist = panRef.current ? panRef.current.offsetWidth - size : 1000;
+            return (dist / (size * Math.PI)) * 360;
           },
           ease: "none",
           duration: 1.00
@@ -159,8 +161,8 @@ export default function WhyHadronSection() {
         minHeight: '100vh',
         zIndex: 10,
         position: 'relative',
-        borderBottomLeftRadius: '40px',
-        borderBottomRightRadius: '40px',
+        borderBottomLeftRadius: '2.5rem',
+        borderBottomRightRadius: '2.5rem',
         boxShadow: '0 25px 50px rgba(0, 0, 0, 0.15)'
       }}
     >
@@ -192,8 +194,8 @@ export default function WhyHadronSection() {
           flexDirection: 'column',
           position: 'relative',
           padding: '0 2rem',
-          borderBottomLeftRadius: '40px',
-          borderBottomRightRadius: '40px'
+          borderBottomLeftRadius: '2.5rem',
+          borderBottomRightRadius: '2.5rem'
         }}
       >
         {/* Top-left header: Single line, right side empty */}
@@ -221,7 +223,7 @@ export default function WhyHadronSection() {
             flex: 1,
             display: 'flex',
             alignItems: 'flex-end',
-            paddingBottom: '30px' /* Increased by 12px */
+            paddingBottom: '1.875rem'
           }}
         >
           {/* Global Dashed Guideline passing perfectly through the origin dot */}
@@ -243,10 +245,10 @@ export default function WhyHadronSection() {
             ref={rollerRef}
             style={{
               position: 'absolute',
-              top: 'calc(45% - 55px)', // Center is at 45%. Shape is 110x110. Top is 55px above 45%.
+              top: 'calc(45% - 3.4375rem)', // Center is at 45%; top sits half the shape's size above it
               left: 0,
-              width: '110px',
-              height: '110px',
+              width: '6.875rem',
+              height: '6.875rem',
               zIndex: 20,
               display: 'flex',
               alignItems: 'center',
@@ -286,7 +288,7 @@ export default function WhyHadronSection() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: '16px',
+              gap: '1rem',
               width: '100%',
               height: '100%',
               alignItems: 'flex-end',
@@ -305,7 +307,7 @@ export default function WhyHadronSection() {
                     height: '0px', // Starts completely from the bottom
                     position: 'relative',
                     overflow: 'hidden',
-                    borderRadius: '16px',
+                    borderRadius: '1rem',
                     willChange: 'height',
                     transformOrigin: 'bottom',
                     boxShadow: '0 -10px 30px rgba(0,0,0,0.02)',
@@ -317,7 +319,7 @@ export default function WhyHadronSection() {
                   <div
                     style={{
                       padding: '1.5rem 1.5rem 0 1.5rem',
-                      fontSize: '14px',
+                      fontSize: '0.875rem',
                       fontWeight: 700,
                       color: '#F17943',
                       flexShrink: 0
@@ -338,7 +340,7 @@ export default function WhyHadronSection() {
                       display: 'flex',
                       flexDirection: 'column',
                       color: '#16325F',
-                      height: '350px',
+                      height: '21.875rem',
                       flexShrink: 0
                     }}
                   >
@@ -357,7 +359,7 @@ export default function WhyHadronSection() {
                     </h3>
                     <p
                       style={{
-                        fontSize: '14px',
+                        fontSize: '0.875rem',
                         lineHeight: 1.6,
                         color: '#475569'
                       }}
