@@ -71,7 +71,7 @@ export default function ManufacturingIndustry() {
     },
     {
       title: "Platform Expertise",
-      desc: "Deep integration capabilities across ServiceNow, SAP, BMC Helix, Microsoft, AWS, and Salesforce."
+      desc: "Deep integration capabilities across ServiceNow, BMC Helix, Salesforce, Ivanti, Atlassian, Freshworks, ManageEngine, Microsoft, AWS and SAP."
     },
     {
       title: "The Outcome",
