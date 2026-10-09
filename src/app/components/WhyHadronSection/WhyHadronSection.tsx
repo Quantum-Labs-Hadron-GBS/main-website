@@ -326,18 +326,7 @@ export default function WhyHadronSection() {
                     flexDirection: 'column'
                   }}
                 >
-                  {/* Clean Top Number Badge anchored near top */}
-                  <div
-                    style={{
-                      padding: '1.5rem 1.5rem 0 1.5rem',
-                      fontSize: '0.875rem',
-                      fontWeight: 700,
-                      color: '#F17943',
-                      flexShrink: 0
-                    }}
-                  >
-                    {item.num}
-                  </div>
+
 
                   {/* Spacer to push content to the bottom */}
                   <div style={{ flex: 1, minHeight: '1.5rem' }} />

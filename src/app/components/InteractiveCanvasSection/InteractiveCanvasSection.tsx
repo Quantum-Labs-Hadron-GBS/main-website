@@ -70,7 +70,7 @@ export default function InteractiveCanvasSection() {
                 />
               </div>
               <div className={styles.content}>
-                <span className={styles.number}>{String(idx + 1).padStart(2, "0")}</span>
+
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardBody}>{item.body}</p>
               </div>
