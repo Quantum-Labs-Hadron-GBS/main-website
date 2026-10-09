@@ -75,7 +75,7 @@ export default function RetailIndustry() {
     },
     {
       title: "Enterprise Solutions",
-      desc: "Integrated solutions across ServiceNow, Salesforce, AWS, Microsoft, Atlassian, SAP, and Freshworks."
+      desc: "Integrated solutions across ServiceNow, BMC Helix, Salesforce, Ivanti, Atlassian, Freshworks, ManageEngine, Microsoft, AWS and SAP."
     }
   ];
 

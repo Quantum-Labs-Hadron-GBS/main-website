@@ -75,7 +75,7 @@ export default function GovernmentIndustry() {
     },
     {
       title: "Trusted Platforms",
-      desc: "Deep integration expertise across ServiceNow, Microsoft, AWS, BMC Helix, Atlassian, and Ivanti."
+      desc: "Deep integration expertise across ServiceNow, BMC Helix, Salesforce, Ivanti, Atlassian, Freshworks, ManageEngine, Microsoft and AWS."
     }
   ];
 
