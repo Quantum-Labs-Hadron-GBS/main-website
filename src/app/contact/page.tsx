@@ -1,12 +1,9 @@
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import ContactForm from "../components/ContactForm/ContactForm";
-import type { Metadata } from "next";
+import { pageMetadata } from "../lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact Us | Hadron GBS",
-  description: "Get in touch with Hadron GBS for enterprise IT solutions, ServiceNow, Cloud, and AI.",
-};
+export const metadata = pageMetadata("/contact");
 
 export default function ContactPage() {
   return (

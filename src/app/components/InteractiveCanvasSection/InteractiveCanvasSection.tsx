@@ -1,40 +1,36 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Briefcase, BadgeCheck, TrendingUp, Compass, type LucideIcon } from "lucide-react";
 import styles from "./InteractiveCanvasSection.module.css";
 
-interface ExcellenceItem {
-  title: string;
-  lead: string;
-  body: string;
-  icon: LucideIcon;
-}
+// Cloudinary transform: crop to the card's photo shape and serve an optimized format
+const img = (path: string) => `https://res.cloudinary.com/dyhlpxwwo/image/upload/c_fill,w_720,h_640,g_auto,f_auto,q_auto/${path}`;
 
-const EXCELLENCE: ExcellenceItem[] = [
+const EXCELLENCE = [
   {
     title: "Experience",
-    lead: "Leading Business through expertise.",
-    body: "We have a team of experienced and skilled professionals who have worked with a diverse range of clients across different industries.",
-    icon: Briefcase,
+    body: "Leading Business through expertise. We have a team of experienced and skilled professionals who have worked with a diverse range of clients across different industries.",
+    image: img("v1788259026/ET_M1_cdjlli.jpg"),
+    alt: "Hadron GBS consultant leading a strategy session with an enterprise team",
   },
   {
     title: "Quality",
-    lead: "Delivering exceptional results.",
-    body: "We understand that quality is as important as timeliness for any business. Our team ensures that the solutions meet your expectations.",
-    icon: BadgeCheck,
+    body: "Delivering exceptional results. We understand that quality is as important as timeliness for any business. Our team ensures that the solutions meet your expectations.",
+    image: img("v1788330307/eng_m2_me3czz.avif"),
+    alt: "Engineer reviewing platform performance dashboards",
   },
   {
     title: "Value",
-    lead: "Smart investment for your business.",
-    body: "We offer cost-effective solutions that meet your budget requirements and provide customized solutions that are efficient.",
-    icon: TrendingUp,
+    body: "Smart investment for your business. We offer cost-effective solutions that meet your budget requirements and provide customized solutions that are efficient.",
+    image: img("v1788269188/ai_m2_jffznd.png"),
+    alt: "Business growth analytics on a tablet",
   },
   {
     title: "Approach",
-    lead: "Solutions tailored to your unique needs.",
-    body: "We take a personalized approach to every project and work closely with our clients to understand their specific needs.",
-    icon: Compass,
+    body: "Solutions tailored to your unique needs. We take a personalized approach to every project and work closely with our clients to understand their specific needs.",
+    image: img("v1788274434/rapid_m2_ztjofs.jpg"),
+    alt: "Hadron GBS team working closely with a client on project plans",
   },
 ];
 
@@ -55,29 +51,31 @@ export default function InteractiveCanvasSection() {
         </motion.header>
 
         <div className={styles.grid}>
-          {EXCELLENCE.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <motion.article
-                key={item.title}
-                className={styles.card}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: idx * 0.1 }}
-              >
-                <div className={styles.cardTop}>
-                  <span className={styles.iconBox} aria-hidden="true">
-                    <Icon className={styles.icon} strokeWidth={1.75} />
-                  </span>
-                  <span className={styles.number}>{String(idx + 1).padStart(2, "0")}</span>
-                </div>
+          {EXCELLENCE.map((item, idx) => (
+            <motion.article
+              key={item.title}
+              className={styles.card}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: idx * 0.1 }}
+            >
+              <div className={styles.media}>
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 20vw"
+                  className={styles.mediaImg}
+                />
+              </div>
+              <div className={styles.content}>
+                <span className={styles.number}>{String(idx + 1).padStart(2, "0")}</span>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardLead}>{item.lead}</p>
                 <p className={styles.cardBody}>{item.body}</p>
-              </motion.article>
-            );
-          })}
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

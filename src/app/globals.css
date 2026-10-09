@@ -94,17 +94,19 @@ html {
   font-size: 16px; /* Standard base size for mobile and typical laptops */
 }
 
-/* Desktop: scale 1rem with the viewport so every screen shows the same layout, just bigger or smaller.
+/* Desktop: scale 1rem with the viewport so layouts keep their proportions across screen sizes.
    Reference viewport is a 14" MacBook Pro browser window (~1512 x 860), where 1rem = 16.8px.
-   - Width term:  1.111vw → 16px at 1440px wide (16.8px at 1512px)
-   - Height term: 1.953vh → 16.8px at 860px tall
-   Using the smaller of the two keeps sections fitting on short screens (e.g. 1366 x 768 laptops),
-   not just narrow ones. Clamped so text stays readable and 4K screens don't get comically large. */
+   Each term is "base + slope", so text shrinks only about half as fast as the screen does:
+   - Width:  5.07px + 0.776vw  → 16.8px at 1512px wide, 15px at 1280px
+   - Height: 8.38px + 0.979vh  → 16.8px at 860px tall, 14.5px at 625px (1366 x 768 laptop)
+   The smaller term wins so short screens still fit; clamped so text never drops below
+   14px (readable on 1280px laptops / iPad landscape) and 4K screens don't get comically large. */
 @media (min-width: 1024px) {
   html {
-    font-size: clamp(12px, min(1.111vw, 1.953vh), 28.4px);
+    font-size: clamp(14px, min(calc(5.07px + 0.776vw), calc(8.38px + 0.979vh)), 28.4px);
   }
 }
+
 
 img, canvas {
   display: block;
