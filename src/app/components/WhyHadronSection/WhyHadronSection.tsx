@@ -73,14 +73,28 @@ export default function WhyHadronSection() {
       }, (context) => {
         const { isMobile } = context.conditions as { isMobile: boolean };
 
+        // Pin length in px (GSAP ignores "vh" in "+=" offsets, so the old "+=800vh" was 800px)
+        const PIN_DISTANCE = 800;
+        // Start animating while the section is still entering: once its top reaches 75% of the viewport
+        const START_VIEWPORT_RATIO = 0.75;
+
+        // Pin is its own trigger so the animation can begin before the pin engages
+        ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: "top top",
+          end: `+=${PIN_DISTANCE}`,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        });
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top top",
-            end: "+=800vh", // Extended scroll runway for buttery deliberate scrolling
-            pin: true,
+            start: `top ${START_VIEWPORT_RATIO * 100}%`,
+            // End exactly where the pin releases
+            end: () => `+=${window.innerHeight * START_VIEWPORT_RATIO + PIN_DISTANCE}`,
             scrub: 1.5, // Eased scrub weight for lightness
-            anticipatePin: 1,
             invalidateOnRefresh: true
           }
         });
