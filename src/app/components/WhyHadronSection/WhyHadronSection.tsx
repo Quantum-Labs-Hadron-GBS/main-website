@@ -188,7 +188,7 @@ export default function WhyHadronSection() {
       <div
         style={{
           width: '100%',
-          height: '100vh',
+          minHeight: '100vh',
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column',
