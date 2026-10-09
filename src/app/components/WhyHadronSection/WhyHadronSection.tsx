@@ -110,10 +110,10 @@ export default function WhyHadronSection() {
         }
 
         // 1. Simultaneous Staggered Card Growth from absolute bottom
-        tl.to(cards[0], { height: '72vh', ease: "power2.out", duration: 0.25 }, 0.00);
-        tl.to(cards[1], { height: '72vh', ease: "power2.out", duration: 0.50 }, 0.00);
-        tl.to(cards[2], { height: '72vh', ease: "power2.out", duration: 0.75 }, 0.00);
-        tl.to(cards[3], { height: '72vh', ease: "power2.out", duration: 1.00 }, 0.00);
+        tl.to(cards[0], { height: '85%', ease: "power2.out", duration: 0.25 }, 0.00);
+        tl.to(cards[1], { height: '85%', ease: "power2.out", duration: 0.50 }, 0.00);
+        tl.to(cards[2], { height: '85%', ease: "power2.out", duration: 0.75 }, 0.00);
+        tl.to(cards[3], { height: '85%', ease: "power2.out", duration: 1.00 }, 0.00);
 
         // 2. Synchronized Roller X Translation & Locked Rotation (Over full 1.0 duration)
         tl.to(rollerRef.current, {
@@ -198,7 +198,7 @@ export default function WhyHadronSection() {
           borderBottomRightRadius: '2.5rem'
         }}
       >
-        <div style={{ position: 'absolute', top: '12vh', left: '2rem', zIndex: 20 }}>
+        <div style={{ position: 'relative', paddingTop: '10vh', paddingBottom: '3rem', zIndex: 20 }}>
           <h2
             className="adv-title"
             style={{
