@@ -7,7 +7,7 @@ export default function GlobeWrapper() {
   const pathname = usePathname();
   
   // Do not render the globe at all on the services page
-  if (pathname === "/services") {
+  if (pathname === "/services" || pathname.startsWith("/redesign")) {
     return null;
   }
   

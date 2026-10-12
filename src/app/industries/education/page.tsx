@@ -75,7 +75,7 @@ export default function EducationIndustry() {
     },
     {
       title: "Connected Platforms",
-      desc: "Implementation and integration expertise across ServiceNow, Microsoft, AWS, Salesforce, Atlassian, and Freshworks."
+      desc: "Implementation and integration expertise across ServiceNow, BMC Helix, Salesforce, Ivanti, Atlassian, Freshworks, ManageEngine, Microsoft and AWS."
     }
   ];
 

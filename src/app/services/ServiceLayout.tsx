@@ -159,7 +159,7 @@ export default function ServiceLayout({
               </div>
 
               {/* Right Content Area */}
-              <div className={styles.solutionsRight} style={{ minHeight: '600px', backgroundColor: activeTab === 'framework' ? 'transparent' : '#ffffff', boxShadow: activeTab === 'framework' ? 'none' : '' }}>
+              <div className={styles.solutionsRight} style={{ minHeight: '37.5rem', backgroundColor: activeTab === 'framework' ? 'transparent' : '#ffffff', boxShadow: activeTab === 'framework' ? 'none' : '' }}>
                 <AnimatePresence mode="wait">
                   {activeTab === 'offerings' && (
                     <motion.div 
@@ -177,9 +177,7 @@ export default function ServiceLayout({
                         <div className={styles.solutionsList}>
                           {solutions.map((sol, i) => (
                             <div key={i} className={styles.solutionItem}>
-                              <span className={styles.solutionNumber}>
-                                {String(i + 1).padStart(2, '0')}.
-                              </span>
+
                               <div className={styles.solutionTextWrapper}>
                                 <span className={styles.solutionTitle}>{sol.title}</span>
                                 <span className={styles.solutionDesc}>{sol.desc}</span>
@@ -207,9 +205,7 @@ export default function ServiceLayout({
                         <div className={styles.solutionsList}>
                           {framework.map((step, i) => (
                             <div key={i} className={styles.solutionItem}>
-                              <span className={styles.solutionNumber}>
-                                {step.step}.
-                              </span>
+
                               <div className={styles.solutionTextWrapper}>
                                 <span className={styles.solutionTitle}>{step.title}</span>
                                 <span className={styles.solutionDesc}>{step.desc}</span>

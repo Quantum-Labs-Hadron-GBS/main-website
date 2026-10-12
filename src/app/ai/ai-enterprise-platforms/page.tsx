@@ -7,23 +7,27 @@ export default function AIEnterprisePlatforms() {
   const solutions = [
     {
       title: "ServiceNow AI",
-      desc: "Transform service and workflows across ITSM, ITOM, CSM, and HRSD using Now Assist and Autonomous AI Agents."
+      desc: "Transform enterprise workflows across ITSM, ITOM, CSM, HRSD and more with Now Assist, AI Search, intelligent automation and AI Agents."
     },
     {
-      title: "Salesforce Einstein",
-      desc: "Drive intelligent CRM and customer operations through generative AI, predictive intelligence, and AI-powered sales."
+      title: "BMC Helix AI",
+      desc: "Modernize service operations with HelixGPT, AI-powered service management, AIOps and intelligent automation to improve productivity and accelerate resolution."
+    },
+    {
+      title: "Salesforce Agentforce",
+      desc: "Transform customer and employee experiences with Agentforce and AI Agents, enabling intelligent automation across CRM, service, sales and enterprise workflows."
+    },
+    {
+      title: "Atlassian, Freshworks, ManageEngine & Other OEMs",
+      desc: "Enable AI-powered service management, intelligent automation and connected workflows across Atlassian, Freshworks, ManageEngine and other enterprise platforms."
     },
     {
       title: "SAP Transformation",
-      desc: "Embed AI-enabled enterprise transformation across SAP S/4HANA, BTP, and intelligent enterprise workflows."
+      desc: "Enable intelligent enterprise transformation across SAP S/4HANA, BTP and connected business workflows, combining automation, data and AI."
     },
     {
       title: "Microsoft & AWS",
-      desc: "Scale intelligence across the Microsoft ecosystem (Azure AI, Copilot) and build AI-ready cloud foundations on AWS (Amazon Bedrock)."
-    },
-    {
-      title: "Atlassian, BMC Helix & Freshworks",
-      desc: "Inject AI into engineering (Atlassian Intelligence), AIOps (BMC Helix), and omnichannel customer service (Freddy AI)."
+      desc: "Scale enterprise AI with Microsoft Azure AI and Copilot, alongside AI-ready cloud foundations and generative AI capabilities on AWS."
     }
   ];
 

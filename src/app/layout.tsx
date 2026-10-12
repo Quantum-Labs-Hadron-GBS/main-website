@@ -18,16 +18,29 @@ const inter = Inter({
   display: "swap",
 });
 
-import { generatePageMetadata } from "./lib/seo";
+import { PAGES, SITE_URL, SITE_NAME, SITE_SHORT_NAME, OG_IMAGE } from "./lib/seo";
 import { getOrganizationSchema, getWebSiteSchema, getLocalBusinessSchema } from "./lib/schema";
 
+// Site-wide defaults. Each route sets its own title/description/canonical via pageMetadata() in lib/seo.ts.
 export const metadata: Metadata = {
-  ...generatePageMetadata({
-    title: "Hadron GBS | IT Consulting, ServiceNow, AI & Digital Transformation",
-    description: "Hadron GBS is an IT consulting & digital transformation company specializing in ServiceNow, AI, Cloud, Automation & Custom Software for global enterprises.",
-    path: "/",
-  }),
-  metadataBase: new URL("https://www.hadrongbs.com"),
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: PAGES["/"].title,
+    template: `%s | ${SITE_SHORT_NAME}`,
+  },
+  description: PAGES["/"].description,
+  applicationName: SITE_NAME,
+  openGraph: {
+    siteName: SITE_NAME,
+    locale: "en_US",
+    type: "website",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@HadronGBS",
+    images: [OG_IMAGE],
+  },
   icons: {
     icon: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/favicon-hadron_g5wrvr.png",
   },

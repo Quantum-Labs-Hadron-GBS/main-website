@@ -22,7 +22,7 @@ const VALUES = [
   {
     p: "P3",
     title: "Progressive",
-    desc: "We continually expand our capabilities from ITSM to GenAI to keep clients at the forefront. Innovation is in our DNA, ensuring your enterprise scales with the latest technological breakthroughs.",
+    desc: "We continually expand our capabilities from ITSM to Agentic AI to keep clients at the forefront. Innovation is in our DNA, ensuring your enterprise scales with the latest technological breakthroughs.",
     gradientFrom: "#FF9A5A",
     gradientTo: "#F17943",
   },

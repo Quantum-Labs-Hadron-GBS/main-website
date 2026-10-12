@@ -170,7 +170,7 @@ export default function UnifiedServicePage() {
                 How We Deliver Connected <span className={styles.highlightOrange}>Enterprise</span> <br />
                 <span className={styles.highlightOrange}>Service Operations</span>
               </h2>
-              <p className={styles.sectionSubtitle} style={{ marginTop: '1rem', maxWidth: '800px', marginInline: 'auto' }}>
+              <p className={styles.sectionSubtitle} style={{ marginTop: '1rem', maxWidth: '50rem', marginInline: 'auto' }}>
                 Our approach moves organizations from fragmented service management to a unified, continuously improving service ecosystem.
               </p>
             </div>

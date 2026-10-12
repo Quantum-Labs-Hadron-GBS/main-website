@@ -36,11 +36,6 @@ const OFFICE_LOCATIONS = [
     name: "Hadron Global Business Solutions Pvt Ltd", 
     address: "Pyramid Axis 10th Floor, Veerbhadra Nagar, Baner, Pune, Maharashtra 411045",
     mapUrl: "https://maps.google.com/maps?q=Hadron%20GBS%20India%20Office&t=&z=14&ie=UTF8&iwloc=&output=embed"
-  },
-  { 
-    title: "India (Hinjewadi)", 
-    name: "Hadron Global Business Solutions Pvt Ltd", 
-    address: "A 1004, High Mont, Phase 2, Hinjewadi, Pune, Maharashtra-411057"
   }
 ];
 
@@ -88,7 +83,7 @@ export default function Footer() {
                     src={OFFICE_LOCATIONS[activeMapIndex].mapUrl} 
                     width="100%" 
                     height="260" 
-                    style={{ border: 0, borderRadius: '8px', filter: 'grayscale(0.8) contrast(1.2)' }} 
+                    style={{ border: 0, borderRadius: '0.5rem', filter: 'grayscale(0.8) contrast(1.2)' }} 
                     allowFullScreen 
                     loading="lazy" 
                     referrerPolicy="no-referrer-when-downgrade"

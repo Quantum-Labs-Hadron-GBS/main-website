@@ -171,7 +171,7 @@ export default function RapidApplicationPage() {
                 Our Application Transformation <br />
                 <span className={styles.highlightOrange}>Delivery Model</span>
               </h2>
-              <p className={styles.sectionSubtitle} style={{ marginTop: '1rem', maxWidth: '800px', marginInline: 'auto' }}>
+              <p className={styles.sectionSubtitle} style={{ marginTop: '1rem', maxWidth: '50rem', marginInline: 'auto' }}>
                 Our approach integrates process, data, and technology to deliver value faster, reduce risk, and build scalable enterprise platforms.
               </p>
             </div>

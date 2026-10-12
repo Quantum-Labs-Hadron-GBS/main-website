@@ -37,11 +37,15 @@ export async function middleware(req: NextRequest) {
     }
   }
 
-  if (shouldRewrite) {
-    return NextResponse.rewrite(url);
+  const res = shouldRewrite ? NextResponse.rewrite(url) : NextResponse.next();
+
+  // Keep preview/staging hosts (vercel.app, pages.dev, localhost…) out of Google so they
+  // don't compete with www.hadrongbs.com as duplicate content
+  if (!/(^|\.)hadrongbs\.com$/.test(hostname.split(":")[0])) {
+    res.headers.set("X-Robots-Tag", "noindex, nofollow");
   }
-  
-  return NextResponse.next();
+
+  return res;
 }
 
 export const config = {

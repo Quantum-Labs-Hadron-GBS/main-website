@@ -21,7 +21,7 @@ export default function ManagedServicesPage() {
       ]}
       framework={[]}
       whyHadron={[
-        { title: "Application & Platform Managed Services", desc: "Service Now, Salesforce, SAP, BMC Helix, Ivanti, and Atlassian, incidents, changes, and enhancements delivered in one integrated model." },
+        { title: "Application & Platform Managed Services", desc: "ServiceNow, BMC Helix, Salesforce, Ivanti, Atlassian, Freshworks, ManageEngine, Microsoft, AWS and SAP incidents, changes, and enhancements delivered in one integrated model." },
         { title: "Business Process & PMO Managed Services", desc: "Execution control, backlog and dependency management, risk oversight, and stakeholder reporting as an ongoing service." },
         { title: "Reporting, Analytics & Performance Management", desc: "Cadence-driven dashboards, KPIs, and analytics enabling faster, data backed resourcing decisions." },
         { title: "Release, Change, and Environment Management", desc: "All changes planned, controlled, and traceable, released with monitoring and rollback readiness within a governed framework." },

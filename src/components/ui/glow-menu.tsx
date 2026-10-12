@@ -86,7 +86,7 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false, c
                     src={item.logoSrc} 
                     alt={item.label} 
                     style={{ 
-                      height: '20px', 
+                      height: '1.25rem', 
                       width: 'auto', 
                       display: 'block', 
                       opacity: isActive ? 1 : 0.8,
