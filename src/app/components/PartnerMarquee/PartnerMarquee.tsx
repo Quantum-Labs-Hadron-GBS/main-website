@@ -8,7 +8,7 @@ const PARTNERS = [
   {
     title: "ServiceNow",
     src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324489/ServiceNow_Logo_Reversed_aqxmfe.png",
-    style: { height: "78px" },
+    style: { height: "4.875rem" },
   },
   {
     title: "BMC Helix",
@@ -18,22 +18,22 @@ const PARTNERS = [
   {
     title: "Salesforce",
     src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324490/salesforce_ivtogr.png",
-    style: { height: "85px" },
+    style: { height: "5.3125rem" },
   },
   {
     title: "SAP",
     src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324488/Logo-sap-white-3ew137nnu3s9plvqegzf9c_equux0.png",
-    style: { height: "52px" },
+    style: { height: "3.25rem" },
   },
   {
     title: "AWS",
     src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324488/aws_acbntn.png",
-    style: { height: "60px" },
+    style: { height: "3.75rem" },
   },
   {
     title: "Microsoft",
     src: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324490/microsoft-logo-png-white-31_tzq0t0.png",
-    style: { height: "90px" },
+    style: { height: "5.625rem" },
   },
   {
     title: "Freshworks",

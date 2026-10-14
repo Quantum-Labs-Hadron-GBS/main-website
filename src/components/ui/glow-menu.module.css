@@ -197,7 +197,7 @@
   border-radius: 1rem;
   box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.7);
   z-index: 50;
-  min-width: 750px;
+  min-width: 46.875rem;
   width: max-content;
   max-width: 90vw;
 }
@@ -259,6 +259,22 @@
   gap: 0.75rem;
 }
 
+/* Platforms-specific mega menu styling to remove empty whitespace */
+.megaPlatforms {
+  min-width: 0 !important;
+  width: max-content !important;
+}
+
+.megaPlatforms .megaGroups {
+  flex: 0 0 auto !important;
+  gap: 2rem !important;
+}
+
+.megaPlatforms .megaFeatured {
+  flex: 0 0 16.5rem !important;
+  padding-left: 2rem !important;
+}
+
 .featuredEyebrow {
   font-size: 0.7rem;
   text-transform: uppercase;
@@ -317,7 +333,7 @@
   }
   
   .menuItemWrapper.isLogo img {
-    height: 28px !important; /* Make logo bigger on mobile */
+    height: 1.75rem !important; /* Make logo bigger on mobile */
   }
 
   .menuItemWrapper.isLogo .activeBackground {

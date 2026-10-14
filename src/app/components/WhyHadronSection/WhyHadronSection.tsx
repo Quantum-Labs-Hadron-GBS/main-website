@@ -8,22 +8,22 @@ const advantages = [
   {
     num: "01",
     title: "Architecture-Led Delivery",
-    desc: "We treat every engagement as a complex systems challenge, rather than a mere implementation task. Our elite enterprise architects design for structural integrity, operational coherence, and long-term platform health. By embedding strict governance into our pipelines, we ensure the digital cores we build are highly scalable, secure, and fiercely resilient against technical debt."
+    desc: "We approach every engagement with an architecture-first mindset. Our solutions are designed for scalability, security, integration, governance and long-term platform health - helping reduce complexity and technical debt as your business evolves."
   },
   {
     num: "02",
     title: "Outcome-Driven Accountability",
-    desc: "Implementation isn't enough; we measure success strictly by business impact. We align our delivery model with your core strategic objectives from day one, defining success through hard KPIs like MTTR reduction and improved CSAT. We tie our operational success directly to yours, staying ruthlessly accountable to these metrics at every stage of the journey."
+    desc: "We align technology delivery with measurable business outcomes from the start. Clear KPIs such as improved service experience, faster resolution, greater automation and operational efficiency - help ensure our solutions deliver meaningful and measurable value."
   },
   {
     num: "03",
-    title: "GenAI-Powered Transformation",
-    desc: "We are pioneering the next era of enterprise operations by natively embedding intelligent automation into ServiceNow, Salesforce, and SAP workflows. Our custom GenAI integrations transform static processes into dynamic, self-optimizing ecosystems that reduce manual overhead, accelerate decisions, and unlock new dimensions of operational efficiency."
+    title: "AI-Powered Transformation",
+    desc: "We bring AI, GenAI, Agentic AI and intelligent automation into enterprise platforms and workflows. By combining platform capabilities with practical AI use cases, we help reduce manual effort, accelerate decisions, improve user experiences and drive operational efficiency."
   },
   {
     num: "04",
     title: "Lifecycle Accountability",
-    desc: "We refuse to simply deploy and walk away. We adapt our operating model to seamlessly match your evolving business priorities, providing continuous, end-to-end accountability from day-zero architecture through post-deployment hypercare and ongoing managed services. We stand by our builds, ensuring your enterprise platforms evolve flawlessly as your business scales."
+    desc: "Our responsibility extends beyond implementation. From architecture and deployment to hypercare, optimization and managed services - we provide end-to-end support to keep your platforms reliable, relevant and aligned with evolving business priorities."
   }
 ];
 
@@ -49,6 +49,7 @@ const getPoints = (sides: number) => {
 export default function WhyHadronSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const panRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const rollerRef = useRef<HTMLDivElement>(null);
   const polygonRef = useRef<SVGPolygonElement>(null);
   const circleRef = useRef<SVGCircleElement>(null);
@@ -73,14 +74,28 @@ export default function WhyHadronSection() {
       }, (context) => {
         const { isMobile } = context.conditions as { isMobile: boolean };
 
+        // Pin length in px (GSAP ignores "vh" in "+=" offsets, so the old "+=800vh" was 800px)
+        const PIN_DISTANCE = 800;
+        // Start animating while the section is still entering: once its top reaches 75% of the viewport
+        const START_VIEWPORT_RATIO = 0.75;
+
+        // Pin is its own trigger so the animation can begin before the pin engages
+        ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: "top top",
+          end: `+=${PIN_DISTANCE}`,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        });
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top top",
-            end: "+=800vh", // Extended scroll runway for buttery deliberate scrolling
-            pin: true,
+            start: `top ${START_VIEWPORT_RATIO * 100}%`,
+            // End exactly where the pin releases
+            end: () => `+=${window.innerHeight * START_VIEWPORT_RATIO + PIN_DISTANCE}`,
             scrub: 1.5, // Eased scrub weight for lightness
-            anticipatePin: 1,
             invalidateOnRefresh: true
           }
         });
@@ -95,19 +110,38 @@ export default function WhyHadronSection() {
           }, 0.25); // Delay start so the 1st card grows fully before it slides left
         }
 
+        // Cards grow to 72vh, but never past the heading + tagline above them (which can wrap on
+        // narrow/short screens). Measured on each refresh so it adapts to any viewport.
+        const cardHeight = () => {
+          const header = headerRef.current;
+          const pan = panRef.current;
+          if (!header || !pan) return window.innerHeight * 0.72;
+          const padBottom = parseFloat(getComputedStyle(pan).paddingBottom) || 0;
+          const available = pan.getBoundingClientRect().bottom - padBottom - header.getBoundingClientRect().bottom - 24;
+          const height = Math.max(0, Math.min(window.innerHeight * 0.72, available));
+
+          // Run the dashed guideline + roller through the middle of the cards' empty upper area
+          const textArea = pan.querySelector<HTMLElement>(".adv-card-text")?.offsetHeight ?? 0;
+          const cardTop = pan.clientHeight - padBottom - height;
+          pan.style.setProperty("--adv-line", `${cardTop + Math.max(0, height - textArea) / 2}px`);
+          return height;
+        };
+
         // 1. Simultaneous Staggered Card Growth from absolute bottom
-        tl.to(cards[0], { height: '72vh', ease: "power2.out", duration: 0.25 }, 0.00);
-        tl.to(cards[1], { height: '72vh', ease: "power2.out", duration: 0.50 }, 0.00);
-        tl.to(cards[2], { height: '72vh', ease: "power2.out", duration: 0.75 }, 0.00);
-        tl.to(cards[3], { height: '72vh', ease: "power2.out", duration: 1.00 }, 0.00);
+        tl.to(cards[0], { height: cardHeight, ease: "power2.out", duration: 0.25 }, 0.00);
+        tl.to(cards[1], { height: cardHeight, ease: "power2.out", duration: 0.50 }, 0.00);
+        tl.to(cards[2], { height: cardHeight, ease: "power2.out", duration: 0.75 }, 0.00);
+        tl.to(cards[3], { height: cardHeight, ease: "power2.out", duration: 1.00 }, 0.00);
 
         // 2. Synchronized Roller X Translation & Locked Rotation (Over full 1.0 duration)
         tl.to(rollerRef.current, {
-          x: () => (panRef.current ? panRef.current.offsetWidth - 110 : 0),
+          // Roller size is in rem (scales with screen), so measure it rather than assuming 110px
+          x: () => (panRef.current ? panRef.current.offsetWidth - (rollerRef.current?.offsetWidth ?? 110) : 0),
           rotation: () => {
             // Circumferential proportion rotation: (Distance / Circumference) * 360
-            const dist = panRef.current ? panRef.current.offsetWidth - 110 : 1000;
-            return (dist / (110 * Math.PI)) * 360;
+            const size = rollerRef.current?.offsetWidth ?? 110;
+            const dist = panRef.current ? panRef.current.offsetWidth - size : 1000;
+            return (dist / (size * Math.PI)) * 360;
           },
           ease: "none",
           duration: 1.00
@@ -145,8 +179,8 @@ export default function WhyHadronSection() {
         minHeight: '100vh',
         zIndex: 10,
         position: 'relative',
-        borderBottomLeftRadius: '40px',
-        borderBottomRightRadius: '40px',
+        borderBottomLeftRadius: '2.5rem',
+        borderBottomRightRadius: '2.5rem',
         boxShadow: '0 25px 50px rgba(0, 0, 0, 0.15)'
       }}
     >
@@ -172,18 +206,17 @@ export default function WhyHadronSection() {
       <div
         style={{
           width: '100%',
-          height: '100vh',
+          minHeight: '100vh',
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
           padding: '0 2rem',
-          borderBottomLeftRadius: '40px',
-          borderBottomRightRadius: '40px'
+          borderBottomLeftRadius: '2.5rem',
+          borderBottomRightRadius: '2.5rem'
         }}
       >
-        {/* Top-left header: Single line, right side empty */}
-        <div style={{ position: 'absolute', top: '12vh', left: '2rem', zIndex: 20 }}>
+        <div ref={headerRef} style={{ position: 'absolute', top: '12vh', left: '2rem', right: '2rem', zIndex: 20 }}>
           <h2
             className="adv-title"
             style={{
@@ -191,11 +224,22 @@ export default function WhyHadronSection() {
               fontWeight: 700,
               color: '#16325F',
               letterSpacing: '-0.02em',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              marginBottom: '0.5rem'
             }}
           >
             The <span style={{ color: '#F17943' }}>Hadron</span> Advantage
           </h2>
+          <p
+            style={{
+              fontSize: '1rem',
+              fontWeight: 500,
+              color: '#475569',
+              letterSpacing: '0.02em'
+            }}
+          >
+            Architect it right → Deliver measurable outcomes → Accelerate with AI → Own the lifecycle
+          </p>
         </div>
 
         {/* Full-screen track container pushing content to bottom */}
@@ -207,14 +251,14 @@ export default function WhyHadronSection() {
             flex: 1,
             display: 'flex',
             alignItems: 'flex-end',
-            paddingBottom: '30px' /* Increased by 12px */
+            paddingBottom: '1.875rem'
           }}
         >
           {/* Global Dashed Guideline passing perfectly through the origin dot */}
           <svg
             style={{
               position: 'absolute',
-              top: '45%',
+              top: 'var(--adv-line, 45%)',
               left: 0,
               width: '100%',
               height: '2px',
@@ -229,10 +273,10 @@ export default function WhyHadronSection() {
             ref={rollerRef}
             style={{
               position: 'absolute',
-              top: 'calc(45% - 55px)', // Center is at 45%. Shape is 110x110. Top is 55px above 45%.
+              top: 'calc(var(--adv-line, 45%) - 3.4375rem)', // Centered on the guideline (half the shape's size above it)
               left: 0,
-              width: '110px',
-              height: '110px',
+              width: '6.875rem',
+              height: '6.875rem',
               zIndex: 20,
               display: 'flex',
               alignItems: 'center',
@@ -272,7 +316,7 @@ export default function WhyHadronSection() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: '16px',
+              gap: '1rem',
               width: '100%',
               height: '100%',
               alignItems: 'flex-end',
@@ -291,7 +335,7 @@ export default function WhyHadronSection() {
                     height: '0px', // Starts completely from the bottom
                     position: 'relative',
                     overflow: 'hidden',
-                    borderRadius: '16px',
+                    borderRadius: '1rem',
                     willChange: 'height',
                     transformOrigin: 'bottom',
                     boxShadow: '0 -10px 30px rgba(0,0,0,0.02)',
@@ -299,18 +343,7 @@ export default function WhyHadronSection() {
                     flexDirection: 'column'
                   }}
                 >
-                  {/* Clean Top Number Badge anchored near top */}
-                  <div
-                    style={{
-                      padding: '1.5rem 1.5rem 0 1.5rem',
-                      fontSize: '14px',
-                      fontWeight: 700,
-                      color: '#F17943',
-                      flexShrink: 0
-                    }}
-                  >
-                    {item.num}
-                  </div>
+
 
                   {/* Spacer to push content to the bottom */}
                   <div style={{ flex: 1, minHeight: '1.5rem' }} />
@@ -324,7 +357,7 @@ export default function WhyHadronSection() {
                       display: 'flex',
                       flexDirection: 'column',
                       color: '#16325F',
-                      height: '350px',
+                      height: '18.5rem',
                       flexShrink: 0
                     }}
                   >
@@ -343,7 +376,7 @@ export default function WhyHadronSection() {
                     </h3>
                     <p
                       style={{
-                        fontSize: '14px',
+                        fontSize: '0.875rem',
                         lineHeight: 1.6,
                         color: '#475569'
                       }}

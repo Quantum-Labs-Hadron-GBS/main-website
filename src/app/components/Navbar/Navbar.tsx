@@ -76,7 +76,7 @@ const menuItems = [
   },
   {
     label: "Industries",
-    href: "#",
+    href: "/industries",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
     subItems: [
       { label: "Manufacturing", href: "/industries/manufacturing" },
@@ -88,16 +88,17 @@ const menuItems = [
   },
   {
     label: "Platforms",
-    href: "#",
+    href: "/platforms",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
     groups: [
       {
         title: "Enterprise Platforms",
         items: [
           { label: "ServiceNow", href: "/platforms/service-now" },
+          { label: "BMC Helix", href: "/platforms/bmc" },
           { label: "Salesforce", href: "/platforms/salesforce" },
           { label: "SAP", href: "/platforms/sap" },
-          { label: "BMC Helix", href: "/platforms/bmc" }
+          { label: "Precision Bridge", href: "/platforms/service-now/precision-bridge" }
         ]
       },
       {
@@ -112,11 +113,11 @@ const menuItems = [
       }
     ],
     featured: {
-      eyebrow: "FEATURED PLATFORM",
-      title: "ServiceNow",
-      description: "AI • Workflow • ITSM • ITOM • CSM",
-      cta: "Explore ServiceNow",
-      href: "/platforms/service-now"
+      eyebrow: "ENTERPRISE PLATFORMS",
+      title: "Platforms Ecosystem",
+      description: "Architecture, implementation, and managed services across global technology platforms.",
+      cta: "Explore All Platforms",
+      href: "/platforms"
     }
   },
   {
@@ -326,8 +327,28 @@ export default function Navbar() {
             const isCentered = item.label === "Platforms" || item.label === "Industries" || item.label === "Solutions";
             return (
               <div key={item.label} className={`${styles.treeNode} ${isUpward ? styles.treeNodeUpward : ""} ${isCentered ? styles.treeNodeCentered : ""}`}>
-                <div className={styles.treeNodeHeader}>
-                  <a href={item.href} className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>
+                <div 
+                  className={styles.treeNodeHeader}
+                  onClick={hasChildren ? (e) => {
+                    const target = e.target as HTMLElement;
+                    if (target.closest(`.${styles.drawerLink}`)) {
+                      return;
+                    }
+                    toggleTree(item.label, e);
+                  } : undefined}
+                >
+                  <a 
+                    href={item.href} 
+                    className={styles.drawerLink} 
+                    onClick={(e) => {
+                      if (item.href === "#") {
+                        e.preventDefault();
+                        toggleTree(item.label, e);
+                      } else {
+                        setIsDrawerOpen(false);
+                      }
+                    }}
+                  >
                     {item.label}
                   </a>
                   {hasChildren && (
@@ -335,6 +356,7 @@ export default function Navbar() {
                       className={styles.treeToggleBtn}
                       onClick={(e) => toggleTree(item.label, e)}
                       aria-label={`Toggle ${item.label} menu`}
+                      type="button"
                     >
                       <ChevronRight 
                         size={18} 

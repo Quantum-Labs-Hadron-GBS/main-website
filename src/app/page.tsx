@@ -1,7 +1,9 @@
 import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar/Navbar";
-import LanguageScrollSection from "./components/LanguageScroll/LanguageScrollSection";
 import styles from "./page.module.css";
+import { pageMetadata } from "./lib/seo";
+
+export const metadata = pageMetadata("/");
 
 import PartnerRingSection from "./components/PartnerRingSection/PartnerRingSection";
 
@@ -24,19 +26,16 @@ export default function HomePage() {
       {/* ── INTERACTIVE CANVAS SECTION (NEW) ── */}
       <InteractiveCanvasSection />
 
+      {/* ── ALPY-STYLE STICKY SOLUTIONS (Core Offerings) ── */}
+      <CorePracticesSection />
+
       {/* ── WHY HADRON GBS (Advantage) ── */}
       <WhyHadronSection />
-
-      {/* ── ALPY-STYLE STICKY SOLUTIONS ── */}
-      <CorePracticesSection />
 
       <div style={{ backgroundColor: '#16325F' }}>
         {/* ── CORE SERVICES ── */}
         <CoreServicesSection />
       </div>
-
-      {/* ── LANGUAGE REEL + zooming globe ── */}
-      <LanguageScrollSection />
 
       {/* ── CONTACT CTA ── */}
       <CtaSection />

@@ -56,6 +56,13 @@ const CAROUSEL_DATA = [
     img: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736501/aws_bbwpm7.png"
   },
   {
+    title: "Precision Bridge",
+    desc: "Automate complex data and workflow migrations to ServiceNow with zero data loss and complete relational integrity.",
+    href: "/platforms/service-now/precision-bridge",
+    img: "https://images.squarespace-cdn.com/content/v1/6932bd55720baf7abaf81b66/eed84b94-0092-4c73-8089-a66ae2069f43/Precision+Bridge+2026+-+Landscape.png?format=500w",
+    imgStyle: { backgroundColor: '#ffffff', objectFit: 'contain' as const, padding: '1.5rem' }
+  },
+  {
     title: "Freshworks",
     desc: "Deliver intuitive customer and employee experiences with intelligent, scalable Freshworks platforms.",
     href: "/platforms/freshworks",
@@ -93,7 +100,7 @@ export default function ServicesPage() {
 
       {/* Services List Section */}
       <section className={styles.carouselSection}>
-        <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+        <div style={{ width: '100%', maxWidth: '75rem', margin: '0 auto', padding: '0 2rem' }}>
           
           {/* ── Section Header ── */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
@@ -110,6 +117,7 @@ export default function ServicesPage() {
                   src={card.img} 
                   alt={card.title} 
                   className={styles.serviceGridImage} 
+                  style={card.imgStyle}
                 />
                 <div className={styles.serviceGridOverlay}>
                   <h3 className={styles.serviceGridTitle}>{card.title}</h3>

@@ -56,16 +56,24 @@ export default function CloudAdoption() {
 
   const whyHadron = [
     {
-      title: "87-Day Cloud Migration",
-      desc: "A financial services organization achieved a complete migration with zero SLA breaches using our automated lift-and-modernize tools."
+      title: "Faster Time-to-Value",
+      desc: "Accelerate enterprise transformation through proven delivery frameworks, platform expertise, reusable accelerators and automation."
     },
     {
-      title: "2x Faster Time-to-Market",
-      desc: "A global retailer reduced feature delivery cycles by adopting our DevSecOps automated pipelines."
+      title: "Improved Operational Efficiency",
+      desc: "Simplify workflows, reduce manual effort and improve service operations through intelligent automation, AI and integrated enterprise platforms."
     },
     {
-      title: "98% CMDB Accuracy",
-      desc: "A public sector agency achieved near-perfect visibility into cloud assets to enforce strict compliance and security."
+      title: "Trusted Data & Visibility",
+      desc: "Strengthen CMDB, asset and operational data foundations to improve visibility, governance and informed decision-making."
+    },
+    {
+      title: "AI-Enabled Transformation",
+      desc: "Turn AI into practical enterprise outcomes through Now Assist, AI Agents, HelixGPT, Agentforce and other platform-native AI capabilities."
+    },
+    {
+      title: "End-to-End Accountability",
+      desc: "Stay supported from consulting and architecture through implementation, hypercare, optimization and managed services."
     }
   ];
 

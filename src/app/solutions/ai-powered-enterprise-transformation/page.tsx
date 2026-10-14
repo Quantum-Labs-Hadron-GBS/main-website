@@ -59,7 +59,15 @@ export default function AIEnterpriseTransformation() {
   const whyHadron = [
     {
       title: "ServiceNow AI Capabilities",
-      desc: "Implement Now Assist, AI Search, Task Intelligence, and autonomous agents natively within the platform."
+      desc: "Implement Now Assist, AI Search, Task Intelligence and AI Agents within ServiceNow workflows to improve productivity, automation, and user experience."
+    },
+    {
+      title: "BMC Helix AI Capabilities",
+      desc: "Implement HelixGPT, AI-powered service management, intelligent automation and conversational experiences to accelerate resolution and improve service operations."
+    },
+    {
+      title: "Salesforce Agentforce",
+      desc: "Implement Agentforce, AI Agents and intelligent automation across Salesforce workflows to automate tasks, assist users and improve customer and employee experiences."
     },
     {
       title: "Salesforce Einstein",

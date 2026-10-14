@@ -86,7 +86,7 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false, c
                     src={item.logoSrc} 
                     alt={item.label} 
                     style={{ 
-                      height: '20px', 
+                      height: '1.25rem', 
                       width: 'auto', 
                       display: 'block', 
                       opacity: isActive ? 1 : 0.8,
@@ -116,7 +116,7 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false, c
                       animate={{ opacity: 1, y: 0, scale: 1, x: item.label === "AI & Automation" ? "-35%" : item.label === "Solutions" ? "calc(-50% + 80px)" : item.label === "Platforms" ? "-75%" : item.label === "More" ? "-85%" : "-50%" }}
                       exit={{ opacity: 0, y: 10, scale: 0.95, x: item.label === "AI & Automation" ? "-35%" : item.label === "Solutions" ? "calc(-50% + 80px)" : item.label === "Platforms" ? "-75%" : item.label === "More" ? "-85%" : "-50%" }}
                       transition={{ duration: 0.2 }}
-                      className={item.groups ? styles.dropdownMenuMega : styles.dropdownMenu}
+                      className={`${item.groups ? styles.dropdownMenuMega : styles.dropdownMenu} ${item.label === "Platforms" ? styles.megaPlatforms : ""}`}
                     >
                       {/* Standard Flat List (Fallback) */}
                       {!item.groups && item.subItems && item.subItems.map((sub) => (

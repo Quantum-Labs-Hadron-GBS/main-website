@@ -70,14 +70,14 @@ export default function CareersPage() {
           </div>
         </section>
 
-        <div id="application-form" style={{ paddingTop: "80px", paddingBottom: "60px", backgroundColor: "#f8fafc" }}>
+        <div id="application-form" style={{ paddingTop: "5rem", paddingBottom: "3.75rem", backgroundColor: "#f8fafc" }}>
           <JobApplicationForm />
         </div>
 
         {/* HIRING PROCESS */}
         <section className={`${styles.section} ${styles.timelineSection}`}>
           <div className={styles.container}>
-            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', maxWidth: '50rem', margin: '0 auto' }}>
               <h2 className={styles.sectionTitle}>From Application to Day One — Here's Exactly What to Expect.</h2>
               <p className={styles.sectionDesc} style={{ margin: '0 auto' }}>
                 We respect your time and your career. Our hiring process is structured, transparent, and designed to help both sides make a confident decision. No black holes. No surprises.
@@ -175,7 +175,7 @@ export default function CareersPage() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
             >
-              <div className={styles.splitOrangeAccent} style={{ left: '-20px', right: 'auto', backgroundColor: 'rgba(56, 189, 248, 0.1)' }}></div>
+              <div className={styles.splitOrangeAccent} style={{ left: '-1.25rem', right: 'auto', backgroundColor: 'rgba(56, 189, 248, 0.1)' }}></div>
               <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Global Team" className={styles.splitImg} />
             </motion.div>
             <motion.div 
