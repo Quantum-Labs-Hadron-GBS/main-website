@@ -79,6 +79,12 @@
   margin: 0 auto;
 }
 
+@media (min-width: 62.01rem) {
+  .serviceGridCard:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
 @media (max-width: 62rem) {
   .servicesGrid {
     grid-template-columns: repeat(2, 1fr);
