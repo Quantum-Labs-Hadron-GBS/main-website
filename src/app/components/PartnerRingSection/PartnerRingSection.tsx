@@ -15,6 +15,7 @@ const LOGOS = {
   freshworks: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/freshworks-logo_brandlogos.net_c6t5u_vu8yih.png",
   atlassian: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788789011/Atlassian_logo_kiayvy.png",
   ivanti: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788844978/Ivanti_logo_olqb3i.webp",
+  precisionbridge: "https://images.squarespace-cdn.com/content/v1/6932bd55720baf7abaf81b66/eed84b94-0092-4c73-8089-a66ae2069f43/Precision+Bridge+2026+-+Landscape.png?format=500w",
 };
 
 export default function PartnerRingSection() {
@@ -112,7 +113,8 @@ export default function PartnerRingSection() {
                 "AWS",
                 "Freshworks",
                 "Atlassian",
-                "Ivanti"
+                "Ivanti",
+                "Precision Bridge"
               ]
             })
           }}
@@ -178,13 +180,13 @@ export default function PartnerRingSection() {
                 </motion.div>
               </Link>
             </div>
-            {/* Center Right */}
+            {/* Center Right - Shifted Ivanti to Ring 2 */}
             <div className={styles.logoWrapper} style={{ top: '50%', left: '100%', transform: 'translate(-50%, -50%)' }}>
-              <Link href="/platforms/aws">
+              <Link href="/platforms/ivanti">
                 <motion.div style={{ rotate: rotate2Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img fetchPriority="high" loading="eager" src={LOGOS.aws} alt="AWS Implementation Partner - Hadron GBS" className={styles.logoImg} />
+                  <img src={LOGOS.ivanti} alt="Ivanti Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
                 </div>
                   </div>
                 </motion.div>
@@ -233,13 +235,25 @@ export default function PartnerRingSection() {
                 </motion.div>
               </Link>
             </div>
-            {/* Top Left */}
+            {/* Top Left - Shifted AWS to Ring 3 */}
             <div className={styles.logoWrapper} style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
-              <Link href="/platforms/ivanti">
+              <Link href="/platforms/aws">
                 <motion.div style={{ rotate: rotate3Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img src={LOGOS.ivanti} alt="Ivanti Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
+                  <img fetchPriority="high" loading="eager" src={LOGOS.aws} alt="AWS Implementation Partner - Hadron GBS" className={styles.logoImg} />
+                </div>
+                  </div>
+                </motion.div>
+              </Link>
+            </div>
+            {/* Bottom Right - Precision Bridge added to Ring 3 */}
+            <div className={styles.logoWrapper} style={{ top: '85%', left: '85%', transform: 'translate(-50%, -50%)' }}>
+              <Link href="/platforms/service-now/precision-bridge">
+                <motion.div style={{ rotate: rotate3Rev }}>
+                  <div style={{ transform: 'scaleY(1.428)' }}>
+                    <div className={styles.logoCard}>
+                  <img fetchPriority="high" loading="eager" src={LOGOS.precisionbridge} alt="Precision Bridge Partner - Hadron GBS" className={styles.logoImg} style={{ width: '80%', height: '80%', objectFit: 'contain' }} />
                 </div>
                   </div>
                 </motion.div>

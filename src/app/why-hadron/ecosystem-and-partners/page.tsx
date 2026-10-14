@@ -72,6 +72,14 @@ export default function PartnersPage() {
       logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788789011/Atlassian_logo_kiayvy.png",
       link: "/platforms/atlassian",
       btnText: "Transform with Atlassian",
+    },
+    {
+      name: "Precision Bridge",
+      desc: "Hadron GBS is a specialist implementation partner for Precision Bridge, automating complex, multi-million record data and workflow migrations to ServiceNow. We eliminate manual migration risks through pre-built templates, automated field mappings, and complete data integrity verification.",
+      logo: "https://images.squarespace-cdn.com/content/v1/6932bd55720baf7abaf81b66/eed84b94-0092-4c73-8089-a66ae2069f43/Precision+Bridge+2026+-+Landscape.png?format=500w",
+      link: "/platforms/service-now/precision-bridge",
+      btnText: "Accelerate Your Migrations",
+      logoStyle: { maxHeight: "2.5rem" }
     }
   ];
 
