@@ -258,6 +258,13 @@ export const PAGES: Record<string, PageSeo> = {
   },
 
   // ── Industries ──
+  "/industries": {
+    title: "Industry Solutions & IT Modernization",
+    description:
+      "Industry-specific enterprise technology and digital transformation solutions from Hadron GBS for Manufacturing, Financial Services, Retail, Government, and Education.",
+    label: "Industries",
+    priority: 0.9,
+  },
   "/industries/financial-services": {
     title: "IT Services for Banking & Financial Services",
     description:
