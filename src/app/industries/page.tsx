@@ -157,15 +157,42 @@ export default function IndustriesHubPage() {
               </p>
             </div>
             
-            <div className={styles.whyGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(22rem, 1fr))' }}>
+            <style>{`
+              .industries-cards-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 2rem;
+              }
+              .industry-card-link {
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+              }
+              @media (min-width: 48rem) {
+                .industry-card-link {
+                  width: calc((100% - 2rem) / 2);
+                  max-width: calc((100% - 2rem) / 2);
+                }
+              }
+              @media (min-width: 64rem) {
+                .industry-card-link {
+                  width: calc((100% - 4rem) / 3);
+                  max-width: calc((100% - 4rem) / 3);
+                }
+              }
+            `}</style>
+            <div className="industries-cards-container">
               {industriesList.map((ind, i) => (
-                <Link key={i} href={ind.link} style={{ textDecoration: 'none' }}>
+                <Link key={i} href={ind.link} className="industry-card-link">
                   <motion.div 
                     className={styles.whyCard}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
+                    style={{ height: '100%', width: '100%' }}
                   >
                     <div className={styles.whyCardImgWrapper}>
                       <img src={ind.img} alt={ind.title} className={styles.whyCardImg} />
