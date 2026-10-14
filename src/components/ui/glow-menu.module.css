@@ -259,6 +259,22 @@
   gap: 0.75rem;
 }
 
+/* Platforms-specific mega menu styling to remove empty whitespace */
+.megaPlatforms {
+  min-width: 0 !important;
+  width: max-content !important;
+}
+
+.megaPlatforms .megaGroups {
+  flex: 0 0 auto !important;
+  gap: 2rem !important;
+}
+
+.megaPlatforms .megaFeatured {
+  flex: 0 0 16.5rem !important;
+  padding-left: 2rem !important;
+}
+
 .featuredEyebrow {
   font-size: 0.7rem;
   text-transform: uppercase;
