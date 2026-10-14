@@ -62,7 +62,7 @@ export default function PartnersPage() {
     {
       name: "SAP",
       desc: "Drive true intelligent enterprise transformation with our dedicated SAP consulting services. We guide organizations through end-to-end S/4HANA migrations, supply chain optimizations, and core HR transformations using SAP SuccessFactors, ensuring real-time data visibility and compliance.",
-      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726362/sap_wwwmpq.png",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
       link: "/platforms/sap",
       btnText: "Drive Intelligent Excellence",
     },

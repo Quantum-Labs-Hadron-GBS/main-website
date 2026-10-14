@@ -29,10 +29,10 @@ export default function PlatformsHubPage() {
     {
       name: "SAP",
       desc: "Driving intelligent enterprise transformations. We guide global organizations through seamless S/4HANA migrations, supply chain optimizations, and real-time core ERP data visibility.",
-      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726362/sap_wwwmpq.png",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
       link: "/platforms/sap",
       btnText: "Explore SAP",
-      logoStyle: { maxHeight: "2.4rem" }
+      logoStyle: { maxHeight: "2.25rem" }
     },
     {
       name: "BMC Helix",
