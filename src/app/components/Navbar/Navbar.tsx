@@ -88,7 +88,7 @@ const menuItems = [
   },
   {
     label: "Platforms",
-    href: "#",
+    href: "/platforms",
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
     groups: [
       {
@@ -112,11 +112,11 @@ const menuItems = [
       }
     ],
     featured: {
-      eyebrow: "FEATURED PLATFORM",
-      title: "ServiceNow",
-      description: "AI • Workflow • ITSM • ITOM • CSM",
-      cta: "Explore ServiceNow",
-      href: "/platforms/service-now"
+      eyebrow: "ENTERPRISE PLATFORMS",
+      title: "Platforms Ecosystem",
+      description: "Architecture, implementation, and managed services across global technology platforms.",
+      cta: "Explore All Platforms",
+      href: "/platforms"
     }
   },
   {

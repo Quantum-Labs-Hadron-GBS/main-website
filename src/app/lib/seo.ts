@@ -93,6 +93,13 @@ export const PAGES: Record<string, PageSeo> = {
   },
 
   // ── Platforms ──
+  "/platforms": {
+    title: "Enterprise Platforms & Technology Ecosystem",
+    description:
+      "Enterprise platform consulting, implementation and managed services from Hadron GBS across ServiceNow, Salesforce, SAP, BMC Helix, Microsoft, AWS, Atlassian, Ivanti and Freshworks.",
+    label: "Platforms",
+    priority: 0.9,
+  },
   "/platforms/service-now": {
     title: "ServiceNow Partner & Consulting Services",
     description:
