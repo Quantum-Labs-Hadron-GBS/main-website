@@ -189,18 +189,6 @@
   object-fit: contain;
 }
 
-.platformBadge {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #16325F;
-  background: #f1f5f9;
-  padding: 0.35rem 0.85rem;
-  border-radius: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-}
-
 .platformTitle {
   font-size: 1.5rem;
   font-weight: 700;
@@ -242,45 +230,4 @@
   border-color: #F17943;
   box-shadow: 0 4px 12px rgba(241, 121, 67, 0.3);
   gap: 1rem;
-}
-
-/* CTA SECTION */
-.ctaSection {
-  background: linear-gradient(135deg, #0b1728 0%, #16325F 100%);
-  padding: 6rem 0;
-  text-align: center;
-  color: #ffffff;
-}
-
-.ctaTitle {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.ctaSubtitle {
-  font-size: 1.2rem;
-  color: #cbd5e1;
-  max-width: 44rem;
-  margin: 0 auto 2.5rem auto;
-  line-height: 1.6;
-}
-
-.ctaBtn {
-  display: inline-block;
-  background-color: #F17943;
-  color: #ffffff;
-  padding: 0.875rem 2.25rem;
-  font-weight: 600;
-  font-size: 1.05rem;
-  border-radius: 2rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(241, 121, 67, 0.4);
-}
-
-.ctaBtn:hover {
-  background-color: #e06832;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(241, 121, 67, 0.6);
 }

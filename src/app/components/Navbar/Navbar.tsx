@@ -95,9 +95,10 @@ const menuItems = [
         title: "Enterprise Platforms",
         items: [
           { label: "ServiceNow", href: "/platforms/service-now" },
+          { label: "BMC Helix", href: "/platforms/bmc" },
           { label: "Salesforce", href: "/platforms/salesforce" },
           { label: "SAP", href: "/platforms/sap" },
-          { label: "BMC Helix", href: "/platforms/bmc" }
+          { label: "Precision Bridge", href: "/platforms/service-now/precision-bridge" }
         ]
       },
       {

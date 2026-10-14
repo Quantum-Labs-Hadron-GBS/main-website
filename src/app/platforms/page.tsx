@@ -3,6 +3,7 @@
 import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import CtaSection from "../components/CtaSection/CtaSection";
 import styles from "./Platforms.module.css";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -11,7 +12,6 @@ export default function PlatformsHubPage() {
   const platforms = [
     {
       name: "ServiceNow",
-      badge: "Elite Partner",
       desc: "Hadron GBS is an awarded Consulting & Implementation partner for ServiceNow. We empower enterprises with ITSM, ITOM, CSM, HRSD, and cutting-edge Now Assist generative AI workflows.",
       logo: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/ServiceNow-Logo_cqo5uy.png",
       link: "/platforms/service-now",
@@ -20,7 +20,6 @@ export default function PlatformsHubPage() {
     },
     {
       name: "Salesforce",
-      badge: "CRM & Cloud",
       desc: "Unifying CRM, Sales Cloud, Service Cloud, and Agentforce automation. We design integrated customer lifecycles that eliminate silos, enhance retention, and scale revenue operations.",
       logo: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327266/Salesforce-Logo_j4dnwn.png",
       link: "/platforms/salesforce",
@@ -29,16 +28,14 @@ export default function PlatformsHubPage() {
     },
     {
       name: "SAP",
-      badge: "ERP & S/4HANA",
       desc: "Driving intelligent enterprise transformations. We guide global organizations through seamless S/4HANA migrations, supply chain optimizations, and real-time core ERP data visibility.",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
+      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726362/sap_wwwmpq.png",
       link: "/platforms/sap",
       btnText: "Explore SAP",
-      logoStyle: { maxHeight: "2.25rem" }
+      logoStyle: { maxHeight: "2.4rem" }
     },
     {
       name: "BMC Helix",
-      badge: "AIOps & ITSM",
       desc: "Strategic delivery across BMC Helix ITSM, AIOps, and HelixGPT. We modernize enterprise service operations, automate remediation, and dramatically reduce operational MTTR.",
       logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1790836686/bmc-helix-logo_d38xak.png",
       link: "/platforms/bmc",
@@ -47,25 +44,22 @@ export default function PlatformsHubPage() {
     },
     {
       name: "Microsoft",
-      badge: "Cloud & Copilot",
       desc: "Certified Microsoft Solutions Partner delivering Azure cloud migrations, enterprise-grade identity and security, and Microsoft 365 Copilot AI integrations for modern collaboration.",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736500/Microsoft_c53rme.webp",
       link: "/platforms/microsoft",
       btnText: "Explore Microsoft",
-      logoStyle: { maxHeight: "2.2rem" }
+      logoStyle: { maxHeight: "2.4rem" }
     },
     {
       name: "Amazon Web Services (AWS)",
-      badge: "Cloud Infrastructure",
       desc: "Strategic AWS partner delivering resilient cloud architectures, complex data lake engineering, and mission-critical enterprise workload migrations with built-in FinOps governance.",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736501/aws_bbwpm7.png",
       link: "/platforms/aws",
       btnText: "Explore AWS",
-      logoStyle: { maxHeight: "2.2rem" }
+      logoStyle: { maxHeight: "2.4rem" }
     },
     {
       name: "Atlassian",
-      badge: "Agile & DevOps",
       desc: "Unlocking agile collaboration and modern service delivery. We design and implement Jira, Confluence, and Jira Service Management (JSM) ecosystems for cross-functional teams.",
       logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788789011/Atlassian_logo_kiayvy.png",
       link: "/platforms/atlassian",
@@ -74,7 +68,6 @@ export default function PlatformsHubPage() {
     },
     {
       name: "Ivanti",
-      badge: "Endpoint & Security",
       desc: "Comprehensive solutions for Unified Endpoint Management (UEM), IT Security, IT Asset Management (ITAM), and Service Management across distributed enterprise teams.",
       logo: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/Logo_Ivanti_rrsp6x.png",
       link: "/platforms/ivanti",
@@ -83,7 +76,6 @@ export default function PlatformsHubPage() {
     },
     {
       name: "Freshworks",
-      badge: "Customer Experience",
       desc: "Modern, AI-powered customer engagement and IT service management with Freshservice and Freshdesk to enhance satisfaction and streamline omni-channel service delivery.",
       logo: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/freshworks-logo_brandlogos.net_c6t5u_vu8yih.png",
       link: "/platforms/freshworks",
@@ -92,9 +84,8 @@ export default function PlatformsHubPage() {
     },
     {
       name: "Precision Bridge",
-      badge: "ServiceNow Migration",
       desc: "Specialist implementation partner for Precision Bridge, automating complex, multi-million record data and workflow migrations to ServiceNow with zero data loss.",
-      logo: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/ServiceNow-Logo_cqo5uy.png",
+      logo: "https://images.squarespace-cdn.com/content/v1/6932bd55720baf7abaf81b66/eed84b94-0092-4c73-8089-a66ae2069f43/Precision+Bridge+2026+-+Landscape.png?format=500w",
       link: "/platforms/service-now/precision-bridge",
       btnText: "Explore Precision Bridge",
       logoStyle: { maxHeight: "2.5rem" }
@@ -172,7 +163,6 @@ export default function PlatformsHubPage() {
                       style={platform.logoStyle || {}}
                     />
                   </div>
-                  <span className={styles.platformBadge}>{platform.badge}</span>
                 </div>
 
                 <h2 className={styles.platformTitle}>{platform.name}</h2>
@@ -191,41 +181,12 @@ export default function PlatformsHubPage() {
             ))}
           </div>
         </section>
-
-        {/* CTA SECTION */}
-        <section className={styles.ctaSection}>
-          <div className={styles.container}>
-            <motion.h2 
-              className={styles.ctaTitle}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              Ready to Accelerate Your Platform Transformation?
-            </motion.h2>
-            <motion.p 
-              className={styles.ctaSubtitle}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Consult with our certified platform architects to assess your ecosystem, streamline integrations, and unlock higher platform ROI.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Link href="/contact" className={styles.ctaBtn}>
-                Contact Platform Experts
-              </Link>
-            </motion.div>
-          </div>
-        </section>
       </main>
+      <CtaSection 
+        title="Ready to Accelerate Your Platform Transformation?" 
+        subtitle="Consult with our certified platform architects to assess your ecosystem, streamline integrations, and unlock higher platform ROI."
+        buttonText="Contact Platform Experts"
+      />
       <Footer />
     </>
   );
