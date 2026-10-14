@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar/Navbar";
-import LanguageScrollSection from "./components/LanguageScroll/LanguageScrollSection";
 import styles from "./page.module.css";
 import { pageMetadata } from "./lib/seo";
 
@@ -37,9 +36,6 @@ export default function HomePage() {
         {/* ── CORE SERVICES ── */}
         <CoreServicesSection />
       </div>
-
-      {/* ── LANGUAGE REEL + zooming globe ── */}
-      <LanguageScrollSection />
 
       {/* ── CONTACT CTA ── */}
       <CtaSection />
