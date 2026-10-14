@@ -455,6 +455,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
 }
 
 .treeToggleBtn {
@@ -464,12 +466,17 @@
   color: #64748b;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  flex: 1;
   padding: 0.25rem;
   transition: color 0.2s;
 }
 
 .treeToggleBtn:hover {
+  color: #F17943;
+}
+
+.treeNodeHeader:hover .treeToggleBtn {
   color: #F17943;
 }
 

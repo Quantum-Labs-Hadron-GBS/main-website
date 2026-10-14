@@ -327,8 +327,28 @@ export default function Navbar() {
             const isCentered = item.label === "Platforms" || item.label === "Industries" || item.label === "Solutions";
             return (
               <div key={item.label} className={`${styles.treeNode} ${isUpward ? styles.treeNodeUpward : ""} ${isCentered ? styles.treeNodeCentered : ""}`}>
-                <div className={styles.treeNodeHeader}>
-                  <a href={item.href} className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>
+                <div 
+                  className={styles.treeNodeHeader}
+                  onClick={hasChildren ? (e) => {
+                    const target = e.target as HTMLElement;
+                    if (target.closest(`.${styles.drawerLink}`)) {
+                      return;
+                    }
+                    toggleTree(item.label, e);
+                  } : undefined}
+                >
+                  <a 
+                    href={item.href} 
+                    className={styles.drawerLink} 
+                    onClick={(e) => {
+                      if (item.href === "#") {
+                        e.preventDefault();
+                        toggleTree(item.label, e);
+                      } else {
+                        setIsDrawerOpen(false);
+                      }
+                    }}
+                  >
                     {item.label}
                   </a>
                   {hasChildren && (
@@ -336,6 +356,7 @@ export default function Navbar() {
                       className={styles.treeToggleBtn}
                       onClick={(e) => toggleTree(item.label, e)}
                       aria-label={`Toggle ${item.label} menu`}
+                      type="button"
                     >
                       <ChevronRight 
                         size={18} 
