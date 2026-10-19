@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useAnimationFrame, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
 import styles from "./PartnerRingSection.module.css";
+import HeroArchitecturalBackground from "./HeroArchitecturalBackground";
 
 const LOGOS = {
   servicenow: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/ServiceNow-Logo_cqo5uy.png",
@@ -80,6 +81,8 @@ export default function PartnerRingSection() {
   return (
     <section className={styles.wrapper} ref={containerRef} style={{ position: 'relative' }}>
       <div className={styles.stickyContainer}>
+        {/* Futuristic Architectural Background with Edge Facades, Waves and Constellation Grids */}
+        <HeroArchitecturalBackground />
         
         {/* Central Text */}
         <div className={styles.centerTextContainer}>
