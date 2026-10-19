@@ -344,6 +344,22 @@ export const PAGES: Record<string, PageSeo> = {
     label: "Contact Us",
     priority: 0.8,
   },
+
+  // ── Legal & Policies ──
+  "/privacy-policy": {
+    title: "Privacy Policy",
+    description:
+      "Read the Privacy Policy of Hadron Global Business Solutions (Hadron GBS) to understand how we collect, use, and protect your personal information.",
+    label: "Privacy Policy",
+    priority: 0.5,
+  },
+  "/refund-and-cancellation-policy": {
+    title: "Refund and Cancellation Policy",
+    description:
+      "Read the Refund and Cancellation Policy of Hadron Global Business Solutions (Hadron GBS).",
+    label: "Refund & Cancellation Policy",
+    priority: 0.5,
+  },
 };
 
 const absolute = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;

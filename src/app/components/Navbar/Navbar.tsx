@@ -166,9 +166,15 @@ const menuItems = [
   }
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  isStatic?: boolean;
+}
+
+export default function Navbar({ isStatic: propIsStatic }: NavbarProps = {}) {
   const pathname = usePathname();
-  const isAlwaysLight = pathname === "/contact" || pathname === "/" || pathname === "/resources/webinars";
+  const isPolicyPage = pathname === "/privacy-policy" || pathname === "/refund-and-cancellation-policy";
+  const isStatic = propIsStatic ?? isPolicyPage;
+  const isAlwaysLight = pathname === "/contact" || pathname === "/" || pathname === "/resources/webinars" || isPolicyPage;
   const isMainPage = pathname === "/";
 
   const [activeItem, setActiveItem] = useState<string>("Home");
@@ -232,10 +238,10 @@ export default function Navbar() {
       const hideThreshold = themeThreshold > 0 ? themeThreshold : 200;
       
       setScrolled(currentScrollY > 50);
-      setIsLightMode(isAlwaysLight || currentScrollY > themeThreshold);
+      setIsLightMode(isAlwaysLight || isStatic || currentScrollY > themeThreshold);
 
-      // Hide only if scrolling down AND past the threshold
-      if (currentScrollY > lastScrollY.current && currentScrollY > hideThreshold) {
+      // Hide only if scrolling down AND past the threshold (disabled if isStatic)
+      if (!isStatic && currentScrollY > lastScrollY.current && currentScrollY > hideThreshold) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
@@ -250,7 +256,7 @@ export default function Navbar() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isAlwaysLight, pathname]);
+  }, [isAlwaysLight, isStatic, pathname]);
 
   useEffect(() => {
     if (pathname === "/") {
@@ -274,7 +280,11 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`} role="banner" style={{ transform: isVisible ? 'translateY(0)' : 'translateY(-100%)' }}>
+      <header
+        className={`${styles.navbar} ${isStatic ? styles.navbarStatic : ""} ${scrolled ? styles.scrolled : ""}`}
+        role="banner"
+        style={{ transform: isStatic ? 'none' : (isVisible ? 'translateY(0)' : 'translateY(-100%)') }}
+      >
       <div className={styles.navContainer}>
 
         {/* Unique Orange Hamburger Menu Button */}

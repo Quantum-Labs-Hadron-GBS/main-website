@@ -70,6 +70,10 @@ const LEGACY_REDIRECTS: [string, string][] = [
   ['/podcast', '/resources/videos'],
   ['/webinar', '/resources/webinars'],
   ['/news-and-events', '/resources/webinars'],
+  // Policies & Legal
+  ['/privacy', '/privacy-policy'],
+  ['/refund-policy', '/refund-and-cancellation-policy'],
+  ['/cancellation-policy', '/refund-and-cancellation-policy'],
 ];
 
 const nextConfig: NextConfig = {
