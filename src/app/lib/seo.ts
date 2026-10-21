@@ -93,6 +93,13 @@ export const PAGES: Record<string, PageSeo> = {
   },
 
   // ── Platforms ──
+  "/platforms": {
+    title: "Enterprise Platforms & Technology Ecosystem",
+    description:
+      "Enterprise platform consulting, implementation and managed services from Hadron GBS across ServiceNow, Salesforce, SAP, BMC Helix, Microsoft, AWS, Atlassian, Ivanti and Freshworks.",
+    label: "Platforms",
+    priority: 0.9,
+  },
   "/platforms/service-now": {
     title: "ServiceNow Partner & Consulting Services",
     description:
@@ -258,6 +265,13 @@ export const PAGES: Record<string, PageSeo> = {
   },
 
   // ── Industries ──
+  "/industries": {
+    title: "Industry Solutions & IT Modernization",
+    description:
+      "Industry-specific enterprise technology and digital transformation solutions from Hadron GBS for Manufacturing, Financial Services, Retail, Government, and Education.",
+    label: "Industries",
+    priority: 0.9,
+  },
   "/industries/financial-services": {
     title: "IT Services for Banking & Financial Services",
     description:
@@ -329,6 +343,22 @@ export const PAGES: Record<string, PageSeo> = {
       "Contact Hadron GBS in Pune, Singapore and the USA. Book a free assessment for ServiceNow, AI, cloud and enterprise platform services.",
     label: "Contact Us",
     priority: 0.8,
+  },
+
+  // ── Legal & Policies ──
+  "/privacy-policy": {
+    title: "Privacy Policy",
+    description:
+      "Read the Privacy Policy of Hadron Global Business Solutions (Hadron GBS) to understand how we collect, use, and protect your personal information.",
+    label: "Privacy Policy",
+    priority: 0.5,
+  },
+  "/refund-and-cancellation-policy": {
+    title: "Refund and Cancellation Policy",
+    description:
+      "Read the Refund and Cancellation Policy of Hadron Global Business Solutions (Hadron GBS).",
+    label: "Refund & Cancellation Policy",
+    priority: 0.5,
   },
 };
 

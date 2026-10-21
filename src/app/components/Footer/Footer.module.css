@@ -97,14 +97,41 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
   padding-right: 5rem;
+  flex-wrap: wrap;
+}
+
+.copyrightGroup {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
 }
 
 .copyright {
   font-size: 0.78rem;
   color: var(--fg-subtle);
   letter-spacing: 0.04em;
+}
+
+.legalSeparator {
+  font-size: 0.75rem;
+  color: var(--fg-subtle);
+  opacity: 0.5;
+}
+
+.legalLink {
+  font-size: 0.78rem;
+  color: var(--fg-subtle);
+  text-decoration: none;
+  transition: color 200ms ease;
+  letter-spacing: 0.02em;
+}
+
+.legalLink:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 .socialLinks {
@@ -228,6 +255,10 @@
     text-align: center; 
     padding-right: 0;
     padding-bottom: 4rem;
+    gap: 1.5rem;
+  }
+  .copyrightGroup {
+    justify-content: center;
   }
   .mapContainer iframe { pointer-events: none; }
   .bgWord {

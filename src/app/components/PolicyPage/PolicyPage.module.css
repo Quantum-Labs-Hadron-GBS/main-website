@@ -1,0 +1,161 @@
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+  position: relative;
+  z-index: 1;
+}
+
+.contentContainer {
+  flex: 1;
+  width: 100%;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2.25rem 1.5rem 6rem;
+}
+
+.policyCard {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.25rem;
+  padding: 3.5rem 4rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-space), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #F17943;
+  background: rgba(241, 121, 67, 0.1);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  font-family: var(--font-space), sans-serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  color: #16325F;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.updated {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #1e293b;
+  margin-bottom: 2rem;
+}
+
+.section {
+  margin-bottom: 2.25rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-space), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #16325F;
+  margin-top: 2rem;
+  margin-bottom: 0.875rem;
+  line-height: 1.35;
+}
+
+.paragraph {
+  margin-bottom: 1.125rem;
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.subLabel {
+  font-weight: 700;
+  color: #16325F;
+}
+
+.list {
+  margin: 0.75rem 0 1.25rem 1.25rem;
+  padding-left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.listItem {
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.contactBox {
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.875rem;
+  padding: 1.5rem 1.75rem;
+  margin-top: 1rem;
+}
+
+.contactName {
+  font-weight: 700;
+  color: #16325F;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.contactEmail {
+  color: #F17943;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.contactEmail:hover {
+  text-decoration: underline;
+  color: #d9621b;
+}
+
+.policyLink {
+  color: #F17943;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.policyLink:hover {
+  color: #d9621b;
+}
+
+@media (max-width: 48rem) {
+  .contentContainer {
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  .policyCard {
+    padding: 2.25rem 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .title {
+    font-size: 1.85rem;
+  }
+}

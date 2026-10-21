@@ -84,7 +84,7 @@ export default function EducationIndustry() {
       title="Modern Technology for Connected Education Operations"
       subtitle="Education organizations increasingly depend on digital platforms across administration, employee services, applications, infrastructure, and student-facing experiences. Hadron GBS helps education organizations modernize their technology environments."
       heroVideoUrl="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789976006/Use_the_attached_image_as_the_7_iwri47.mp4"
-      solutionsImgUrl="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop"
+      solutionsImgUrl="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788259026/ET_M1_cdjlli.jpg"
       solutions={solutions}
       framework={framework}
       whyHadron={whyHadron}

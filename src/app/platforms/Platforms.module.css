@@ -1,0 +1,233 @@
+/* Platforms.module.css */
+
+.main {
+  background-color: #f8fafc;
+  color: #212529;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* HERO SECTION */
+.heroBanner {
+  position: relative;
+  height: 60vh;
+  min-height: 31.25rem;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 4rem;
+}
+
+.heroVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.68) 100%);
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.heroContent {
+  padding-top: 10rem;
+}
+
+.platformTag {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  background: rgba(241, 121, 67, 0.2);
+  color: #F17943;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 3.125rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.125rem, 2vw, 1.35rem);
+  font-weight: 300;
+  color: #cbd5e1;
+  max-width: 48rem;
+  line-height: 1.6;
+}
+
+/* PLATFORMS GRID SECTION */
+.platformsSection {
+  padding: 6rem 0;
+  background-color: #f8fafc;
+}
+
+.platformsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 56rem) {
+  .platformsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.platformCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2.25rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e2e8f0;
+  height: 100%;
+  overflow: hidden; /* For the animated 3D border lines */
+}
+
+/* 3D Border Lines (Identical to Ecosystem & Partners interaction) */
+.borderTop, .borderRight, .borderBottom, .borderLeft {
+  position: absolute;
+  background: #F17943;
+  transition: all 0.4s ease-in-out;
+  z-index: 10;
+}
+
+.borderTop {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+}
+
+.borderRight {
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 0;
+}
+
+.borderBottom {
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+}
+
+.borderLeft {
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+}
+
+.platformCard:hover .borderTop,
+.platformCard:hover .borderBottom {
+  width: 100%;
+}
+
+.platformCard:hover .borderRight,
+.platformCard:hover .borderLeft {
+  height: 100%;
+}
+
+.platformCard:hover {
+  transform: translateY(-0.3125rem);
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.09);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  min-height: 3.5rem;
+}
+
+.platformLogoWrapper {
+  max-width: 11rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.platformLogo {
+  max-width: 100%;
+  max-height: 3rem;
+  object-fit: contain;
+}
+
+.platformTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #16325F;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.platformDesc {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.btnWrapper {
+  margin-top: auto;
+}
+
+.platformBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  color: #F17943;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid rgba(241, 121, 67, 0.35);
+  padding: 0.65rem 1.35rem;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+}
+
+.platformBtn:hover {
+  background: #F17943;
+  color: #ffffff;
+  border-color: #F17943;
+  box-shadow: 0 4px 12px rgba(241, 121, 67, 0.3);
+  gap: 1rem;
+}

@@ -55,7 +55,7 @@ export default function ContactForm() {
 
   return (
     <div className={styles.formContainer}>
-      <h2 className={styles.title}>Get in Touch</h2>
+      <h2 className={styles.title}>Contact Us</h2>
       <p className={styles.subtitle}>Our enterprise team will get back to you shortly.</p>
 
       <form onSubmit={handleSubmit}>

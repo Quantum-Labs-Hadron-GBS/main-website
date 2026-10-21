@@ -25,18 +25,26 @@
   background-color: #ffffff;
 }
 
-/* Fade out the bottom of the rings so they don't abruptly cut off */
+/* Soft fade at the very bottom edge of stickyContainer to transition into next section */
 .stickyContainer::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 6.25rem;
-  background: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  height: clamp(6rem, 15vh, 10rem);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0.9) 85%,
+    #ffffff 100%
+  );
   pointer-events: none;
-  z-index: 50;
+  z-index: 15;
 }
+
 
 /* ── Center Text ── */
 .centerTextContainer {
@@ -106,6 +114,7 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
+  z-index: 10;
 }
 
 .ring {
