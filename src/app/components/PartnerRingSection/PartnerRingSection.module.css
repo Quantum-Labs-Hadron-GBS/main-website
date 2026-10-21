@@ -83,17 +83,16 @@
 
 .ctaButton {
   display: inline-block;
-  color: #16325F; /* black/dark slate */
+  color: #F17943; /* orange */
   font-weight: 600;
   font-size: 1.1rem;
   text-decoration: none;
-  transition: color 0.3s ease;
   margin-top: 1.5rem;
   pointer-events: auto; /* Required since parent has pointer-events: none */
 }
 
 .ctaButton:hover {
-  color: #F17943; /* orange */
+  color: #F17943;
 }
 
 .arrow {

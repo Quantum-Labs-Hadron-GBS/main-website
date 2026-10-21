@@ -195,7 +195,7 @@ export default function IndustriesHubPage() {
                     style={{ height: '100%', width: '100%' }}
                   >
                     <div className={styles.whyCardImgWrapper}>
-                      <img src={ind.img} alt={ind.title} className={styles.whyCardImg} />
+                      <img src={ind.img} alt={`${ind.title} - ServiceNow, Salesforce, BMC Helix & Cloud Solutions for Enterprise Industries - Hadron GBS`} className={styles.whyCardImg} />
                     </div>
                     <div className={styles.whyCardBody}>
                       <h3 className={styles.whyCardTitle}>{ind.title}</h3>

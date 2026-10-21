@@ -205,12 +205,18 @@ export default function Navbar({ isStatic: propIsStatic }: NavbarProps = {}) {
   };
 
   useEffect(() => {
-    if (!isDrawerOpen) {
+    if (isDrawerOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
       const timer = setTimeout(() => {
         setOpenTrees({});
       }, 250); // Wait for drawer closing animation
       return () => clearTimeout(timer);
     }
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isDrawerOpen]);
   
   // Use a ref for lastScrollY to avoid re-attaching the event listener on every scroll tick
@@ -369,7 +375,7 @@ export default function Navbar({ isStatic: propIsStatic }: NavbarProps = {}) {
                       type="button"
                     >
                       <ChevronRight 
-                        size={18} 
+                        size={22} 
                         className={`${styles.treeChevron} ${isOpen ? styles.treeChevronOpen : ''}`} 
                       />
                     </button>
@@ -388,7 +394,7 @@ export default function Navbar({ isStatic: propIsStatic }: NavbarProps = {}) {
                     {/* Render mega menu groups */}
                     {item.groups && item.groups.map((group, gIdx) => (
                       <div key={gIdx} style={{ marginBottom: '1rem' }}>
-                        <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'rgba(150,150,150,0.8)', marginBottom: '0.5rem', fontWeight: 600 }}>{group.title}</div>
+                        <div className={styles.drawerGroupTitle}>{group.title}</div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                           {group.items.map((sub, idx) => (
                             <a key={idx} href={sub.href} className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>

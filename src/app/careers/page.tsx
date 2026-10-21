@@ -160,7 +160,7 @@ export default function CareersPage() {
               transition={{ duration: 0.8 }}
             >
               <div className={styles.splitOrangeAccent}></div>
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Culture at Hadron GBS" className={styles.splitImg} />
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Culture at Hadron GBS - Engineering Excellence in ServiceNow, Salesforce & Cloud Platforms" className={styles.splitImg} />
             </motion.div>
           </div>
         </section>
@@ -176,7 +176,7 @@ export default function CareersPage() {
               transition={{ duration: 0.8 }}
             >
               <div className={styles.splitOrangeAccent} style={{ left: '-1.25rem', right: 'auto', backgroundColor: 'rgba(56, 189, 248, 0.1)' }}></div>
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Global Team" className={styles.splitImg} />
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Global Team of Certified ServiceNow, Salesforce, BMC Helix, and Cloud Enterprise Architects - Hadron GBS" className={styles.splitImg} />
             </motion.div>
             <motion.div 
               className={styles.splitTextContainer}

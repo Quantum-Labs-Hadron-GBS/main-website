@@ -64,7 +64,7 @@ export default function RapidApplicationPage() {
               {/* Card 1 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273529/rapid_5_zsiara.avif" alt="Accelerated Application Modernization" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273529/rapid_5_zsiara.avif" alt="Accelerated ServiceNow and Salesforce Low-Code Application Modernization" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -84,7 +84,7 @@ export default function RapidApplicationPage() {
               {/* Card 2 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_3_zg4b5o.avif" alt="Business-Led Development Enablement" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_3_zg4b5o.avif" alt="Business-Led Development on ServiceNow App Engine and Salesforce Lightning" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -104,7 +104,7 @@ export default function RapidApplicationPage() {
               {/* Card 3 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_2_q0t1eq.avif" alt="Agile and Scalable Delivery Models" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_2_q0t1eq.avif" alt="Agile Enterprise Delivery for BMC Helix and ServiceNow Workflows" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -124,7 +124,7 @@ export default function RapidApplicationPage() {
               {/* Card 4 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_4_dio2iw.avif" alt="Integration With Enterprise Ecosystems" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273530/rapid_4_dio2iw.avif" alt="Enterprise Ecosystem Integration Across ServiceNow, Salesforce, BMC Helix, and SAP" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -144,7 +144,7 @@ export default function RapidApplicationPage() {
               {/* Card 5 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273531/rapid_1_mirfhs.avif" alt="Governance, Security, and Quality by Design" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788273531/rapid_1_mirfhs.avif" alt="Enterprise Security and Quality Governance for Cloud Platforms" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -201,7 +201,7 @@ export default function RapidApplicationPage() {
             <div className={styles.infoContent}>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788274236/rapid_m1_k0gb78.jpg" alt="Why Hadron GBS for Rapid Application Engineering" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788274236/rapid_m1_k0gb78.jpg" alt="Why Hadron GBS for Rapid Application Engineering - ServiceNow, Salesforce, and Cloud App Modernization" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className={styles.infoText}>
                 <h2 className={styles.infoTitle}>Why Hadron GBS for Rapid Application Engineering</h2>
@@ -260,7 +260,7 @@ export default function RapidApplicationPage() {
               </div>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788274434/rapid_m2_ztjofs.jpg" alt="Enterprise Performance Improvements" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788274434/rapid_m2_ztjofs.jpg" alt="Enterprise Performance Improvements Across ServiceNow and Salesforce Low Code Solutions" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
           </section>

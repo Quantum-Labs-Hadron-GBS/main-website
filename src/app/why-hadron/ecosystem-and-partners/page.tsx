@@ -62,7 +62,7 @@ export default function PartnersPage() {
     {
       name: "SAP",
       desc: "Drive true intelligent enterprise transformation with our dedicated SAP consulting services. We guide organizations through end-to-end S/4HANA migrations, supply chain optimizations, and core HR transformations using SAP SuccessFactors, ensuring real-time data visibility and compliance.",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
+      logo: "/logos/sap-logo.svg",
       link: "/platforms/sap",
       btnText: "Drive Intelligent Excellence",
     },
@@ -76,7 +76,7 @@ export default function PartnersPage() {
     {
       name: "Precision Bridge",
       desc: "Hadron GBS is a specialist implementation partner for Precision Bridge, automating complex, multi-million record data and workflow migrations to ServiceNow. We eliminate manual migration risks through pre-built templates, automated field mappings, and complete data integrity verification.",
-      logo: "https://images.squarespace-cdn.com/content/v1/6932bd55720baf7abaf81b66/eed84b94-0092-4c73-8089-a66ae2069f43/Precision+Bridge+2026+-+Landscape.png?format=500w",
+      logo: "/logos/precision-bridge-logo.png",
       link: "/platforms/service-now/precision-bridge",
       btnText: "Accelerate Your Migrations",
       logoStyle: { maxHeight: "2.5rem" }
@@ -91,7 +91,7 @@ export default function PartnersPage() {
         <section className={styles.heroBanner}>
           <img 
             src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" 
-            alt="Partners Hero Background" 
+            alt="Hadron GBS Global Strategic Enterprise Partners - ServiceNow, Salesforce, BMC Helix, SAP, Microsoft and AWS" 
             className={styles.heroBg} 
           />
           <div className={styles.heroOverlay}></div>
@@ -144,7 +144,7 @@ export default function PartnersPage() {
                 <div className={styles.partnerLogoWrapper}>
                   <img 
                     src={partner.logo} 
-                    alt={`${partner.name} Logo`} 
+                    alt={`${partner.name} Enterprise Partnership - ServiceNow, Salesforce, BMC Helix & Cloud Solutions - Hadron GBS`} 
                     className={styles.partnerLogo} 
                     style={partner.logoStyle || {}}
                   />

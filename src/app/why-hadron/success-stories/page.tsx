@@ -66,7 +66,7 @@ export default function SuccessStoriesPage() {
         <section className={styles.heroBanner}>
           <img 
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
-            alt="Success Stories Hero Background" 
+            alt="Enterprise Digital Transformation Success Stories - ServiceNow, Salesforce, BMC Helix & SAP Case Studies - Hadron GBS" 
             className={styles.heroBg} 
           />
           <div className={styles.heroOverlay}></div>
