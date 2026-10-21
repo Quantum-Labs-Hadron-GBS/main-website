@@ -158,7 +158,7 @@ export default function HeroSection() {
             {!isIntroFinished && isLoadingFinished && (
               <motion.img 
                 src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png" 
-                alt="Hadron Logo" 
+                alt="Hadron GBS - Strategic Partner for ServiceNow, Salesforce, BMC Helix & SAP" 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
@@ -267,7 +267,7 @@ export default function HeroSection() {
               <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <motion.img 
                   src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/favicon-hadron_g5wrvr.png"
-                  alt="Hadron Favicon"
+                  alt="Hadron GBS Enterprise Digital Transformation Icon"
                   style={{ width: '48px', height: '48px', zIndex: 2 }}
                   initial={{ marginRight: '-48px' }} // Start centered (overlapping text origin)
                   animate={{ marginRight: '16px' }} // Slide left to create a gap

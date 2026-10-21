@@ -65,7 +65,7 @@ export default function IntelligentAutomationPage() {
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
                   {/* Placeholder for Card Image */}
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_1_htjhug.jpg" alt="From Automation to Autonomy" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_1_htjhug.jpg" alt="Autonomous Enterprise Agentic AI for ServiceNow and Salesforce Ecosystems" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -86,7 +86,7 @@ export default function IntelligentAutomationPage() {
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
                   {/* Placeholder for Card Image */}
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_2_wyepkk.jpg" alt="Intelligent Orchestration at Scale" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268220/ai_2_wyepkk.jpg" alt="Intelligent Workflow Orchestration Across ServiceNow, BMC Helix, and SAP" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -107,7 +107,7 @@ export default function IntelligentAutomationPage() {
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
                   {/* Placeholder for Card Image */}
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_5_syh8hy.jpg" alt="Hyper Automation of Business Operations" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_5_syh8hy.jpg" alt="Hyperautomation of Operations Across ServiceNow ITSM, Salesforce CRM, and Cloud" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -128,7 +128,7 @@ export default function IntelligentAutomationPage() {
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
                   {/* Placeholder for Card Image */}
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_3_tshlif.jpg" alt="Data-Driven Decision Intelligence" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268272/ai_3_tshlif.jpg" alt="Data-Driven Decision Intelligence for Enterprise Platforms and Cloud Architecture" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -149,7 +149,7 @@ export default function IntelligentAutomationPage() {
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
                   {/* Placeholder for Card Image */}
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268273/ai_4_tllrcx.jpg" alt="Human and AI Collaboration" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788268273/ai_4_tllrcx.jpg" alt="Human-in-the-Loop AI Collaboration for ServiceNow and Salesforce Teams" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -206,7 +206,7 @@ export default function IntelligentAutomationPage() {
             <div className={styles.infoContent}>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788269187/ai_m1_zwylfu.png" alt="Why Hadron GBS for Intelligent Automation" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788269187/ai_m1_zwylfu.png" alt="Why Hadron GBS for Intelligent Automation - Enterprise AI for ServiceNow, Salesforce, and Cloud" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className={styles.infoText}>
                 <h2 className={styles.infoTitle}>Why Hadron GBS for Intelligent Automation</h2>
@@ -265,7 +265,7 @@ export default function IntelligentAutomationPage() {
               </div>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788269188/ai_m2_jffznd.png" alt="Measurable Enterprise Impact" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788269188/ai_m2_jffznd.png" alt="Measurable Business ROI and Operational Efficiency from Intelligent AI Automation" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
           </section>

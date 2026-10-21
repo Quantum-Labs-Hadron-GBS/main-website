@@ -47,7 +47,7 @@ export default function SolutionsHubPage() {
         <section className={styles.heroBanner}>
           <img 
             src="https://images.unsplash.com/photo-1497215842964-222b430dc094?q=80&w=2070&auto=format&fit=crop" 
-            alt="Solutions Hero background" 
+            alt="Enterprise Solutions for ServiceNow, Salesforce, BMC Helix and SAP - Hadron GBS" 
             className={styles.heroBg} 
           />
           <div className={styles.heroOverlay} style={{ background: 'linear-gradient(to right, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.7) 100%)' }}></div>
@@ -125,7 +125,7 @@ export default function SolutionsHubPage() {
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                   >
                     <div className={styles.whyCardImgWrapper}>
-                      <img src={cap.img} alt={cap.title} className={styles.whyCardImg} />
+                      <img src={cap.img} alt={`${cap.title} - Enterprise ServiceNow, Salesforce & Cloud Solutions - Hadron GBS`} className={styles.whyCardImg} />
                     </div>
                     <div className={styles.whyCardBody}>
                       <h3 className={styles.whyCardTitle}>{cap.title}</h3>

@@ -98,7 +98,7 @@ export default function WebinarsPage() {
               {pastWebinars.map((webinar, idx) => (
                 <a href={webinar.videoUrl} target="_blank" rel="noopener noreferrer" className={styles.webinarCard} key={idx} style={{ textDecoration: 'none' }}>
                   <div className={styles.webinarImgWrapper}>
-                    <img src={webinar.image} alt="Webinar Thumbnail" className={styles.webinarImg} />
+                    <img src={webinar.image} alt={`ServiceNow, Salesforce, and BMC Helix Enterprise Architecture Webinar Session ${idx + 1}`} className={styles.webinarImg} />
                     <div className={styles.playIconWrapper}>
                       <Play fill="currentColor" size={24} />
                     </div>
@@ -139,7 +139,7 @@ export default function WebinarsPage() {
             <div className={styles.whyGrid}>
               <div className={styles.whyCard}>
                 <div className={styles.whyCardImgWrapper}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330307/eng_m2_me3czz.avif" alt="Direct access" className={styles.whyCardImg} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330307/eng_m2_me3czz.avif" alt="Direct access to ServiceNow, Salesforce, and BMC Helix certified enterprise architects" className={styles.whyCardImg} />
                 </div>
                 <div className={styles.whyCardBody}>
                   <h3 className={styles.whyTitle}>Direct access</h3>
@@ -149,7 +149,7 @@ export default function WebinarsPage() {
               
               <div className={styles.whyCard}>
                 <div className={styles.whyCardImgWrapper}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788328794/cloud_m1_xopdvs.png" alt="Practical frameworks" className={styles.whyCardImg} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788328794/cloud_m1_xopdvs.png" alt="Practical implementation frameworks for ServiceNow, Salesforce, BMC Helix, and AWS" className={styles.whyCardImg} />
                 </div>
                 <div className={styles.whyCardBody}>
                   <h3 className={styles.whyTitle}>Practical frameworks</h3>
@@ -159,7 +159,7 @@ export default function WebinarsPage() {
 
               <div className={styles.whyCard}>
                 <div className={styles.whyCardImgWrapper}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327256/unified_m1_auvyhg.webp" alt="Live Q&A" className={styles.whyCardImg} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327256/unified_m1_auvyhg.webp" alt="Live Q&A covering ServiceNow, Salesforce, BMC Helix, SAP, and Cloud modernization" className={styles.whyCardImg} />
                 </div>
                 <div className={styles.whyCardBody}>
                   <h3 className={styles.whyTitle}>Live Q&A</h3>

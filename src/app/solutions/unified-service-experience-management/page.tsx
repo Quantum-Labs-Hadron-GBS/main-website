@@ -63,7 +63,7 @@ export default function UnifiedServicePage() {
               {/* Card 1 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326307/unified_5_zjibfe.avif" alt="Converged Service Management Model" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326307/unified_5_zjibfe.avif" alt="Converged ServiceNow ITSM, CSM, and BMC Helix Service Management Architecture" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -83,7 +83,7 @@ export default function UnifiedServicePage() {
               {/* Card 2 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326311/unified_4_cwzq1n.avif" alt="Experience-Centric Service Design" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326311/unified_4_cwzq1n.avif" alt="Experience-Centric Service Design on ServiceNow Employee Center and Salesforce Service Cloud" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -103,7 +103,7 @@ export default function UnifiedServicePage() {
               {/* Card 3 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326309/unified_3_zxip79.avif" alt="Intelligent Workflow Automation" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326309/unified_3_zxip79.avif" alt="Intelligent Workflow Automation with ServiceNow and BMC Helix AI Service Management" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -123,7 +123,7 @@ export default function UnifiedServicePage() {
               {/* Card 4 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326315/Unified_1_m4tcih.avif" alt="Single Pane of Glass for Operations" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326315/Unified_1_m4tcih.avif" alt="Single Pane of Glass Operations for ServiceNow ITOM and BMC Helix Dashboards" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -143,7 +143,7 @@ export default function UnifiedServicePage() {
               {/* Card 5 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326313/unified_2_sfl3sm.avif" alt="Integration Across Service Ecosystems" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788326313/unified_2_sfl3sm.avif" alt="Cross-Platform Integration Across ServiceNow, Salesforce, BMC Helix, and SAP" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -200,7 +200,7 @@ export default function UnifiedServicePage() {
             <div className={styles.infoContent}>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327256/unified_m1_auvyhg.webp" alt="Why Hadron GBS for Unified Service Experience Management" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327256/unified_m1_auvyhg.webp" alt="Why Hadron GBS for Unified Service Experience Management - Certified ServiceNow and BMC Helix Implementation" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className={styles.infoText}>
                 <h2 className={styles.infoTitle}>Why Hadron GBS for Unified Service Experience Management</h2>
@@ -259,7 +259,7 @@ export default function UnifiedServicePage() {
               </div>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327255/unified_m2_wiorfu.jpg" alt="The Measurable Value of Connected Service Operations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788327255/unified_m2_wiorfu.jpg" alt="Connected Service Operations and Business Value on ServiceNow and BMC Helix Platforms" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
           </section>

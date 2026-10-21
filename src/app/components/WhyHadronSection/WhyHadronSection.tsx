@@ -68,18 +68,21 @@ export default function WhyHadronSection() {
 
       const mm = gsap.matchMedia();
 
-      mm.add({
-        isDesktop: "(min-width: 768px)",
-        isMobile: "(max-width: 767px)"
-      }, (context) => {
-        const { isMobile } = context.conditions as { isMobile: boolean };
+      // ==========================================
+      // DESKTOP: COMPLETELY UNTOUCHED & PRESERVED
+      // ==========================================
+      mm.add("(min-width: 768px)", () => {
+        const cards = gsap.utils.toArray(".adv-card") as HTMLElement[];
 
-        // Pin length in px (GSAP ignores "vh" in "+=" offsets, so the old "+=800vh" was 800px)
+        // Initial state: Cards start completely from the absolute bottom (0px)
+        gsap.set(cards, { height: '0px' });
+        gsap.set(rollerRef.current, { x: 0, rotation: 0 });
+        gsap.set(polygonRef.current, { attr: { points: getPoints(4) }, opacity: 1 });
+        gsap.set(circleRef.current, { opacity: 0 });
+
         const PIN_DISTANCE = 800;
-        // Start animating while the section is still entering: once its top reaches 75% of the viewport
         const START_VIEWPORT_RATIO = 0.75;
 
-        // Pin is its own trigger so the animation can begin before the pin engages
         ScrollTrigger.create({
           trigger: sectionRef.current,
           start: "top top",
@@ -93,25 +96,12 @@ export default function WhyHadronSection() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: `top ${START_VIEWPORT_RATIO * 100}%`,
-            // End exactly where the pin releases
             end: () => `+=${window.innerHeight * START_VIEWPORT_RATIO + PIN_DISTANCE}`,
-            scrub: 1.5, // Eased scrub weight for lightness
+            scrub: 1.5,
             invalidateOnRefresh: true
           }
         });
 
-        // If on mobile, pan the container horizontally to create a parallax swipe effect
-        if (isMobile) {
-          tl.to(panRef.current, {
-            // window.innerWidth - 64 accounts for the 2rem (32px) padding on both sides
-            x: () => -(panRef.current!.offsetWidth - (window.innerWidth - 64)),
-            ease: "none",
-            duration: 0.75
-          }, 0.25); // Delay start so the 1st card grows fully before it slides left
-        }
-
-        // Cards grow to 72vh, but never past the heading + tagline above them (which can wrap on
-        // narrow/short screens). Measured on each refresh so it adapts to any viewport.
         const cardHeight = () => {
           const header = headerRef.current;
           const pan = panRef.current;
@@ -120,7 +110,6 @@ export default function WhyHadronSection() {
           const available = pan.getBoundingClientRect().bottom - padBottom - header.getBoundingClientRect().bottom - 24;
           const height = Math.max(0, Math.min(window.innerHeight * 0.72, available));
 
-          // Run the dashed guideline + roller through the middle of the cards' empty upper area
           const textArea = pan.querySelector<HTMLElement>(".adv-card-text")?.offsetHeight ?? 0;
           const cardTop = pan.clientHeight - padBottom - height;
           pan.style.setProperty("--adv-line", `${cardTop + Math.max(0, height - textArea) / 2}px`);
@@ -133,12 +122,10 @@ export default function WhyHadronSection() {
         tl.to(cards[2], { height: cardHeight, ease: "power2.out", duration: 0.75 }, 0.00);
         tl.to(cards[3], { height: cardHeight, ease: "power2.out", duration: 1.00 }, 0.00);
 
-        // 2. Synchronized Roller X Translation & Locked Rotation (Over full 1.0 duration)
+        // 2. Synchronized Roller X Translation & Locked Rotation
         tl.to(rollerRef.current, {
-          // Roller size is in rem (scales with screen), so measure it rather than assuming 110px
           x: () => (panRef.current ? panRef.current.offsetWidth - (rollerRef.current?.offsetWidth ?? 110) : 0),
           rotation: () => {
-            // Circumferential proportion rotation: (Distance / Circumference) * 360
             const size = rollerRef.current?.offsetWidth ?? 110;
             const dist = panRef.current ? panRef.current.offsetWidth - size : 1000;
             return (dist / (size * Math.PI)) * 360;
@@ -147,22 +134,114 @@ export default function WhyHadronSection() {
           duration: 1.00
         }, 0.00);
 
-        // 3. 7-Step Sharp Regular Polygon Morphing
+        // 3. 7-Step Regular Polygon Morphing
         const step = 1.0 / 7;
-        tl.to(polygonRef.current, { attr: { points: getPoints(5) }, ease: "none", duration: step }, 0 * step); // Sq -> Pentagon
-        tl.to(polygonRef.current, { attr: { points: getPoints(6) }, ease: "none", duration: step }, 1 * step); // Pentagon -> Hexagon
-        tl.to(polygonRef.current, { attr: { points: getPoints(7) }, ease: "none", duration: step }, 2 * step); // Hexagon -> Septagon
-        tl.to(polygonRef.current, { attr: { points: getPoints(8) }, ease: "none", duration: step }, 3 * step); // Septagon -> Octagon
-        tl.to(polygonRef.current, { attr: { points: getPoints(9) }, ease: "none", duration: step }, 4 * step); // Octagon -> Nonagon
-        tl.to(polygonRef.current, { attr: { points: getPoints(10) }, ease: "none", duration: step }, 5 * step); // Nonagon -> Decagon
-        tl.to(polygonRef.current, { attr: { points: getPoints(32) }, ease: "none", duration: step }, 6 * step); // Decagon -> Circle approx
+        tl.to(polygonRef.current, { attr: { points: getPoints(5) }, ease: "none", duration: step }, 0 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(6) }, ease: "none", duration: step }, 1 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(7) }, ease: "none", duration: step }, 2 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(8) }, ease: "none", duration: step }, 3 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(9) }, ease: "none", duration: step }, 4 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(10) }, ease: "none", duration: step }, 5 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(32) }, ease: "none", duration: step }, 6 * step);
 
-        // Phase 4: Crossfade to perfect SVG circle for perfect rolling finish
+        // Phase 4: Crossfade to perfect SVG circle
         tl.to(polygonRef.current, { opacity: 0, ease: "none", duration: 0.05 }, 1.00 - 0.05);
         tl.to(circleRef.current, { opacity: 1, ease: "none", duration: 0.05 }, 1.00 - 0.05);
 
-        // 4. Section Scroll Release Hold Buffer (15% buffer at the end)
+        // Section Scroll Release Hold Buffer
         tl.to({}, { duration: 0.15 }, 1.00);
+      });
+
+      // ========================================================
+      // MOBILE PHONE VERSION ONLY (max-width: 767px)
+      // ========================================================
+      mm.add("(max-width: 767px)", () => {
+        const cards = gsap.utils.toArray(".adv-card") as HTMLElement[];
+
+        const cardHeight = () => {
+          const header = headerRef.current;
+          const pan = panRef.current;
+          if (!header || !pan) return window.innerHeight * 0.65;
+          const padBottom = parseFloat(getComputedStyle(pan).paddingBottom) || 0;
+          const available = pan.getBoundingClientRect().bottom - padBottom - header.getBoundingClientRect().bottom - 16;
+          const height = Math.max(0, Math.min(window.innerHeight * 0.68, available));
+
+          const textArea = pan.querySelector<HTMLElement>(".adv-card-text")?.offsetHeight ?? 0;
+          const cardTop = pan.clientHeight - padBottom - height;
+          pan.style.setProperty("--adv-line", `${cardTop + Math.max(0, height - textArea) / 2}px`);
+          return height;
+        };
+
+        // On mobile: Card 0 (Architecture-Led Delivery) and all cards are pre-set to full height
+        // so Card 0 is completely visible & readable the instant the section appears!
+        gsap.set(cards, { height: cardHeight });
+        gsap.set(panRef.current, { x: 0 });
+        gsap.set(rollerRef.current, { x: 0, rotation: 0 });
+        gsap.set(polygonRef.current, { attr: { points: getPoints(4) }, opacity: 1 });
+        gsap.set(circleRef.current, { opacity: 0 });
+
+        const MOBILE_PIN_DISTANCE = 1600;
+
+        // Pin ONLY engages when section top reaches the top of viewport (fully appeared)
+        ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: "top top",
+          end: `+=${MOBILE_PIN_DISTANCE}`,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        });
+
+        // Animation starts ONLY when section fully appears (start: "top top")
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: `+=${MOBILE_PIN_DISTANCE}`,
+            scrub: 1.2,
+            invalidateOnRefresh: true
+          }
+        });
+
+        // 1. Roller starts moving only after section has fully appeared & Card 0 is seen
+        const rollStart = 0.08;
+        const rollDuration = 0.82;
+
+        tl.to(rollerRef.current, {
+          x: () => (panRef.current ? panRef.current.offsetWidth - (rollerRef.current?.offsetWidth ?? 110) : 0),
+          rotation: () => {
+            const size = rollerRef.current?.offsetWidth ?? 110;
+            const dist = panRef.current ? panRef.current.offsetWidth - size : 1000;
+            return (dist / (size * Math.PI)) * 360;
+          },
+          ease: "none",
+          duration: rollDuration
+        }, rollStart);
+
+        // 2. Pan container delays moving so Card 0 ("Architecture-Led Delivery") stays fully in view,
+        // then smoothly tracks across Card 1, Card 2, and Card 3
+        tl.to(panRef.current, {
+          x: () => -(panRef.current!.offsetWidth - (window.innerWidth - 64)),
+          ease: "none",
+          duration: 0.62
+        }, 0.28);
+
+        // 3. 7-Step Regular Polygon Morphing synchronized with rolling
+        const step = rollDuration / 7;
+        tl.to(polygonRef.current, { attr: { points: getPoints(5) }, ease: "none", duration: step }, rollStart + 0 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(6) }, ease: "none", duration: step }, rollStart + 1 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(7) }, ease: "none", duration: step }, rollStart + 2 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(8) }, ease: "none", duration: step }, rollStart + 3 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(9) }, ease: "none", duration: step }, rollStart + 4 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(10) }, ease: "none", duration: step }, rollStart + 5 * step);
+        tl.to(polygonRef.current, { attr: { points: getPoints(32) }, ease: "none", duration: step }, rollStart + 6 * step);
+
+        // Crossfade to perfect circle
+        tl.to(polygonRef.current, { opacity: 0, ease: "none", duration: 0.04 }, rollStart + rollDuration - 0.04);
+        tl.to(circleRef.current, { opacity: 1, ease: "none", duration: 0.04 }, rollStart + rollDuration - 0.04);
+
+        // 4. Hold buffer on the final card (Card 4) so the user can finish reading before unpin
+        tl.to({}, { duration: 0.10 }, 0.90);
       });
 
     }, sectionRef);
@@ -192,14 +271,36 @@ export default function WhyHadronSection() {
           .adv-pan-container {
             width: 320vw; /* Expands container to allow horizontal pan on mobile */
           }
+          .adv-header {
+            top: 7vh !important;
+            left: 1.25rem !important;
+            right: 1.25rem !important;
+          }
           .adv-title {
-            font-size: 2.2rem !important;
+            font-size: 1.85rem !important;
             white-space: normal !important;
-            max-width: 80vw;
-            line-height: 1.1 !important;
+            max-width: 90vw;
+            line-height: 1.15 !important;
+            margin-bottom: 0.25rem !important;
+          }
+          .adv-subtitle {
+            font-size: 0.8125rem !important;
+            line-height: 1.4 !important;
           }
           .adv-card-text {
-            transform: translateY(-8px);
+            height: auto !important;
+            min-height: 14.5rem;
+            padding: 0 1.25rem 1.25rem 1.25rem !important;
+            transform: none !important;
+          }
+          .adv-card-title {
+            font-size: 1.25rem !important;
+            min-height: auto !important;
+            margin-bottom: 0.5rem !important;
+          }
+          .adv-card-desc {
+            font-size: 0.8125rem !important;
+            line-height: 1.5 !important;
           }
         }
       `}</style>
@@ -216,7 +317,7 @@ export default function WhyHadronSection() {
           borderBottomRightRadius: '2.5rem'
         }}
       >
-        <div ref={headerRef} style={{ position: 'absolute', top: '12vh', left: '2rem', right: '2rem', zIndex: 20 }}>
+        <div ref={headerRef} className="adv-header" style={{ position: 'absolute', top: '12vh', left: '2rem', right: '2rem', zIndex: 20 }}>
           <h2
             className="adv-title"
             style={{
@@ -231,6 +332,7 @@ export default function WhyHadronSection() {
             The <span style={{ color: '#F17943' }}>Hadron</span> Advantage
           </h2>
           <p
+            className="adv-subtitle"
             style={{
               fontSize: '1rem',
               fontWeight: 500,
@@ -362,6 +464,7 @@ export default function WhyHadronSection() {
                     }}
                   >
                     <h3
+                      className="adv-card-title"
                       style={{
                         fontSize: '1.4rem',
                         fontWeight: 700,
@@ -375,6 +478,7 @@ export default function WhyHadronSection() {
                       {item.title}
                     </h3>
                     <p
+                      className="adv-card-desc"
                       style={{
                         fontSize: '0.875rem',
                         lineHeight: 1.6,

@@ -9,14 +9,14 @@ import HeroArchitecturalBackground from "./HeroArchitecturalBackground";
 const LOGOS = {
   servicenow: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/ServiceNow-Logo_cqo5uy.png",
   salesforce: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327266/Salesforce-Logo_j4dnwn.png",
-  sap: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
-  microsoft: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+  sap: "/logos/sap-logo.svg",
+  microsoft: "/logos/microsoft-logo.svg",
   bmc: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1790836686/bmc-helix-logo_d38xak.png",
-  aws: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+  aws: "/logos/aws-logo.svg",
   freshworks: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/freshworks-logo_brandlogos.net_c6t5u_vu8yih.png",
   atlassian: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788789011/Atlassian_logo_kiayvy.png",
   ivanti: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788844978/Ivanti_logo_olqb3i.webp",
-  precisionbridge: "https://images.squarespace-cdn.com/content/v1/6932bd55720baf7abaf81b66/eed84b94-0092-4c73-8089-a66ae2069f43/Precision+Bridge+2026+-+Landscape.png?format=500w",
+  precisionbridge: "/logos/precision-bridge-logo.png",
 };
 
 export default function PartnerRingSection() {

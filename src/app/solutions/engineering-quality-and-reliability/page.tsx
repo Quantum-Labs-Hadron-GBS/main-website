@@ -63,7 +63,7 @@ export default function EngineeringQualityPage() {
               {/* Card 1 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329643/eng_3_codj5w.avif" alt="Shift-Left and Shift-Right Quality Engineering" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329643/eng_3_codj5w.avif" alt="Shift-Left and Shift-Right Quality Engineering for ServiceNow and Salesforce Platforms" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -83,7 +83,7 @@ export default function EngineeringQualityPage() {
               {/* Card 2 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329637/eng_5_toqpmx.avif" alt="Intelligent Test Automation at Scale" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329637/eng_5_toqpmx.avif" alt="Intelligent Test Automation at Scale for ServiceNow ATF and BMC Helix Workflows" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -103,7 +103,7 @@ export default function EngineeringQualityPage() {
               {/* Card 3 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329648/eng_2_b820oi.avif" alt="Continuous Testing in DevSecOps Pipelines" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329648/eng_2_b820oi.avif" alt="Continuous Testing in DevSecOps Pipelines for Cloud and Enterprise Systems" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -123,7 +123,7 @@ export default function EngineeringQualityPage() {
               {/* Card 4 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329640/eng_4_kcrl5h.avif" alt="Performance, Reliability, and Resilience Engineering" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329640/eng_4_kcrl5h.avif" alt="Performance, SRE, and Resilience Engineering for High-Volume ServiceNow and SAP Deployments" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -143,7 +143,7 @@ export default function EngineeringQualityPage() {
               {/* Card 5 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329658/eng_1_lestnz.avif" alt="Observability and Proactive Quality Insights" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788329658/eng_1_lestnz.avif" alt="Observability and Proactive Quality Insights Across BMC Helix, ServiceNow, and AWS Cloud" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -198,7 +198,7 @@ export default function EngineeringQualityPage() {
           <section className={styles.infoBlock}>
             <div className={styles.infoContent}>
               <div className={styles.infoImageWrapper}>
-                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330310/eng_m1_h8hlcu.webp" alt="Why Hadron GBS for Engineering Quality and Reliability" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330310/eng_m1_h8hlcu.webp" alt="Why Hadron GBS for Engineering Quality and Reliability - ServiceNow & BMC Helix Quality Practice" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className={styles.infoText}>
                 <h2 className={styles.infoTitle}>Why Hadron GBS for Engineering Quality and Reliability</h2>
@@ -256,7 +256,7 @@ export default function EngineeringQualityPage() {
                 </ul>
               </div>
               <div className={styles.infoImageWrapper}>
-                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330307/eng_m2_me3czz.avif" alt="Operational Gains Enabled Through Reliability Engineering" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788330307/eng_m2_me3czz.avif" alt="Operational Gains Enabled Through ServiceNow and Enterprise Platform Reliability Engineering" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
           </section>

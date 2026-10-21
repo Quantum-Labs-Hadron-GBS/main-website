@@ -322,9 +322,10 @@
     width: 100%;
     justify-content: flex-start;
     padding-left: 1.5rem;
-    padding-right: 4rem; /* Leave room for hamburger */
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+    padding-right: 4.5rem; /* Leave room for hamburger */
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    min-height: 3.75rem;
   }
   
   .menuItemWrapper.isLogo .menuItem {
@@ -333,7 +334,8 @@
   }
   
   .menuItemWrapper.isLogo img {
-    height: 1.75rem !important; /* Make logo bigger on mobile */
+    height: 2.1rem !important; /* Enhanced logo size on mobile */
+    width: auto !important;
   }
 
   .menuItemWrapper.isLogo .activeBackground {
