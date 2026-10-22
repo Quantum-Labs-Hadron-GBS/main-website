@@ -84,18 +84,23 @@ export default function PartnerRingSection() {
         {/* Futuristic Architectural Background with Edge Facades, Waves and Constellation Grids */}
         <HeroArchitecturalBackground />
         
-        {/* Central Text */}
-        <div className={styles.centerTextContainer}>
-          <h1 className={styles.title} style={{ fontSize: 'clamp(2rem, 4vw, 3.6rem)', lineHeight: 1.1 }}>
+        {/* Left-Aligned Hero Content */}
+        <div className={styles.heroTextContainer}>
+          <h1 className={styles.title}>
             Enterprise Platforms,<br/>
             Made <span className={styles.highlight}>Intelligent.</span>
           </h1>
-          <p style={{ fontSize: '1.25rem', color: '#6b7280', marginTop: '1rem', maxWidth: '37.5rem', marginInline: 'auto' }}>
-            Hadron GBS helps enterprises turn AI into operational advantage. So your platforms don't just run; they predict, adapt, and improve.
+
+          <p className={styles.subtitle}>
+            Hadron GBS helps enterprises turn AI into operational advantage. So your platforms don&apos;t just run; they predict, adapt, and improve.
           </p>
-          <Link href="/contact" className={styles.ctaButton}>
-            Book Free Assessment <span className={styles.arrow}>&rarr;</span>
-          </Link>
+
+          <div className={styles.ctaWrapper}>
+            <Link href="/contact" className={styles.ctaButton}>
+              <span>Book Free Assessment</span>
+              <span className={styles.arrow}>&rarr;</span>
+            </Link>
+          </div>
         </div>
 
         {/* JSON-LD Schema for SEO */}

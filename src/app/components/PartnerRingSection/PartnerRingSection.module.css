@@ -46,53 +46,108 @@
 }
 
 
-/* ── Center Text ── */
+/* ── Hero Text Container (Left-Aligned) ── */
+.heroTextContainer,
 .centerTextContainer {
   position: absolute;
+  left: clamp(2.5rem, 6.5vw, 7.5rem);
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 20;
-  text-align: center;
+  text-align: left;
   pointer-events: none;
-  max-width: 45rem;
-  padding: 0 1rem;
+  max-width: clamp(28rem, 44vw, 42rem);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.kickerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(241, 121, 67, 0.08);
+  border: 1px solid rgba(241, 121, 67, 0.22);
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #F17943;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: auto;
+}
+
+.kickerDot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #F17943;
+  box-shadow: 0 0 0.5rem rgba(241, 121, 67, 0.8);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.6;
+  }
 }
 
 .title {
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  /* Considerably smaller */
-  font-weight: 700;
+  font-size: clamp(2.4rem, 4.2vw, 4.2rem);
+  font-weight: 800;
   color: #16325F;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  margin-bottom: 1.5rem;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin: 0 0 1.25rem 0;
+  text-align: left;
 }
 
 .highlight {
   color: #F17943;
-  /* Hadron orange */
-  font-size: 0.85em;
-  /* Make Hadron a little smaller */
+  background: linear-gradient(135deg, #F17943 0%, #ff8f59 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .subtitle {
-  font-size: 1.125rem;
+  font-size: clamp(1.05rem, 1.25vw, 1.25rem);
   color: #475569;
   line-height: 1.6;
-  max-width: 37.5rem;
-  margin: 0 auto;
+  max-width: 35rem;
+  margin: 0 0 1.75rem 0;
+  text-align: left;
+}
+
+.ctaWrapper {
+  pointer-events: auto;
 }
 
 .ctaButton {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: #F17943; /* orange */
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   text-decoration: none;
-  margin-top: 1.5rem;
-  pointer-events: auto; /* Required since parent has pointer-events: none */
+  pointer-events: auto;
+  transition: opacity 0.2s ease;
 }
 
 .ctaButton:hover {
   color: #F17943;
+  opacity: 0.88;
 }
 
 .arrow {
@@ -104,12 +159,13 @@
   transform: translateX(4px);
 }
 
-/* ── Orbital Rings ── */
+/* ── Orbital Rings (Shifted to Right Edge, Half Visible) ── */
 .ringsWrapper {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scaleY(0.7);
+  top: 54%;
+  right: 0;
+  left: auto;
+  transform: translate(48%, -48%) scaleY(0.68);
   width: 100%;
   height: 100%;
   pointer-events: none;
@@ -130,8 +186,8 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 3px solid rgba(241, 121, 67, 0.5);
-  /* Broader, slightly more solid orange border */
+  border: 2px solid rgba(241, 121, 67, 0.45);
+  box-shadow: 0 0 16px rgba(241, 121, 67, 0.12);
 
   /* The mask fades the top and bottom out, leaving only the sides solid */
   -webkit-mask-image: linear-gradient(to bottom,
@@ -156,17 +212,17 @@
 }
 
 .ring2 {
-  width: 48.75rem;
-  height: 48.75rem;
-  margin-top: -24.375rem;
-  margin-left: -24.375rem;
+  width: 48rem;
+  height: 48rem;
+  margin-top: -24rem;
+  margin-left: -24rem;
 }
 
 .ring3 {
-  width: 67.5rem;
-  height: 67.5rem;
-  margin-top: -33.75rem;
-  margin-left: -33.75rem;
+  width: 66rem;
+  height: 66rem;
+  margin-top: -33rem;
+  margin-left: -33rem;
 }
 
 /* ── Logo Bubbles ── */
@@ -183,15 +239,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: scale 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0.625rem 1.875rem rgba(22, 50, 95, 0.08);
+  border: 1px solid rgba(241, 121, 67, 0.15);
+  transition: scale 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
 }
 
 .logoCard:hover {
-  scale: 1.1;
-  box-shadow: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.15);
+  scale: 1.12;
+  box-shadow: 0 0.9375rem 2.5rem rgba(241, 121, 67, 0.22);
+  border-color: rgba(241, 121, 67, 0.4);
 }
 
 .logoImg {
@@ -219,29 +276,62 @@
 }
 
 @media (max-width: 64rem) {
-  .ring1 {
-    width: 22.5rem;
-    height: 22.5rem;
-    margin-top: -11.25rem;
-    margin-left: -11.25rem;
-  }
-
-  .ring2 {
-    width: 37.5rem;
-    height: 37.5rem;
-    margin-top: -18.75rem;
-    margin-left: -18.75rem;
-  }
-
-  .ring3 {
-    width: 52.5rem;
-    height: 52.5rem;
-    margin-top: -26.25rem;
-    margin-left: -26.25rem;
+  .heroTextContainer,
+  .centerTextContainer {
+    left: 1.5rem;
+    right: 1.5rem;
+    top: 22%;
+    transform: translateY(-10%);
+    max-width: 100%;
+    padding: 0;
   }
 
   .title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 7.5vw, 2.75rem);
+    line-height: 1.12;
+    margin-bottom: 0.85rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    max-width: 100%;
+    margin-bottom: 1.25rem;
+  }
+
+  .kickerBadge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .ringsWrapper {
+    top: 68%;
+    right: 0;
+    left: auto;
+    transform: translate(42%, -50%) scaleY(0.65);
+    opacity: 0.9;
+  }
+
+  .ring1 {
+    width: 22rem;
+    height: 22rem;
+    margin-top: -11rem;
+    margin-left: -11rem;
+  }
+
+  .ring2 {
+    width: 36rem;
+    height: 36rem;
+    margin-top: -18rem;
+    margin-left: -18rem;
+  }
+
+  .ring3 {
+    width: 50rem;
+    height: 50rem;
+    margin-top: -25rem;
+    margin-left: -25rem;
   }
 
   .logoCard {

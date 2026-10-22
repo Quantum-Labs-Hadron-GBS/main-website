@@ -7,22 +7,43 @@ export default function HeroArchitecturalBackground() {
   return (
     <div className={styles.backgroundContainer} aria-hidden="true">
       {/* 1. Bottom-Left Warm Orange Gradient Design */}
-      <img
-        src="/images/hero-gradient-orange.jpg"
-        alt="Hadron GBS - Enterprise Digital Transformation for ServiceNow, Salesforce, BMC Helix and SAP"
-        className={styles.bottomLeftGradient}
-        fetchPriority="high"
-        loading="eager"
-      />
+      <div className={styles.bottomLeftWrapper}>
+        <img
+          src="/images/hero-gradient-orange.png"
+          alt=""
+          role="presentation"
+          className={styles.bottomLeftGradient}
+          onError={(e) => {
+            const target = e.currentTarget as HTMLImageElement;
+            if (!target.src.endsWith(".jpg")) {
+              target.src = "/images/hero-gradient-orange.jpg";
+            }
+          }}
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
 
-      {/* 2. Top-Right Deep Navy Blue Gradient Design */}
-      <img
-        src="/images/hero-gradient-navy.jpg"
-        alt="Hadron GBS - Cloud Architecture & Solutions for AWS, Microsoft Azure and Enterprise Platforms"
-        className={styles.topRightGradient}
-        fetchPriority="high"
-        loading="eager"
-      />
+      {/* 2. Top-Right Soft Navy Blue Gradient with <= 80px surrounding fade merge */}
+      <div className={styles.topRightWrapper}>
+        <div className={styles.topRightAura} />
+        <img
+          src="/images/hero-gradient-navy.png"
+          alt=""
+          role="presentation"
+          className={styles.topRightGradient}
+          onError={(e) => {
+            const target = e.currentTarget as HTMLImageElement;
+            if (!target.src.endsWith(".jpg")) {
+              target.src = "/images/hero-gradient-navy.jpg";
+            }
+          }}
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
     </div>
   );
 }
