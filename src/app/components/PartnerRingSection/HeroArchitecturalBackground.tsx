@@ -9,7 +9,8 @@ export default function HeroArchitecturalBackground() {
       {/* 1. Bottom-Left Warm Orange Gradient Design */}
       <img
         src="/images/hero-gradient-orange.jpg"
-        alt="Hadron GBS - Enterprise Digital Transformation for ServiceNow, Salesforce, BMC Helix and SAP"
+        alt=""
+        role="presentation"
         className={styles.bottomLeftGradient}
         fetchPriority="high"
         loading="eager"
@@ -18,7 +19,8 @@ export default function HeroArchitecturalBackground() {
       {/* 2. Top-Right Deep Navy Blue Gradient Design */}
       <img
         src="/images/hero-gradient-navy.jpg"
-        alt="Hadron GBS - Cloud Architecture & Solutions for AWS, Microsoft Azure and Enterprise Platforms"
+        alt=""
+        role="presentation"
         className={styles.topRightGradient}
         fetchPriority="high"
         loading="eager"

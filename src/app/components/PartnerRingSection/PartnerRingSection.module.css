@@ -1,14 +1,11 @@
 .wrapper {
   position: relative;
   height: 120vh;
-  /* Minimized to allow 'one normal speed scroll' to pass the section */
   background-color: #ffffff;
-  /* Changed to white to seamlessly blend into CoreServicesSection */
   z-index: 5;
   margin-top: -0.3125rem;
 }
 
-/* Fallback to dark if you prefer, but Alpy is white. The user screenshot is white! */
 :global(.light-theme) .wrapper {
   background-color: #ffffff;
 }
@@ -25,91 +22,170 @@
   background-color: #ffffff;
 }
 
-/* Soft fade at the very bottom edge of stickyContainer to transition into next section */
+/* Soft fade at the very bottom edge to transition into next section */
 .stickyContainer::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: clamp(6rem, 15vh, 10rem);
+  height: clamp(5rem, 12vh, 8rem);
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.2) 25%,
-    rgba(255, 255, 255, 0.6) 60%,
-    rgba(255, 255, 255, 0.9) 85%,
+    rgba(255, 255, 255, 0.3) 30%,
+    rgba(255, 255, 255, 0.75) 75%,
     #ffffff 100%
   );
   pointer-events: none;
   z-index: 15;
 }
 
-
-/* ── Center Text ── */
-.centerTextContainer {
+/* ── Left-Side Modern Office Terrace Image ── */
+.heroImageWrapper {
   position: absolute;
-  z-index: 20;
-  text-align: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: clamp(42%, 48vw, 55%);
+  height: 100%;
   pointer-events: none;
-  max-width: 45rem;
-  padding: 0 1rem;
+  user-select: none;
+  z-index: 2;
+  /* Smooth horizontal feather from left (opaque) into center (transparent white) */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.98) 40%,
+    rgba(0, 0, 0, 0.6) 70%,
+    rgba(0, 0, 0, 0.12) 88%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.98) 40%,
+    rgba(0, 0, 0, 0.6) 70%,
+    rgba(0, 0, 0, 0.12) 88%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.heroImageOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.15) 55%,
+      rgba(255, 255, 255, 0.8) 85%,
+      #ffffff 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 80%,
+      rgba(255, 255, 255, 0.8) 95%,
+      #ffffff 100%
+    );
+  pointer-events: none;
+}
+
+/* ── Hero Text Container ── */
+.heroTextContainer {
+  position: absolute;
+  left: calc(clamp(23rem, 29vw, 36rem) + 75px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  text-align: left;
+  pointer-events: none;
+  max-width: clamp(26rem, 33vw, 36rem);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .title {
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  /* Considerably smaller */
-  font-weight: 700;
+  font-size: clamp(2.4rem, 3.8vw, 4rem);
+  font-weight: 800;
   color: #16325F;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  margin-bottom: 1.5rem;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin: 0 0 1.25rem 0;
+  text-align: left;
 }
 
 .highlight {
   color: #F17943;
-  /* Hadron orange */
-  font-size: 0.85em;
-  /* Make Hadron a little smaller */
+  background: linear-gradient(135deg, #F17943 0%, #ff8548 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .subtitle {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
   color: #475569;
   line-height: 1.6;
-  max-width: 37.5rem;
-  margin: 0 auto;
+  max-width: 32rem;
+  margin: 0 0 1.85rem 0;
+  text-align: left;
+}
+
+.ctaWrapper {
+  pointer-events: auto;
 }
 
 .ctaButton {
-  display: inline-block;
-  color: #F17943; /* orange */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #F17943;
+  border: 1.5px solid #F17943;
+  color: #ffffff;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  padding: 0.85rem 1.85rem;
+  border-radius: 9999px;
   text-decoration: none;
-  margin-top: 1.5rem;
-  pointer-events: auto; /* Required since parent has pointer-events: none */
+  box-shadow: 0 4px 14px rgba(241, 121, 67, 0.35);
+  pointer-events: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ctaButton:hover {
+  background: #ffffff;
   color: #F17943;
+  border-color: #F17943;
+  box-shadow: 0 8px 24px rgba(241, 121, 67, 0.25);
+  transform: translateY(-2px);
 }
 
 .arrow {
   display: inline-block;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ctaButton:hover .arrow {
   transform: translateX(4px);
 }
 
-/* ── Orbital Rings ── */
+/* ── Orbital Rings (Right Edge, Half Visible) ── */
 .ringsWrapper {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scaleY(0.7);
+  top: calc(52% - 20px);
+  right: -85px;
+  left: auto;
+  transform: translate(46%, -48%) scaleY(0.70);
   width: 100%;
   height: 100%;
   pointer-events: none;
@@ -124,16 +200,15 @@
   transform-origin: center center;
 }
 
-/* Draw the actual ring border with a fading mask so it's only bold on left/right */
+/* Draw the actual ring border with a fading mask so it's subtle on top/bottom */
 .ring::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 3px solid rgba(241, 121, 67, 0.5);
-  /* Broader, slightly more solid orange border */
+  border: 2px solid rgba(241, 121, 67, 0.45);
+  box-shadow: 0 0 16px rgba(241, 121, 67, 0.12);
 
-  /* The mask fades the top and bottom out, leaving only the sides solid */
   -webkit-mask-image: linear-gradient(to bottom,
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 1) 25%,
@@ -147,7 +222,6 @@
   pointer-events: none;
 }
 
-/* Fix transform conflicts by nesting transforms properly */
 .ring1 {
   width: 30rem;
   height: 30rem;
@@ -156,17 +230,17 @@
 }
 
 .ring2 {
-  width: 48.75rem;
-  height: 48.75rem;
-  margin-top: -24.375rem;
-  margin-left: -24.375rem;
+  width: 48rem;
+  height: 48rem;
+  margin-top: -24rem;
+  margin-left: -24rem;
 }
 
 .ring3 {
-  width: 67.5rem;
-  height: 67.5rem;
-  margin-top: -33.75rem;
-  margin-left: -33.75rem;
+  width: 66rem;
+  height: 66rem;
+  margin-top: -33rem;
+  margin-left: -33rem;
 }
 
 /* ── Logo Bubbles ── */
@@ -183,15 +257,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: scale 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0.625rem 1.875rem rgba(22, 50, 95, 0.08);
+  border: 1px solid rgba(241, 121, 67, 0.15);
+  transition: scale 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
 }
 
 .logoCard:hover {
-  scale: 1.1;
-  box-shadow: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.15);
+  scale: 1.12;
+  box-shadow: 0 0.9375rem 2.5rem rgba(241, 121, 67, 0.22);
+  border-color: rgba(241, 121, 67, 0.4);
 }
 
 .logoImg {
@@ -202,7 +277,6 @@
   transition: opacity 0.3s ease;
 }
 
-/* Brighten up slightly on hover */
 .logoCard:hover .logoImg {
   opacity: 1;
 }
@@ -213,39 +287,190 @@
   height: 0.875rem;
   border-radius: 50%;
   background: linear-gradient(135deg, #60A5FA, #2563eb);
-  /* Pure blue atom as requested */
   box-shadow: 0 0 0.75rem rgba(37, 99, 235, 0.5);
-  /* Blue glow */
 }
 
-@media (max-width: 64rem) {
-  .ring1 {
-    width: 22.5rem;
-    height: 22.5rem;
-    margin-top: -11.25rem;
-    margin-left: -11.25rem;
+/* ── Responsive Adaptations ── */
+@media (max-width: 80rem) {
+  .heroTextContainer {
+    left: calc(clamp(16rem, 24vw, 26rem) + 75px);
+    max-width: clamp(24rem, 36vw, 32rem);
   }
 
-  .ring2 {
-    width: 37.5rem;
-    height: 37.5rem;
-    margin-top: -18.75rem;
-    margin-left: -18.75rem;
-  }
-
-  .ring3 {
-    width: 52.5rem;
-    height: 52.5rem;
-    margin-top: -26.25rem;
-    margin-left: -26.25rem;
+  .heroImageWrapper {
+    width: clamp(38%, 44vw, 50%);
   }
 
   .title {
-    font-size: 2.5rem;
+    font-size: clamp(2.2rem, 3.4vw, 3.2rem);
+  }
+}
+
+@media (max-width: 64rem) {
+  .heroImageWrapper {
+    width: clamp(38%, 44vw, 48%);
+    opacity: 0.25;
+  }
+
+  .heroTextContainer {
+    left: clamp(14rem, 20vw, 22rem);
+    top: calc(50% + 1rem);
+    transform: translateY(-50%);
+    max-width: clamp(22rem, 36vw, 28rem);
+    padding: 0;
+  }
+
+  .title {
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    line-height: 1.12;
+    margin-bottom: 0.85rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 100%;
+    margin-bottom: 1.35rem;
+  }
+
+  .ringsWrapper {
+    top: calc(50% + 1rem);
+    right: -40px;
+    left: auto;
+    transform: translate(44%, -48%) scaleY(0.68);
+    opacity: 0.92;
+  }
+
+  .ring1 {
+    width: 22rem;
+    height: 22rem;
+    margin-top: -11rem;
+    margin-left: -11rem;
+  }
+
+  .ring2 {
+    width: 36rem;
+    height: 36rem;
+    margin-top: -18rem;
+    margin-left: -18rem;
+  }
+
+  .ring3 {
+    width: 50rem;
+    height: 50rem;
+    margin-top: -25rem;
+    margin-left: -25rem;
   }
 
   .logoCard {
     width: 3.75rem;
     height: 3.75rem;
+  }
+}
+
+/* ── Mobile Phone Versions (<= 768px) ── */
+@media (max-width: 48rem) {
+  /* Remove image and any dark terrace/roof shadow below text on mobile */
+  .heroImageWrapper {
+    display: none !important;
+  }
+
+  /* Shift text down to center level, at the exact same vertical level as partner rings */
+  .heroTextContainer {
+    left: clamp(1rem, 4vw, 1.5rem);
+    right: auto;
+    top: calc(50% + 1.25rem);
+    transform: translateY(-50%);
+    max-width: clamp(14.5rem, 58vw, 19.5rem);
+    padding: 0;
+    z-index: 25;
+    filter: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Clear any shadows below or around text "Enterprise Platforms, Made Intelligent" */
+  .title {
+    font-size: clamp(1.6rem, 5.6vw, 2.25rem);
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  .highlight {
+    text-shadow: none !important;
+    filter: none !important;
+  }
+
+  .subtitle {
+    font-size: clamp(0.8rem, 2.7vw, 0.95rem);
+    line-height: 1.48;
+    max-width: 100%;
+    margin-bottom: 1.25rem;
+    color: #475569;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  .ctaWrapper {
+    width: auto;
+    filter: none !important;
+  }
+
+  .ctaButton {
+    display: inline-flex;
+    width: auto;
+    padding: clamp(0.65rem, 2vw, 0.75rem) clamp(1.2rem, 3.5vw, 1.5rem);
+    font-size: clamp(0.85rem, 2.5vw, 0.92rem);
+    justify-content: center;
+    border-radius: 9999px;
+  }
+
+  /* Shift partner rings up to center level - at the exact same vertical level as text */
+  .ringsWrapper {
+    top: calc(50% + 1.25rem);
+    right: -20px;
+    left: auto;
+    transform: translate(48%, -50%) scaleY(0.68);
+    opacity: 0.95;
+    z-index: 10;
+  }
+
+  .ring1 {
+    width: 20rem;
+    height: 20rem;
+    margin-top: -10rem;
+    margin-left: -10rem;
+  }
+
+  .ring2 {
+    width: 29rem;
+    height: 29rem;
+    margin-top: -14.5rem;
+    margin-left: -14.5rem;
+  }
+
+  .ring3 {
+    width: 38rem;
+    height: 38rem;
+    margin-top: -19rem;
+    margin-left: -19rem;
+  }
+
+  .logoCard {
+    width: 2.85rem;
+    height: 2.85rem;
+  }
+
+  .logoImg {
+    width: 60%;
+    height: 60%;
+  }
+
+  .dot {
+    width: 0.55rem;
+    height: 0.55rem;
   }
 }
