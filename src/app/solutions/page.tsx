@@ -74,9 +74,9 @@ export default function SolutionsHubPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <a href="#capabilities" className={styles.heroButton}>
+              <Link href="/contact" className={styles.heroButton}>
                 Explore Our Solutions
-              </a>
+              </Link>
             </motion.div>
           </div>
         </section>

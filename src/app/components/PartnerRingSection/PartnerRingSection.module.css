@@ -308,50 +308,37 @@
 
 @media (max-width: 64rem) {
   .heroImageWrapper {
-    width: 100%;
-    opacity: 0.35;
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.2) 60%,
-      rgba(0, 0, 0, 0) 100%
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.2) 60%,
-      rgba(0, 0, 0, 0) 100%
-    );
+    width: clamp(38%, 44vw, 48%);
+    opacity: 0.25;
   }
 
   .heroTextContainer {
-    left: 2rem;
-    right: 2rem;
-    top: 24%;
-    transform: translateY(-10%);
-    max-width: 100%;
+    left: clamp(14rem, 20vw, 22rem);
+    top: calc(50% + 1rem);
+    transform: translateY(-50%);
+    max-width: clamp(22rem, 36vw, 28rem);
     padding: 0;
   }
 
   .title {
-    font-size: clamp(2rem, 7vw, 2.75rem);
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
     line-height: 1.12;
     margin-bottom: 0.85rem;
   }
 
   .subtitle {
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.5;
     max-width: 100%;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.35rem;
   }
 
   .ringsWrapper {
-    top: 68%;
-    right: 0;
+    top: calc(50% + 1rem);
+    right: -40px;
     left: auto;
-    transform: translate(42%, -50%) scaleY(0.65);
-    opacity: 0.9;
+    transform: translate(44%, -48%) scaleY(0.68);
+    opacity: 0.92;
   }
 
   .ring1 {
@@ -381,15 +368,109 @@
   }
 }
 
+/* ── Mobile Phone Versions (<= 768px) ── */
 @media (max-width: 48rem) {
+  /* Remove image and any dark terrace/roof shadow below text on mobile */
+  .heroImageWrapper {
+    display: none !important;
+  }
+
+  /* Shift text down to center level, at the exact same vertical level as partner rings */
   .heroTextContainer {
-    left: 1.5rem;
-    right: 1.5rem;
-    top: 20%;
+    left: clamp(1rem, 4vw, 1.5rem);
+    right: auto;
+    top: calc(50% + 1.25rem);
+    transform: translateY(-50%);
+    max-width: clamp(14.5rem, 58vw, 19.5rem);
+    padding: 0;
+    z-index: 25;
+    filter: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Clear any shadows below or around text "Enterprise Platforms, Made Intelligent" */
+  .title {
+    font-size: clamp(1.6rem, 5.6vw, 2.25rem);
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  .highlight {
+    text-shadow: none !important;
+    filter: none !important;
+  }
+
+  .subtitle {
+    font-size: clamp(0.8rem, 2.7vw, 0.95rem);
+    line-height: 1.48;
+    max-width: 100%;
+    margin-bottom: 1.25rem;
+    color: #475569;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  .ctaWrapper {
+    width: auto;
+    filter: none !important;
   }
 
   .ctaButton {
-    width: 100%;
+    display: inline-flex;
+    width: auto;
+    padding: clamp(0.65rem, 2vw, 0.75rem) clamp(1.2rem, 3.5vw, 1.5rem);
+    font-size: clamp(0.85rem, 2.5vw, 0.92rem);
     justify-content: center;
+    border-radius: 9999px;
+  }
+
+  /* Shift partner rings up to center level - at the exact same vertical level as text */
+  .ringsWrapper {
+    top: calc(50% + 1.25rem);
+    right: -20px;
+    left: auto;
+    transform: translate(48%, -50%) scaleY(0.68);
+    opacity: 0.95;
+    z-index: 10;
+  }
+
+  .ring1 {
+    width: 15rem;
+    height: 15rem;
+    margin-top: -7.5rem;
+    margin-left: -7.5rem;
+  }
+
+  .ring2 {
+    width: 24rem;
+    height: 24rem;
+    margin-top: -12rem;
+    margin-left: -12rem;
+  }
+
+  .ring3 {
+    width: 33rem;
+    height: 33rem;
+    margin-top: -16.5rem;
+    margin-left: -16.5rem;
+  }
+
+  .logoCard {
+    width: 2.85rem;
+    height: 2.85rem;
+  }
+
+  .logoImg {
+    width: 60%;
+    height: 60%;
+  }
+
+  .dot {
+    width: 0.55rem;
+    height: 0.55rem;
   }
 }
