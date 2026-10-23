@@ -80,8 +80,8 @@ export default function PartnerRingSection() {
         {/* ── Left-Side Modern Office Terrace Image with Soft Mask Fade ── */}
         <div className={styles.heroImageWrapper} aria-hidden="true">
           <img
-            src="/images/modern-office-terrace-left.png"
-            alt="Modern corporate office terrace at dawn with skyline"
+            src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1792747165/building_terrace_cmwtqz.png"
+            alt="Modern corporate office building terrace at dawn with skyline"
             className={styles.heroImage}
             fetchPriority="high"
             loading="eager"
