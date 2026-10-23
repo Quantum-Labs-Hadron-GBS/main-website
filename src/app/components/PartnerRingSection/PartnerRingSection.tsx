@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useAnimationFrame, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
 import styles from "./PartnerRingSection.module.css";
-import HeroArchitecturalBackground from "./HeroArchitecturalBackground";
 
 const LOGOS = {
   servicenow: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/ServiceNow-Logo_cqo5uy.png",
@@ -27,7 +26,7 @@ export default function PartnerRingSection() {
     offset: ["start start", "end end"]
   });
 
-  // Apply spring physics for "drag" and smoothness
+  // Spring physics for smooth scroll reaction
   const smoothScroll = useSpring(scrollYProgress, {
     stiffness: 50,
     damping: 20,
@@ -44,26 +43,23 @@ export default function PartnerRingSection() {
   const rotate3 = useMotionValue(0);
   const rotate3Rev = useMotionValue(0);
 
-  // Scroll mapping (reduced further to 45 degrees so it's barely faster, and uses smooth spring)
+  // Scroll mapping
   const scrollRotate1 = useTransform(smoothScroll, [0, 1], [0, 45]);
   const scrollRotate2 = useTransform(smoothScroll, [0, 1], [0, -35]);
   const scrollRotate3 = useTransform(smoothScroll, [0, 1], [0, 25]);
 
-  // Refs for accumulating time so it doesn't jump wildly after tab inactivity
+  // Continuous ambient time rotation
   const rotationOffset1 = useRef(0);
   const rotationOffset2 = useRef(0);
   const rotationOffset3 = useRef(0);
 
   useAnimationFrame((_, delta) => {
-    // Cap delta at 50ms so background tabs don't cause massive leaps
     const safeDelta = Math.min(delta, 50);
 
-    // Accumulate rotation
     rotationOffset1.current += safeDelta * 0.01;   // Clockwise
     rotationOffset2.current += safeDelta * -0.008; // Counter-clockwise
-    rotationOffset3.current += safeDelta * 0.0114; // Clockwise (1.9x original)
+    rotationOffset3.current += safeDelta * 0.0114; // Clockwise
 
-    // Combine accumulated time rotation + scroll rotation
     const r1 = rotationOffset1.current + scrollRotate1.get();
     const r2 = rotationOffset2.current + scrollRotate2.get();
     const r3 = rotationOffset3.current + scrollRotate3.get();
@@ -81,10 +77,20 @@ export default function PartnerRingSection() {
   return (
     <section className={styles.wrapper} ref={containerRef} style={{ position: 'relative' }}>
       <div className={styles.stickyContainer}>
-        {/* Futuristic Architectural Background with Edge Facades, Waves and Constellation Grids */}
-        <HeroArchitecturalBackground />
+        {/* ── Left-Side Modern Office Terrace Image with Soft Mask Fade ── */}
+        <div className={styles.heroImageWrapper} aria-hidden="true">
+          <img
+            src="/images/modern-office-terrace-left.png"
+            alt="Modern corporate office terrace at dawn with skyline"
+            className={styles.heroImage}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
+          <div className={styles.heroImageOverlay} />
+        </div>
         
-        {/* Left-Aligned Hero Content */}
+        {/* ── Center/Left Hero Content ── */}
         <div className={styles.heroTextContainer}>
           <h1 className={styles.title}>
             Enterprise Platforms,<br/>
@@ -103,111 +109,86 @@ export default function PartnerRingSection() {
           </div>
         </div>
 
-        {/* JSON-LD Schema for SEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Hadron GBS",
-              "url": "https://hadrongbs.com",
-              "knowsAbout": [
-                "ServiceNow",
-                "Salesforce",
-                "SAP",
-                "Microsoft",
-                "BMC Helix",
-                "AWS",
-                "Freshworks",
-                "Atlassian",
-                "Ivanti",
-                "Precision Bridge"
-              ]
-            })
-          }}
-        />
-
-        {/* ORBITAL RINGS */}
+        {/* ── Right-Side Orbital Partner Rings ── */}
         <div className={styles.ringsWrapper}>
           
           {/* Ring 1 (Inner) */}
           <motion.div className={`${styles.ring} ${styles.ring1}`} style={{ rotate: rotate1 }}>
-            {/* Top Left */}
+            {/* Top Left - BMC */}
             <div className={styles.logoWrapper} style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/bmc">
                 <motion.div style={{ rotate: rotate1Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img fetchPriority="high" loading="eager" src={LOGOS.bmc} alt="BMC Helix Implementation Partner - Hadron GBS" className={styles.logoImg} />
-                </div>
+                      <img fetchPriority="high" loading="eager" src={LOGOS.bmc} alt="BMC Helix" className={styles.logoImg} />
+                    </div>
                   </div>
                 </motion.div>
               </Link>
             </div>
-            {/* Bottom Right */}
+            {/* Bottom Right - ServiceNow */}
             <div className={styles.logoWrapper} style={{ top: '85%', left: '85%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/service-now">
                 <motion.div style={{ rotate: rotate1Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img fetchPriority="high" loading="eager" src={LOGOS.servicenow} alt="ServiceNow Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '80%', height: '80%' }} />
-                </div>
+                      <img fetchPriority="high" loading="eager" src={LOGOS.servicenow} alt="ServiceNow" className={styles.logoImg} style={{ width: '80%', height: '80%' }} />
+                    </div>
                   </div>
                 </motion.div>
               </Link>
             </div>
-            {/* Bottom Left */}
+            {/* Bottom Left - Salesforce */}
             <div className={styles.logoWrapper} style={{ top: '85%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/salesforce">
                 <motion.div style={{ rotate: rotate1Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img fetchPriority="high" loading="eager" src={LOGOS.salesforce} alt="Salesforce Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ transform: 'scale(1.4)' }} />
-                </div>
+                      <img fetchPriority="high" loading="eager" src={LOGOS.salesforce} alt="Salesforce" className={styles.logoImg} style={{ transform: 'scale(1.4)' }} />
+                    </div>
                   </div>
                 </motion.div>
               </Link>
             </div>
-            {/* Atoms */}
+            {/* Glowing Blue Atoms */}
             <div className={styles.dot} style={{ top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }}></div>
             <div className={styles.dot} style={{ top: '50%', left: '100%', transform: 'translate(-50%, -50%)' }}></div>
           </motion.div>
 
           {/* Ring 2 (Middle) */}
           <motion.div className={`${styles.ring} ${styles.ring2}`} style={{ rotate: rotate2 }}>
-            {/* Center Left */}
+            {/* Center Left - Atlassian */}
             <div className={styles.logoWrapper} style={{ top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/atlassian">
                 <motion.div style={{ rotate: rotate2Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img fetchPriority="high" loading="eager" src={LOGOS.atlassian} alt="Atlassian Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '55%', height: '55%' }} />
-                </div>
+                      <img fetchPriority="high" loading="eager" src={LOGOS.atlassian} alt="Atlassian" className={styles.logoImg} style={{ width: '55%', height: '55%' }} />
+                    </div>
                   </div>
                 </motion.div>
               </Link>
             </div>
-            {/* Center Right - Shifted Ivanti to Ring 2 */}
+            {/* Center Right - Ivanti */}
             <div className={styles.logoWrapper} style={{ top: '50%', left: '100%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/ivanti">
                 <motion.div style={{ rotate: rotate2Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img src={LOGOS.ivanti} alt="Ivanti Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
-                </div>
+                      <img src={LOGOS.ivanti} alt="Ivanti" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
+                    </div>
                   </div>
                 </motion.div>
               </Link>
             </div>
-            {/* Top Center */}
+            {/* Top Center - Freshworks */}
             <div className={styles.logoWrapper} style={{ top: '0%', left: '50%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/freshworks">
                 <motion.div style={{ rotate: rotate2Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img fetchPriority="high" loading="eager" src={LOGOS.freshworks} alt="Freshworks Implementation Partner - Hadron GBS" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
-                </div>
+                      <img fetchPriority="high" loading="eager" src={LOGOS.freshworks} alt="Freshworks" className={styles.logoImg} style={{ width: '75%', height: '75%' }} />
+                    </div>
                   </div>
                 </motion.div>
               </Link>
@@ -219,62 +200,62 @@ export default function PartnerRingSection() {
 
           {/* Ring 3 (Outer) */}
           <motion.div className={`${styles.ring} ${styles.ring3}`} style={{ rotate: rotate3 }}>
-            {/* Top Right */}
+            {/* Top Right - SAP */}
             <div className={styles.logoWrapper} style={{ top: '15%', left: '85%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/sap">
                 <motion.div style={{ rotate: rotate3Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img fetchPriority="high" loading="eager" src={LOGOS.sap} alt="SAP Implementation Partner - Hadron GBS" className={styles.logoImg} />
-                </div>
+                      <img fetchPriority="high" loading="eager" src={LOGOS.sap} alt="SAP" className={styles.logoImg} />
+                    </div>
                   </div>
                 </motion.div>
               </Link>
             </div>
-            {/* Bottom Left */}
+            {/* Bottom Left - Microsoft */}
             <div className={styles.logoWrapper} style={{ top: '85%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/microsoft">
                 <motion.div style={{ rotate: rotate3Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img fetchPriority="high" loading="eager" src={LOGOS.microsoft} alt="Microsoft Implementation Partner - Hadron GBS" className={styles.logoImg} />
-                </div>
+                      <img fetchPriority="high" loading="eager" src={LOGOS.microsoft} alt="Microsoft" className={styles.logoImg} />
+                    </div>
                   </div>
                 </motion.div>
               </Link>
             </div>
-            {/* Top Left - Shifted AWS to Ring 3 */}
+            {/* Top Left - AWS */}
             <div className={styles.logoWrapper} style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/aws">
                 <motion.div style={{ rotate: rotate3Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img fetchPriority="high" loading="eager" src={LOGOS.aws} alt="AWS Implementation Partner - Hadron GBS" className={styles.logoImg} />
-                </div>
+                      <img fetchPriority="high" loading="eager" src={LOGOS.aws} alt="AWS" className={styles.logoImg} />
+                    </div>
                   </div>
                 </motion.div>
               </Link>
             </div>
-            {/* Bottom Right - Precision Bridge added to Ring 3 */}
+            {/* Bottom Right - Precision Bridge */}
             <div className={styles.logoWrapper} style={{ top: '85%', left: '85%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/platforms/service-now/precision-bridge">
                 <motion.div style={{ rotate: rotate3Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <img fetchPriority="high" loading="eager" src={LOGOS.precisionbridge} alt="Precision Bridge Partner - Hadron GBS" className={styles.logoImg} style={{ width: '80%', height: '80%', objectFit: 'contain' }} />
-                </div>
+                      <img fetchPriority="high" loading="eager" src={LOGOS.precisionbridge} alt="Precision Bridge" className={styles.logoImg} style={{ width: '80%', height: '80%', objectFit: 'contain' }} />
+                    </div>
                   </div>
                 </motion.div>
               </Link>
             </div>
-            {/* Center Right (Become a Partner) */}
+            {/* Center Right - Become a Partner */}
             <div className={styles.logoWrapper} style={{ top: '50%', left: '100%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/contact" style={{ textDecoration: 'none' }}>
                 <motion.div style={{ rotate: rotate3Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
                     <div className={styles.logoCard}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#16325F', textAlign: 'center', lineHeight: 1.2 }}>Become a<br/>Partner</span>
-                </div>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#16325F', textAlign: 'center', lineHeight: 1.2 }}>Become a<br/>Partner</span>
+                    </div>
                   </div>
                 </motion.div>
               </Link>
@@ -286,6 +267,31 @@ export default function PartnerRingSection() {
 
         </div>
       </div>
+
+      {/* JSON-LD Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Hadron GBS",
+            "url": "https://hadrongbs.com",
+            "knowsAbout": [
+              "ServiceNow",
+              "Salesforce",
+              "SAP",
+              "Microsoft",
+              "BMC Helix",
+              "AWS",
+              "Freshworks",
+              "Atlassian",
+              "Ivanti",
+              "Precision Bridge"
+            ]
+          })
+        }}
+      />
     </section>
   );
 }
