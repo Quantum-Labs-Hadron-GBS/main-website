@@ -27,13 +27,15 @@ const advantages = [
   }
 ];
 
-// 32-point normalized polygon generator using Radial Raycasting
+// 64-point normalized polygon generator using Radial Raycasting
 // This guarantees that points map strictly radially between shapes, eliminating any mid-morph twisting!
+const TOTAL_POINTS = 64;
+
 const getPoints = (sides: number) => {
   const points = [];
   const offset = -Math.PI / 2 - Math.PI / sides;
-  for (let i = 0; i < 32; i++) {
-    const angle = (i / 32) * Math.PI * 2 + offset;
+  for (let i = 0; i < TOTAL_POINTS; i++) {
+    const angle = (i / TOTAL_POINTS) * Math.PI * 2 + offset;
     const sectorAngle = (Math.PI * 2) / sides;
     let theta = ((angle - offset) % (Math.PI * 2));
     if (theta < 0) theta += Math.PI * 2;
@@ -46,13 +48,24 @@ const getPoints = (sides: number) => {
   return points.join(" ");
 };
 
+const getCirclePoints = () => {
+  const points = [];
+  const offset = -Math.PI / 2 - Math.PI / TOTAL_POINTS;
+  for (let i = 0; i < TOTAL_POINTS; i++) {
+    const angle = (i / TOTAL_POINTS) * Math.PI * 2 + offset;
+    const x = 50 + 48 * Math.cos(angle);
+    const y = 50 + 48 * Math.sin(angle);
+    points.push(`${x.toFixed(2)},${y.toFixed(2)}`);
+  }
+  return points.join(" ");
+};
+
 export default function WhyHadronSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const panRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const rollerRef = useRef<HTMLDivElement>(null);
   const polygonRef = useRef<SVGPolygonElement>(null);
-  const circleRef = useRef<SVGCircleElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -64,7 +77,6 @@ export default function WhyHadronSection() {
       gsap.set(cards, { height: '0px' });
       gsap.set(rollerRef.current, { x: 0, rotation: 0 });
       gsap.set(polygonRef.current, { attr: { points: getPoints(4) }, opacity: 1 });
-      gsap.set(circleRef.current, { opacity: 0 });
 
       const mm = gsap.matchMedia();
 
@@ -78,7 +90,6 @@ export default function WhyHadronSection() {
         gsap.set(cards, { height: '0px' });
         gsap.set(rollerRef.current, { x: 0, rotation: 0 });
         gsap.set(polygonRef.current, { attr: { points: getPoints(4) }, opacity: 1 });
-        gsap.set(circleRef.current, { opacity: 0 });
 
         const PIN_DISTANCE = 800;
         const START_VIEWPORT_RATIO = 0.75;
@@ -134,7 +145,7 @@ export default function WhyHadronSection() {
           duration: 1.00
         }, 0.00);
 
-        // 3. 7-Step Regular Polygon Morphing
+        // 3. 7-Step Regular Polygon Morphing directly to perfect circle
         const step = 1.0 / 7;
         tl.to(polygonRef.current, { attr: { points: getPoints(5) }, ease: "none", duration: step }, 0 * step);
         tl.to(polygonRef.current, { attr: { points: getPoints(6) }, ease: "none", duration: step }, 1 * step);
@@ -142,11 +153,7 @@ export default function WhyHadronSection() {
         tl.to(polygonRef.current, { attr: { points: getPoints(8) }, ease: "none", duration: step }, 3 * step);
         tl.to(polygonRef.current, { attr: { points: getPoints(9) }, ease: "none", duration: step }, 4 * step);
         tl.to(polygonRef.current, { attr: { points: getPoints(10) }, ease: "none", duration: step }, 5 * step);
-        tl.to(polygonRef.current, { attr: { points: getPoints(32) }, ease: "none", duration: step }, 6 * step);
-
-        // Phase 4: Crossfade to perfect SVG circle
-        tl.to(polygonRef.current, { opacity: 0, ease: "none", duration: 0.05 }, 1.00 - 0.05);
-        tl.to(circleRef.current, { opacity: 1, ease: "none", duration: 0.05 }, 1.00 - 0.05);
+        tl.to(polygonRef.current, { attr: { points: getCirclePoints() }, ease: "none", duration: step }, 6 * step);
 
         // Section Scroll Release Hold Buffer
         tl.to({}, { duration: 0.15 }, 1.00);
@@ -178,7 +185,6 @@ export default function WhyHadronSection() {
         gsap.set(panRef.current, { x: 0 });
         gsap.set(rollerRef.current, { x: 0, rotation: 0 });
         gsap.set(polygonRef.current, { attr: { points: getPoints(4) }, opacity: 1 });
-        gsap.set(circleRef.current, { opacity: 0 });
 
         const MOBILE_PIN_DISTANCE = 1600;
 
@@ -226,7 +232,7 @@ export default function WhyHadronSection() {
           duration: 0.62
         }, 0.28);
 
-        // 3. 7-Step Regular Polygon Morphing synchronized with rolling
+        // 3. 7-Step Regular Polygon Morphing synchronized with rolling directly to perfect circle
         const step = rollDuration / 7;
         tl.to(polygonRef.current, { attr: { points: getPoints(5) }, ease: "none", duration: step }, rollStart + 0 * step);
         tl.to(polygonRef.current, { attr: { points: getPoints(6) }, ease: "none", duration: step }, rollStart + 1 * step);
@@ -234,11 +240,7 @@ export default function WhyHadronSection() {
         tl.to(polygonRef.current, { attr: { points: getPoints(8) }, ease: "none", duration: step }, rollStart + 3 * step);
         tl.to(polygonRef.current, { attr: { points: getPoints(9) }, ease: "none", duration: step }, rollStart + 4 * step);
         tl.to(polygonRef.current, { attr: { points: getPoints(10) }, ease: "none", duration: step }, rollStart + 5 * step);
-        tl.to(polygonRef.current, { attr: { points: getPoints(32) }, ease: "none", duration: step }, rollStart + 6 * step);
-
-        // Crossfade to perfect circle
-        tl.to(polygonRef.current, { opacity: 0, ease: "none", duration: 0.04 }, rollStart + rollDuration - 0.04);
-        tl.to(circleRef.current, { opacity: 1, ease: "none", duration: 0.04 }, rollStart + rollDuration - 0.04);
+        tl.to(polygonRef.current, { attr: { points: getCirclePoints() }, ease: "none", duration: step }, rollStart + 6 * step);
 
         // 4. Hold buffer on the final card (Card 4) so the user can finish reading before unpin
         tl.to({}, { duration: 0.10 }, 0.90);
@@ -388,7 +390,7 @@ export default function WhyHadronSection() {
             }}
           >
             <svg viewBox="0 0 100 100" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
-              {/* Morphing Polygon Layer */}
+              {/* Morphing Shape Layer: 100% solid opacity throughout all phases */}
               <polygon
                 ref={polygonRef}
                 points={getPoints(4)}
@@ -397,16 +399,6 @@ export default function WhyHadronSection() {
                 strokeWidth="2"
                 strokeLinejoin="round"
                 vectorEffect="non-scaling-stroke"
-              />
-              {/* Perfect Circle Layer (Faded in during final phase) */}
-              <circle
-                ref={circleRef}
-                cx="50" cy="50" r="48"
-                fill="#F17943"
-                stroke="#F17943"
-                strokeWidth="2"
-                vectorEffect="non-scaling-stroke"
-                opacity="0"
               />
               {/* Persistent Center Pivot Dot */}
               <circle cx="50" cy="50" r="3" fill="#ffffff" />
