@@ -58,7 +58,7 @@
 
 .groupLabel {
   font-family: var(--font-space), sans-serif;
-  font-size: 0.72rem;
+  font-size: max(0.72rem, 12px); /* never below 12px on phones */
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--fg);

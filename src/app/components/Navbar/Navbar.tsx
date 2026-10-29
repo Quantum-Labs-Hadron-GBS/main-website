@@ -423,6 +423,7 @@ export default function Navbar({ isStatic: propIsStatic }: NavbarProps = {}) {
 
           <div className={styles.drawerBottom}>
             <a href="/contact" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Contact Us</a>
+            <a href="/contact" className={styles.drawerLink} onClick={() => setIsDrawerOpen(false)}>Become a Partner</a>
             <a href="https://quantum.hadrongbs.com/" target="_blank" rel="noopener noreferrer" className={styles.drawerLink} style={{ color: '#F17943' }} onClick={() => setIsDrawerOpen(false)}>Quantum</a>
           </div>
         </nav>
