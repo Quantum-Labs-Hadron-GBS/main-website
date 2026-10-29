@@ -1,133 +1,46 @@
 /* eslint-disable */
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+// The cinematic intro (loading screen + timed captions + skip) was removed after commit 08ee0da;
+// restore it from git history if needed.
+
+import { useEffect, useRef } from "react";
+import Link from "next/link";
 import styles from "./HeroSection.module.css";
 import PartnerMarquee from "../PartnerMarquee/PartnerMarquee";
 
-const INTRO_CAPTIONS = [
-  { key: 'intro-0', node: <>Where Challenges <br className={styles.mobileBreak} />Meet Intelligence.</> },
-  { key: 'intro-1', node: <>Powered by <br className={styles.mobileBreak} />Hadron GBS</> },
-  { key: 'intro-2', node: <>AI That Works <br className={styles.mobileBreak} />Beside You</> },
-  { key: 'intro-3', node: <>Designed for <br className={styles.mobileBreak} />Simplicity</> },
-  { key: 'intro-4', node: <>Connecting IT. <br className={styles.mobileBreak} />AI. Quantum.</> },
-  { key: 'intro-5', node: <>Build <br className={styles.mobileBreak} />What's Next</> }
-];
-
 export default function HeroSection() {
-  const [activeCaptionIndex, setActiveCaptionIndex] = useState<number | null>(0);
-  const [isIntroFinished, setIsIntroFinished] = useState(false);
-  const [isLoadingFinished, setIsLoadingFinished] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  // True when the browser refuses to autoplay (e.g. Safari in macOS Low Power Mode)
-  const [videoBlocked, setVideoBlocked] = useState(false);
 
-  // Loading Screen Timer & Video Trigger
+  // Some browsers refuse autoplay (e.g. Safari in macOS Low Power Mode): start on the first user gesture
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoadingFinished(true);
-      if (videoRef.current) {
-        videoRef.current.play().catch(e => {
-          console.warn("Auto-play blocked:", e);
-          setVideoBlocked(true);
-        });
-      }
-    }, 2800); // 2.8s total loading screen duration
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleSkip = () => {
-    setIsIntroFinished(true);
-    setActiveCaptionIndex(null);
-  };
-
-  const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
-    applyIntroTime(e.currentTarget.currentTime);
-  };
-
-  // Captions are keyed to the intro timeline (seconds since the video starts)
-  function applyIntroTime(time: number) {
-    if (isIntroFinished) return;
-
-    if (time >= 16.4) {
-      setIsIntroFinished(true);
-      setActiveCaptionIndex(null);
-    } else if (time >= 14.0) {
-      setActiveCaptionIndex(5);
-    } else if (time >= 10.8) {
-      setActiveCaptionIndex(4);
-    } else if (time >= 8.0) {
-      setActiveCaptionIndex(3);
-    } else if (time >= 4.8) {
-      setActiveCaptionIndex(2);
-    } else if (time >= 2.5) {
-      setActiveCaptionIndex(1);
-    } else {
-      setActiveCaptionIndex(0);
-    }
-  }
-
-  // Autoplay blocked: run the captions on a wall clock, and start the video on the first user gesture
-  useEffect(() => {
-    if (!videoBlocked || isIntroFinished) return;
-    const start = performance.now();
-    const elapsed = () => (performance.now() - start) / 1000;
-    const tick = setInterval(() => {
-      const video = videoRef.current;
-      if (video && !video.paused) return; // video took over; onTimeUpdate drives captions
-      applyIntroTime(elapsed());
-    }, 200);
-
-    const resume = () => {
-      const video = videoRef.current;
-      if (!video || !video.paused) return;
-      video.currentTime = elapsed(); // keep video in sync with the captions already shown
-      video.play().catch(() => {});
-    };
+    const video = videoRef.current;
+    if (!video) return;
     const events = ["pointerdown", "keydown", "touchstart", "wheel"] as const;
-    events.forEach((ev) => window.addEventListener(ev, resume, { passive: true }));
-    return () => {
-      clearInterval(tick);
+    const resume = () => {
+      video.play().catch(() => {});
       events.forEach((ev) => window.removeEventListener(ev, resume));
     };
-  }, [videoBlocked, isIntroFinished]);
-
-  // Manage global body class for navbar hiding
-  useEffect(() => {
-    if (!isIntroFinished) {
-      document.body.classList.add("intro-running");
-      
-      // Failsafe timer: force the intro to end after 16.6s real-time, but only start counting after loading finishes
-      let timer: NodeJS.Timeout;
-      if (isLoadingFinished) {
-        timer = setTimeout(() => {
-          setIsIntroFinished(true);
-          setActiveCaptionIndex(null);
-        }, 16600);
-      }
-      return () => {
-        if (timer) clearTimeout(timer);
-      }
-    } else {
-      document.body.classList.remove("intro-running");
-    }
-  }, [isIntroFinished, isLoadingFinished]);
+    video.play().catch(() => {
+      events.forEach((ev) => window.addEventListener(ev, resume, { passive: true }));
+    });
+    return () => events.forEach((ev) => window.removeEventListener(ev, resume));
+  }, []);
 
   return (
     <div className={styles.heroWrapper}>
       <section className={styles.hero} id="hero" aria-label="Hero">
-        
+
         {/* Background Video */}
         <video
           ref={videoRef}
           data-no-parallax
+          autoPlay
           loop
           muted
           playsInline
           preload="auto"
           disablePictureInPicture
-          onTimeUpdate={handleTimeUpdate}
           style={{
             position: 'absolute',
             top: 0,
@@ -143,165 +56,52 @@ export default function HeroSection() {
           <source src="https://res.cloudinary.com/ax6dtcht/video/upload/v1786108868/Untitled_design_czx0vh.mp4" type="video/mp4" />
         </video>
 
-        {/* Darkening Overlay for Video (appears after intro) */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isIntroFinished ? 0.6 : 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-          style={{ position: 'absolute', inset: 0, backgroundColor: '#000000', zIndex: -1 }}
+        {/* Darkening Overlay for Video (15% lighter than before: 0.6 → 0.51) */}
+        <div style={{ position: 'absolute', inset: 0, backgroundColor: '#000000', opacity: 0.51, zIndex: -1 }} />
+
+        {/* Gradient Overlay (dark stops 15% lighter: 0.95 → 0.81, 0.4 → 0.34) */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(circle at bottom left, rgba(26, 115, 232, 0.4) 0%, transparent 50%), linear-gradient(to left, rgba(13,17,23,0.81) 0%, rgba(13,17,23,0.34) 100%)',
+            zIndex: -1
+          }}
         />
-
-        {/* Gradient Overlay */}
-        <div 
-          style={{ 
-            position: 'absolute', 
-            inset: 0, 
-            background: 'radial-gradient(circle at bottom left, rgba(26, 115, 232, 0.4) 0%, transparent 50%), linear-gradient(to left, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.4) 100%)', 
-            zIndex: -1 
-          }} 
-        />
-
-        {/* Intro Elements (Logo + Captions) */}
-        <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', zIndex: 1, pointerEvents: 'none', width: '100vw' }}>
-          
-          {/* Static Logo during intro */}
-          <AnimatePresence>
-            {!isIntroFinished && isLoadingFinished && (
-              <motion.img 
-                src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png" 
-                alt="Hadron Logo" 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-                style={{ width: '180px', height: 'auto', marginBottom: '2rem' }}
-              />
-            )}
-          </AnimatePresence>
-
-          {/* Cycling Captions */}
-          <AnimatePresence mode="wait">
-            {!isIntroFinished && isLoadingFinished && activeCaptionIndex !== null && (
-              <motion.div
-                key={INTRO_CAPTIONS[activeCaptionIndex].key}
-                initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-              >
-                <h2 className={styles.introCaptionText}>{INTRO_CAPTIONS[activeCaptionIndex].node}</h2>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-        {/* Skip Button */}
-        <AnimatePresence>
-          {!isIntroFinished && (
-            <motion.button
-              className={styles.skipBtn}
-              onClick={handleSkip}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              Skip Intro ↗
-            </motion.button>
-          )}
-        </AnimatePresence>
 
         {/* Main Content Box */}
         <div className="container" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 2 }}>
-          <AnimatePresence>
-            {isIntroFinished && (
-              <motion.div 
-                className={styles.content}
-                initial={{ opacity: 0, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, filter: 'blur(0px)' }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-              >
-                {/* Headline */}
-                <h1 className={styles.headline}>
-                  <span className={styles.headlineLine}>Connecting Enterprise</span>
-                  <span className={styles.headlineLine}>Systems That Matter</span>
-                </h1>
+          <div className={styles.content}>
+            {/* Headline */}
+            <h1 className={styles.headline}>
+              <span className={styles.headlineLine}>Enterprise Platforms,</span>
+              <span className={styles.headlineLine}>
+                Made <span className={styles.headlineAccent}>Intelligent.</span>
+              </span>
+            </h1>
 
-                {/* Sub copy */}
-                <p className={styles.subCopy}>
-                  We consult, build, and manage enterprise platforms so digital and cloud systems run reliably every day.
-                </p>
+            {/* Sub copy */}
+            <p className={styles.subCopy}>
+              Hadron GBS helps enterprises turn AI into operational advantage. So your platforms don&apos;t just run; they predict, adapt, and improve.
+            </p>
 
-                {/* Action Row: CTAs */}
-                <div className={styles.actionRow}>
-                  {/* CTAs */}
-                  <div className={styles.ctaRow}>
-                    <a href="#services" id="hero-learn-more" className={styles.ctaGlass}>Learn More</a>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-        
-        {/* Loading Screen Overlay */}
-        <AnimatePresence>
-          {!isLoadingFinished && (
-            <motion.div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                backgroundColor: '#050508', // Deep cinematic black
-                zIndex: 100,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                overflow: 'hidden'
-              }}
-              exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
-            >
-              <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <motion.img 
-                  src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324497/favicon-hadron_g5wrvr.png"
-                  alt="Hadron Favicon"
-                  style={{ width: '48px', height: '48px', zIndex: 2 }}
-                  initial={{ marginRight: '-48px' }} // Start centered (overlapping text origin)
-                  animate={{ marginRight: '16px' }} // Slide left to create a gap
-                  transition={{ delay: 0.8, duration: 1, ease: [0.16, 1, 0.3, 1] }} 
-                />
-                <motion.span
-                  style={{ 
-                    color: 'white', 
-                    fontSize: '2.5rem', 
-                    fontWeight: 700, 
-                    letterSpacing: '-0.03em',
-                    zIndex: 1,
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden'
-                  }}
-                  initial={{ width: 0, opacity: 0, paddingLeft: 0 }}
-                  animate={{ width: 'auto', opacity: 1, paddingLeft: '8px' }}
-                  transition={{ delay: 0.85, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  Hadron GBS
-                </motion.span>
+            {/* Action Row: CTA */}
+            <div className={styles.actionRow}>
+              <div className={styles.ctaRow}>
+                <Link href="/contact" id="hero-book-assessment" className={styles.ctaGlass}>
+                  Book Free Assessment <span aria-hidden="true" style={{ marginLeft: '0.5rem' }}>&rarr;</span>
+                </Link>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </div>
+        </div>
 
       </section>
 
-      {/* Partner logos below the video box (always in layout so nothing shifts; fades in after the intro) */}
-      <motion.div
-        className={styles.marqueeSection}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isIntroFinished ? 1 : 0 }}
-        transition={{ duration: 1.2, delay: isIntroFinished ? 0.5 : 0 }}
-      >
+      {/* Partner logos below the video box */}
+      <div className={styles.marqueeSection}>
         <PartnerMarquee />
-      </motion.div>
+      </div>
     </div>
   );
 }

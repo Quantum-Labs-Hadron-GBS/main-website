@@ -490,6 +490,12 @@
   color: #F17943;
 }
 
+/* Hovering anywhere on the row (incl. the gap before the arrow) highlights the label too */
+.treeNodeHeader:hover .drawerLink {
+  color: #F17943;
+  padding-left: 0.625rem;
+}
+
 .treeChevron {
   transition: transform 0.3s ease;
 }

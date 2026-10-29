@@ -55,16 +55,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`} data-theme="light" suppressHydrationWarning>
       <body className="light-theme" suppressHydrationWarning>
-        {/* Anti-FOUC script for the Hero intro sequence */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (window.location.pathname === '/') {
-                document.body.classList.add('intro-running');
-              }
-            `
-          }}
-        />
         
         {/*
           GlobeWrapper handles route-based blurring of the globe canvas.
