@@ -142,7 +142,7 @@
 }
 
 .solutionsLeftTitle {
-  font-size: 1.8rem; /* Reduced from 2.2rem */
+  font-size: 2.1rem; /* Slightly larger for hierarchy */
   font-weight: 600;
   color: #1f2937;
   margin-bottom: 1rem;
@@ -206,28 +206,54 @@
   transform: scale(1.02);
 }
 
+/* Light panel behind the grid gives the list visual weight (same indigo/grey palette) */
 .solutionsListWrapper {
-  padding: 3.5rem;
-  background-color: #ffffff;
+  padding: 2.5rem;
+  background-color: #f6f7fb;
 }
 
 .solutionsList {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 3rem;
-  row-gap: 2.5rem;
+  gap: 1.25rem;
 }
 
 @media (max-width: 48rem) {
+  .solutionsListWrapper {
+    padding: 1.25rem;
+  }
   .solutionsList {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
 .solutionItem {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(79, 70, 229, 0.08);
+  border-radius: 0.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.solutionItem:hover {
+  border-color: rgba(79, 70, 229, 0.25);
+  box-shadow: 0 0.5rem 1.5rem rgba(79, 70, 229, 0.06);
+}
+
+/* Simple icon marker */
+.solutionIcon {
+  flex: 0 0 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.625rem;
+  background-color: rgba(79, 70, 229, 0.1);
+  color: #4f46e5;
 }
 
 .solutionNumber {
@@ -243,21 +269,19 @@
 }
 
 .solutionTitle {
-  font-weight: 500;
+  font-weight: 600;
   color: #4f46e5; /* Hadron Indigo */
-  font-size: 1rem;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(79, 70, 229, 0.3);
+  font-size: 1.0625rem;
+  line-height: 1.35;
   display: inline-block;
-  padding-bottom: 1px;
   cursor: default;
 }
 
 .solutionDesc {
   font-size: 0.9rem;
   color: #6b7280;
-  line-height: 1.5;
-  margin-top: 0.75rem;
+  line-height: 1.55;
+  margin-top: 0.5rem;
 }
 
 /* SERVICE FRAMEWORK (Dark Section) */
