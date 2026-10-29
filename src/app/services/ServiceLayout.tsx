@@ -46,6 +46,8 @@ export interface ServiceLayoutProps {
   heroVideoUrl?: string;
   heroVideoRotated?: boolean;
   solutionsImgUrl?: string;
+  /** CSS object-position for the offerings image crop (default "center") */
+  solutionsImgPosition?: string;
   solutions: SolutionItem[];
   framework: FrameworkItem[];
   whyHadron: WhyHadronItem[];
@@ -61,6 +63,7 @@ export default function ServiceLayout({
   heroVideoUrl,
   heroVideoRotated = false,
   solutionsImgUrl = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop", // vivid abstract blue wave default
+  solutionsImgPosition = "center",
   solutions,
   framework,
   whyHadron,
@@ -186,7 +189,7 @@ export default function ServiceLayout({
                       style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
                     >
                       <div className={styles.solutionsImageWrapper}>
-                        <img src={solutionsImgUrl} alt={`${title} Solutions - ServiceNow, Salesforce and Cloud Architecture - Hadron GBS`} className={styles.solutionsImage} />
+                        <img src={solutionsImgUrl} alt={`${title} Solutions - ServiceNow, Salesforce and Cloud Architecture - Hadron GBS`} className={styles.solutionsImage} style={{ objectPosition: solutionsImgPosition }} />
                       </div>
                       <div className={styles.solutionsListWrapper}>
                         <div className={styles.solutionsList}>
@@ -214,7 +217,7 @@ export default function ServiceLayout({
                       style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
                     >
                       <div className={styles.solutionsImageWrapper}>
-                        <img src={solutionsImgUrl} alt={`${title} Framework - Enterprise ServiceNow, BMC Helix & Cloud Delivery - Hadron GBS`} className={styles.solutionsImage} />
+                        <img src={solutionsImgUrl} alt={`${title} Framework - Enterprise ServiceNow, BMC Helix & Cloud Delivery - Hadron GBS`} className={styles.solutionsImage} style={{ objectPosition: solutionsImgPosition }} />
                       </div>
                       <div className={styles.solutionsListWrapper}>
                         <div className={styles.solutionsList}>
