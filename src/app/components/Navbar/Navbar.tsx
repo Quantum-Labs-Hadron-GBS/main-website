@@ -92,28 +92,39 @@ const menuItems = [
     gradient: "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
     groups: [
       {
-        title: "Enterprise Platforms",
+        title: "Service Management",
         items: [
           { label: "ServiceNow", href: "/platforms/service-now" },
           { label: "BMC Helix", href: "/platforms/bmc" },
-          { label: "Salesforce", href: "/platforms/salesforce" },
-          { label: "SAP", href: "/platforms/sap" },
-          { label: "Precision Bridge", href: "/platforms/service-now/precision-bridge" }
+          { label: "Ivanti", href: "/platforms/ivanti" }
         ]
       },
       {
-        title: "Cloud & Digital Platforms",
+        title: "Business Applications",
+        items: [
+          { label: "Salesforce", href: "/platforms/salesforce" },
+          { label: "SAP", href: "/platforms/sap" },
+          { label: "Freshworks", href: "/platforms/freshworks" }
+        ]
+      },
+      {
+        title: "Cloud & Collaboration",
         items: [
           { label: "Microsoft", href: "/platforms/microsoft" },
           { label: "AWS", href: "/platforms/aws" },
-          { label: "Atlassian", href: "/platforms/atlassian" },
-          { label: "Ivanti", href: "/platforms/ivanti" },
-          { label: "Freshworks", href: "/platforms/freshworks" }
+          { label: "Atlassian", href: "/platforms/atlassian" }
+        ]
+      },
+      {
+        title: "ServiceNow Accelerators",
+        items: [
+          { label: "Precision Bridge", href: "/platforms/service-now/precision-bridge" },
+          { label: "Tennon", href: "/platforms/service-now/tennon" }
         ]
       }
     ],
     featured: {
-      eyebrow: "ENTERPRISE PLATFORMS",
+      eyebrow: "TECHNOLOGY PARTNERS",
       title: "Platforms Ecosystem",
       description: "Architecture, implementation, and managed services across global technology platforms.",
       cta: "Explore All Platforms",

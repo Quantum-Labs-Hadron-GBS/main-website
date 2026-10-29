@@ -188,6 +188,7 @@
 .marqueeSection {
   width: 100%;
   flex-shrink: 0;
+  overflow: hidden; /* the logo track is ~4000px wide; never let it widen the page (breaks mobile) */
   padding: 1rem 0;
   background: transparent;
 }
