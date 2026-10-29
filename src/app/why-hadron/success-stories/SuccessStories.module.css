@@ -266,3 +266,14 @@
   background-color: #e06a24;
   transform: translateY(-2px);
 }
+
+/* Phones: 2 × 2 stats instead of a tall single column */
+@media (max-width: 48rem) {
+  .metricsSection {
+    padding: 2.5rem 0;
+  }
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+  }
+}
