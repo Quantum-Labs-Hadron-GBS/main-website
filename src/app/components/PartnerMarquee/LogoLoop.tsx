@@ -260,8 +260,7 @@ export const LogoLoop = memo(
             className="logoloop__link"
             href={item.href}
             aria-label={itemAriaLabel || 'logo link'}
-            target="_blank"
-            rel="noreferrer noopener"
+            {...(/^https?:\/\//.test(item.href) ? { target: "_blank", rel: "noreferrer noopener" } : {})}
           >
             {content}
           </a>

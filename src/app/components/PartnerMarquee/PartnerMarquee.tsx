@@ -18,8 +18,24 @@ const ALT_TEXT: Record<string, string> = {
   "Ivanti": "Ivanti Unified Endpoint Management & IT Asset Management Partner - Hadron GBS",
 };
 
+// Each logo links to its platform page
+const HREF: Record<string, string> = {
+  "ServiceNow": "/platforms/service-now",
+  "BMC Helix": "/platforms/bmc",
+  "Salesforce": "/platforms/salesforce",
+  "SAP": "/platforms/sap",
+  "Microsoft": "/platforms/microsoft",
+  "AWS": "/platforms/aws",
+  "Freshworks": "/platforms/freshworks",
+  "Atlassian": "/platforms/atlassian",
+  "Ivanti": "/platforms/ivanti",
+  "Precision Bridge": "/platforms/service-now/precision-bridge",
+};
+
 const logo = (name: string, src: string, height: string) => ({
   title: name,
+  href: HREF[name],
+  ariaLabel: `${name} services at Hadron GBS`,
   alt: ALT_TEXT[name] ?? `${name} Implementation Partner - Hadron GBS`,
   src,
   style: { height },
