@@ -13,10 +13,10 @@ export default function PlatformsHubPage() {
     {
       name: "ServiceNow",
       desc: "Hadron GBS is an awarded Consulting & Implementation partner for ServiceNow. We empower enterprises with ITSM, ITOM, CSM, HRSD, and cutting-edge Now Assist generative AI workflows.",
-      logo: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/ServiceNow-Logo_cqo5uy.png",
+      logo: "https://res.cloudinary.com/ax6dtcht/image/upload/e_trim/v1785327265/ServiceNow-Logo_cqo5uy.png",
       link: "/platforms/service-now",
       btnText: "Explore ServiceNow",
-      logoStyle: { maxHeight: "2.75rem", transform: "scale(1.15)", transformOrigin: "left center" }
+      logoStyle: { height: "1.75rem", width: "auto" }
     },
     {
       name: "Salesforce",
@@ -24,7 +24,7 @@ export default function PlatformsHubPage() {
       logo: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327266/Salesforce-Logo_j4dnwn.png",
       link: "/platforms/salesforce",
       btnText: "Explore Salesforce",
-      logoStyle: { maxHeight: "2.5rem" }
+      logoStyle: { height: "2.75rem", width: "auto" }
     },
     {
       name: "SAP",
@@ -32,31 +32,31 @@ export default function PlatformsHubPage() {
       logo: "/logos/sap-logo.svg",
       link: "/platforms/sap",
       btnText: "Explore SAP",
-      logoStyle: { maxHeight: "2.25rem" }
+      logoStyle: { height: "2.25rem", width: "auto" }
     },
     {
       name: "BMC Helix",
       desc: "Strategic delivery across BMC Helix ITSM, AIOps, and HelixGPT. We modernize enterprise service operations, automate remediation, and dramatically reduce operational MTTR.",
-      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1790836686/bmc-helix-logo_d38xak.png",
+      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/e_trim/v1790836686/bmc-helix-logo_d38xak.png",
       link: "/platforms/bmc",
       btnText: "Explore BMC Helix",
-      logoStyle: { maxHeight: "2.4rem" }
+      logoStyle: { height: "2rem", width: "auto" }
     },
     {
       name: "Microsoft",
       desc: "Certified Microsoft Solutions Partner delivering Azure cloud migrations, enterprise-grade identity and security, and Microsoft 365 Copilot AI integrations for modern collaboration.",
-      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736500/Microsoft_c53rme.webp",
+      logo: "/logos/microsoft-logo.svg",
       link: "/platforms/microsoft",
       btnText: "Explore Microsoft",
-      logoStyle: { maxHeight: "2.4rem" }
+      logoStyle: { height: "2rem", width: "auto" }
     },
     {
       name: "Amazon Web Services (AWS)",
       desc: "Strategic AWS partner delivering resilient cloud architectures, complex data lake engineering, and mission-critical enterprise workload migrations with built-in FinOps governance.",
-      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736501/aws_bbwpm7.png",
+      logo: "/logos/aws-logo.svg",
       link: "/platforms/aws",
       btnText: "Explore AWS",
-      logoStyle: { maxHeight: "2.4rem" }
+      logoStyle: { height: "2.25rem", width: "auto" }
     },
     {
       name: "Atlassian",
@@ -64,7 +64,7 @@ export default function PlatformsHubPage() {
       logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788789011/Atlassian_logo_kiayvy.png",
       link: "/platforms/atlassian",
       btnText: "Explore Atlassian",
-      logoStyle: { maxHeight: "2.2rem" }
+      logoStyle: { height: "2.25rem", width: "auto" }
     },
     {
       name: "Ivanti",
@@ -72,7 +72,7 @@ export default function PlatformsHubPage() {
       logo: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/Logo_Ivanti_rrsp6x.png",
       link: "/platforms/ivanti",
       btnText: "Explore Ivanti",
-      logoStyle: { maxHeight: "2.2rem" }
+      logoStyle: { height: "2rem", width: "auto" }
     },
     {
       name: "Freshworks",
@@ -80,7 +80,7 @@ export default function PlatformsHubPage() {
       logo: "https://res.cloudinary.com/ax6dtcht/image/upload/v1785327265/freshworks-logo_brandlogos.net_c6t5u_vu8yih.png",
       link: "/platforms/freshworks",
       btnText: "Explore Freshworks",
-      logoStyle: { maxHeight: "2.25rem" }
+      logoStyle: { height: "2rem", width: "auto" }
     },
     {
       name: "Precision Bridge",
@@ -88,7 +88,7 @@ export default function PlatformsHubPage() {
       logo: "/logos/precision-bridge-logo.png",
       link: "/platforms/service-now/precision-bridge",
       btnText: "Explore Precision Bridge",
-      logoStyle: { maxHeight: "2.5rem" }
+      logoStyle: { height: "2.25rem", width: "auto" }
     }
   ];
 

@@ -211,6 +211,7 @@
 
 .platformBtn {
   display: inline-flex;
+  white-space: nowrap; /* "Explore Precision Bridge" stayed wrapped on phones */
   align-items: center;
   gap: 0.75rem;
   background: transparent;
