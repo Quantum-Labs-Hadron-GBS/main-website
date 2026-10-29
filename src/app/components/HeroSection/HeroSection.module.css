@@ -141,6 +141,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap; /* keep "Book Free Assessment →" on one line on phones */
   padding: 0.8rem 2.5rem;
   background: rgba(244, 124, 54, 0.15); /* Orange glass */
   color: var(--accent); /* Orange text */
