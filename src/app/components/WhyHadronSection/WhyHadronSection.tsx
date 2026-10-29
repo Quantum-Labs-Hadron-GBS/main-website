@@ -216,7 +216,7 @@ export default function WhyHadronSection() {
           borderBottomRightRadius: '2.5rem'
         }}
       >
-        <div ref={headerRef} style={{ position: 'absolute', top: '12vh', left: '2rem', right: '2rem', zIndex: 20 }}>
+        <div ref={headerRef} style={{ position: 'absolute', top: '5rem', left: '2rem', right: '2rem', zIndex: 20 }}>
           <h2
             className="adv-title"
             style={{
@@ -251,7 +251,7 @@ export default function WhyHadronSection() {
             flex: 1,
             display: 'flex',
             alignItems: 'flex-end',
-            paddingBottom: '1.875rem'
+            paddingBottom: '5rem'
           }}
         >
           {/* Global Dashed Guideline passing perfectly through the origin dot */}

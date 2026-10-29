@@ -2,8 +2,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
-import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import styles from "./HeroSection.module.css";
 import PartnerMarquee from "../PartnerMarquee/PartnerMarquee";
 
@@ -21,54 +20,39 @@ export default function HeroSection() {
   const [isIntroFinished, setIsIntroFinished] = useState(false);
   const [isLoadingFinished, setIsLoadingFinished] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  const { scrollY } = useScroll();
-  const textY = useTransform(scrollY, [0, 800], ["0%", "-15%"]);
-  const textOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const marqueeY = useTransform(scrollY, [0, 800], ["0%", "-5%"]);
+  // True when the browser refuses to autoplay (e.g. Safari in macOS Low Power Mode)
+  const [videoBlocked, setVideoBlocked] = useState(false);
 
   // Loading Screen Timer & Video Trigger
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const hasPlayed = sessionStorage.getItem("introPlayed");
-      if (hasPlayed) {
-        setIsIntroFinished(true);
-        setIsLoadingFinished(true);
-        // Ensure video plays immediately on subsequent visits
-        if (videoRef.current) {
-          videoRef.current.play().catch(e => console.warn("Auto-play blocked:", e));
-        }
-        setTimeout(() => {
-          if (videoRef.current) {
-            videoRef.current.play().catch(e => console.warn("Auto-play blocked:", e));
-          }
-        }, 100);
-      } else {
-        const timer = setTimeout(() => {
-          setIsLoadingFinished(true);
-          if (videoRef.current) {
-            videoRef.current.play().catch(e => console.warn("Auto-play blocked:", e));
-          }
-        }, 2800); // 2.8s total loading screen duration
-        return () => clearTimeout(timer);
+    const timer = setTimeout(() => {
+      setIsLoadingFinished(true);
+      if (videoRef.current) {
+        videoRef.current.play().catch(e => {
+          console.warn("Auto-play blocked:", e);
+          setVideoBlocked(true);
+        });
       }
-    }
+    }, 2800); // 2.8s total loading screen duration
+    return () => clearTimeout(timer);
   }, []);
 
   const handleSkip = () => {
     setIsIntroFinished(true);
     setActiveCaptionIndex(null);
-    sessionStorage.setItem("introPlayed", "true");
   };
 
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    applyIntroTime(e.currentTarget.currentTime);
+  };
+
+  // Captions are keyed to the intro timeline (seconds since the video starts)
+  function applyIntroTime(time: number) {
     if (isIntroFinished) return;
-    const time = e.currentTarget.currentTime;
-    
+
     if (time >= 16.4) {
       setIsIntroFinished(true);
       setActiveCaptionIndex(null);
-      sessionStorage.setItem("introPlayed", "true");
     } else if (time >= 14.0) {
       setActiveCaptionIndex(5);
     } else if (time >= 10.8) {
@@ -82,7 +66,32 @@ export default function HeroSection() {
     } else {
       setActiveCaptionIndex(0);
     }
-  };
+  }
+
+  // Autoplay blocked: run the captions on a wall clock, and start the video on the first user gesture
+  useEffect(() => {
+    if (!videoBlocked || isIntroFinished) return;
+    const start = performance.now();
+    const elapsed = () => (performance.now() - start) / 1000;
+    const tick = setInterval(() => {
+      const video = videoRef.current;
+      if (video && !video.paused) return; // video took over; onTimeUpdate drives captions
+      applyIntroTime(elapsed());
+    }, 200);
+
+    const resume = () => {
+      const video = videoRef.current;
+      if (!video || !video.paused) return;
+      video.currentTime = elapsed(); // keep video in sync with the captions already shown
+      video.play().catch(() => {});
+    };
+    const events = ["pointerdown", "keydown", "touchstart", "wheel"] as const;
+    events.forEach((ev) => window.addEventListener(ev, resume, { passive: true }));
+    return () => {
+      clearInterval(tick);
+      events.forEach((ev) => window.removeEventListener(ev, resume));
+    };
+  }, [videoBlocked, isIntroFinished]);
 
   // Manage global body class for navbar hiding
   useEffect(() => {
@@ -91,11 +100,10 @@ export default function HeroSection() {
       
       // Failsafe timer: force the intro to end after 16.6s real-time, but only start counting after loading finishes
       let timer: NodeJS.Timeout;
-      if (isLoadingFinished && !sessionStorage.getItem("introPlayed")) {
+      if (isLoadingFinished) {
         timer = setTimeout(() => {
           setIsIntroFinished(true);
           setActiveCaptionIndex(null);
-          sessionStorage.setItem("introPlayed", "true");
         }, 16600);
       }
       return () => {
@@ -111,8 +119,9 @@ export default function HeroSection() {
       <section className={styles.hero} id="hero" aria-label="Hero">
         
         {/* Background Video */}
-        <motion.video
+        <video
           ref={videoRef}
+          data-no-parallax
           loop
           muted
           playsInline
@@ -127,10 +136,12 @@ export default function HeroSection() {
             height: '100%',
             objectFit: 'cover',
             zIndex: -2,
+            transform: 'translateZ(0)',
+            willChange: 'transform',
           }}
         >
           <source src="https://res.cloudinary.com/ax6dtcht/video/upload/v1786108868/Untitled_design_czx0vh.mp4" type="video/mp4" />
-        </motion.video>
+        </video>
 
         {/* Darkening Overlay for Video (appears after intro) */}
         <motion.div 
@@ -202,7 +213,7 @@ export default function HeroSection() {
         </AnimatePresence>
 
         {/* Main Content Box */}
-        <motion.div className="container" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 2, y: textY, z: 0, opacity: textOpacity, willChange: 'transform' }}>
+        <div className="container" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 2 }}>
           <AnimatePresence>
             {isIntroFinished && (
               <motion.div 
@@ -226,28 +237,14 @@ export default function HeroSection() {
                 <div className={styles.actionRow}>
                   {/* CTAs */}
                   <div className={styles.ctaRow}>
-                    <Link href="/services" id="hero-learn-more" className={styles.ctaGlass}>Explore Services</Link>
+                    <a href="#services" id="hero-learn-more" className={styles.ctaGlass}>Learn More</a>
                   </div>
                 </div>
               </motion.div>
             )}
           </AnimatePresence>
-        </motion.div>
+        </div>
         
-        {/* Marquee Section exactly 10px above bottom of Hero section */}
-        <AnimatePresence>
-          {isIntroFinished && (
-            <motion.div 
-              className={styles.marqueeSection}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.5 }}
-              style={{ y: marqueeY, z: 0 }}
-            >
-              <PartnerMarquee />
-            </motion.div>
-          )}
-        </AnimatePresence>
         {/* Loading Screen Overlay */}
         <AnimatePresence>
           {!isLoadingFinished && (
@@ -295,6 +292,16 @@ export default function HeroSection() {
         </AnimatePresence>
 
       </section>
+
+      {/* Partner logos below the video box (always in layout so nothing shifts; fades in after the intro) */}
+      <motion.div
+        className={styles.marqueeSection}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isIntroFinished ? 1 : 0 }}
+        transition={{ duration: 1.2, delay: isIntroFinished ? 0.5 : 0 }}
+      >
+        <PartnerMarquee />
+      </motion.div>
     </div>
   );
 }

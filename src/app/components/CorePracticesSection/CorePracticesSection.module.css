@@ -1,6 +1,6 @@
 .wrapper {
   background-color: #f8fafc; /* Match hero section background for seamless transition */
-  padding: 8rem 0;
+  padding: 5rem 0;
   position: relative;
   z-index: 6; /* Just above PartnerRingSection (5) */
 }
@@ -108,7 +108,6 @@
   display: flex;
   flex-direction: column;
   gap: 3rem; /* Increased gap since cards overlap */
-  padding-bottom: 2rem;
 }
 
 .card {

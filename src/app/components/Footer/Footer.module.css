@@ -2,7 +2,7 @@
   position: relative;
   border-top: 1px solid var(--border);
   overflow: hidden;
-  padding: 6rem 0 2.5rem;
+  padding: 5rem 0 2.5rem;
   transition: var(--theme-transition);
   background: #f1f5f9;
 }
