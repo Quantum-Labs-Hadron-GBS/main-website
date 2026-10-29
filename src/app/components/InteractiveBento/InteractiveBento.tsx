@@ -40,7 +40,7 @@ export default function InteractiveBento({ items }: { items?: BentoItem[] }) {
       {cardsToRender.map((card, i) => (
         <div key={i} className={styles.card}>
           <div className={styles.cardBg}>
-             <img src={card.img} alt={card.title} loading="lazy" />
+             <img src={card.img} alt={`${card.title} - ServiceNow, Salesforce, BMC Helix & Enterprise Cloud Transformation | Hadron GBS`} loading="lazy" />
           </div>
           <div className={styles.textBox}>
             <h3 className={styles.title}>{card.title}</h3>

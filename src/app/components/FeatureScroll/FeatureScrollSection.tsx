@@ -123,7 +123,7 @@ export default function FeatureScrollSection() {
                   <div className={styles.featureImageContainer}>
                     <img 
                       src={feature.img} 
-                      alt={feature.title} 
+                      alt={`${feature.title} - ServiceNow, BMC Helix, Salesforce, and Enterprise Digital Transformation - Hadron GBS`} 
                       className={styles.featureImage} 
                     />
                   </div>

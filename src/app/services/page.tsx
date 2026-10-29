@@ -59,7 +59,7 @@ const CAROUSEL_DATA = [
     title: "Precision Bridge",
     desc: "Automate complex data and workflow migrations to ServiceNow with zero data loss and complete relational integrity.",
     href: "/platforms/service-now/precision-bridge",
-    img: "https://images.squarespace-cdn.com/content/v1/6932bd55720baf7abaf81b66/eed84b94-0092-4c73-8089-a66ae2069f43/Precision+Bridge+2026+-+Landscape.png?format=500w",
+    img: "/logos/precision-bridge-logo.png",
     imgStyle: { backgroundColor: '#ffffff', objectFit: 'contain' as const, padding: '1.5rem' }
   },
   {
@@ -115,7 +115,7 @@ export default function ServicesPage() {
               <div key={i} className={styles.serviceGridCard}>
                 <img 
                   src={card.img} 
-                  alt={card.title} 
+                  alt={`${card.title} Enterprise Platform Implementation - Hadron GBS`} 
                   className={styles.serviceGridImage} 
                   style={card.imgStyle}
                 />
@@ -154,7 +154,7 @@ export default function ServicesPage() {
             </ul>
             <Link href="/contact" className={styles.ctaAction}>→ Schedule a Discovery Discussion</Link>
           </div>
-          <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726230/consulting_vvqqhe.jpg" alt="Consulting & Advisory Services" className={styles.detailImage} />
+          <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726230/consulting_vvqqhe.jpg" alt="Strategic Consulting & Advisory Services for ServiceNow, Salesforce, BMC Helix & SAP - Hadron GBS" className={styles.detailImage} />
         </div>
 
         {/* Service 2: Implementation */}
@@ -175,7 +175,7 @@ export default function ServicesPage() {
             </ul>
             <Link href="/contact" className={styles.ctaAction}>→ Request a Programme Review</Link>
           </div>
-          <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787725935/implementation_vde2yp.png" alt="Implementation & Execution" className={styles.detailImage} />
+          <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787725935/implementation_vde2yp.png" alt="Enterprise Implementation & Execution for ServiceNow, SAP, and Salesforce - Hadron GBS" className={styles.detailImage} />
         </div>
 
         {/* Service 3: Support */}
@@ -196,7 +196,7 @@ export default function ServicesPage() {
             </ul>
             <Link href="/contact" className={styles.ctaAction}>→ Start the Conversation</Link>
           </div>
-          <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726082/operational_servies_zfrag1.png" alt="Operational Support Services" className={styles.detailImage} />
+          <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726082/operational_servies_zfrag1.png" alt="Operational Support Services for ServiceNow, BMC Helix, and Cloud Platforms - Hadron GBS" className={styles.detailImage} />
         </div>
 
         {/* Service 4: Managed Services */}
@@ -217,7 +217,7 @@ export default function ServicesPage() {
             </ul>
             <Link href="/contact" className={styles.ctaAction}>→ Start the Conversation</Link>
           </div>
-          <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726177/Managed_Services_yh3ukg.png" alt="Managed Services" className={`${styles.detailImage} ${styles.managedServicesImage}`} />
+          <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787726177/Managed_Services_yh3ukg.png" alt="Enterprise Managed Services for ServiceNow, Salesforce, SAP, and AWS Cloud - Hadron GBS" className={`${styles.detailImage} ${styles.managedServicesImage}`} />
         </div>
 
         </div>

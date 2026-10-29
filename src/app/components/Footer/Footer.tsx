@@ -56,7 +56,7 @@ export default function Footer() {
             <div className={styles.brand}>
               <Image 
                 src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/Hadron-Logo_lt4uaa.png" 
-                alt="Hadron GBS" 
+                alt="Hadron GBS - Enterprise Solutions for ServiceNow, Salesforce, BMC Helix & SAP" 
                 width={160}
                 height={40}
                 className={styles.logoImage} 

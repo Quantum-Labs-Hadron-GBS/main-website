@@ -32,7 +32,7 @@ export default function VideosPage() {
         <section className={styles.heroBanner}>
           <img 
             src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop" 
-            alt="Videos Hero Background" 
+            alt="ServiceNow, Salesforce, BMC Helix, and Enterprise Architecture Knowledge Videos" 
             className={styles.heroBg} 
           />
           <div className={styles.heroOverlay}></div>

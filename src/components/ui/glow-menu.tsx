@@ -84,7 +84,7 @@ export function MenuBar({ items, activeItem, onItemClick, isLightMode = false, c
                 {item.isLogo && item.logoSrc ? (
                   <img 
                     src={item.logoSrc} 
-                    alt={item.label} 
+                    alt="Hadron GBS - Enterprise Solutions for ServiceNow, Salesforce, BMC Helix & SAP" 
                     style={{ 
                       height: '1.25rem', 
                       width: 'auto', 

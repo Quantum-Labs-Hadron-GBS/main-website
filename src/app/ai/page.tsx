@@ -65,7 +65,7 @@ export default function AIHubPage() {
         <section className={styles.heroBanner}>
           <img 
             src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" 
-            alt="AI Hero background" 
+            alt="AI Solutions for ServiceNow, Salesforce, BMC Helix, and SAP Enterprise Platforms - Hadron GBS" 
             className={styles.heroBg} 
           />
           <div className={styles.heroOverlay} style={{ background: 'linear-gradient(to right, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.7) 100%)' }}></div>
@@ -135,17 +135,17 @@ export default function AIHubPage() {
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                   <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                    <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.5rem 1rem', borderRadius: '0.5rem', fontWeight: 700, color: '#94a3b8' }}>1</div>
+                    <div style={{ background: '#F17943', padding: '0.5rem 1rem', borderRadius: '0.5rem', fontWeight: 700, color: '#ffffff' }}>1</div>
                     <div>
-                      <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#e2e8f0', marginBottom: '0.25rem' }}>Basic Automation</h4>
-                      <p style={{ color: '#94a3b8', margin: 0 }}>Rules-based systems that break when exceptions occur.</p>
+                      <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#ffffff', marginBottom: '0.25rem' }}>Basic Automation</h4>
+                      <p style={{ color: '#cbd5e1', margin: 0 }}>Rules-based systems that break when exceptions occur.</p>
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                    <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.5rem 1rem', borderRadius: '0.5rem', fontWeight: 700, color: '#38bdf8' }}>2</div>
+                    <div style={{ background: '#F17943', padding: '0.5rem 1rem', borderRadius: '0.5rem', fontWeight: 700, color: '#ffffff' }}>2</div>
                     <div>
-                      <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#e2e8f0', marginBottom: '0.25rem' }}>Intelligence</h4>
-                      <p style={{ color: '#94a3b8', margin: 0 }}>AI assists human workers by surfacing insights and summarizing data.</p>
+                      <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#ffffff', marginBottom: '0.25rem' }}>Intelligence</h4>
+                      <p style={{ color: '#cbd5e1', margin: 0 }}>AI assists human workers by surfacing insights and summarizing data.</p>
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
@@ -188,7 +188,7 @@ export default function AIHubPage() {
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                   >
                     <div className={styles.whyCardImgWrapper}>
-                      <img src={cap.img} alt={cap.title} className={styles.whyCardImg} />
+                      <img src={cap.img} alt={`${cap.title} - Enterprise AI for ServiceNow, Salesforce, BMC Helix & SAP - Hadron GBS`} className={styles.whyCardImg} />
                     </div>
                     <div className={styles.whyCardBody}>
                       <h3 className={styles.whyCardTitle}>{cap.title}</h3>

@@ -4,12 +4,23 @@ import LogoLoop from "./LogoLoop";
  * Logo display heights are calibrated to the natural aspect ratios of each image
  * so every logo appears visually balanced at the same optical weight.
  */
-// Same full-colour logo files and alt text as the partner ring on the main branch.
+// Same full-colour logo files as the partner ring on the main branch; SEO alt text from the team's preview work.
 // Cloudinary e_trim strips padding baked into some files so heights compare evenly.
 const trim = (url: string) => url.replace("/image/upload/", "/image/upload/e_trim/");
+const ALT_TEXT: Record<string, string> = {
+  "ServiceNow": "ServiceNow Elite Partner & Workflow Automation - Hadron GBS",
+  "BMC Helix": "BMC Helix ITSM, AIOps & Cloud Modernization Partner - Hadron GBS",
+  "Salesforce": "Salesforce CRM Consulting & Enterprise Implementation Partner - Hadron GBS",
+  "SAP": "SAP S/4HANA Migration & SuccessFactors Integration Partner - Hadron GBS",
+  "AWS": "Amazon Web Services (AWS) Resilient Cloud Infrastructure Partner - Hadron GBS",
+  "Microsoft": "Microsoft Azure Cloud & Copilot AI Solutions Partner - Hadron GBS",
+  "Freshworks": "Freshworks Freshservice & Customer Experience Implementation Partner - Hadron GBS",
+  "Ivanti": "Ivanti Unified Endpoint Management & IT Asset Management Partner - Hadron GBS",
+};
+
 const logo = (name: string, src: string, height: string) => ({
   title: name,
-  alt: `${name} Implementation Partner - Hadron GBS`,
+  alt: ALT_TEXT[name] ?? `${name} Implementation Partner - Hadron GBS`,
   src,
   style: { height },
 });
