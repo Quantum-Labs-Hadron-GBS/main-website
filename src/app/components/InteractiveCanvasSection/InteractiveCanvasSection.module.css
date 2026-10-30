@@ -110,7 +110,7 @@
 
 @media (max-width: 48rem) {
   .wrapper {
-    padding: 4rem 1.25rem;
+    padding: 2rem 1.25rem 4rem; /* sits closer to the hero on phones */
   }
   .header {
     margin-bottom: 2.5rem;

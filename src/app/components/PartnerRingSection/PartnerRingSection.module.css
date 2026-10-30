@@ -484,7 +484,12 @@
 
   .stickyContainer {
     position: relative;
-    height: calc(clamp(6.5rem, 14vh, 8rem) + 25.5rem + 10rem);
+    height: calc(clamp(6.5rem, 14vh, 8rem) + 25.5rem + 9rem);
+  }
+
+  /* Short fade so it no longer washes out the bottom orbit logos / "Partner with us" pill */
+  .stickyContainer::after {
+    height: 1.5rem;
   }
 
   .heroTextContainer {
@@ -531,5 +536,31 @@
     height: 21rem;
     margin-top: -10.5rem;
     margin-left: -10.5rem;
+  }
+}
+
+/* "Partner with us" CTA on the outer ring: a pill instead of a circle so the label stays on one line */
+.logoCard.partnerPill {
+  width: auto;
+  height: auto;
+  padding: 0.55rem 1rem;
+  border-radius: 9999px;
+}
+
+.partnerPillText {
+  white-space: nowrap;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #16325F;
+  line-height: 1;
+}
+
+@media (max-width: 48rem) {
+  .logoCard.partnerPill {
+    padding: 0.45rem 0.75rem;
+  }
+
+  .partnerPillText {
+    font-size: 0.75rem;
   }
 }

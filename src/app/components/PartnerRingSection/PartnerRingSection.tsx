@@ -248,13 +248,13 @@ export default function PartnerRingSection() {
                 </motion.div>
               </Link>
             </div>
-            {/* Center Right - Become a Partner */}
+            {/* Center Right - Partner CTA (single-line pill so it never wraps on phones) */}
             <div className={styles.logoWrapper} style={{ top: '50%', left: '100%', transform: 'translate(-50%, -50%)' }}>
               <Link href="/contact" style={{ textDecoration: 'none' }}>
                 <motion.div style={{ rotate: rotate3Rev }}>
                   <div style={{ transform: 'scaleY(1.428)' }}>
-                    <div className={styles.logoCard}>
-                      <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#16325F', textAlign: 'center', lineHeight: 1.2 }}>Become a<br/>Partner</span>
+                    <div className={`${styles.logoCard} ${styles.partnerPill}`}>
+                      <span className={styles.partnerPillText}>Partner with us</span>
                     </div>
                   </div>
                 </motion.div>
