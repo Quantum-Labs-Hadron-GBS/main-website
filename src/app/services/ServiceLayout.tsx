@@ -97,7 +97,7 @@ export default function ServiceLayout({
               className={heroVideoRotated ? styles.heroVideoRotated : styles.heroVideo}
             />
           ) : (
-            <img src={heroBgUrl} alt="Hero background" className={styles.heroBg} />
+            <img src={heroBgUrl} alt={`${title} - Enterprise Solutions for ServiceNow, Salesforce, BMC Helix & SAP - Hadron GBS`} className={styles.heroBg} />
           )}
           <div className={styles.heroOverlay}></div>
           <div className={`${styles.container} ${styles.heroContent}`}>
@@ -171,7 +171,7 @@ export default function ServiceLayout({
                       style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
                     >
                       <div className={styles.solutionsImageWrapper}>
-                        <img src={solutionsImgUrl} alt="Solutions banner" className={styles.solutionsImage} />
+                        <img src={solutionsImgUrl} alt={`${title} Solutions - ServiceNow, Salesforce and Cloud Architecture - Hadron GBS`} className={styles.solutionsImage} />
                       </div>
                       <div className={styles.solutionsListWrapper}>
                         <div className={styles.solutionsList}>
@@ -199,7 +199,7 @@ export default function ServiceLayout({
                       style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
                     >
                       <div className={styles.solutionsImageWrapper}>
-                        <img src={solutionsImgUrl} alt="Framework banner" className={styles.solutionsImage} />
+                        <img src={solutionsImgUrl} alt={`${title} Framework - Enterprise ServiceNow, BMC Helix & Cloud Delivery - Hadron GBS`} className={styles.solutionsImage} />
                       </div>
                       <div className={styles.solutionsListWrapper}>
                         <div className={styles.solutionsList}>
@@ -243,7 +243,7 @@ export default function ServiceLayout({
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                   >
                     <div className={styles.whyCardImgWrapper}>
-                      <img src={defaultWhyImages[i % defaultWhyImages.length]} alt={why.title} className={styles.whyCardImg} />
+                      <img src={defaultWhyImages[i % defaultWhyImages.length]} alt={`${why.title} - Enterprise ServiceNow, Salesforce & Cloud Solutions - Hadron GBS`} className={styles.whyCardImg} />
                     </div>
                     <div className={styles.whyCardBody}>
                       <h3 className={styles.whyCardTitle}>{why.title}</h3>

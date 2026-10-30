@@ -29,7 +29,7 @@ export default function PlatformsHubPage() {
     {
       name: "SAP",
       desc: "Driving intelligent enterprise transformations. We guide global organizations through seamless S/4HANA migrations, supply chain optimizations, and real-time core ERP data visibility.",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
+      logo: "/logos/sap-logo.svg",
       link: "/platforms/sap",
       btnText: "Explore SAP",
       logoStyle: { maxHeight: "2.25rem" }
@@ -85,7 +85,7 @@ export default function PlatformsHubPage() {
     {
       name: "Precision Bridge",
       desc: "Specialist implementation partner for Precision Bridge, automating complex, multi-million record data and workflow migrations to ServiceNow with zero data loss.",
-      logo: "https://images.squarespace-cdn.com/content/v1/6932bd55720baf7abaf81b66/eed84b94-0092-4c73-8089-a66ae2069f43/Precision+Bridge+2026+-+Landscape.png?format=500w",
+      logo: "/logos/precision-bridge-logo.png",
       link: "/platforms/service-now/precision-bridge",
       btnText: "Explore Precision Bridge",
       logoStyle: { maxHeight: "2.5rem" }
@@ -158,7 +158,7 @@ export default function PlatformsHubPage() {
                   <div className={styles.platformLogoWrapper}>
                     <img 
                       src={platform.logo} 
-                      alt={`${platform.name} Logo`} 
+                      alt={`${platform.name} Platform Architecture, Implementation & Solutions - ServiceNow, Salesforce & Cloud Partner Hadron GBS`} 
                       className={styles.platformLogo} 
                       style={platform.logoStyle || {}}
                     />

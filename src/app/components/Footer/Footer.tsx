@@ -3,13 +3,16 @@
 import { useState } from "react";
 import styles from "./Footer.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/why-hadron/about" },
   { label: "Services", href: "/services" },
   { label: "Partners", href: "/why-hadron/ecosystem-and-partners" },
-  { label: "Contact Us", href: "/contact" }
+  { label: "Contact Us", href: "/contact" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Refund and Cancellation Policy", href: "/refund-and-cancellation-policy" },
 ];
 
 const OFFICE_LOCATIONS = [
@@ -53,7 +56,7 @@ export default function Footer() {
             <div className={styles.brand}>
               <Image 
                 src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/Hadron-Logo_lt4uaa.png" 
-                alt="Hadron GBS" 
+                alt="Hadron GBS - Enterprise Solutions for ServiceNow, Salesforce, BMC Helix & SAP" 
                 width={160}
                 height={40}
                 className={styles.logoImage} 
@@ -99,7 +102,7 @@ export default function Footer() {
             <ul className={styles.linkList}>
               {QUICK_LINKS.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className={styles.footerLink}>{link.label}</a>
+                  <Link href={link.href} className={styles.footerLink}>{link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -125,9 +128,19 @@ export default function Footer() {
 
         {/* Bottom row */}
         <div className={styles.bottom}>
-          <span className={styles.copyright}>
-            © {year} Hadron - Global Business Solutions. All rights reserved.
-          </span>
+          <div className={styles.copyrightGroup}>
+            <span className={styles.copyright}>
+              © {year} Hadron - Global Business Solutions. All Rights Reserved
+            </span>
+            <span className={styles.legalSeparator}>|</span>
+            <Link href="/privacy-policy" className={styles.legalLink}>
+              Privacy Policy
+            </Link>
+            <span className={styles.legalSeparator}>|</span>
+            <Link href="/refund-and-cancellation-policy" className={styles.legalLink}>
+              Refund and Cancellation Policy
+            </Link>
+          </div>
           <div className={styles.socialLinks}>
             <a href="https://x.com/HadronGBS" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className={styles.socialIcon}>𝕏</a>
             <a href="https://www.linkedin.com/company/hadron-gbs/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={styles.socialIcon}>in</a>

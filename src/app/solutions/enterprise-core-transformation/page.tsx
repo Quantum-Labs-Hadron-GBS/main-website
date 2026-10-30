@@ -81,7 +81,7 @@ export default function EnterpriseCoreTransformationPage() {
               {/* Card 1 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258267/ET_1_ejq2ru.jpg" alt="Reimagining the Digital Core" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258267/ET_1_ejq2ru.jpg" alt="ServiceNow and SAP Enterprise Core Digital Transformation and Modernization" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -101,7 +101,7 @@ export default function EnterpriseCoreTransformationPage() {
               {/* Card 2 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258255/ET_3_ynndo7.png" alt="Intelligent Process Transformation" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258255/ET_3_ynndo7.png" alt="BMC Helix and ServiceNow Intelligent ITSM and Process Automation" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -121,7 +121,7 @@ export default function EnterpriseCoreTransformationPage() {
               {/* Card 3 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258256/ET_5_btgxff.png" alt="Customer-Centric CRM Modernization" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258256/ET_5_btgxff.png" alt="Salesforce CRM Modernization and Customer Experience Platform Integration" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -141,7 +141,7 @@ export default function EnterpriseCoreTransformationPage() {
               {/* Card 4 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258255/ET_4_omra8h.webp" alt="Cloud-Enabled Scalability and Agility" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258255/ET_4_omra8h.webp" alt="AWS and Azure Cloud-Enabled Scalability for Enterprise Platforms" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -161,7 +161,7 @@ export default function EnterpriseCoreTransformationPage() {
               {/* Card 5 */}
               <div className={styles.solutionCard}>
                 <div className={styles.cardImageContainer}>
-                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258267/ET_2_pdboju.jpg" alt="Data as a Strategic Asset" className={styles.cardImage} />
+                  <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788258267/ET_2_pdboju.jpg" alt="Enterprise Data Migration and Analytics for ServiceNow and Salesforce Ecosystems" className={styles.cardImage} />
                 </div>
                 <div className={styles.cardContent}>
                   <div className={styles.cardTitleWrapper}>
@@ -186,7 +186,7 @@ export default function EnterpriseCoreTransformationPage() {
             <div className={styles.infoContent}>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788259026/ET_M1_cdjlli.jpg" alt="Why Hadron GBS" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788259026/ET_M1_cdjlli.jpg" alt="Why Hadron GBS - Strategic Partner for ServiceNow, Salesforce, BMC Helix, and SAP Transformation" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className={styles.infoText}>
                 <h2 className={styles.infoTitle}>Why Hadron GBS for Enterprise Core Transformation</h2>
@@ -245,7 +245,7 @@ export default function EnterpriseCoreTransformationPage() {
               </div>
               {/* Image Placeholder */}
               <div className={styles.infoImageWrapper}>
-                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788259020/ET_M2_qtl4pc.jpg" alt="Measurable Business Impact" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://res.cloudinary.com/dyhlpxwwo/image/upload/v1788259020/ET_M2_qtl4pc.jpg" alt="Measurable Business ROI Across ServiceNow, Salesforce, and BMC Helix Implementations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
           </section>

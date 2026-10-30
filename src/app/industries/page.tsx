@@ -104,9 +104,9 @@ export default function IndustriesHubPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <a href="#industries" className={styles.heroButton}>
+              <Link href="/contact" className={styles.heroButton}>
                 Explore Our Industries
-              </a>
+              </Link>
             </motion.div>
           </div>
         </section>
@@ -195,7 +195,7 @@ export default function IndustriesHubPage() {
                     style={{ height: '100%', width: '100%' }}
                   >
                     <div className={styles.whyCardImgWrapper}>
-                      <img src={ind.img} alt={ind.title} className={styles.whyCardImg} />
+                      <img src={ind.img} alt={`${ind.title} - ServiceNow, Salesforce, BMC Helix & Cloud Solutions for Enterprise Industries - Hadron GBS`} className={styles.whyCardImg} />
                     </div>
                     <div className={styles.whyCardBody}>
                       <h3 className={styles.whyCardTitle}>{ind.title}</h3>

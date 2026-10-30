@@ -12,25 +12,25 @@ const EXCELLENCE = [
     title: "Experience",
     body: "Leading Business through expertise. We have a team of experienced and skilled professionals who have worked with a diverse range of clients across different industries.",
     image: img("v1788259026/ET_M1_cdjlli.jpg"),
-    alt: "Hadron GBS consultant leading a strategy session with an enterprise team",
+    alt: "Hadron GBS consultant leading a strategy session for ServiceNow and Salesforce enterprise transformation",
   },
   {
     title: "Quality",
     body: "Delivering exceptional results. We understand that quality is as important as timeliness for any business. Our team ensures that the solutions meet your expectations.",
     image: img("v1788330307/eng_m2_me3czz.avif"),
-    alt: "Engineer reviewing platform performance dashboards",
+    alt: "ServiceNow and BMC Helix platform quality engineering and performance dashboard review",
   },
   {
     title: "Value",
     body: "Smart investment for your business. We offer cost-effective solutions that meet your budget requirements and provide customized solutions that are efficient.",
     image: img("v1788269188/ai_m2_jffznd.png"),
-    alt: "Business growth analytics on a tablet",
+    alt: "Enterprise ROI and business value analytics for ServiceNow, Salesforce, and BMC Helix platforms",
   },
   {
     title: "Approach",
     body: "Solutions tailored to your unique needs. We take a personalized approach to every project and work closely with our clients to understand their specific needs.",
     image: img("v1788274434/rapid_m2_ztjofs.jpg"),
-    alt: "Hadron GBS team working closely with a client on project plans",
+    alt: "Hadron GBS architects collaborating on custom Salesforce, SAP, and AWS cloud migrations",
   },
 ];
 

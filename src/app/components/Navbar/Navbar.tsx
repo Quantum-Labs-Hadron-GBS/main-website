@@ -166,9 +166,15 @@ const menuItems = [
   }
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  isStatic?: boolean;
+}
+
+export default function Navbar({ isStatic: propIsStatic }: NavbarProps = {}) {
   const pathname = usePathname();
-  const isAlwaysLight = pathname === "/contact" || pathname === "/" || pathname === "/resources/webinars";
+  const isPolicyPage = pathname === "/privacy-policy" || pathname === "/refund-and-cancellation-policy";
+  const isStatic = propIsStatic ?? isPolicyPage;
+  const isAlwaysLight = pathname === "/contact" || pathname === "/" || pathname === "/resources/webinars" || isPolicyPage;
   const isMainPage = pathname === "/";
 
   const [activeItem, setActiveItem] = useState<string>("Home");
@@ -199,12 +205,18 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    if (!isDrawerOpen) {
+    if (isDrawerOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
       const timer = setTimeout(() => {
         setOpenTrees({});
       }, 250); // Wait for drawer closing animation
       return () => clearTimeout(timer);
     }
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isDrawerOpen]);
   
   // Use a ref for lastScrollY to avoid re-attaching the event listener on every scroll tick
@@ -232,10 +244,10 @@ export default function Navbar() {
       const hideThreshold = themeThreshold > 0 ? themeThreshold : 200;
       
       setScrolled(currentScrollY > 50);
-      setIsLightMode(isAlwaysLight || currentScrollY > themeThreshold);
+      setIsLightMode(isAlwaysLight || isStatic || currentScrollY > themeThreshold);
 
-      // Hide only if scrolling down AND past the threshold
-      if (currentScrollY > lastScrollY.current && currentScrollY > hideThreshold) {
+      // Hide only if scrolling down AND past the threshold (disabled if isStatic)
+      if (!isStatic && currentScrollY > lastScrollY.current && currentScrollY > hideThreshold) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
@@ -250,7 +262,7 @@ export default function Navbar() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isAlwaysLight, pathname]);
+  }, [isAlwaysLight, isStatic, pathname]);
 
   useEffect(() => {
     if (pathname === "/") {
@@ -274,7 +286,11 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`} role="banner" style={{ transform: isVisible ? 'translateY(0)' : 'translateY(-100%)' }}>
+      <header
+        className={`${styles.navbar} ${isStatic ? styles.navbarStatic : ""} ${scrolled ? styles.scrolled : ""}`}
+        role="banner"
+        style={{ transform: isStatic ? 'none' : (isVisible ? 'translateY(0)' : 'translateY(-100%)') }}
+      >
       <div className={styles.navContainer}>
 
         {/* Unique Orange Hamburger Menu Button */}
@@ -359,7 +375,7 @@ export default function Navbar() {
                       type="button"
                     >
                       <ChevronRight 
-                        size={18} 
+                        size={22} 
                         className={`${styles.treeChevron} ${isOpen ? styles.treeChevronOpen : ''}`} 
                       />
                     </button>
@@ -378,7 +394,7 @@ export default function Navbar() {
                     {/* Render mega menu groups */}
                     {item.groups && item.groups.map((group, gIdx) => (
                       <div key={gIdx} style={{ marginBottom: '1rem' }}>
-                        <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'rgba(150,150,150,0.8)', marginBottom: '0.5rem', fontWeight: 600 }}>{group.title}</div>
+                        <div className={styles.drawerGroupTitle}>{group.title}</div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                           {group.items.map((sub, idx) => (
                             <a key={idx} href={sub.href} className={styles.drawerSubLink} onClick={() => setIsDrawerOpen(false)}>

@@ -47,7 +47,7 @@ export default function AssetsOfExcellenceSection() {
               <div className={styles.imageWrapper}>
                 <Image 
                   src={asset.img} 
-                  alt={asset.title} 
+                  alt={`${asset.title} - ServiceNow, Salesforce, BMC Helix & SAP Enterprise Excellence - Hadron GBS`} 
                   fill 
                   style={{ objectFit: 'cover' }} 
                   loading="lazy"

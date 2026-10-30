@@ -29,9 +29,9 @@ interface PageSeo {
  */
 export const PAGES: Record<string, PageSeo> = {
   "/": {
-    title: "Hadron GBS | ServiceNow Partner & IT Consulting Company",
+    title: "Hadron GBS | Digital Transformation Partner & Enterprise AI",
     description:
-      "Hadron Global Business Solutions (Hadron GBS) is an IT consulting company and ServiceNow partner delivering AI, cloud and managed services for enterprises.",
+      "Hadron Global Business Solutions (Hadron GBS) is a digital transformation partner and Enterprise AI leader delivering cloud and managed services for enterprises.",
     label: "Home",
     priority: 1,
   },
@@ -343,6 +343,22 @@ export const PAGES: Record<string, PageSeo> = {
       "Contact Hadron GBS in Pune, Singapore and the USA. Book a free assessment for ServiceNow, AI, cloud and enterprise platform services.",
     label: "Contact Us",
     priority: 0.8,
+  },
+
+  // ── Legal & Policies ──
+  "/privacy-policy": {
+    title: "Privacy Policy",
+    description:
+      "Read the Privacy Policy of Hadron Global Business Solutions (Hadron GBS) to understand how we collect, use, and protect your personal information.",
+    label: "Privacy Policy",
+    priority: 0.5,
+  },
+  "/refund-and-cancellation-policy": {
+    title: "Refund and Cancellation Policy",
+    description:
+      "Read the Refund and Cancellation Policy of Hadron Global Business Solutions (Hadron GBS).",
+    label: "Refund & Cancellation Policy",
+    priority: 0.5,
   },
 };
 
