@@ -474,3 +474,62 @@
     height: 0.55rem;
   }
 }
+/* ── Phones (<= 768px): stacked layout — text on top, orbit centred below it ──
+   Ring sizes above were tuned for the old ~9.75px phone root; at the 16px root they ran into the text. */
+@media (max-width: 48rem) {
+  /* Size the hero to its content instead of 120vh, so there's no blank band under the orbit */
+  .wrapper {
+    height: auto;
+  }
+
+  .stickyContainer {
+    position: relative;
+    height: calc(clamp(6.5rem, 14vh, 8rem) + 25.5rem + 10rem);
+  }
+
+  .heroTextContainer {
+    top: clamp(6.5rem, 14vh, 8rem);
+    left: 1.25rem;
+    right: 1.25rem;
+    transform: none;
+    max-width: none;
+  }
+
+  .title {
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    max-width: 22rem;
+  }
+
+  .ringsWrapper {
+    /* orbit centre sits a fixed distance below the text block (text top + text height + gap + half orbit) */
+    top: calc(clamp(6.5rem, 14vh, 8rem) + 25.5rem);
+    left: 0;
+    right: auto;
+    transform: translateY(-50%) scaleY(0.68);
+  }
+
+  .ring1 {
+    width: 10rem;
+    height: 10rem;
+    margin-top: -5rem;
+    margin-left: -5rem;
+  }
+
+  .ring2 {
+    width: 15.5rem;
+    height: 15.5rem;
+    margin-top: -7.75rem;
+    margin-left: -7.75rem;
+  }
+
+  .ring3 {
+    width: 21rem;
+    height: 21rem;
+    margin-top: -10.5rem;
+    margin-left: -10.5rem;
+  }
+}
