@@ -30,6 +30,15 @@ npm run cf:preview   # build for Workers and run locally on Cloudflare's runtime
 npm run cf:deploy    # build and deploy to Cloudflare (needs `npx wrangler login` to the Cloudflare account)
 ```
 
+### Lock file and npm version
+
+Cloudflare's build image installs with **npm 10.9.2** (`npm clean-install`), which rejects lock files written by newer npm
+versions ("Missing: … from lock file"). After adding or upgrading packages, regenerate the lock file with:
+
+```bash
+npx -y npm@10.9.2 install --package-lock-only
+```
+
 ### Worker size
 
 The compressed Worker must stay under **3 MB on the Workers Free plan** (10 MB on Workers Paid). Check with:
