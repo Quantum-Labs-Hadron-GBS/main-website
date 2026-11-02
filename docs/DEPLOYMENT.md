@@ -17,7 +17,7 @@ How www.hadrongbs.com is hosted, who owns what, and how to deploy it.
 ## How the site runs
 
 - Next.js 16 app, built for Cloudflare Workers with the OpenNext adapter (`@opennextjs/cloudflare`).
-- Config: `wrangler.jsonc` (Worker name `hadron-gbs-website`) and `open-next.config.ts`.
+- Config: `wrangler.jsonc` (Worker name `main-website`, matching the Cloudflare dashboard) and `open-next.config.ts`.
 - Pages are prerendered and served from the Worker's static assets (`staticAssetsIncrementalCache`); there is no R2/KV cache to provision.
 - `CLOUDFLARE_BUILD=1` turns off Next.js image optimisation (Cloudinary URLs are already optimised), so no Cloudflare Images binding is needed.
 - API routes: `/api/contact` and `/api/apply` (send email through Resend).
