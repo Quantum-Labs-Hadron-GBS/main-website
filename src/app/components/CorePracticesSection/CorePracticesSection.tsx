@@ -7,9 +7,6 @@ import { ArrowRight } from "lucide-react";
 import styles from "./CorePracticesSection.module.css";
 import LazyVideo from "./LazyVideo";
 
-// Cloudinary: cards display up to ~900px wide, so serve up to 1280px (sharp on Retina) with
-// "good" auto quality; c_limit never upscales. ~6.8 MB for all six vs 18 MB originals.
-const cardVideo = (url: string) => url.replace("/video/upload/", "/video/upload/c_limit,w_1280,q_auto:good,vc_auto/");
 
 const SOLUTIONS = [
   {
@@ -131,7 +128,7 @@ export default function CorePracticesSection() {
             >
               <Link href={solution.href} className={styles.card}>
                 <div className={styles.cardMedia}>
-                  <LazyVideo src={cardVideo(solution.video)} className={styles.cardVideo} />
+                  <LazyVideo src={solution.video} className={styles.cardVideo} />
                 </div>
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{solution.title}</h3>
