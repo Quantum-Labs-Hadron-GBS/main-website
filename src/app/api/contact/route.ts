@@ -1,17 +1,41 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
-import { prisma } from "@/lib/prisma/db";
+
+// Escape visitor input before it goes into the notification email's HTML
+const esc = (v: unknown) =>
+  String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: NextRequest) {
   try {
-    // Created per request so builds don't require RESEND_API_KEY (e.g. Vercel preview env)
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    const body = await req.json();
-    const { name, email, phone, location, interestedService, message } = body;
+    const body = await req.json().catch(() => ({}));
+    const raw = body as Record<string, unknown>;
 
-    if (!name || !email || !message) {
+    // Honeypot: real visitors never see this field; pretend success so bots don't retry
+    if (raw.companyWebsite) {
+      return NextResponse.json({ success: true });
+    }
+
+    if (!raw.name || !raw.email || !raw.message) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
+    if (!EMAIL_RE.test(String(raw.email)) || String(raw.message).length > 5000 || String(raw.name).length > 200) {
+      return NextResponse.json({ error: "Invalid input" }, { status: 400 });
+    }
+
+    // Escaped copies for the email HTML/subject
+    const name = esc(raw.name);
+    const email = esc(raw.email);
+    const phone = raw.phone ? esc(raw.phone) : "";
+    const location = raw.location ? esc(raw.location) : "";
+    const interestedService = raw.interestedService ? esc(raw.interestedService) : "";
+    const message = esc(raw.message);
+
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not configured");
+      return NextResponse.json({ error: "Email service is not configured" }, { status: 503 });
+    }
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // 1. Send Direct Email to info & quantum.lab
     const { error: resendError } = await resend.emails.send({
@@ -78,21 +102,6 @@ export async function POST(req: NextRequest) {
     if (resendError) {
       console.error("Resend error:", resendError);
       return NextResponse.json({ error: "Failed to send email via Resend." }, { status: 500 });
-    }
-
-    // 2. Track a non-PII analytics event
-    try {
-      await prisma.analyticsEvent.create({
-        data: {
-          sessionId: req.headers.get("x-forwarded-for") || "unknown",
-          page: "/contact",
-          eventName: "CONTACT_FORM_SUBMITTED",
-          serviceView: interestedService || "General Inquiry",
-        }
-      });
-    } catch (dbErr) {
-      console.error("Analytics tracking failed:", dbErr);
-      // We don't fail the request if just the analytics tracker fails.
     }
 
     return NextResponse.json({ success: true });

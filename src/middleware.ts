@@ -1,47 +1,26 @@
 import { NextResponse } from "next/server";
-import { getToken } from "next-auth/jwt";
 import type { NextRequest } from "next/server";
 
-export async function middleware(req: NextRequest) {
-  const url = req.nextUrl;
-  const hostname = req.headers.get("host") || "";
-  let shouldRewrite = false;
+// The staff portal (portal.hadrongbs.com, NextAuth + RBAC) is not built yet; its middleware was removed
+// for launch to keep the Cloudflare Worker small. See git history and docs/ARCHITECTURE.md to restore it.
 
-  // 1. Rewrite `portal.hadrongbs.com` to `/portal`
-  if (hostname === "portal.hadrongbs.com" || hostname.startsWith("portal.")) {
-    if (!url.pathname.startsWith("/portal") && !url.pathname.startsWith("/api/auth")) {
-      url.pathname = `/portal${url.pathname === "/" ? "" : url.pathname}`;
-      shouldRewrite = true;
-    }
+export function middleware(req: NextRequest) {
+  const host = (req.headers.get("host") || "").split(":")[0];
+
+  // One canonical host: hadrongbs.com → www.hadrongbs.com (same as the old WordPress site, which Google indexed)
+  if (host === "hadrongbs.com") {
+    const url = req.nextUrl.clone();
+    url.protocol = "https";
+    url.host = "www.hadrongbs.com";
+    url.port = "";
+    return NextResponse.redirect(url, 308);
   }
 
-  // 2. Protect `/portal` routes
-  if (url.pathname.startsWith("/portal") && !url.pathname.startsWith("/portal/login")) {
-    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
-    
-    // Redirect to login if not authenticated
-    if (!token) {
-      const loginUrl = new URL("/portal/login", req.url);
-      loginUrl.searchParams.set("callbackUrl", req.url);
-      return NextResponse.redirect(loginUrl);
-    }
-    
-    // RBAC Check for Sales
-    if (url.pathname.startsWith("/portal/sales") && token.role !== "SALES" && token.role !== "ADMIN") {
-      return NextResponse.redirect(new URL("/portal/dashboard", req.url));
-    }
-    
-    // RBAC Check for HR
-    if (url.pathname.startsWith("/portal/hr") && token.role !== "HR" && token.role !== "ADMIN") {
-      return NextResponse.redirect(new URL("/portal/dashboard", req.url));
-    }
-  }
+  const res = NextResponse.next();
 
-  const res = shouldRewrite ? NextResponse.rewrite(url) : NextResponse.next();
-
-  // Keep preview/staging hosts (vercel.app, pages.dev, localhost…) out of Google so they
+  // Keep preview/staging hosts (workers.dev, vercel.app, localhost…) out of Google so they
   // don't compete with www.hadrongbs.com as duplicate content
-  if (!/(^|\.)hadrongbs\.com$/.test(hostname.split(":")[0])) {
+  if (!/(^|\.)hadrongbs\.com$/.test(host)) {
     res.headers.set("X-Robots-Tag", "noindex, nofollow");
   }
 

@@ -1,0 +1,30 @@
+# Hadron Global Business Solutions (Hadron GBS)
+
+> Hadron GBS is a ServiceNow partner and enterprise IT services company with offices in India (Pune), Singapore, the UAE (Dubai) and the USA (Dover, Delaware). It provides consulting, implementation, operational support and managed services across ServiceNow, BMC Helix, Salesforce, SAP, Microsoft, AWS, Ivanti, Atlassian and Freshworks, with a focus on enterprise AI, agentic AI and intelligent automation.
+
+Website: https://www.hadrongbs.com
+Contact: info@hadrongbs.com · https://www.hadrongbs.com/contact
+
+## Services
+- [Consulting & Advisory](https://www.hadrongbs.com/services/consulting-and-advisory): platform strategy, architecture, technology assessments and transformation advisory
+- [Implementation & Execution](https://www.hadrongbs.com/services/implementation-and-execution): architecture-led delivery of enterprise platforms with PMO governance
+- [Operational Support](https://www.hadrongbs.com/services/operational-support): L1–L3 support across ServiceNow, Salesforce and enterprise platforms
+- [Managed Services](https://www.hadrongbs.com/services/managed-services): application and platform managed services with SLA-driven support
+
+## Platforms
+- [ServiceNow](https://www.hadrongbs.com/platforms/service-now): ITSM, ITOM, CSM, HRSD and Now Assist AI implementations, migrations and managed services
+- [Precision Bridge](https://www.hadrongbs.com/platforms/service-now/precision-bridge): ServiceNow migration accelerator (e.g. from Cherwell and BMC)
+- [BMC Helix](https://www.hadrongbs.com/platforms/bmc), [Salesforce](https://www.hadrongbs.com/platforms/salesforce), [SAP](https://www.hadrongbs.com/platforms/sap), [Microsoft](https://www.hadrongbs.com/platforms/microsoft), [AWS](https://www.hadrongbs.com/platforms/aws), [Ivanti](https://www.hadrongbs.com/platforms/ivanti), [Atlassian](https://www.hadrongbs.com/platforms/atlassian), [Freshworks](https://www.hadrongbs.com/platforms/freshworks)
+
+## AI & Automation
+- [Generative AI](https://www.hadrongbs.com/ai/generative-ai), [Agentic AI](https://www.hadrongbs.com/ai/agentic-ai), [Intelligent Automation](https://www.hadrongbs.com/ai/intelligent-automation), [AI for Platforms](https://www.hadrongbs.com/ai/ai-enterprise-platforms), [AI Strategy & Readiness](https://www.hadrongbs.com/ai/ai-strategy)
+
+## Solutions
+- [AI-Powered Enterprise Transformation](https://www.hadrongbs.com/solutions/ai-powered-enterprise-transformation), [Enterprise Core Transformation](https://www.hadrongbs.com/solutions/enterprise-core-transformation), [Cloud Adoption](https://www.hadrongbs.com/solutions/cloud-adoption-and-cloud-first-engineering), [Rapid Application Engineering](https://www.hadrongbs.com/solutions/rapid-application-engineering), [Unified Service Experience](https://www.hadrongbs.com/solutions/unified-service-experience-management), [Engineering Quality & Reliability](https://www.hadrongbs.com/solutions/engineering-quality-and-reliability)
+
+## Company
+- [About Hadron GBS](https://www.hadrongbs.com/why-hadron/about)
+- [Technology Partners](https://www.hadrongbs.com/why-hadron/ecosystem-and-partners)
+- [Success Stories](https://www.hadrongbs.com/why-hadron/success-stories)
+- [ServiceNow Training & Internship Program](https://www.hadrongbs.com/resources/learning-center/excellence-hub)
+- [Careers](https://www.hadrongbs.com/careers)

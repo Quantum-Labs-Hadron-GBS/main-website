@@ -29,9 +29,9 @@ interface PageSeo {
  */
 export const PAGES: Record<string, PageSeo> = {
   "/": {
-    title: "Hadron GBS | Digital Transformation Partner & Enterprise AI",
+    title: "Hadron GBS | ServiceNow Partner, Enterprise AI & IT Services",
     description:
-      "Hadron Global Business Solutions (Hadron GBS) is a digital transformation partner and Enterprise AI leader delivering cloud and managed services for enterprises.",
+      "Hadron Global Business Solutions (Hadron GBS) is a ServiceNow partner and IT services company in India, Singapore, UAE & USA for enterprise AI, cloud and managed services.",
     label: "Home",
     priority: 1,
   },

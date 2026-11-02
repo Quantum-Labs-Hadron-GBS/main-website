@@ -2,8 +2,18 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import * as xlsx from "xlsx";
 
+// Escape applicant input before it goes into the notification email's HTML
+const esc = (v: unknown) =>
+  String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+const MAX_CV_BYTES = 5 * 1024 * 1024; // 5 MB
+const CV_TYPES = /\.(pdf|docx?|rtf|txt)$/i;
+
 export async function POST(req: NextRequest) {
   try {
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not configured");
+      return NextResponse.json({ error: "Email service is not configured" }, { status: 503 });
+    }
     const resend = new Resend(process.env.RESEND_API_KEY);
     const formData = await req.formData();
 
@@ -19,6 +29,9 @@ export async function POST(req: NextRequest) {
     let cvFilename = "Applicant_CV.pdf";
 
     if (cvFile && typeof cvFile !== "string") {
+      if (cvFile.size > MAX_CV_BYTES || !CV_TYPES.test(cvFile.name)) {
+        return NextResponse.json({ error: "CV must be a PDF, DOC, DOCX, RTF or TXT file under 5 MB." }, { status: 400 });
+      }
       const arrayBuffer = await cvFile.arrayBuffer();
       cvBuffer = Buffer.from(arrayBuffer);
       cvFilename = cvFile.name;
@@ -141,14 +154,14 @@ export async function POST(req: NextRequest) {
     const { error: resendError } = await resend.emails.send({
       from: "Hadron Careers <noreply@hadrongbs.com>",
       to: ["quantum.lab@hadrongbs.com"],
-      subject: `New Job Application: ${applicantData.fullName || "Applicant"} - ${applicantData.position || ""}`,
+      subject: `New Job Application: ${esc(applicantData.fullName) || "Applicant"} - ${esc(applicantData.position)}`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
           <h2>New Job Application Received</h2>
-          <p><strong>Applicant Name:</strong> ${applicantData.fullName}</p>
-          <p><strong>Position:</strong> ${applicantData.position}</p>
-          <p><strong>Technology:</strong> ${applicantData.technology}</p>
-          <p><strong>Experience:</strong> ${applicantData.totalExp} years</p>
+          <p><strong>Applicant Name:</strong> ${esc(applicantData.fullName)}</p>
+          <p><strong>Position:</strong> ${esc(applicantData.position)}</p>
+          <p><strong>Technology:</strong> ${esc(applicantData.technology)}</p>
+          <p><strong>Experience:</strong> ${esc(applicantData.totalExp)} years</p>
           <hr />
           <p>Please find the attached Excel sheet containing the full application details, along with the applicant's CV.</p>
         </div>
@@ -165,6 +178,6 @@ export async function POST(req: NextRequest) {
 
   } catch (error: any) {
     console.error("Application submission error:", error);
-    return NextResponse.json({ error: error.message || "Internal Server Error", details: error.toString() }, { status: 500 });
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
