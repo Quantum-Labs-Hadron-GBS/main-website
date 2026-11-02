@@ -41,7 +41,7 @@
 
 .tagline {
   font-size: 0.95rem;
-  color: var(--fg-subtle);
+  color: #475569; /* darker than --fg-subtle for WCAG AA contrast on the light footer */
   letter-spacing: 0.02em;
   max-width: 32.5rem;
   line-height: 1.75;
@@ -111,7 +111,7 @@
 
 .copyright {
   font-size: 0.78rem;
-  color: var(--fg-subtle);
+  color: #475569; /* darker than --fg-subtle for WCAG AA contrast on the light footer */
   letter-spacing: 0.04em;
 }
 
@@ -123,7 +123,7 @@
 
 .legalLink {
   font-size: 0.78rem;
-  color: var(--fg-subtle);
+  color: #475569; /* darker than --fg-subtle for WCAG AA contrast on the light footer */
   text-decoration: none;
   transition: color 200ms ease;
   letter-spacing: 0.02em;

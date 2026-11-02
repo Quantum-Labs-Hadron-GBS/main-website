@@ -83,6 +83,7 @@ export default function Footer() {
                 {OFFICE_LOCATIONS[activeMapIndex]?.mapUrl && (
                   <iframe
                     key={OFFICE_LOCATIONS[activeMapIndex].title}
+                    title={`Map of the Hadron GBS ${OFFICE_LOCATIONS[activeMapIndex].title} office`}
                     src={OFFICE_LOCATIONS[activeMapIndex].mapUrl}
                     width="100%"
                     height="260"

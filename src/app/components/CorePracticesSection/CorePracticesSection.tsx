@@ -5,6 +5,8 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import styles from "./CorePracticesSection.module.css";
+import LazyVideo from "./LazyVideo";
+
 
 const SOLUTIONS = [
   {
@@ -126,14 +128,7 @@ export default function CorePracticesSection() {
             >
               <Link href={solution.href} className={styles.card}>
                 <div className={styles.cardMedia}>
-                  <video preload="auto"
-                    src={solution.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className={styles.cardVideo}
-                  />
+                  <LazyVideo src={solution.video} className={styles.cardVideo} />
                 </div>
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{solution.title}</h3>
