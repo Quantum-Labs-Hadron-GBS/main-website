@@ -1,13 +1,12 @@
 .section {
   position: relative;
   background-color: #ffffff;
-  padding-top: 6rem; /* Ensure strict top spacing so it never hits the section above */
-  padding-bottom: 4rem;
+  padding-top: 5rem; /* Same section rhythm as the rest of the homepage */
+  padding-bottom: 0; /* The CTA below supplies the 5rem gap */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Stop centering from pushing tall content upwards off screen */
-  min-height: 100vh;
 }
 
 .header {
@@ -143,4 +142,10 @@
   .marqueeRowWrapper::after {
     width: 2.5rem;
   }
+}
+
+/* Last row: keep just enough room for the hover lift so the gap to the CTA matches the section rhythm */
+.marqueeRowWrapper:last-child .marqueeTrackNormal,
+.marqueeRowWrapper:last-child .marqueeTrackReverse {
+  padding-bottom: 0.5rem;
 }

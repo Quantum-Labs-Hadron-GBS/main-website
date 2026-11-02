@@ -23,7 +23,11 @@ import { getOrganizationSchema, getWebSiteSchema, getLocalBusinessSchema } from 
 
 // Site-wide defaults. Each route sets its own title/description/canonical via pageMetadata() in lib/seo.ts.
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(
+    process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production" && process.env.VERCEL_BRANCH_URL
+      ? `https://${process.env.VERCEL_BRANCH_URL}`
+      : SITE_URL
+  ),
   title: {
     default: PAGES["/"].title,
     template: `%s | ${SITE_SHORT_NAME}`,
@@ -55,7 +59,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`} data-theme="light" suppressHydrationWarning>
       <body className="light-theme" suppressHydrationWarning>
-        {/* Legacy Hero intro script removed as PartnerRingSection does not use it */}
         
         {/*
           GlobeWrapper handles route-based blurring of the globe canvas.

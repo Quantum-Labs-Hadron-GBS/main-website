@@ -115,7 +115,7 @@ export default function IndustriesHubPage() {
         <section style={{ padding: '6rem 0', backgroundColor: '#ffffff' }}>
           <div className={styles.container}>
             <div style={{ textAlign: 'center', marginBottom: '4rem', maxWidth: '50rem', margin: '0 auto 4rem auto' }}>
-              <h2 style={{ fontSize: '2.5rem', color: '#16325F', fontWeight: 700, marginBottom: '1rem' }}>
+              <h2 style={{ fontSize: 'clamp(1.75rem, 6vw, 2.5rem)', lineHeight: 1.2, color: '#16325F', fontWeight: 700, marginBottom: '1rem' }}>
                 Deep Domain Expertise Meets Platform Engineering
               </h2>
               <p style={{ fontSize: '1.25rem', color: '#4b5563', lineHeight: 1.6 }}>

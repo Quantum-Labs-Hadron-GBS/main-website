@@ -5,7 +5,7 @@ import { pageMetadata } from "./lib/seo";
 
 export const metadata = pageMetadata("/");
 
-import PartnerRingSection from "./components/PartnerRingSection/PartnerRingSection";
+import HeroSection from "./components/HeroSection/HeroSection";
 
 // Below-fold sections — loaded after initial paint
 const CorePracticesSection    = dynamic(() => import("./components/CorePracticesSection/CorePracticesSection"));
@@ -20,8 +20,8 @@ export default function HomePage() {
     <main className={`${styles.main} light-theme`}>
       <Navbar />
 
-      {/* ── ALPY-STYLE PARTNER RING (NEW HERO) ── */}
-      <PartnerRingSection />
+      {/* ── HERO (design from commit 39f14ae) ── */}
+      <HeroSection />
 
       {/* ── INTERACTIVE CANVAS SECTION (NEW) ── */}
       <InteractiveCanvasSection />

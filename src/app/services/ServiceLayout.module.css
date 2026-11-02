@@ -277,6 +277,20 @@
   cursor: default;
 }
 
+.solutionBullets {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+.solutionBullets li::marker {
+  color: #4f46e5;
+}
+
 .solutionDesc {
   font-size: 0.9rem;
   color: #6b7280;

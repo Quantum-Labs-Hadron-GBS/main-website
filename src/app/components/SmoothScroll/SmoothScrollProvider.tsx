@@ -55,7 +55,7 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
         videos.forEach((video) => {
           // Only apply if it looks like a background video (absolute positioning)
           const computedStyle = window.getComputedStyle(video);
-          if (computedStyle.position === 'absolute' || computedStyle.position === 'fixed') {
+          if ((computedStyle.position === 'absolute' || computedStyle.position === 'fixed') && !video.hasAttribute('data-no-parallax')) {
             gsap.to(video, {
               y: "15%",
               ease: "none",

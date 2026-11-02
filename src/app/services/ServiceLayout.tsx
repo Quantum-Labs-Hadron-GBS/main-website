@@ -8,6 +8,20 @@ import styles from "./ServiceLayout.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
+// Descriptions sometimes carry inline "•" bullets; render them as a real list for readability
+function Desc({ text, className, listClassName }: { text: string; className: string; listClassName: string }) {
+  const [intro, ...points] = text.split(/\s*•\s*/);
+  if (!points.length) return <span className={className}>{text}</span>;
+  return (
+    <>
+      {intro && <span className={className}>{intro}</span>}
+      <ul className={listClassName}>
+        {points.map((pt, i) => <li key={i}>{pt}</li>)}
+      </ul>
+    </>
+  );
+}
+
 export interface SolutionItem {
   title: string;
   desc: string;
@@ -32,6 +46,8 @@ export interface ServiceLayoutProps {
   heroVideoUrl?: string;
   heroVideoRotated?: boolean;
   solutionsImgUrl?: string;
+  /** CSS object-position for the offerings image crop (default "center") */
+  solutionsImgPosition?: string;
   solutions: SolutionItem[];
   framework: FrameworkItem[];
   whyHadron: WhyHadronItem[];
@@ -47,6 +63,7 @@ export default function ServiceLayout({
   heroVideoUrl,
   heroVideoRotated = false,
   solutionsImgUrl = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop", // vivid abstract blue wave default
+  solutionsImgPosition = "center",
   solutions,
   framework,
   whyHadron,
@@ -172,7 +189,7 @@ export default function ServiceLayout({
                       style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
                     >
                       <div className={styles.solutionsImageWrapper}>
-                        <img src={solutionsImgUrl} alt={`${title} Solutions - ServiceNow, Salesforce and Cloud Architecture - Hadron GBS`} className={styles.solutionsImage} />
+                        <img src={solutionsImgUrl} alt={`${title} Solutions - ServiceNow, Salesforce and Cloud Architecture - Hadron GBS`} className={styles.solutionsImage} style={{ objectPosition: solutionsImgPosition }} />
                       </div>
                       <div className={styles.solutionsListWrapper}>
                         <div className={styles.solutionsList}>
@@ -181,7 +198,7 @@ export default function ServiceLayout({
                               <span className={styles.solutionIcon} aria-hidden="true"><CheckCircle2 size={18} strokeWidth={2} /></span>
                               <div className={styles.solutionTextWrapper}>
                                 <span className={styles.solutionTitle}>{sol.title}</span>
-                                <span className={styles.solutionDesc}>{sol.desc}</span>
+                                <Desc text={sol.desc} className={styles.solutionDesc} listClassName={styles.solutionBullets} />
                               </div>
                             </div>
                           ))}
@@ -200,7 +217,7 @@ export default function ServiceLayout({
                       style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
                     >
                       <div className={styles.solutionsImageWrapper}>
-                        <img src={solutionsImgUrl} alt={`${title} Framework - Enterprise ServiceNow, BMC Helix & Cloud Delivery - Hadron GBS`} className={styles.solutionsImage} />
+                        <img src={solutionsImgUrl} alt={`${title} Framework - Enterprise ServiceNow, BMC Helix & Cloud Delivery - Hadron GBS`} className={styles.solutionsImage} style={{ objectPosition: solutionsImgPosition }} />
                       </div>
                       <div className={styles.solutionsListWrapper}>
                         <div className={styles.solutionsList}>
@@ -209,7 +226,7 @@ export default function ServiceLayout({
                               <span className={styles.solutionIcon} aria-hidden="true"><CheckCircle2 size={18} strokeWidth={2} /></span>
                               <div className={styles.solutionTextWrapper}>
                                 <span className={styles.solutionTitle}>{step.title}</span>
-                                <span className={styles.solutionDesc}>{step.desc}</span>
+                                <Desc text={step.desc} className={styles.solutionDesc} listClassName={styles.solutionBullets} />
                                 <span className={styles.solutionDesc} style={{ fontWeight: 600, color: '#1e3a8a', marginTop: '0.5rem' }}>
                                   Outcome: <span style={{ fontWeight: 400, color: '#6b7280' }}>{step.outcome}</span>
                                 </span>
