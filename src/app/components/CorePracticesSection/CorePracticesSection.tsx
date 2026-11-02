@@ -5,6 +5,10 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import styles from "./CorePracticesSection.module.css";
+import LazyVideo from "./LazyVideo";
+
+// Cloudinary: serve card videos at the size they're shown (~400px wide), auto quality/codec
+const cardVideo = (url: string) => url.replace("/video/upload/", "/video/upload/q_auto,vc_auto,w_640/");
 
 const SOLUTIONS = [
   {
@@ -126,14 +130,7 @@ export default function CorePracticesSection() {
             >
               <Link href={solution.href} className={styles.card}>
                 <div className={styles.cardMedia}>
-                  <video preload="auto"
-                    src={solution.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className={styles.cardVideo}
-                  />
+                  <LazyVideo src={cardVideo(solution.video)} className={styles.cardVideo} />
                 </div>
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{solution.title}</h3>
