@@ -7,8 +7,9 @@ import { ArrowRight } from "lucide-react";
 import styles from "./CorePracticesSection.module.css";
 import LazyVideo from "./LazyVideo";
 
-// Cloudinary: serve card videos at the size they're shown (~400px wide), auto quality/codec
-const cardVideo = (url: string) => url.replace("/video/upload/", "/video/upload/q_auto,vc_auto,w_640/");
+// Cloudinary: cards display up to ~900px wide, so serve up to 1280px (sharp on Retina) with
+// "good" auto quality; c_limit never upscales. ~6.8 MB for all six vs 18 MB originals.
+const cardVideo = (url: string) => url.replace("/video/upload/", "/video/upload/c_limit,w_1280,q_auto:good,vc_auto/");
 
 const SOLUTIONS = [
   {
