@@ -47,3 +47,8 @@ next-env.d.ts
 *.sqlite
 *.sqlite-journal
 *.log
+
+# cloudflare / opennext
+/.open-next/
+/.wrangler/
+.dev.vars*

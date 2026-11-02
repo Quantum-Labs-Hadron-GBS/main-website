@@ -8,7 +8,7 @@ import LogoLoop from "./LogoLoop";
 // Cloudinary e_trim strips padding baked into some files so heights compare evenly.
 const trim = (url: string) => url.replace("/image/upload/", "/image/upload/e_trim/");
 const ALT_TEXT: Record<string, string> = {
-  "ServiceNow": "ServiceNow Elite Partner & Workflow Automation - Hadron GBS",
+  "ServiceNow": "ServiceNow Consulting & Implementation Partner - Hadron GBS",
   "BMC Helix": "BMC Helix ITSM, AIOps & Cloud Modernization Partner - Hadron GBS",
   "Salesforce": "Salesforce CRM Consulting & Enterprise Implementation Partner - Hadron GBS",
   "SAP": "SAP S/4HANA Migration & SuccessFactors Integration Partner - Hadron GBS",

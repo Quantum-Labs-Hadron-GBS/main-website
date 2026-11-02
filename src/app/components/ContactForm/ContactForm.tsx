@@ -29,7 +29,13 @@ export default function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          // Honeypot: hidden from people, often filled in by spam bots
+          companyWebsite: (e.currentTarget as HTMLFormElement).elements.namedItem("companyWebsite") instanceof HTMLInputElement
+            ? ((e.currentTarget as HTMLFormElement).elements.namedItem("companyWebsite") as HTMLInputElement).value
+            : "",
+        }),
       });
 
       if (!response.ok) {
@@ -59,6 +65,11 @@ export default function ContactForm() {
       <p className={styles.subtitle}>Our enterprise team will get back to you shortly.</p>
 
       <form onSubmit={handleSubmit}>
+        {/* Honeypot field for spam bots (same approach as the careers form) */}
+        <div style={{ position: 'absolute', opacity: 0, top: '-9999px', left: '-9999px' }} aria-hidden="true">
+          <label htmlFor="contactCompanyWebsite">Company Website</label>
+          <input type="text" id="contactCompanyWebsite" name="companyWebsite" tabIndex={-1} autoComplete="off" defaultValue="" />
+        </div>
         <div className={styles.row}>
           <div className={styles.formGroup}>
             <label htmlFor="name" className={styles.label}>Your Name <span style={{ color: '#F17943' }}>*</span></label>

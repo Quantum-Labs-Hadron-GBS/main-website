@@ -78,6 +78,9 @@ const LEGACY_REDIRECTS: [string, string][] = [
 
 const nextConfig: NextConfig = {
   images: {
+    // On Cloudflare Workers, serve images as-is: Cloudinary URLs already carry f_auto/q_auto/size
+    // transforms, and this avoids needing a paid Cloudflare Images binding.
+    unoptimized: process.env.CLOUDFLARE_BUILD === "1",
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 86400,
     remotePatterns: [
@@ -90,6 +93,21 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
+  },
+  // Baseline security headers for every response
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "Strict-Transport-Security", value: "max-age=31536000" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
+        ],
+      },
+    ];
   },
   async redirects() {
     return [
