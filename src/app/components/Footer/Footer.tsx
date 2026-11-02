@@ -16,27 +16,27 @@ const QUICK_LINKS = [
 ];
 
 const OFFICE_LOCATIONS = [
-  { 
-    title: "USA", 
-    name: "Hadron GBS Inc.", 
+  {
+    title: "USA",
+    name: "Hadron GBS Inc.",
     address: "8 The Green, Ste R, Dover, DE 19901, USA",
     mapUrl: "https://maps.google.com/maps?q=8%20The%20Green,%20Dover,%20DE&t=&z=14&ie=UTF8&iwloc=&output=embed"
   },
-  { 
-    title: "Singapore", 
-    name: "Hadron GBS Pte Ltd", 
+  {
+    title: "Singapore",
+    name: "Hadron GBS Pte Ltd",
     address: "7 Temasek Boulevard, Suntec Tower One, Singapore 038987",
     mapUrl: "https://maps.google.com/maps?q=7%20Temasek%20Boulevard,%20Suntec%20Tower%20One,%20Singapore&t=&z=14&ie=UTF8&iwloc=&output=embed"
   },
-  { 
-    title: "UAE", 
-    name: "HADRON TECHNOLOGIES LLC", 
+  {
+    title: "UAE",
+    name: "HADRON TECHNOLOGIES LLC",
     address: "303, Westburry Tower 1, Business Bay, Dubai, UAE",
     mapUrl: "https://maps.google.com/maps?q=Westburry%20Tower%201,%20Business%20Bay,%20Dubai&t=&z=14&ie=UTF8&iwloc=&output=embed"
   },
-  { 
-    title: "India", 
-    name: "Hadron Global Business Solutions Pvt Ltd", 
+  {
+    title: "India",
+    name: "Hadron Global Business Solutions Pvt Ltd",
     address: "Pyramid Axis 10th Floor, Veerbhadra Nagar, Baner, Pune, Maharashtra 411045",
     mapUrl: "https://maps.google.com/maps?q=Hadron%20GBS%20India%20Office&t=&z=14&ie=UTF8&iwloc=&output=embed"
   }
@@ -54,23 +54,23 @@ export default function Footer() {
           {/* Brand & Map */}
           <div className={styles.brandCol}>
             <div className={styles.brand}>
-              <Image 
-                src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/Hadron-Logo_lt4uaa.png" 
-                alt="Hadron GBS - Enterprise Solutions for ServiceNow, Salesforce, BMC Helix & SAP" 
+              <Image
+                src="https://res.cloudinary.com/ax6dtcht/image/upload/v1785324498/Hadron-Logo_lt4uaa.png"
+                alt="Hadron GBS - Enterprise Solutions for ServiceNow, Salesforce, BMC Helix & SAP"
                 width={160}
                 height={40}
-                className={styles.logoImage} 
+                className={styles.logoImage}
                 loading="lazy"
               />
               <p className={styles.tagline}>
-                We work with a passion of taking challenges and Investing in building new capabilities. We are serving the best output with confidence and responsibility. We deliver powerful solutions that drive business growth and success.
+                We work with a passion of taking challenges and investing in building new capabilities. We are serving the best output with confidence and responsibility. We deliver powerful solutions that drive business growth and success.
               </p>
             </div>
-            
+
             <div className={styles.mapSection}>
               <div className={styles.mapTabs}>
                 {OFFICE_LOCATIONS.filter(loc => loc.mapUrl).map((loc, i) => (
-                  <button 
+                  <button
                     key={loc.title}
                     onClick={() => setActiveMapIndex(OFFICE_LOCATIONS.indexOf(loc))}
                     className={`${styles.mapTab} ${OFFICE_LOCATIONS.indexOf(loc) === activeMapIndex ? styles.mapTabActive : ''}`}
@@ -81,14 +81,14 @@ export default function Footer() {
               </div>
               <div className={styles.mapContainer}>
                 {OFFICE_LOCATIONS[activeMapIndex]?.mapUrl && (
-                  <iframe 
+                  <iframe
                     key={OFFICE_LOCATIONS[activeMapIndex].title}
-                    src={OFFICE_LOCATIONS[activeMapIndex].mapUrl} 
-                    width="100%" 
-                    height="260" 
-                    style={{ border: 0, borderRadius: '0.5rem', filter: 'grayscale(0.8) contrast(1.2)' }} 
-                    allowFullScreen 
-                    loading="lazy" 
+                    src={OFFICE_LOCATIONS[activeMapIndex].mapUrl}
+                    width="100%"
+                    height="260"
+                    style={{ border: 0, borderRadius: '0.5rem', filter: 'grayscale(0.8) contrast(1.2)' }}
+                    allowFullScreen
+                    loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
                 )}

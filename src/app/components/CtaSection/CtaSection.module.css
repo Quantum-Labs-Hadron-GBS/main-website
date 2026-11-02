@@ -1,5 +1,5 @@
 .demoCta {
-  padding: 8rem 0;
+  padding: 5rem 0; /* Site-wide section rhythm (shared by many pages) */
   position: relative;
   background: #ffffff;
 }
@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 6rem 2rem;
+  padding: 2.5rem 2rem;
   background: #f8fafc;
   border: 1px solid rgba(15, 23, 42, 0.04);
   border-radius: 2rem;

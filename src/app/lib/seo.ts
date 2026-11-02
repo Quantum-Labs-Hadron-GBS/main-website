@@ -370,6 +370,9 @@ export function pageMetadata(path: string): Metadata {
   if (!page) throw new Error(`No SEO entry for "${path}" in PAGES (src/app/lib/seo.ts)`);
   const url = absolute(page.canonical ?? path);
   const fullTitle = path === "/" ? page.title : `${page.title} | ${SITE_SHORT_NAME}`;
+  // Link previews (WhatsApp, Teams, LinkedIn, Slack…) always show the company name + description,
+  // whichever page is shared. The browser tab / Google result keeps the page-specific title.
+  const share = { title: PAGES["/"].title, description: PAGES["/"].description };
 
   return {
     // Absolute so nested routes keep the suffix (a parent layout's title blocks the root template)
@@ -377,8 +380,8 @@ export function pageMetadata(path: string): Metadata {
     description: page.description,
     alternates: { canonical: url },
     openGraph: {
-      title: fullTitle,
-      description: page.description,
+      title: share.title,
+      description: share.description,
       url,
       siteName: SITE_NAME,
       locale: "en_US",
@@ -387,8 +390,8 @@ export function pageMetadata(path: string): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: fullTitle,
-      description: page.description,
+      title: share.title,
+      description: share.description,
       images: [OG_IMAGE],
     },
   };

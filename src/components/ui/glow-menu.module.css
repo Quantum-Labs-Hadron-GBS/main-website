@@ -220,7 +220,7 @@
 
 .megaGroups {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
   flex: 2;
 }
 
@@ -232,6 +232,7 @@
 
 .megaGroupTitle {
   font-size: 0.75rem;
+  white-space: nowrap; /* keep column headings on one line in every menu */
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.5);
@@ -257,22 +258,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-}
-
-/* Platforms-specific mega menu styling to remove empty whitespace */
-.megaPlatforms {
-  min-width: 0 !important;
-  width: max-content !important;
-}
-
-.megaPlatforms .megaGroups {
-  flex: 0 0 auto !important;
-  gap: 2rem !important;
-}
-
-.megaPlatforms .megaFeatured {
-  flex: 0 0 16.5rem !important;
-  padding-left: 2rem !important;
 }
 
 .featuredEyebrow {

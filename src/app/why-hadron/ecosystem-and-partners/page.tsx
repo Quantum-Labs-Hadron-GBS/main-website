@@ -48,14 +48,14 @@ export default function PartnersPage() {
     {
       name: "Microsoft",
       desc: "As a certified Microsoft Solutions Partner, Hadron GBS empowers enterprises to modernize their infrastructure and reinvent productivity. We specialize in Azure cloud migrations, enterprise-grade security, and Microsoft 365 integrations, driving seamless collaboration and AI-powered innovation across your organization.",
-      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736500/Microsoft_c53rme.webp",
+      logo: "/logos/microsoft-logo.svg",
       link: "/platforms/microsoft",
       btnText: "Empower Your Digital Future",
     },
     {
       name: "Amazon Web Services (AWS)",
       desc: "Hadron GBS is a strategic AWS partner, delivering highly scalable, secure, and resilient cloud solutions. From complex data lake architecture to seamless enterprise workload migrations, we help businesses harness the full breadth of AWS services to accelerate growth and operational agility.",
-      logo: "https://res.cloudinary.com/dyhlpxwwo/image/upload/v1787736501/aws_bbwpm7.png",
+      logo: "/logos/aws-logo.svg",
       link: "/platforms/aws",
       btnText: "Scale Without Limits",
     },
