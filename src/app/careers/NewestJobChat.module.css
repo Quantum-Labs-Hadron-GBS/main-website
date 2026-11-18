@@ -1,0 +1,88 @@
+.row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.6rem;
+  margin: -2.5rem 0 3.25rem;
+  min-height: 5.5rem;
+}
+
+.avatar {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 0.25rem;
+  object-fit: contain;
+  box-shadow: 0 2px 8px rgba(22, 50, 95, 0.12);
+  flex-shrink: 0;
+  margin-bottom: 1.35rem;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.sender {
+  font-size: 0.78rem;
+  color: #64748b;
+  padding-left: 0.9rem;
+}
+
+.pop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  transform-origin: bottom left;
+  animation: bubbleIn 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.25);
+}
+
+@keyframes bubbleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pop {
+    animation: none;
+  }
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.title {
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.loc {
+  font-size: 0.88rem;
+  color: #94a3b8;
+}
+
+.meta {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  padding-left: 0.9rem;
+}
+
+.metaLink {
+  color: #F17943;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .row {
+    margin: -2.5rem 0 2.5rem;
+  }
+}

@@ -160,6 +160,7 @@ export async function POST(req: NextRequest) {
           <h2>New Job Application Received</h2>
           <p><strong>Applicant Name:</strong> ${esc(applicantData.fullName)}</p>
           <p><strong>Position:</strong> ${esc(applicantData.position)}</p>
+          <p><strong>Job ID:</strong> ${esc(applicantData.jobCode) || "NA"}</p>
           <p><strong>Technology:</strong> ${esc(applicantData.technology)}</p>
           <p><strong>Experience:</strong> ${esc(applicantData.totalExp)} years</p>
           <hr />

@@ -487,3 +487,194 @@
   gap: 1rem;
   flex-wrap: wrap;
 }
+
+.heroBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* GET STARTED TILES (Explore Jobs / Application Form): clay + light glass */
+.tilesSection {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0 5.5rem;
+  background-color: #eef2f7;
+}
+
+/* Soft colour behind the glass so the frosted surface reads */
+.tilesSection::before,
+.tilesSection::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.tilesSection::before {
+  width: 26rem;
+  height: 26rem;
+  left: 8%;
+  top: 38%;
+  background: rgba(241, 121, 67, 0.22);
+}
+
+.tilesSection::after {
+  width: 30rem;
+  height: 30rem;
+  right: 6%;
+  top: 30%;
+  background: rgba(22, 50, 95, 0.16);
+}
+
+.tilesSection > div {
+  position: relative;
+  z-index: 1;
+}
+
+.tilesHead {
+  text-align: center;
+  max-width: 46rem;
+  margin: 0 auto 3.5rem;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+
+.tiles > div {
+  display: flex;
+}
+
+@media (max-width: 860px) {
+  .tiles {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 21rem;
+  padding: 3rem 2.75rem 2.75rem;
+  border-radius: 2.25rem;
+  text-decoration: none;
+  color: #16325F;
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    18px 22px 44px rgba(22, 50, 95, 0.11),
+    -10px -10px 28px rgba(255, 255, 255, 0.85),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.95),
+    inset -8px -10px 18px rgba(22, 50, 95, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tile:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    22px 30px 56px rgba(22, 50, 95, 0.15),
+    -10px -10px 28px rgba(255, 255, 255, 0.85),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.95),
+    inset -8px -10px 18px rgba(22, 50, 95, 0.05);
+}
+
+.tile:focus-visible {
+  outline: 3px solid rgba(241, 121, 67, 0.5);
+  outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  .tile {
+    min-height: 0;
+    padding: 2.25rem 1.6rem 1.9rem;
+    border-radius: 1.75rem;
+  }
+}
+
+.tileKicker {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #F17943;
+  margin-bottom: 0.6rem;
+}
+
+.tileTitle {
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  color: #16325F;
+}
+
+.tileDesc {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0 0 2.25rem;
+  max-width: 32rem;
+}
+
+/* Pill button with a round arrow badge */
+.tileBtn {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.6rem;
+  border-radius: 3rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tileBtnPrimary {
+  background: #F17943;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.25), inset 0 -3px 0 rgba(0, 0, 0, 0.08), 0 10px 22px rgba(241, 121, 67, 0.32);
+}
+
+.tileBtnSecondary {
+  background: #16325F;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.14), inset 0 -3px 0 rgba(0, 0, 0, 0.18), 0 10px 22px rgba(22, 50, 95, 0.28);
+}
+
+.tileBtnIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.tileBtnPrimary .tileBtnIcon {
+  color: #F17943;
+}
+
+.tileBtnSecondary .tileBtnIcon {
+  color: #16325F;
+}
+
+.tile:hover .tileBtnIcon {
+  transform: rotate(45deg);
+}
+
+.tile:hover .tileBtnPrimary {
+  background: #e86c35;
+}
+
+.tile:hover .tileBtnSecondary {
+  background: #1d3f75;
+}

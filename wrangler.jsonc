@@ -9,6 +9,15 @@
 		"directory": ".open-next/assets",
 		"binding": "ASSETS"
 	},
+	// Careers job postings managed from the HR dashboard (/hr-dashboard).
+	// No database_id: Wrangler creates the D1 database automatically on the first deploy.
+	// Tables are created by the app on first use (src/lib/careers/db.ts).
+	"d1_databases": [
+		{
+			"binding": "CAREERS_DB",
+			"database_name": "hadron-careers"
+		}
+	],
 	"services": [
 		{
 			// Self-reference service binding; the service name must match the worker name

@@ -1,0 +1,92 @@
+.toast {
+  position: fixed;
+  right: 2rem;
+  bottom: 6.5rem; /* clear of the scroll-to-top button */
+  z-index: 10000;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.55rem;
+  animation: slideIn 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.15);
+}
+
+.leaving {
+  animation: slideOut 0.45s ease-in forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(1.5rem, 1rem) scale(0.92);
+  }
+}
+
+@keyframes slideOut {
+  to {
+    opacity: 0;
+    transform: translate(1.5rem, 0.5rem) scale(0.94);
+  }
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+
+.sender {
+  font-size: 0.75rem;
+  color: #64748b;
+  padding-right: 0.9rem;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 1rem;
+  padding: 0.1rem 0.6rem;
+}
+
+.pop {
+  transform-origin: bottom right;
+  animation: bubbleIn 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.25);
+}
+
+@keyframes bubbleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(6px);
+  }
+}
+
+.text {
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+
+.sub {
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+.avatar {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 0.25rem;
+  object-fit: contain;
+  box-shadow: 0 2px 8px rgba(22, 50, 95, 0.18);
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .toast {
+    right: 1rem;
+    bottom: 5.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast,
+  .leaving,
+  .pop {
+    animation-duration: 0.01s;
+  }
+}

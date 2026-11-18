@@ -40,7 +40,31 @@ const FormGroup = ({
   );
 };
 
-export default function JobApplicationForm() {
+const POSITION_OPTIONS = [
+  "ServiceNow Developer ITSM", "ServiceNow Developer HRSD", "ServiceNow Developer ITOM",
+  "ServiceNow Developer ITAM", "ServiceNow Developer GRC", "ServiceNow Developer SPM",
+  "Technical Lead-ServiceNow", "Architect- ServiceNow", "Project Manager", "Head Project Manager",
+  "Salesforce- CPQ Developer", "Salesforce- Solution Consultant", "ServiceNow- Solution Consultant",
+  "AI- Solution Consultant", "Non-technical position (HR, Admin, operations, Sales, Accounts & Finance)",
+  "Java to ServiceNow", "Salesforce Developer"
+];
+
+export interface ApplicationPrefill {
+  /** Role title, e.g. from an Explore Jobs listing */
+  position?: string;
+  /** Job ID of the listing */
+  jobCode?: string;
+}
+
+export default function JobApplicationForm({ prefill }: { prefill?: ApplicationPrefill } = {}) {
+  const prefillValues: Record<string, string> = {};
+  if (prefill?.position) prefillValues.position = prefill.position;
+  if (prefill?.jobCode) prefillValues.jobCode = prefill.jobCode;
+  const positionOptions =
+    prefill?.position && !POSITION_OPTIONS.includes(prefill.position)
+      ? [prefill.position, ...POSITION_OPTIONS]
+      : POSITION_OPTIONS;
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -48,17 +72,23 @@ export default function JobApplicationForm() {
   const [formValues, setFormValues] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    const savedData = sessionStorage.getItem('jobApplicationForm');
-    if (savedData) {
-      try {
-        setFormValues(JSON.parse(savedData));
-      } catch (e) {}
+    let restored: Record<string, string> = {};
+    try {
+      const savedData = sessionStorage.getItem('jobApplicationForm');
+      if (savedData) restored = JSON.parse(savedData);
+    } catch (e) {}
+    // A role chosen on Explore Jobs takes precedence over a half-filled earlier draft
+    const merged = { ...restored, ...prefillValues };
+    setFormValues(merged);
+    if (Object.keys(prefillValues).length) {
+      try { sessionStorage.setItem('jobApplicationForm', JSON.stringify(merged)); } catch (e) {}
     }
     const savedStep = sessionStorage.getItem('jobApplicationStep');
     if (savedStep) {
       setStep(parseInt(savedStep, 10));
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prefill?.position, prefill?.jobCode]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
@@ -160,11 +190,12 @@ export default function JobApplicationForm() {
       }
 
       setSuccess(true);
-      setFormValues({});
+      setFormValues(prefillValues);
       formElement.reset();
       sessionStorage.removeItem('jobApplicationForm');
       sessionStorage.removeItem('jobApplicationStep');
       setStep(1);
+      formElement.closest('div')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err: any) {
       setError(err.message || "Failed to submit application. Please try again.");
     } finally {
@@ -258,14 +289,7 @@ export default function JobApplicationForm() {
             label="Kindly choose the position you are applying for" 
             name="position" 
             type="select" 
-            options={[
-              "ServiceNow Developer ITSM", "ServiceNow Developer HRSD", "ServiceNow Developer ITOM", 
-              "ServiceNow Developer ITAM", "ServiceNow Developer GRC", "ServiceNow Developer SPM", 
-              "Technical Lead-ServiceNow", "Architect- ServiceNow", "Project Manager", "Head Project Manager", 
-              "Salesforce- CPQ Developer", "Salesforce- Solution Consultant", "ServiceNow- Solution Consultant", 
-              "AI- Solution Consultant", "Non-technical position (HR, Admin, operations, Sales, Accounts & Finance)", 
-              "Java to ServiceNow", "Salesforce Developer"
-            ]}
+            options={positionOptions}
             required
           />
         </div>

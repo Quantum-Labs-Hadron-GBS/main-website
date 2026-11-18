@@ -1,0 +1,71 @@
+.jd {
+  color: #1e293b;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.heading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #16325F;
+  margin: 2.25rem 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.jd > .heading:first-child {
+  margin-top: 0;
+}
+
+.para {
+  margin: 0 0 1.1rem;
+}
+
+.list,
+.olist {
+  margin: 0 0 1.4rem;
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.list li::marker {
+  color: #16325F;
+}
+
+.olist li::marker {
+  color: #16325F;
+  font-weight: 700;
+}
+
+.jd strong {
+  color: #16325F;
+  font-weight: 700;
+}
+
+/* Job page reading size */
+.large {
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.large .heading {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 700;
+  margin: 3rem 0 1rem;
+}
+
+.large > .heading:first-child {
+  margin-top: 0;
+}
+
+/* Dashboard preview */
+.compact {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.compact .heading {
+  font-size: 1.05rem;
+  margin-top: 1.25rem;
+}

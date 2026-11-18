@@ -1,0 +1,353 @@
+.body {
+  padding: 3rem 0 6rem;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ── Count + pagination ── */
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.25rem;
+}
+
+.count {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #334155;
+}
+
+.count strong {
+  color: #16325F;
+  font-weight: 700;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.pageNum,
+.pageArrow {
+  min-width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #16325F;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.pageNum:hover,
+.pageArrow:hover:not(:disabled) {
+  background: #e5e9ef;
+}
+
+.pageNumActive,
+.pageNumActive:hover {
+  background: #dfe4eb;
+}
+
+.pageArrow:disabled {
+  color: #b6c0cc;
+  cursor: default;
+}
+
+.pageGap {
+  min-width: 2rem;
+  text-align: center;
+  color: #16325F;
+  font-weight: 700;
+}
+
+.bottomPager {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+/* ── Layout ── */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 23rem) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ── Filter card ── */
+.filterCard {
+  background: #ffffff;
+  border-radius: 2rem;
+  padding: 2.5rem 2.25rem;
+  position: sticky;
+  top: 6.5rem;
+}
+
+@media (max-width: 960px) {
+  .filterCard {
+    position: static;
+    padding: 1.75rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+}
+
+.filterTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin: 0 0 1.75rem;
+}
+
+.filterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.control {
+  width: 100%;
+  height: 4.1rem;
+  border: 1px solid #d5dbe3;
+  border-radius: 0.6rem;
+  background: #ffffff;
+  padding: 0 1.4rem;
+  font-size: 1.1rem;
+  font-family: inherit;
+  color: #16325F;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.control::placeholder,
+.placeholder {
+  color: #64748b;
+}
+
+.control:focus {
+  border-color: #F17943;
+  box-shadow: 0 0 0 3px rgba(241, 121, 67, 0.15);
+}
+
+.selectWrap {
+  position: relative;
+  display: block;
+}
+
+.selectWrap select {
+  cursor: pointer;
+  padding-right: 3rem;
+}
+
+.chevron {
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #16325F;
+  pointer-events: none;
+}
+
+.applyFilters {
+  margin-top: 0.4rem;
+  height: 4.1rem;
+  border-radius: 3rem;
+  border: 2.5px solid #F17943;
+  background: #ffffff;
+  color: #16325F;
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.applyFilters:hover {
+  background: #F17943;
+  color: #ffffff;
+}
+
+.clearLink {
+  align-self: center;
+  background: none;
+  border: none;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.clearLink:hover {
+  color: #F17943;
+}
+
+/* ── List card ── */
+.listCard {
+  background: #ffffff;
+  border-radius: 2rem;
+  padding: 1rem 2.25rem;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .listCard {
+    padding: 0.5rem 1.25rem;
+    border-radius: 1.5rem;
+  }
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list li + li {
+  border-top: 1px solid #e3e8ee;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.85rem 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.rowMain {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.rowTitle {
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: #16325F;
+  transition: color 0.15s ease;
+}
+
+.rowLoc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.15rem;
+  color: #1e293b;
+}
+
+.rowLoc svg {
+  color: #16325F;
+  flex-shrink: 0;
+}
+
+.rowMeta {
+  font-size: 0.92rem;
+  color: #64748b;
+}
+
+.rowGo {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1.5px solid #d5dbe3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #16325F;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.row:hover .rowTitle {
+  color: #F17943;
+}
+
+.row:hover .rowGo {
+  background: #F17943;
+  border-color: #F17943;
+  color: #ffffff;
+}
+
+.row:focus-visible {
+  outline: 3px solid rgba(241, 121, 67, 0.45);
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+
+/* ── Empty states ── */
+.empty {
+  padding: 3.5rem 1rem;
+  text-align: center;
+}
+
+.empty h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #16325F;
+  margin: 0 0 0.6rem;
+}
+
+.empty p {
+  color: #475569;
+  max-width: 30rem;
+  margin: 0 auto 1.75rem;
+  line-height: 1.6;
+}
+
+/* ── General application ── */
+.general {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+  padding: 1.75rem 2.25rem;
+  border-radius: 1.5rem;
+  border: 1px dashed #cbd5e1;
+}
+
+.general p {
+  margin: 0;
+  color: #475569;
+  font-size: 1.05rem;
+}
+
+.general strong {
+  color: #16325F;
+}

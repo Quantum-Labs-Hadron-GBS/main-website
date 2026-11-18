@@ -6,6 +6,7 @@ import { pageMetadata } from "./lib/seo";
 export const metadata = pageMetadata("/");
 
 import HeroSection from "./components/HeroSection/HeroSection";
+import LatestJobToast from "./components/LatestJobToast/LatestJobToast";
 
 // Below-fold sections — loaded after initial paint
 const CorePracticesSection    = dynamic(() => import("./components/CorePracticesSection/CorePracticesSection"));
@@ -41,6 +42,9 @@ export default function HomePage() {
       <CtaSection />
 
       <Footer />
+
+      {/* Chat-style pop-up pointing to the newest open roles */}
+      <LatestJobToast />
     </main>
   );
 }
