@@ -337,6 +337,20 @@ export const PAGES: Record<string, PageSeo> = {
     label: "Careers",
     priority: 0.8,
   },
+  "/careers/explore-jobs": {
+    title: "Explore Jobs: Current Openings",
+    description:
+      "Browse current job openings at Hadron GBS across delivery, consulting, sales and marketing. Filter by department, location and work type, and apply online.",
+    label: "Explore Jobs",
+    priority: 0.8,
+  },
+  "/careers/application-form": {
+    title: "Job Application Form",
+    description:
+      "Apply to Hadron GBS online. Share your profile, experience and CV for ServiceNow, Salesforce, AI, cloud and non-technical roles.",
+    label: "Application Form",
+    priority: 0.7,
+  },
   "/contact": {
     title: "Contact Us",
     description:

@@ -20,7 +20,7 @@ How www.hadrongbs.com is hosted, who owns what, and how to deploy it.
 - Config: `wrangler.jsonc` (Worker name `main-website`, matching the Cloudflare dashboard) and `open-next.config.ts`.
 - Pages are prerendered and served from the Worker's static assets (`staticAssetsIncrementalCache`); there is no R2/KV cache to provision.
 - `CLOUDFLARE_BUILD=1` turns off Next.js image optimisation (Cloudinary URLs are already optimised), so no Cloudflare Images binding is needed.
-- API routes: `/api/contact` and `/api/apply` (send email through Resend).
+- API routes: `/api/contact` and `/api/apply` (send email through Resend); `/api/jobs` (public open roles) and `/api/dashboard/*` (HR dashboard, see *Careers jobs & HR dashboard*).
 - `src/middleware.ts` redirects `hadrongbs.com` → `www.hadrongbs.com` and sends `X-Robots-Tag: noindex` on any non-hadrongbs.com host (`*.workers.dev`, previews), so only the real domain is indexed.
 
 ### Commands
@@ -54,6 +54,24 @@ npm run cf:build && npx wrangler deploy --dry-run --outdir /tmp/cf-dry
 3. Build command: `npx opennextjs-cloudflare build` with build variable `CLOUDFLARE_BUILD=1`; deploy command: `npx opennextjs-cloudflare deploy`.
 4. **Settings → Variables and Secrets** → add `RESEND_API_KEY` (type: Secret). Without it the contact and careers forms return "Email service is not configured".
 5. **Settings → Domains & Routes** → add custom domains **`www.hadrongbs.com`** and **`hadrongbs.com`** (the app redirects the apex to www).
+
+## Careers jobs & HR dashboard
+
+Open roles on **/careers/explore-jobs** are managed by HR at **/dashboard** (not linked from the site, `noindex`, blocked in robots.txt). Changes are live immediately.
+
+- **Storage:** Cloudflare D1 database `hadron-careers`, bound as `CAREERS_DB` in `wrangler.jsonc`. Wrangler creates it automatically on the first deploy (no `database_id` needed). Tables are created by the app on first use (`src/lib/careers/db.ts`). If automatic creation is ever unavailable: `npx wrangler d1 create hadron-careers` and paste the printed `database_id` into `wrangler.jsonc`.
+- **Sign-in secrets** (Worker → **Settings → Variables and Secrets**, type *Secret*):
+
+  | Secret | Value |
+  |---|---|
+  | `HR_DASHBOARD_EMAIL` | HR login email |
+  | `HR_DASHBOARD_SECURITY_KEY` | security key given to HR |
+  | `HR_DASHBOARD_PASSWORD` | password given to HR |
+  | `HR_DASHBOARD_SESSION_SECRET` | random string, 32+ characters (e.g. `openssl rand -hex 32`) |
+
+  Changing the password, security key or session secret signs everyone out. Sessions last 8 hours; 5 failed sign-ins lock that IP out for 15 minutes.
+- **Local development:** put the same four values in `.env.local` and run `npm run dev`. Jobs are stored in a local SQLite file, `.wrangler/state/careers-dev.sqlite`.
+- Job pages output Google for Jobs `JobPosting` structured data; closed roles are hidden from the list and marked `noindex`.
 
 ## DNS cutover checklist (do not skip)
 

@@ -7,7 +7,7 @@ export default function GlobeWrapper() {
   const pathname = usePathname();
   
   // Do not render the globe on the homepage (Global Presence removed) or services page
-  if (pathname === "/" || pathname === "/services" || pathname.startsWith("/redesign")) {
+  if (pathname === "/" || pathname === "/services" || pathname.startsWith("/redesign") || pathname.startsWith("/dashboard")) {
     return null;
   }
   

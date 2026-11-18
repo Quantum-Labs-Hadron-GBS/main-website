@@ -1,0 +1,124 @@
+/* Shared styles for careers sub-pages: Explore Jobs, job details, Application Form */
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f6f9;
+  color: #16325F;
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* TITLE BAND (class name must contain "hero" so the Navbar switches theme after it) */
+.heroBanner {
+  background-color: #16325F;
+  color: #ffffff;
+  padding: 9.5rem 0 4rem;
+}
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+.crumbs a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+
+.crumbs a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0;
+  max-width: 48rem;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 40rem;
+  margin: 1.25rem 0 0;
+}
+
+@media (max-width: 768px) {
+  .heroBanner {
+    padding: 8rem 0 3rem;
+  }
+}
+
+/* Buttons */
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #F17943;
+  color: #ffffff;
+  padding: 0.95rem 2.1rem;
+  border-radius: 3rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.primaryBtn:hover {
+  background-color: #de6530;
+}
+
+.primaryBtn:active {
+  transform: scale(0.98);
+}
+
+.outlineBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #16325F;
+  border: 2px solid #F17943;
+  padding: 0.8rem 1.75rem;
+  border-radius: 3rem;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.outlineBtn:hover {
+  background: #F17943;
+  color: #ffffff;
+}

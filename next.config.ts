@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+// Careers jobs: in `next dev` the D1 binding is replaced by a local SQLite file (src/lib/careers/devDb.ts),
+// so no Cloudflare runtime (workerd) is needed locally.
+
 // Old WordPress URL → new page. Paths not listed here (and not on the new site) will 404.
 const LEGACY_REDIRECTS: [string, string][] = [
   // Company

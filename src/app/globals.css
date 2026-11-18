@@ -171,7 +171,11 @@ header {
 
 /* Crop Shutterstock video watermarks on mobile devices */
 @media (max-width: 48rem) {
-  video[class*="heroVideo"] {
+  video[class*="heroVideo"]:not([class*="heroVideoRotated"]) {
     transform: scale(1.35) translateY(2%) !important;
+  }
+  /* Rotated hero videos must keep their centring + rotation, or they only cover part of the hero */
+  video[class*="heroVideoRotated"] {
+    transform: translate(-50%, -50%) rotate(90deg) scale(1.35) !important;
   }
 }
