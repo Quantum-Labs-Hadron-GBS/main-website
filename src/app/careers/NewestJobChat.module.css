@@ -3,7 +3,21 @@
   align-items: flex-end;
   gap: 0.6rem;
   margin: -2.5rem 0 3.25rem;
-  min-height: 5.5rem;
+  animation: chatIn 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  transform-origin: bottom left;
+}
+
+@keyframes chatIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row {
+    animation: none;
+  }
 }
 
 .avatar {
@@ -15,7 +29,6 @@
   object-fit: contain;
   box-shadow: 0 2px 8px rgba(22, 50, 95, 0.12);
   flex-shrink: 0;
-  margin-bottom: 1.35rem;
 }
 
 .stack {
@@ -32,57 +45,60 @@
   padding-left: 0.9rem;
 }
 
-.pop {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.3rem;
-  transform-origin: bottom left;
-  animation: bubbleIn 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.25);
-}
-
-@keyframes bubbleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.85) translateY(6px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pop {
-    animation: none;
-  }
+/* One wide, short line (overrides the shared bubble's column layout) */
+.row .wide {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.55rem;
+  max-width: min(46rem, 100%);
+  padding: 0.6rem 1.25rem;
+  border-radius: 1.4rem;
 }
 
 .label {
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  opacity: 0.85;
+}
+
+.sep {
+  opacity: 0.55;
 }
 
 .title {
-  font-size: 1.12rem;
-  font-weight: 700;
+  font-size: 1.02rem;
+  font-weight: 800;
 }
 
 .loc {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: #94a3b8;
 }
 
-.meta {
-  font-size: 0.75rem;
-  color: #94a3b8;
-  padding-left: 0.9rem;
+.loc::before {
+  content: "·";
+  margin-right: 0.55rem;
 }
 
-.metaLink {
-  color: #F17943;
-  font-weight: 600;
+.arrow {
+  margin-left: 0.15rem;
+  transition: transform 0.2s ease;
+}
+
+.row .wide:hover .arrow {
+  transform: translateX(3px);
 }
 
 @media (max-width: 600px) {
   .row {
     margin: -2.5rem 0 2.5rem;
+  }
+  /* Two tidy lines on phones: label, then role */
+  .label {
+    flex-basis: 100%;
+  }
+  .sep,
+  .loc {
+    display: none;
   }
 }

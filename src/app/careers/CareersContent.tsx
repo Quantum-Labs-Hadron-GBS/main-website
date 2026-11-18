@@ -1,18 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import CtaSection from "../components/CtaSection/CtaSection";
 import styles from "./Careers.module.css";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { CheckCircle2, Award, Lightbulb, TrendingUp, MonitorPlay, Briefcase, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import NewestJobChat from "./NewestJobChat";
+import ParallaxImage from "./ParallaxImage";
 
 export default function CareersContent() {
-  const { scrollYProgress } = useScroll();
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  // Hero parallax: video drifts slower than the page, text lifts and fades as it scrolls away
+  const heroRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroVideoY = useTransform(heroProgress, [0, 1], reduceMotion ? ["0%", "0%"] : ["0%", "28%"]);
+  const heroTextY = useTransform(heroProgress, [0, 1], reduceMotion ? [0, 0] : [0, 90]);
+  const heroTextOpacity = useTransform(heroProgress, [0, 0.85], [1, reduceMotion ? 1 : 0.15]);
 
   const LINKEDIN_LINK = "https://www.linkedin.com/company/hadron-gbs/";
 
@@ -22,18 +28,18 @@ export default function CareersContent() {
       <main className={styles.main}>
         
         {/* HERO SECTION */}
-        <section className={styles.heroSection}>
-          <video preload="auto"
+        <section ref={heroRef} className={styles.heroSection}>
+          <motion.video preload="auto"
             src="https://res.cloudinary.com/dyhlpxwwo/video/upload/v1789978648/Use_the_attached_image_as_the_11_mpadsw.mp4"
             autoPlay
             loop
             muted
             playsInline
             className={styles.heroVideo}
-            style={{ objectPosition: 'center center', transform: 'scale(1.15)' }}
+            style={{ objectPosition: 'center center', y: heroVideoY, scale: 1.15 }}
           />
           <div className={styles.heroOverlay}></div>
-          <div className={styles.heroContent}>
+          <motion.div className={styles.heroContent} style={{ y: heroTextY, opacity: heroTextOpacity }}>
             <motion.h1 
               className={styles.heroTitle}
               initial={{ opacity: 0, y: 30 }}
@@ -63,7 +69,7 @@ export default function CareersContent() {
                 Apply Now
               </Link>
             </motion.div>
-          </div>
+          </motion.div>
         </section>
 
         {/* GET STARTED: EXPLORE JOBS / APPLICATION FORM */}
@@ -196,7 +202,7 @@ export default function CareersContent() {
               transition={{ duration: 0.8 }}
             >
               <div className={styles.splitOrangeAccent}></div>
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Culture at Hadron GBS - Engineering Excellence in ServiceNow, Salesforce & Cloud Platforms" className={styles.splitImg} />
+              <ParallaxImage src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Culture at Hadron GBS - Engineering Excellence in ServiceNow, Salesforce & Cloud Platforms" className={styles.splitImg} />
             </motion.div>
           </div>
         </section>
@@ -212,7 +218,7 @@ export default function CareersContent() {
               transition={{ duration: 0.8 }}
             >
               <div className={styles.splitOrangeAccent} style={{ left: '-1.25rem', right: 'auto', backgroundColor: 'rgba(56, 189, 248, 0.1)' }}></div>
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Global Team of Certified ServiceNow, Salesforce, BMC Helix, and Cloud Enterprise Architects - Hadron GBS" className={styles.splitImg} />
+              <ParallaxImage src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Global Team of Certified ServiceNow, Salesforce, BMC Helix, and Cloud Enterprise Architects - Hadron GBS" className={styles.splitImg} />
             </motion.div>
             <motion.div 
               className={styles.splitTextContainer}
