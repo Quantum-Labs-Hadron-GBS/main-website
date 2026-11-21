@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import GlobeWrapper from "./components/GlobalGlobe/GlobeWrapper";
 import { ThemeProvider } from "./components/ThemeProvider/ThemeProvider";
@@ -50,6 +51,9 @@ export const metadata: Metadata = {
 };
 
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
+// Google Analytics 4 property for www.hadrongbs.com
+const GA_MEASUREMENT_ID = "G-0REHWEV8PM";
 import SmoothScrollProvider from "./components/SmoothScroll/SmoothScrollProvider";
 
 export default function RootLayout({
@@ -58,6 +62,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`} data-theme="light" suppressHydrationWarning>
       <body className="light-theme" suppressHydrationWarning>
+        {/* Google tag (gtag.js) — loaded once on every page by next/script */}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         
         {/*
           GlobeWrapper handles route-based blurring of the globe canvas.

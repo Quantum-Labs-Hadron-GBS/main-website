@@ -6,7 +6,8 @@ import LogoLoop from "./LogoLoop";
  */
 // Same full-colour logo files as the partner ring on the main branch; SEO alt text from the team's preview work.
 // Cloudinary e_trim strips padding baked into some files so heights compare evenly.
-const trim = (url: string) => url.replace("/image/upload/", "/image/upload/e_trim/");
+// …then scale to ~2x the displayed height and let Cloudinary pick the format/quality (Lighthouse: oversized images)
+const trim = (url: string) => url.replace("/image/upload/", "/image/upload/e_trim/c_scale,h_120/f_auto,q_auto/");
 const ALT_TEXT: Record<string, string> = {
   "ServiceNow": "ServiceNow Consulting & Implementation Partner - Hadron GBS",
   "BMC Helix": "BMC Helix ITSM, AIOps & Cloud Modernization Partner - Hadron GBS",

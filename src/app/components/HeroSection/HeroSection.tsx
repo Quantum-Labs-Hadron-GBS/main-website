@@ -53,7 +53,7 @@ export default function HeroSection() {
             willChange: 'transform',
           }}
         >
-          <source src="https://res.cloudinary.com/ax6dtcht/video/upload/v1786108868/Untitled_design_czx0vh.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/ax6dtcht/video/upload/q_auto,vc_auto,w_1600/v1786108868/Untitled_design_czx0vh.mp4" /* 2.5 MB instead of 9.1 MB */ type="video/mp4" />
         </video>
 
         {/* Darkening Overlay for Video (15% lighter than before: 0.6 → 0.51) */}
