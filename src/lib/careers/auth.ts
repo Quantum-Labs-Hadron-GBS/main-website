@@ -1,15 +1,17 @@
 // HR dashboard authentication (server only).
 //
-// HR signs in with three secrets configured on the Worker:
-//   HR_DASHBOARD_EMAIL         login email
-//   HR_DASHBOARD_SECURITY_KEY  security key
-//   HR_DASHBOARD_PASSWORD      password
+// Secrets on the Worker:
+//   HR_DASHBOARD_EMAIL           login email
+//   HR_DASHBOARD_SECURITY_KEY    ONE-TIME setup key: used with the email on first sign-in to choose a password
 //   HR_DASHBOARD_SESSION_SECRET  random string (32+ chars) used to sign the session cookie
 //
-// The session is a signed, HttpOnly cookie (no session table). Changing the password or the
-// session secret signs everyone out.
+// Flow: first sign-in = email + security key + new password (stored as a PBKDF2 hash in D1).
+// After that = email + password. A security key can set a password only once; to reset a forgotten
+// password, set a NEW HR_DASHBOARD_SECURITY_KEY on the Worker, which re-opens setup one more time.
+// Sessions are signed, HttpOnly cookies tied to the current password: a new password signs everyone out.
 import { cookies } from "next/headers";
 import type { NextRequest } from "next/server";
+import { getHrCredential, saveHrCredential, type HrCredentialRow } from "./db";
 
 export const SESSION_COOKIE = "hadron_hr_session";
 const SESSION_TTL_MS = 8 * 60 * 60 * 1000; // 8 hours
@@ -17,17 +19,19 @@ const SESSION_TTL_MS = 8 * 60 * 60 * 1000; // 8 hours
 interface HrConfig {
   email: string;
   securityKey: string;
-  password: string;
   sessionSecret: string;
 }
 
+export const MIN_PASSWORD_LENGTH = 12;
+// Cloudflare Workers caps PBKDF2 at 100,000 iterations
+const PBKDF2_ITERATIONS = 100_000;
+
 export function getHrConfig(): HrConfig | null {
-  const email = process.env.HR_DASHBOARD_EMAIL?.trim();
+  const email = process.env.HR_DASHBOARD_EMAIL?.trim().toLowerCase();
   const securityKey = process.env.HR_DASHBOARD_SECURITY_KEY;
-  const password = process.env.HR_DASHBOARD_PASSWORD;
   const sessionSecret = process.env.HR_DASHBOARD_SESSION_SECRET;
-  if (!email || !securityKey || !password || !sessionSecret || sessionSecret.length < 32) return null;
-  return { email, securityKey, password, sessionSecret };
+  if (!email || !securityKey || !sessionSecret || sessionSecret.length < 32) return null;
+  return { email, securityKey, sessionSecret };
 }
 
 const enc = new TextEncoder();
@@ -58,26 +62,79 @@ async function safeEqual(a: string, b: string, key: string): Promise<boolean> {
   return equalBytes(ha, hb);
 }
 
-export async function checkCredentials(email: string, securityKey: string, password: string): Promise<boolean> {
-  const cfg = getHrConfig();
-  if (!cfg) return false;
-  // Evaluate all three so timing doesn't reveal which one was wrong
-  const results = await Promise.all([
-    safeEqual(email.trim().toLowerCase(), cfg.email.toLowerCase(), cfg.sessionSecret),
-    safeEqual(securityKey, cfg.securityKey, cfg.sessionSecret),
-    safeEqual(password, cfg.password, cfg.sessionSecret),
-  ]);
-  return results.every(Boolean);
+async function pbkdf2(password: string, salt: Uint8Array, iterations: number): Promise<Uint8Array> {
+  const key = await crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveBits"]);
+  const bits = await crypto.subtle.deriveBits(
+    { name: "PBKDF2", hash: "SHA-256", salt: new Uint8Array(salt) as Uint8Array<ArrayBuffer>, iterations },
+    key,
+    256
+  );
+  return new Uint8Array(bits);
 }
 
-// The signing key includes the password, so a password change invalidates existing sessions
-const signingKey = (cfg: HrConfig) => `${cfg.sessionSecret}:${cfg.password}:${cfg.securityKey}`;
+/** Tag identifying which security key set the current password (a new key re-opens one-time setup). */
+const keyTag = async (cfg: HrConfig) => b64url(await hmac(cfg.sessionSecret, `setup-key:${cfg.securityKey}`));
+
+/** Is first-time setup (email + security key → new password) currently allowed? */
+export async function isSetupOpen(): Promise<boolean> {
+  const cfg = getHrConfig();
+  if (!cfg) return false;
+  const row = await getHrCredential(cfg.email);
+  return !row || row.key_tag !== (await keyTag(cfg));
+}
+
+/** Normal sign-in: email + password chosen at setup. */
+export async function checkPassword(email: string, password: string): Promise<boolean> {
+  const cfg = getHrConfig();
+  if (!cfg) return false;
+  const row = await getHrCredential(cfg.email);
+  const emailOk = await safeEqual(email.trim().toLowerCase(), cfg.email, cfg.sessionSecret);
+  if (!row) {
+    // Still run a hash so timing doesn't reveal that no password exists yet
+    await pbkdf2(password, new Uint8Array(16), PBKDF2_ITERATIONS);
+    return false;
+  }
+  const hash = await pbkdf2(password, fromB64url(row.salt), Number(row.iterations));
+  return emailOk && equalBytes(hash, fromB64url(row.password_hash));
+}
+
+export type SetupResult = "ok" | "invalid" | "used";
+
+/** One-time setup: email + security key, then store the new password. */
+export async function setPasswordWithSecurityKey(email: string, securityKey: string, newPassword: string): Promise<SetupResult> {
+  const cfg = getHrConfig();
+  if (!cfg) return "invalid";
+  const [emailOk, keyOk] = await Promise.all([
+    safeEqual(email.trim().toLowerCase(), cfg.email, cfg.sessionSecret),
+    safeEqual(securityKey, cfg.securityKey, cfg.sessionSecret),
+  ]);
+  if (!emailOk || !keyOk) return "invalid";
+  const tag = await keyTag(cfg);
+  const existing = await getHrCredential(cfg.email);
+  if (existing && existing.key_tag === tag) return "used";
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const hash = await pbkdf2(newPassword, salt, PBKDF2_ITERATIONS);
+  await saveHrCredential({
+    email: cfg.email,
+    password_hash: b64url(hash),
+    salt: b64url(salt),
+    iterations: PBKDF2_ITERATIONS,
+    key_tag: tag,
+    updated_at: Date.now(),
+  });
+  return "ok";
+}
+
+// Signing key includes the stored password hash, so setting a new password signs everyone out
+const signingKey = (cfg: HrConfig, row: HrCredentialRow) => `${cfg.sessionSecret}:${row.password_hash}:${row.updated_at}`;
 
 export async function createSessionToken(email: string): Promise<{ token: string; maxAge: number }> {
   const cfg = getHrConfig();
   if (!cfg) throw new Error("HR dashboard is not configured");
+  const row = await getHrCredential(cfg.email);
+  if (!row) throw new Error("HR password is not set");
   const payload = b64url(enc.encode(JSON.stringify({ e: email, x: Date.now() + SESSION_TTL_MS })));
-  const sig = b64url(await hmac(signingKey(cfg), payload));
+  const sig = b64url(await hmac(signingKey(cfg, row), payload));
   return { token: `${payload}.${sig}`, maxAge: SESSION_TTL_MS / 1000 };
 }
 
@@ -87,11 +144,13 @@ export async function verifySessionToken(token: string | undefined): Promise<{ e
   const [payload, sig] = token.split(".");
   if (!payload || !sig) return null;
   try {
-    const expected = await hmac(signingKey(cfg), payload);
+    const row = await getHrCredential(cfg.email);
+    if (!row) return null;
+    const expected = await hmac(signingKey(cfg, row), payload);
     if (!equalBytes(expected, fromB64url(sig))) return null;
     const data = JSON.parse(new TextDecoder().decode(fromB64url(payload))) as { e?: string; x?: number };
     if (!data.e || !data.x || data.x < Date.now()) return null;
-    if (data.e.toLowerCase() !== cfg.email.toLowerCase()) return null;
+    if (data.e.toLowerCase() !== cfg.email) return null;
     return { email: data.e };
   } catch {
     return null;

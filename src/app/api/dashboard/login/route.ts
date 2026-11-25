@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import {
   SESSION_COOKIE,
-  checkCredentials,
+  checkPassword,
   clientKey,
   createSessionToken,
   getHrConfig,
@@ -26,10 +26,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
   const email = typeof body.email === "string" ? body.email.slice(0, 200) : "";
-  const securityKey = typeof body.securityKey === "string" ? body.securityKey.slice(0, 500) : "";
   const password = typeof body.password === "string" ? body.password.slice(0, 500) : "";
-  if (!email || !securityKey || !password) {
-    return NextResponse.json({ error: "Enter your email, security key and password." }, { status: 400 });
+  if (!email || !password) {
+    return NextResponse.json({ error: "Enter your email and password." }, { status: 400 });
   }
 
   const key = `login:${clientKey(req)}`;
@@ -47,10 +46,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "The dashboard database is unavailable. Try again shortly." }, { status: 503 });
   }
 
-  if (!(await checkCredentials(email, securityKey, password))) {
+  if (!(await checkPassword(email, password))) {
     await recordLoginFailure(key).catch(() => {});
     return NextResponse.json(
-      { error: "Those credentials don't match. Check all three fields and try again." },
+      { error: "That email and password don't match. First time signing in? Use your security key to set a password." },
       { status: 401 }
     );
   }

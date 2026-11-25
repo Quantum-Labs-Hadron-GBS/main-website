@@ -69,6 +69,14 @@ async function getDb(): Promise<D1Database> {
           failures INTEGER NOT NULL,
           window_start INTEGER NOT NULL
         )`),
+        db.prepare(`CREATE TABLE IF NOT EXISTS hr_credentials (
+          email TEXT PRIMARY KEY COLLATE NOCASE,
+          password_hash TEXT NOT NULL,
+          salt TEXT NOT NULL,
+          iterations INTEGER NOT NULL,
+          key_tag TEXT NOT NULL,
+          updated_at INTEGER NOT NULL
+        )`),
       ])
       .then(() => undefined)
       .catch((err) => {
@@ -242,4 +250,40 @@ export async function recordLoginFailure(key: string): Promise<void> {
 export async function clearLoginFailures(key: string): Promise<void> {
   const db = await getDb();
   await db.prepare("DELETE FROM login_attempts WHERE key = ?").bind(key).run();
+}
+
+// ── HR login credentials (password chosen by HR on first sign-in) ──
+export interface HrCredentialRow {
+  email: string;
+  password_hash: string;
+  salt: string;
+  iterations: number;
+  /** HMAC of the security key that was used to set this password (a new key re-opens setup) */
+  key_tag: string;
+  updated_at: number;
+}
+
+export async function getHrCredential(email: string): Promise<HrCredentialRow | null> {
+  const db = await getDb();
+  return db
+    .prepare("SELECT email, password_hash, salt, iterations, key_tag, updated_at FROM hr_credentials WHERE email = ?")
+    .bind(email)
+    .first<HrCredentialRow>();
+}
+
+export async function saveHrCredential(row: HrCredentialRow): Promise<void> {
+  const db = await getDb();
+  await db
+    .prepare(
+      `INSERT INTO hr_credentials (email, password_hash, salt, iterations, key_tag, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?)
+       ON CONFLICT(email) DO UPDATE SET
+         password_hash = excluded.password_hash,
+         salt = excluded.salt,
+         iterations = excluded.iterations,
+         key_tag = excluded.key_tag,
+         updated_at = excluded.updated_at`
+    )
+    .bind(row.email, row.password_hash, row.salt, row.iterations, row.key_tag, row.updated_at)
+    .run();
 }
