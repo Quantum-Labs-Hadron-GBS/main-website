@@ -65,12 +65,17 @@ Open roles on **/careers/explore-jobs** are managed by HR at **/dashboard** (not
   | Secret | Value |
   |---|---|
   | `HR_DASHBOARD_EMAIL` | HR login email |
-  | `HR_DASHBOARD_SECURITY_KEY` | security key given to HR |
-  | `HR_DASHBOARD_PASSWORD` | password given to HR |
+  | `HR_DASHBOARD_SECURITY_KEY` | one-time setup key given to HR |
   | `HR_DASHBOARD_SESSION_SECRET` | random string, 32+ characters (e.g. `openssl rand -hex 32`) |
 
-  Changing the password, security key or session secret signs everyone out. Sessions last 8 hours; 5 failed sign-ins lock that IP out for 15 minutes.
-- **Local development:** put the same four values in `.env.local` and run `npm run dev`. Jobs are stored in a local SQLite file, `.wrangler/state/careers-dev.sqlite`.
+  `HR_DASHBOARD_PASSWORD` is no longer used and can be deleted.
+- **How HR signs in:**
+  1. **First time:** at `/dashboard/login`, HR enters the email and the one-time security key, then chooses their own password (12+ characters). Only a PBKDF2 hash of it is stored, in D1 (`hr_credentials`); nobody else ever knows it.
+  2. **After that:** email + their own password. The security key can't be used again.
+  3. **Forgotten password:** set a new `HR_DASHBOARD_SECURITY_KEY` (e.g. `openssl rand -base64 24`) and give it to HR. Setup opens once more; the old password and all sessions stop working.
+
+  Changing the session secret also signs everyone out. Sessions last 8 hours; 5 failed attempts lock that IP out for 15 minutes.
+- **Local development:** put the same three values in `.env.local` and run `npm run dev`. Jobs are stored in a local SQLite file, `.wrangler/state/careers-dev.sqlite`.
 - Job pages output Google for Jobs `JobPosting` structured data; closed roles are hidden from the list and marked `noindex`.
 
 ## DNS cutover checklist (do not skip)
