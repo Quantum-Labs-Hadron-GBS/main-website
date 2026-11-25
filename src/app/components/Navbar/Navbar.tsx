@@ -163,7 +163,8 @@ const menuItems = [
         title: "Resources",
         items: [
           { label: "Videos", href: "/resources/videos" },
-          { label: "Webinars", href: "/resources/webinars" }
+          { label: "Webinars", href: "/resources/webinars" },
+          { label: "Events", href: "/resources/events" }
         ]
       },
       {
@@ -187,7 +188,7 @@ export default function Navbar({ isStatic: propIsStatic }: NavbarProps = {}) {
   const isStatic = propIsStatic ?? isPolicyPage;
   // Job detail pages start on a light grey band, so the navbar needs its light style from the top
   const isJobDetail = pathname.startsWith("/careers/explore-jobs/");
-  const isAlwaysLight = pathname === "/contact" || pathname === "/" || pathname === "/resources/webinars" || isPolicyPage || isJobDetail;
+  const isAlwaysLight = pathname === "/contact" || pathname === "/" || pathname === "/resources/webinars" || pathname === "/resources/events" || isPolicyPage || isJobDetail;
   const isMainPage = pathname === "/";
 
   const [activeItem, setActiveItem] = useState<string>("Home");
