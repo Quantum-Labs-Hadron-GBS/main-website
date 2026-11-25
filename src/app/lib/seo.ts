@@ -315,6 +315,12 @@ export const PAGES: Record<string, PageSeo> = {
     description: "Watch Hadron GBS videos and demos on ServiceNow, AI automation and enterprise platform transformation.",
     label: "Videos",
   },
+  "/resources/events": {
+    title: "Events: Salesforce × Hadron Agentic ITSM Roundtable, Mumbai",
+    description:
+      "Executive roundtable on agentic AI in IT service management with Salesforce and Hadron GBS, 2 December 2026 at Blah! BKC, Mumbai. Request your invitation.",
+    label: "Events",
+  },
   "/resources/webinars": {
     title: "Webinars",
     description: "Hadron GBS webinars on enterprise platforms, AI, automation and service management, with insights from practitioners.",
