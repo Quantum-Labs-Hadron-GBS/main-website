@@ -7,25 +7,55 @@ import styles from "../Dashboard.module.css";
 
 const LOGO = "https://res.cloudinary.com/ax6dtcht/image/upload/v1785324428/hadron_logo_white_wwzyij.png";
 
-export default function LoginForm({ configured }: { configured: boolean }) {
+type Mode = "signin" | "setup";
+
+export default function LoginForm({
+  configured,
+  setupOpen,
+  minPasswordLength,
+}: {
+  configured: boolean;
+  /** No password chosen yet (or a new security key was issued): start in first-time setup */
+  setupOpen: boolean;
+  minPasswordLength: number;
+}) {
   const router = useRouter();
+  const [mode, setMode] = useState<Mode>(setupOpen ? "setup" : "signin");
   const [email, setEmail] = useState("");
   const [securityKey, setSecurityKey] = useState("");
   const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
   const [showKey, setShowKey] = useState(false);
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
 
+  const switchMode = (m: Mode) => {
+    setMode(m);
+    setError("");
+    setPassword("");
+    setConfirm("");
+  };
+
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    if (mode === "setup") {
+      if (password.length < minPasswordLength) {
+        setError(`Choose a password with at least ${minPasswordLength} characters.`);
+        return;
+      }
+      if (password !== confirm) {
+        setError("The two passwords don't match.");
+        return;
+      }
+    }
     setBusy(true);
     try {
-      const res = await fetch("/api/dashboard/login", {
+      const res = await fetch(mode === "setup" ? "/api/dashboard/setup" : "/api/dashboard/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, securityKey, password }),
+        body: JSON.stringify(mode === "setup" ? { email, securityKey, newPassword: password } : { email, password }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || "Sign-in failed. Try again.");
@@ -36,6 +66,33 @@ export default function LoginForm({ configured }: { configured: boolean }) {
       setBusy(false);
     }
   };
+
+  const passwordInput = (
+    value: string,
+    onChange: (v: string) => void,
+    placeholder: string,
+    autoComplete: string,
+    label: string
+  ) => (
+    <label className={styles.loginField}>
+      <span>{label}</span>
+      <div className={styles.inputIcon}>
+        <Lock size={18} />
+        <input
+          type={showPass ? "text" : "password"}
+          autoComplete={autoComplete}
+          placeholder={placeholder}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          minLength={mode === "setup" ? minPasswordLength : undefined}
+          required
+        />
+        <button type="button" className={styles.eyeBtn} onClick={() => setShowPass((v) => !v)} aria-label={showPass ? "Hide password" : "Show password"}>
+          {showPass ? <EyeOff size={18} /> : <Eye size={18} />}
+        </button>
+      </div>
+    </label>
+  );
 
   return (
     <div className={styles.loginPage}>
@@ -49,8 +106,12 @@ export default function LoginForm({ configured }: { configured: boolean }) {
 
         <form className={styles.loginCard} onSubmit={submit}>
           <div className={styles.loginShield}><ShieldCheck size={26} /></div>
-          <h1 className={styles.loginTitle}>HR sign in</h1>
-          <p className={styles.loginSub}>Manage the job openings shown on the Hadron GBS careers page.</p>
+          <h1 className={styles.loginTitle}>{mode === "setup" ? "Set up your HR sign-in" : "HR sign in"}</h1>
+          <p className={styles.loginSub}>
+            {mode === "setup"
+              ? "First time here? Use the one-time security key you were given, then choose your own password."
+              : "Manage the job openings shown on the Hadron GBS careers page."}
+          </p>
 
           {!configured && (
             <div className={styles.alertWarn}>
@@ -81,47 +142,54 @@ export default function LoginForm({ configured }: { configured: boolean }) {
             </div>
           </label>
 
-          <label className={styles.loginField}>
-            <span>Security key</span>
-            <div className={styles.inputIcon}>
-              <KeyRound size={18} />
-              <input
-                type={showKey ? "text" : "password"}
-                autoComplete="off"
-                placeholder="Enter your security key"
-                value={securityKey}
-                onChange={(e) => setSecurityKey(e.target.value)}
-                required
-              />
-              <button type="button" className={styles.eyeBtn} onClick={() => setShowKey((v) => !v)} aria-label={showKey ? "Hide security key" : "Show security key"}>
-                {showKey ? <EyeOff size={18} /> : <Eye size={18} />}
-              </button>
-            </div>
-          </label>
+          {mode === "setup" && (
+            <label className={styles.loginField}>
+              <span>One-time security key</span>
+              <div className={styles.inputIcon}>
+                <KeyRound size={18} />
+                <input
+                  type={showKey ? "text" : "password"}
+                  autoComplete="off"
+                  placeholder="Enter your security key"
+                  value={securityKey}
+                  onChange={(e) => setSecurityKey(e.target.value)}
+                  required
+                />
+                <button type="button" className={styles.eyeBtn} onClick={() => setShowKey((v) => !v)} aria-label={showKey ? "Hide security key" : "Show security key"}>
+                  {showKey ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
+            </label>
+          )}
 
-          <label className={styles.loginField}>
-            <span>Password</span>
-            <div className={styles.inputIcon}>
-              <Lock size={18} />
-              <input
-                type={showPass ? "text" : "password"}
-                autoComplete="current-password"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-              <button type="button" className={styles.eyeBtn} onClick={() => setShowPass((v) => !v)} aria-label={showPass ? "Hide password" : "Show password"}>
-                {showPass ? <EyeOff size={18} /> : <Eye size={18} />}
-              </button>
-            </div>
-          </label>
+          {mode === "setup" ? (
+            <>
+              {passwordInput(password, setPassword, `At least ${minPasswordLength} characters`, "new-password", "New password")}
+              {passwordInput(confirm, setConfirm, "Re-enter your new password", "new-password", "Confirm new password")}
+            </>
+          ) : (
+            passwordInput(password, setPassword, "Enter your password", "current-password", "Password")
+          )}
 
           <button type="submit" className={styles.loginBtn} disabled={busy || !configured}>
-            {busy ? <><Loader2 size={18} className={styles.spin} /> Signing in…</> : "Sign in"}
+            {busy ? (
+              <><Loader2 size={18} className={styles.spin} /> {mode === "setup" ? "Saving…" : "Signing in…"}</>
+            ) : mode === "setup" ? (
+              "Set password & sign in"
+            ) : (
+              "Sign in"
+            )}
           </button>
 
-          <p className={styles.loginFoot}>Authorised Hadron GBS HR staff only. Sessions expire after 8 hours.</p>
+          <p className={styles.loginFoot}>
+            {mode === "setup" ? (
+              <>Already set your password? <button type="button" className={styles.linkBtn} onClick={() => switchMode("signin")}>Sign in</button></>
+            ) : (
+              <>First time signing in? <button type="button" className={styles.linkBtn} onClick={() => switchMode("setup")}>Use your security key</button></>
+            )}
+            <br />
+            Authorised Hadron GBS HR staff only. Sessions expire after 8 hours.
+          </p>
         </form>
       </div>
     </div>
