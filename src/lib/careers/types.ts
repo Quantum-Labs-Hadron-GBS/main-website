@@ -33,18 +33,19 @@ export interface Job {
 
 export type JobInput = Pick<Job, "jobCode" | "title" | "department" | "workType" | "location" | "status" | "description">;
 
-/** Suggestions shown in the dashboard; HR can still type any value. */
+/** Departments HR can pick in the dashboard; also the Department filter on Explore Jobs. */
 export const DEPARTMENT_SUGGESTIONS = [
-  "Delivery",
-  "Sales",
-  "Marketing",
-  "Pre-Sales",
-  "Engineering",
-  "Consulting",
-  "Human Resources",
-  "Finance & Accounts",
+  "Human Resource",
   "Operations",
-  "Administration",
+  "Organization Management",
+  "Delivery",
+  "Vendor Talent Acquisition",
+  "Sales",
+  "Solution Consulting",
+  "Finance And Accounts",
+  "Marketing",
+  "PMO",
+  "CEO Office",
 ];
 
 export const LOCATION_SUGGESTIONS = [

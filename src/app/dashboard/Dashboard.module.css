@@ -1063,6 +1063,7 @@ button.statActive:hover {
 }
 
 .field input,
+.field select,
 .field textarea {
   width: 100%;
   border: 1.5px solid #e2e8f0;
@@ -1083,6 +1084,7 @@ button.statActive:hover {
 }
 
 .field input:focus,
+.field select:focus,
 .field textarea:focus {
   background: #ffffff;
   border-color: #F17943;
