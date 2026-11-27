@@ -508,17 +508,17 @@ export default function Dashboard({ email, initialJobs, loadError }: { email: st
 
                 <label className={styles.field}>
                   <span>Department <em>*</em></span>
-                  <input
+                  <select
                     className={fieldErrors.department ? styles.invalid : ""}
                     value={form.department}
                     onChange={(e) => setField("department", e.target.value)}
-                    placeholder="e.g. Delivery"
-                    list="dept-options"
-                    maxLength={60}
-                  />
-                  <datalist id="dept-options">
-                    {[...new Set([...departments, ...DEPARTMENT_SUGGESTIONS])].map((d) => <option key={d} value={d} />)}
-                  </datalist>
+                  >
+                    <option value="" disabled>Select a department</option>
+                    {/* Keep an older job's department selectable so editing it doesn't silently change it */}
+                    {[...new Set([...DEPARTMENT_SUGGESTIONS, ...(form.department ? [form.department] : [])])].map((d) => (
+                      <option key={d} value={d}>{d}</option>
+                    ))}
+                  </select>
                   {fieldErrors.department && <small>{fieldErrors.department}</small>}
                 </label>
 

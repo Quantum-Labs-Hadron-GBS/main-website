@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { MapPin, ChevronLeft, ChevronRight, ChevronDown, ArrowRight } from "lucide-react";
-import { WORK_TYPES, WORK_TYPE_LABELS, applyHref, jobHref, type WorkType } from "@/lib/careers/types";
+import { DEPARTMENT_SUGGESTIONS, WORK_TYPES, WORK_TYPE_LABELS, applyHref, jobHref, type WorkType } from "@/lib/careers/types";
 import sub from "../CareersSub.module.css";
 import styles from "./ExploreJobs.module.css";
 
@@ -70,7 +70,10 @@ export default function ExploreJobs({ jobs, initial, initialPage }: { jobs: JobR
   const [applied, setApplied] = useState<Filters>(initial);
   const [page, setPage] = useState(initialPage);
 
-  const departments = useMemo(() => unique(jobs.map((j) => j.department)), [jobs]);
+  const departments = useMemo(
+    () => [...DEPARTMENT_SUGGESTIONS, ...unique(jobs.map((j) => j.department)).filter((d) => !DEPARTMENT_SUGGESTIONS.includes(d))],
+    [jobs]
+  );
   const locations = useMemo(() => unique(jobs.map((j) => j.location)), [jobs]);
   const workTypes = useMemo(() => WORK_TYPES.filter((w) => jobs.some((j) => j.workType === w)), [jobs]);
 
